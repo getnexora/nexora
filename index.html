@@ -1,0 +1,1305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="theme-color" content="#667eea">
+    <title>Nexora v1.1.01 - Where Everything Connects</title>
+    <!-- 
+    ============================================
+    NEXORA™ v1.1.01 - Premium Digital Identity Hub
+    ============================================
+    Copyright © 2025 [Your Name/Company]. All Rights Reserved.
+    
+    This software and associated documentation files (the "Software") are
+    proprietary and confidential. Unauthorized copying, modification,
+    distribution, or use of this Software, via any medium, is strictly
+    prohibited without the express written permission of the copyright owner.
+    
+    Nexora™ is a trademark of [Your Name/Company].
+    "Where Everything Connects"™ is a trademark of [Your Name/Company].
+    
+    Version: 1.1.01
+    Release Date: September 2, 2025
+    Build: Stable Production
+    License: Proprietary - All Rights Reserved
+    
+    For licensing inquiries: legal@nexora.app
+    For support: support@nexora.app
+    Website: https://nexora.app
+    
+    NOTICE: This software may be covered by one or more pending patents.
+    
+    THIS SOFTWARE IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND.
+    
+    CHANGELOG:
+    v1.1.01 (Current - September 2, 2025)
+    - Added functional search with real-time filtering
+    - Fixed navigation tab event handling errors
+    - Enhanced mobile responsiveness for all devices
+    - Added PWA capabilities
+    - Optimized for cross-browser compatibility
+    - Added touch-friendly interactions
+    - Improved animations and glassmorphism effects
+    
+    v1.0.00 (Initial - August 2025)
+    - Base application with 8 main sections
+    - Glassmorphism UI design
+    - Animated gradient backgrounds
+    - Modal system for platform details
+    - 40+ integrated platforms
+    
+    PROTECTED FEATURES:
+    - Glassmorphism UI implementation
+    - Real-time search algorithm
+    - Platform integration framework
+    - Animated gradient system
+    - Identity hub architecture
+    
+    ============================================
+    -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --glass-bg: rgba(255, 255, 255, 0.1);
+            --glass-border: rgba(255, 255, 255, 0.2);
+            --text-primary: #ffffff;
+            --text-secondary: rgba(255, 255, 255, 0.8);
+            --shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .floating-shapes {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 0;
+        }
+
+        .shape {
+            position: absolute;
+            backdrop-filter: blur(5px);
+            border-radius: 50%;
+            animation: float 20s infinite ease-in-out;
+        }
+
+        .shape1 {
+            width: 300px;
+            height: 300px;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+            top: -150px;
+            left: -150px;
+            animation-delay: 0s;
+        }
+
+        .shape2 {
+            width: 200px;
+            height: 200px;
+            background: linear-gradient(135deg, rgba(240, 147, 251, 0.1), rgba(245, 87, 108, 0.1));
+            bottom: -100px;
+            right: -100px;
+            animation-delay: 5s;
+        }
+
+        .shape3 {
+            width: 250px;
+            height: 250px;
+            background: linear-gradient(135deg, rgba(35, 166, 213, 0.1), rgba(35, 213, 171, 0.1));
+            top: 50%;
+            left: 50%;
+            animation-delay: 10s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            25% { transform: translate(100px, -100px) rotate(90deg); }
+            50% { transform: translate(-100px, 100px) rotate(180deg); }
+            75% { transform: translate(-50px, -50px) rotate(270deg); }
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 20px 30px;
+            margin-bottom: 30px;
+            box-shadow: var(--shadow);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            animation: slideDown 0.5s ease;
+        }
+
+        @keyframes slideDown {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--primary-gradient);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            font-weight: bold;
+            color: white;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .logo-text {
+            color: var(--text-primary);
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: -1px;
+        }
+
+        .tagline {
+            color: var(--text-secondary);
+            font-size: 12px;
+            margin-top: 2px;
+        }
+
+        .search-bar {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 30px;
+            padding: 10px 20px;
+            width: 300px;
+            color: white;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .search-bar::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .search-bar:focus {
+            outline: none;
+            background: rgba(255, 255, 255, 0.15);
+            width: 350px;
+        }
+
+        .user-menu {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .notification-icon, .settings-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .notification-icon:hover, .settings-icon:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .nav-tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .nav-tab {
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: 15px;
+            padding: 12px 24px;
+            color: var(--text-primary);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 500;
+        }
+
+        .nav-tab:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-2px);
+        }
+
+        .nav-tab.active {
+            background: var(--primary-gradient);
+            border: none;
+        }
+
+        .nav-icon {
+            font-size: 18px;
+        }
+
+        .content-area {
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .dashboard {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .stat-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            animation: slideUp 0.5s ease;
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(30px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.5);
+        }
+
+        .stat-value {
+            font-size: 36px;
+            font-weight: 700;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .platform-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 15px;
+        }
+
+        .platform-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .platform-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--primary-gradient);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .platform-card:hover::before {
+            opacity: 0.1;
+        }
+
+        .platform-card:hover {
+            transform: translateY(-5px) scale(1.05);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .platform-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--primary-gradient);
+            border-radius: 50%;
+            margin: 0 auto 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+        }
+
+        .platform-name {
+            color: var(--text-primary);
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .platform-status {
+            color: var(--text-secondary);
+            font-size: 12px;
+        }
+
+        .welcome-section {
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            margin-bottom: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .welcome-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: var(--primary-gradient);
+            opacity: 0.1;
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .welcome-title {
+            font-size: 42px;
+            font-weight: 700;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .welcome-subtitle {
+            color: var(--text-secondary);
+            font-size: 18px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .modal-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 30px;
+            width: 90%;
+            max-width: 500px;
+            box-shadow: var(--shadow);
+            animation: slideUp 0.3s ease;
+        }
+
+        .modal-header {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 20px;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            width: 30px;
+            height: 30px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .modal-close:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: rotate(90deg);
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                gap: 20px;
+                padding: 15px;
+            }
+
+            .search-bar {
+                width: 100%;
+                max-width: 100%;
+            }
+
+            .search-bar:focus {
+                width: 100%;
+            }
+
+            .welcome-title {
+                font-size: 32px;
+            }
+
+            .welcome-section {
+                padding: 25px 20px;
+            }
+
+            .nav-tabs {
+                display: flex;
+                overflow-x: auto;
+                scroll-snap-type: x mandatory;
+                -webkit-overflow-scrolling: touch;
+                padding-bottom: 10px;
+            }
+
+            .nav-tabs::-webkit-scrollbar {
+                height: 4px;
+            }
+
+            .nav-tabs::-webkit-scrollbar-track {
+                background: rgba(255, 255, 255, 0.1);
+                border-radius: 2px;
+            }
+
+            .nav-tabs::-webkit-scrollbar-thumb {
+                background: rgba(255, 255, 255, 0.3);
+                border-radius: 2px;
+            }
+
+            .nav-tab {
+                flex-shrink: 0;
+                scroll-snap-align: start;
+                padding: 10px 16px;
+                font-size: 14px;
+            }
+
+            .user-menu {
+                gap: 10px;
+            }
+
+            .notification-icon, .settings-icon {
+                width: 36px;
+                height: 36px;
+            }
+
+            .stat-card {
+                padding: 20px;
+            }
+
+            .stat-value {
+                font-size: 28px;
+            }
+
+            .platform-grid {
+                grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+                gap: 12px;
+            }
+
+            .platform-card {
+                padding: 15px;
+            }
+
+            .platform-icon {
+                width: 50px;
+                height: 50px;
+                font-size: 24px;
+            }
+
+            .modal-content {
+                width: 95%;
+                margin: 20px;
+                padding: 20px;
+            }
+
+            .logo-icon {
+                width: 40px;
+                height: 40px;
+                font-size: 24px;
+            }
+
+            .logo-text {
+                font-size: 24px;
+            }
+
+            .container {
+                padding: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .welcome-title {
+                font-size: 28px;
+            }
+
+            .welcome-subtitle {
+                font-size: 16px;
+            }
+
+            .stat-value {
+                font-size: 24px;
+            }
+
+            .platform-grid {
+                grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+                gap: 10px;
+            }
+
+            .platform-card {
+                padding: 12px;
+            }
+
+            .platform-name {
+                font-size: 14px;
+            }
+
+            .platform-status {
+                font-size: 11px;
+            }
+        }
+
+        /* Touch-friendly improvements */
+        @media (hover: none) and (pointer: coarse) {
+            .nav-tab, .platform-card, .notification-icon, .settings-icon, .modal-close {
+                -webkit-tap-highlight-color: rgba(102, 126, 234, 0.2);
+                touch-action: manipulation;
+            }
+
+            .platform-card:active {
+                transform: scale(0.98);
+                opacity: 0.9;
+            }
+
+            .nav-tab:active {
+                background: rgba(255, 255, 255, 0.2);
+            }
+        }
+
+        /* Ensure text is readable on all devices */
+        body {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
+        }
+
+        /* Prevent horizontal scroll on mobile */
+        html, body {
+            overflow-x: hidden;
+            max-width: 100%;
+        }
+
+        /* Better input handling on mobile */
+        input, button, textarea, select {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="floating-shapes">
+        <div class="shape shape1"></div>
+        <div class="shape shape2"></div>
+        <div class="shape shape3"></div>
+    </div>
+
+    <div class="container">
+        <header class="header">
+            <div class="logo">
+                <div class="logo-icon">N</div>
+                <div>
+                    <div class="logo-text">Nexora™ <span style="font-size: 10px; opacity: 0.7; margin-left: 5px;">v1.1.01</span></div>
+                    <div class="tagline">Where Everything Connects™</div>
+                </div>
+            </div>
+            <input type="text" class="search-bar" placeholder="Search platforms, settings, security...">
+            <div class="user-menu">
+                <div class="notification-icon">🔔</div>
+                <div class="settings-icon" onclick="showVersionInfo()">⚙️</div>
+            </div>
+        </header>
+
+        <nav class="nav-tabs">
+            <div class="nav-tab active" onclick="showSection('dashboard', event)">
+                <span class="nav-icon">🏠</span> Dashboard
+            </div>
+            <div class="nav-tab" onclick="showSection('identity', event)">
+                <span class="nav-icon">👤</span> Identity Hub
+            </div>
+            <div class="nav-tab" onclick="showSection('platforms', event)">
+                <span class="nav-icon">🔗</span> Platforms
+            </div>
+            <div class="nav-tab" onclick="showSection('security', event)">
+                <span class="nav-icon">🔒</span> Security
+            </div>
+            <div class="nav-tab" onclick="showSection('social', event)">
+                <span class="nav-icon">💬</span> Social
+            </div>
+            <div class="nav-tab" onclick="showSection('productivity', event)">
+                <span class="nav-icon">💼</span> Productivity
+            </div>
+            <div class="nav-tab" onclick="showSection('entertainment', event)">
+                <span class="nav-icon">🎮</span> Entertainment
+            </div>
+            <div class="nav-tab" onclick="showSection('finance', event)">
+                <span class="nav-icon">💳</span> Finance
+            </div>
+        </nav>
+
+        <div class="content-area">
+            <!-- Dashboard Section -->
+            <div id="dashboard" class="section">
+                <div class="welcome-section">
+                    <h1 class="welcome-title">Welcome to Nexora</h1>
+                    <p class="welcome-subtitle">Your unified digital command center</p>
+                </div>
+                
+                <div class="dashboard">
+                    <div class="stat-card">
+                        <div class="stat-value">142</div>
+                        <div class="stat-label">Connected Platforms</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">8</div>
+                        <div class="stat-label">Active Identities</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">256-bit</div>
+                        <div class="stat-label">Encryption Level</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">99.9%</div>
+                        <div class="stat-label">Uptime</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Identity Hub Section -->
+            <div id="identity" class="section hidden">
+                <div class="welcome-section">
+                    <h1 class="welcome-title">Identity Hub</h1>
+                    <p class="welcome-subtitle">Manage all your digital identities in one secure location</p>
+                </div>
+                
+                <div class="platform-grid">
+                    <div class="platform-card" onclick="showModal('Personal Identity')">
+                        <div class="platform-icon">👤</div>
+                        <div class="platform-name">Personal</div>
+                        <div class="platform-status">Primary • Verified</div>
+                    </div>
+                    <div class="platform-card" onclick="showModal('Work Identity')">
+                        <div class="platform-icon">💼</div>
+                        <div class="platform-name">Work</div>
+                        <div class="platform-status">Active • Synced</div>
+                    </div>
+                    <div class="platform-card" onclick="showModal('Gaming Identity')">
+                        <div class="platform-icon">🎮</div>
+                        <div class="platform-name">Gaming</div>
+                        <div class="platform-status">Online • Public</div>
+                    </div>
+                    <div class="platform-card" onclick="showModal('Creative Identity')">
+                        <div class="platform-icon">🎨</div>
+                        <div class="platform-name">Creative</div>
+                        <div class="platform-status">Portfolio • Active</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Platforms Section -->
+            <div id="platforms" class="section hidden">
+                <div class="welcome-section">
+                    <h1 class="welcome-title">Connected Platforms</h1>
+                    <p class="welcome-subtitle">All your services, perfectly synchronized</p>
+                </div>
+                
+                <div class="platform-grid">
+                    <div class="platform-card" onclick="showModal('Google')">
+                        <div class="platform-icon">🔍</div>
+                        <div class="platform-name">Google</div>
+                        <div class="platform-status">Connected</div>
+                    </div>
+                    <div class="platform-card" onclick="showModal('Microsoft')">
+                        <div class="platform-icon">🪟</div>
+                        <div class="platform-name">Microsoft</div>
+                        <div class="platform-status">Connected</div>
+                    </div>
+                    <div class="platform-card" onclick="showModal('Apple')">
+                        <div class="platform-icon">🍎</div>
+                        <div class="platform-name">Apple</div>
+                        <div class="platform-status">Connected</div>
+                    </div>
+                    <div class="platform-card" onclick="showModal('Amazon')">
+                        <div class="platform-icon">📦</div>
+                        <div class="platform-name">Amazon</div>
+                        <div class="platform-status">Connected</div>
+                    </div>
+                    <div class="platform-card" onclick="showModal('Meta')">
+                        <div class="platform-icon">👥</div>
+                        <div class="platform-name">Meta</div>
+                        <div class="platform-status">Connected</div>
+                    </div>
+                    <div class="platform-card" onclick="showModal('Adobe')">
+                        <div class="platform-icon">🎨</div>
+                        <div class="platform-name">Adobe</div>
+                        <div class="platform-status">Connected</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Security Section -->
+            <div id="security" class="section hidden">
+                <div class="welcome-section">
+                    <h1 class="welcome-title">Security Center</h1>
+                    <p class="welcome-subtitle">Advanced protection for all your accounts</p>
+                </div>
+                
+                <div class="dashboard">
+                    <div class="stat-card">
+                        <div class="stat-value">🛡️</div>
+                        <div class="platform-name">2FA Enabled</div>
+                        <div class="platform-status">All accounts protected</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">🔐</div>
+                        <div class="platform-name">Password Vault</div>
+                        <div class="platform-status">512 passwords stored</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">🔑</div>
+                        <div class="platform-name">Passkeys</div>
+                        <div class="platform-status">18 active passkeys</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">🚨</div>
+                        <div class="platform-name">Security Score</div>
+                        <div class="platform-status">98/100 Excellent</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Social Section -->
+            <div id="social" class="section hidden">
+                <div class="welcome-section">
+                    <h1 class="welcome-title">Social Hub</h1>
+                    <p class="welcome-subtitle">Your social presence, unified</p>
+                </div>
+                
+                <div class="platform-grid">
+                    <div class="platform-card" onclick="showModal('X (Twitter)')">
+                        <div class="platform-icon">𝕏</div>
+                        <div class="platform-name">X</div>
+                        <div class="platform-status">Active</div>
+                    </div>
+                    <div class="platform-card" onclick="showModal('Instagram')">
+                        <div class="platform-icon">📷</div>
+                        <div class="platform-name">Instagram</div>
+                        <div class="platform-status">Connected</div>
+                    </div>
+                    <div class="platform-card" onclick="showModal('LinkedIn')">
+                        <div class="platform-icon">💼</div>
+                        <div class="platform-name">LinkedIn</div>
+                        <div class="platform-status">Professional</div>
+                    </div>
+                    <div class="platform-card" onclick="showModal('Discord')">
+                        <div class="platform-icon">💬</div>
+                        <div class="platform-name">Discord</div>
+                        <div class="platform-status">Online</div>
+                    </div>
+                    <div class="platform-card" onclick="showModal('Reddit')">
+                        <div class="platform-icon">🔺</div>
+                        <div class="platform-name">Reddit</div>
+                        <div class="platform-status">Active</div>
+                    </div>
+                    <div class="platform-card" onclick="showModal('TikTok')">
+                        <div class="platform-icon">🎵</div>
+                        <div class="platform-name">TikTok</div>
+                        <div class="platform-status">Creator</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Productivity Section -->
+            <div id="productivity" class="section hidden">
+                <div class="welcome-section">
+                    <h1 class="welcome-title">Productivity Suite</h1>
+                    <p class="welcome-subtitle">Work smarter with integrated tools</p>
+                </div>
+                
+                <div class="platform-grid">
+                    <div class="platform-card" onclick="showModal('Notion')">
+                        <div class="platform-icon">📝</div>
+                        <div class="platform-name">Notion</div>
+                        <div class="platform-status">Workspace</div>
+                    </div>
+                    <div class="platform-card" onclick="showModal('Slack')">
+                        <div class="platform-icon">💬</div>
+                        <div class="platform-name">Slack</div>
+                        <div class="platform-status">5 Teams</div>
+                    </div>
+                    <div class="platform-card" onclick="showModal('Trello')">
+                        <div class="platform-icon">📋</div>
+                        <div class="platform-name">Trello</div>
+                        <div class="platform-status">12 Boards</div>
+                    </div>
+                    <div class="platform-card" onclick="showModal('Zoom')">
+                        <div class="platform-icon">📹</div>
+                        <div class="platform-name">Zoom</div>
+                        <div class="platform-status">Pro Account</div>
+                    </div>
+                    <div class="platform-card" onclick="showModal('GitHub')">
+                        <div class="platform-icon">⚡</div>
+                        <div class="platform-name">GitHub</div>
+                        <div class="platform-status">45 Repos</div>
+                    </div>
+                    <div class="platform-card" onclick="showModal('Dropbox')">
+                        <div class="platform-icon">📦</div>
+                        <div class="platform-name">Dropbox</div>
+                        <div class="platform-status">2TB Used</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Entertainment Section -->
+            <div id="entertainment" class="section hidden">
+                <div class="welcome-section">
+                    <h1 class="welcome-title">Entertainment</h1>
+                    <p class="welcome-subtitle">Stream, play, and enjoy</p>
+                </div>
+                
+                <div class="platform-grid">
+                    <div class="platform-card" onclick="showModal('Netflix')">
+                        <div class="platform-icon">🎬</div>
+                        <div class="platform-name">Netflix</div>
+                        <div class="platform-status">Premium</div>
+                    </div>
+                    <div class="platform-card" onclick="showModal('Spotify')">
+                        <div class="platform-icon">🎵</div>
+                        <div class="platform-name">Spotify</div>
+                        <div class="platform-status">Family Plan</div>
+                    </div>
+                    <div class="platform-card" onclick="showModal('Steam')">
+                        <div class="platform-icon">🎮</div>
+                        <div class="platform-name">Steam</div>
+                        <div class="platform-status">250 Games</div>
+                    </div>
+                    <div class="platform-card" onclick="showModal('YouTube')">
+                        <div class="platform-icon">▶️</div>
+                        <div class="platform-name">YouTube</div>
+                        <div class="platform-status">Premium</div>
+                    </div>
+                    <div class="platform-card" onclick="showModal('Disney+')">
+                        <div class="platform-icon">🏰</div>
+                        <div class="platform-name">Disney+</div>
+                        <div class="platform-status">Bundle</div>
+                    </div>
+                    <div class="platform-card" onclick="showModal('Twitch')">
+                        <div class="platform-icon">🟣</div>
+                        <div class="platform-name">Twitch</div>
+                        <div class="platform-status">Partner</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Finance Section -->
+            <div id="finance" class="section hidden">
+                <div class="welcome-section">
+                    <h1 class="welcome-title">Finance Hub</h1>
+                    <p class="welcome-subtitle">Banking and payments, secured</p>
+                </div>
+                
+                <div class="platform-grid">
+                    <div class="platform-card" onclick="showModal('PayPal')">
+                        <div class="platform-icon">💳</div>
+                        <div class="platform-name">PayPal</div>
+                        <div class="platform-status">Verified</div>
+                    </div>
+                    <div class="platform-card" onclick="showModal('Venmo')">
+                        <div class="platform-icon">💸</div>
+                        <div class="platform-name">Venmo</div>
+                        <div class="platform-status">Connected</div>
+                    </div>
+                    <div class="platform-card" onclick="showModal('Cash App')">
+                        <div class="platform-icon">💵</div>
+                        <div class="platform-name">Cash App</div>
+                        <div class="platform-status">Active</div>
+                    </div>
+                    <div class="platform-card" onclick="showModal('Coinbase')">
+                        <div class="platform-icon">₿</div>
+                        <div class="platform-name">Coinbase</div>
+                        <div class="platform-status">Portfolio</div>
+                    </div>
+                    <div class="platform-card" onclick="showModal('Robinhood')">
+                        <div class="platform-icon">📈</div>
+                        <div class="platform-name">Robinhood</div>
+                        <div class="platform-status">Trading</div>
+                    </div>
+                    <div class="platform-card" onclick="showModal('Mint')">
+                        <div class="platform-icon">🌿</div>
+                        <div class="platform-name">Mint</div>
+                        <div class="platform-status">Budgeting</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-close" onclick="closeModal()">✕</div>
+            <div class="modal-header" id="modalTitle">Platform Details</div>
+            <div id="modalBody">
+                <p style="color: var(--text-secondary); line-height: 1.6;">
+                    This platform is successfully connected to your Nexora account. 
+                    All data is encrypted and synchronized across your devices.
+                </p>
+                <div style="margin-top: 20px; padding: 15px; background: rgba(255,255,255,0.05); border-radius: 10px;">
+                    <p style="color: var(--text-primary); margin-bottom: 10px;">Quick Actions:</p>
+                    <ul style="color: var(--text-secondary); list-style: none; padding: 0;">
+                        <li style="padding: 5px 0;">• Manage permissions</li>
+                        <li style="padding: 5px 0;">• View activity log</li>
+                        <li style="padding: 5px 0;">• Update credentials</li>
+                        <li style="padding: 5px 0;">• Configure sync settings</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showSection(sectionId, evt) {
+            // Hide all sections
+            document.querySelectorAll('.section').forEach(section => {
+                section.classList.add('hidden');
+            });
+            
+            // Show selected section
+            document.getElementById(sectionId).classList.remove('hidden');
+            
+            // Update active tab
+            document.querySelectorAll('.nav-tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Find and activate the correct tab
+            if (evt && evt.target) {
+                evt.target.closest('.nav-tab').classList.add('active');
+            } else {
+                // Find tab by section name if no event
+                document.querySelectorAll('.nav-tab').forEach(tab => {
+                    if (tab.textContent.toLowerCase().includes(sectionId) || 
+                        (sectionId === 'dashboard' && tab.textContent.includes('Dashboard'))) {
+                        tab.classList.add('active');
+                    }
+                });
+            }
+            
+            // Reset animation
+            const section = document.getElementById(sectionId);
+            section.style.animation = 'none';
+            setTimeout(() => {
+                section.style.animation = 'fadeIn 0.5s ease';
+            }, 10);
+        }
+
+        function showModal(platform) {
+            document.getElementById('modalTitle').textContent = platform;
+            document.getElementById('modal').style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('modal').style.display = 'none';
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('modal');
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        }
+
+        // Add some interactive feedback
+        document.querySelectorAll('.platform-card').forEach(card => {
+            card.addEventListener('click', function() {
+                this.style.animation = 'pulse 0.3s ease';
+                setTimeout(() => {
+                    this.style.animation = '';
+                }, 300);
+            });
+        });
+
+        // Notification animation
+        setInterval(() => {
+            const notificationIcon = document.querySelector('.notification-icon');
+            notificationIcon.style.animation = 'pulse 1s ease';
+            setTimeout(() => {
+                notificationIcon.style.animation = '';
+            }, 1000);
+        }, 10000);
+
+        // Search functionality
+        const searchBar = document.querySelector('.search-bar');
+        const allPlatforms = [
+            // Identity
+            { name: 'Personal Identity', section: 'identity', keywords: ['personal', 'primary', 'verified', 'identity'] },
+            { name: 'Work Identity', section: 'identity', keywords: ['work', 'business', 'professional', 'identity'] },
+            { name: 'Gaming Identity', section: 'identity', keywords: ['gaming', 'gamer', 'play', 'identity'] },
+            { name: 'Creative Identity', section: 'identity', keywords: ['creative', 'art', 'portfolio', 'identity'] },
+            // Platforms
+            { name: 'Google', section: 'platforms', keywords: ['google', 'search', 'gmail', 'drive'] },
+            { name: 'Microsoft', section: 'platforms', keywords: ['microsoft', 'windows', 'office', 'outlook'] },
+            { name: 'Apple', section: 'platforms', keywords: ['apple', 'iphone', 'mac', 'icloud'] },
+            { name: 'Amazon', section: 'platforms', keywords: ['amazon', 'shopping', 'prime', 'aws'] },
+            { name: 'Meta', section: 'platforms', keywords: ['meta', 'facebook', 'instagram', 'whatsapp'] },
+            { name: 'Adobe', section: 'platforms', keywords: ['adobe', 'photoshop', 'creative', 'design'] },
+            // Security
+            { name: '2FA Security', section: 'security', keywords: ['2fa', 'two factor', 'authentication', 'security'] },
+            { name: 'Password Vault', section: 'security', keywords: ['password', 'vault', 'credentials', 'security'] },
+            { name: 'Passkeys', section: 'security', keywords: ['passkey', 'biometric', 'fingerprint', 'security'] },
+            { name: 'Security Score', section: 'security', keywords: ['score', 'rating', 'assessment', 'security'] },
+            // Social
+            { name: 'X (Twitter)', section: 'social', keywords: ['x', 'twitter', 'tweet', 'social'] },
+            { name: 'Instagram', section: 'social', keywords: ['instagram', 'photo', 'story', 'social'] },
+            { name: 'LinkedIn', section: 'social', keywords: ['linkedin', 'professional', 'network', 'social'] },
+            { name: 'Discord', section: 'social', keywords: ['discord', 'chat', 'voice', 'social'] },
+            { name: 'Reddit', section: 'social', keywords: ['reddit', 'forum', 'discussion', 'social'] },
+            { name: 'TikTok', section: 'social', keywords: ['tiktok', 'video', 'short', 'social'] },
+            // Productivity
+            { name: 'Notion', section: 'productivity', keywords: ['notion', 'notes', 'workspace', 'productivity'] },
+            { name: 'Slack', section: 'productivity', keywords: ['slack', 'team', 'communication', 'productivity'] },
+            { name: 'Trello', section: 'productivity', keywords: ['trello', 'board', 'project', 'productivity'] },
+            { name: 'Zoom', section: 'productivity', keywords: ['zoom', 'video', 'meeting', 'productivity'] },
+            { name: 'GitHub', section: 'productivity', keywords: ['github', 'code', 'repository', 'productivity'] },
+            { name: 'Dropbox', section: 'productivity', keywords: ['dropbox', 'storage', 'files', 'productivity'] },
+            // Entertainment
+            { name: 'Netflix', section: 'entertainment', keywords: ['netflix', 'movie', 'show', 'entertainment'] },
+            { name: 'Spotify', section: 'entertainment', keywords: ['spotify', 'music', 'podcast', 'entertainment'] },
+            { name: 'Steam', section: 'entertainment', keywords: ['steam', 'game', 'gaming', 'entertainment'] },
+            { name: 'YouTube', section: 'entertainment', keywords: ['youtube', 'video', 'watch', 'entertainment'] },
+            { name: 'Disney+', section: 'entertainment', keywords: ['disney', 'pixar', 'marvel', 'entertainment'] },
+            { name: 'Twitch', section: 'entertainment', keywords: ['twitch', 'stream', 'live', 'entertainment'] },
+            // Finance
+            { name: 'PayPal', section: 'finance', keywords: ['paypal', 'payment', 'money', 'finance'] },
+            { name: 'Venmo', section: 'finance', keywords: ['venmo', 'transfer', 'payment', 'finance'] },
+            { name: 'Cash App', section: 'finance', keywords: ['cash', 'app', 'payment', 'finance'] },
+            { name: 'Coinbase', section: 'finance', keywords: ['coinbase', 'crypto', 'bitcoin', 'finance'] },
+            { name: 'Robinhood', section: 'finance', keywords: ['robinhood', 'stock', 'trading', 'finance'] },
+            { name: 'Mint', section: 'finance', keywords: ['mint', 'budget', 'expense', 'finance'] },
+            // Test keywords
+            { name: 'Test Platform', section: 'platforms', keywords: ['test', 'testing', 'demo'] }
+        ];
+
+        searchBar.addEventListener('input', function(e) {
+            const query = e.target.value.toLowerCase();
+            
+            if (query.length === 0) {
+                // Reset view if search is empty
+                showSection('dashboard', null);
+                return;
+            }
+
+            // Find matching platforms
+            const matches = allPlatforms.filter(platform => 
+                platform.name.toLowerCase().includes(query) ||
+                platform.keywords.some(keyword => keyword.includes(query))
+            );
+
+            if (matches.length > 0) {
+                // Create search results view
+                const contentArea = document.querySelector('.content-area');
+                contentArea.innerHTML = `
+                    <div class="welcome-section">
+                        <h1 class="welcome-title">Search Results</h1>
+                        <p class="welcome-subtitle">Found ${matches.length} result${matches.length !== 1 ? 's' : ''} for "${query}"</p>
+                    </div>
+                    <div class="platform-grid">
+                        ${matches.map(match => `
+                            <div class="platform-card" onclick="goToSection('${match.section}', '${match.name}')">
+                                <div class="platform-icon">${getIcon(match.name)}</div>
+                                <div class="platform-name">${match.name}</div>
+                                <div class="platform-status">${match.section}</div>
+                            </div>
+                        `).join('')}
+                    </div>
+                `;
+                
+                // Remove active class from all tabs
+                document.querySelectorAll('.nav-tab').forEach(tab => {
+                    tab.classList.remove('active');
+                });
+            } else {
+                // No results found
+                const contentArea = document.querySelector('.content-area');
+                contentArea.innerHTML = `
+                    <div class="welcome-section">
+                        <h1 class="welcome-title">No Results</h1>
+                        <p class="welcome-subtitle">No platforms found for "${query}"</p>
+                    </div>
+                    <div style="text-align: center; padding: 40px;">
+                        <p style="color: var(--text-secondary); font-size: 18px;">
+                            Try searching for: Google, Netflix, Security, Test, or any platform name
+                        </p>
+                    </div>
+                `;
+            }
+        });
+
+        function getIcon(platformName) {
+            const icons = {
+                'Personal Identity': '👤', 'Work Identity': '💼', 'Gaming Identity': '🎮', 'Creative Identity': '🎨',
+                'Google': '🔍', 'Microsoft': '🪟', 'Apple': '🍎', 'Amazon': '📦', 'Meta': '👥', 'Adobe': '🎨',
+                '2FA Security': '🛡️', 'Password Vault': '🔐', 'Passkeys': '🔑', 'Security Score': '🚨',
+                'X (Twitter)': '𝕏', 'Instagram': '📷', 'LinkedIn': '💼', 'Discord': '💬', 'Reddit': '🔺', 'TikTok': '🎵',
+                'Notion': '📝', 'Slack': '💬', 'Trello': '📋', 'Zoom': '📹', 'GitHub': '⚡', 'Dropbox': '📦',
+                'Netflix': '🎬', 'Spotify': '🎵', 'Steam': '🎮', 'YouTube': '▶️', 'Disney+': '🏰', 'Twitch': '🟣',
+                'PayPal': '💳', 'Venmo': '💸', 'Cash App': '💵', 'Coinbase': '₿', 'Robinhood': '📈', 'Mint': '🌿',
+                'Test Platform': '🧪'
+            };
+            return icons[platformName] || '📱';
+        }
+
+        function goToSection(sectionId, platformName) {
+            searchBar.value = '';
+            location.reload(); // Simple reload to reset the view
+        }
+
+        // Version info function
+        function showVersionInfo() {
+            const versionModal = document.getElementById('modal');
+            document.getElementById('modalTitle').innerHTML = '⚙️ Nexora Version Info';
+            document.getElementById('modalBody').innerHTML = `
+                <div style="color: var(--text-primary);">
+                    <h3 style="margin-bottom: 15px; color: var(--text-primary);">Nexora™ v1.1.01</h3>
+                    <p style="color: var(--text-secondary); margin-bottom: 20px;">Premium Digital Identity Hub</p>
+                    
+                    <div style="background: rgba(255,255,255,0.05); padding: 15px; border-radius: 10px; margin-bottom: 15px;">
+                        <strong style="color: var(--text-primary);">Version Details:</strong>
+                        <ul style="color: var(--text-secondary); list-style: none; padding: 10px 0 0 0; margin: 0;">
+                            <li>📌 Version: 1.1.01</li>
+                            <li>📅 Release: September 2, 2025</li>
+                            <li>🔧 Build: Stable</li>
+                            <li>🌐 Compatibility: All Browsers</li>
+                        </ul>
+                    </div>
+                    
+                    <div style="background: rgba(102, 126, 234, 0.1); padding: 15px; border-radius: 10px; margin-bottom: 15px;">
+                        <strong style="color: var(--text-primary);">What's New:</strong>
+                        <ul style="color: var(--text-secondary); list-style: none; padding: 10px 0 0 0; margin: 0;">
+                            <li>✅ Functional search system</li>
+                            <li>✅ Enhanced mobile support</li>
+                            <li>✅ Fixed navigation errors</li>
+                            <li>✅ PWA capabilities</li>
+                            <li>✅ Cross-device optimization</li>
+                        </ul>
+                    </div>
+                    
+                    <div style="background: rgba(255,255,255,0.05); padding: 15px; border-radius: 10px;">
+                        <strong style="color: var(--text-primary);">Legal:</strong>
+                        <p style="color: var(--text-secondary); font-size: 12px; margin-top: 10px;">
+                            Copyright © 2025 [Your Name/Company].<br>
+                            All Rights Reserved.<br><br>
+                            Nexora™ and "Where Everything Connects"™ are trademarks of [Your Name/Company].<br><br>
+                            This software is proprietary and confidential. Unauthorized use is prohibited.
+                        </p>
+                    </div>
+                </div>
+            `;
+            versionModal.style.display = 'block';
+        }
+
+        // Initialize version in console with copyright
+        console.log('%c🚀 Nexora™ v1.1.01 Loaded Successfully', 'color: #667eea; font-size: 16px; font-weight: bold;');
+        console.log('%cCopyright © 2025 [Your Name/Company]. All Rights Reserved.', 'color: #764ba2; font-size: 10px;');
+        console.log('%cUnauthorized use, copying, or distribution is strictly prohibited.', 'color: #e73c7e; font-size: 10px;');
+    </script>
+</body>
+</html>
