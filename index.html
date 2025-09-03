@@ -3,691 +3,533 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nexora Professional Suite v1.1.01 - Prototype</title>
+    <title>Nexora Professional Suite</title>
+    
+    <!-- Supabase SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #000 0%, #1a1a1a 50%, #000 100%);
-            min-height: 100vh;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+            background: #000;
             color: #fff;
-            padding-top: 35px;
+            min-height: 100vh;
         }
 
-        /* Prototype Banner */
-        .prototype-banner {
-            background: linear-gradient(90deg, #FFD700, #FF6B6B, #FFD700);
-            color: #000;
+        .header {
+            background: #111;
+            padding: 20px;
+            border-bottom: 3px solid #FFD700;
             text-align: center;
-            padding: 10px;
-            font-weight: bold;
-            font-size: 14px;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 2001;
         }
 
-        .prototype-banner span {
-            background: rgba(0,0,0,0.8);
+        .header h1 {
+            font-size: 3rem;
             color: #FFD700;
-            padding: 2px 10px;
-            border-radius: 12px;
-            margin-left: 10px;
+            margin-bottom: 10px;
         }
 
-        /* Feedback FAB */
-        .feedback-fab {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, #FFD700, #FFA500);
-            border-radius: 50%;
+        .header p {
+            color: #999;
+        }
+
+        .contact-info {
+            margin-top: 15px;
             display: flex;
-            align-items: center;
             justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .contact-info span {
+            color: #FFD700;
+            font-size: 0.9rem;
+        }
+
+        .status-bar {
+            background: #1a1a1a;
+            padding: 10px;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        .status-bar.connected {
+            background: #1b5e20;
+            color: #4CAF50;
+        }
+
+        .status-bar.error {
+            background: #b71c1c;
+            color: #ff5252;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .auth-box {
+            max-width: 400px;
+            margin: 0 auto;
+            background: #111;
+            border: 2px solid #FFD700;
+            border-radius: 10px;
+            padding: 30px;
+        }
+
+        .tabs {
+            display: flex;
+            margin-bottom: 30px;
+            gap: 10px;
+        }
+
+        .tab {
+            flex: 1;
+            padding: 10px;
+            background: #222;
+            border: 1px solid #444;
+            color: #999;
             cursor: pointer;
-            box-shadow: 0 5px 20px rgba(255,215,0,0.4);
-            z-index: 1999;
-            transition: all 0.3s;
-            animation: pulse 2s infinite;
+            text-align: center;
+            border-radius: 5px;
         }
 
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
+        .tab.active {
+            background: #FFD700;
+            color: #000;
+            border-color: #FFD700;
         }
 
-        .feedback-fab:hover {
-            transform: scale(1.1);
+        .form {
+            display: none;
         }
 
-        /* Global Navigation Header */
-        .global-header {
-            background: rgba(0,0,0,0.95);
-            border-bottom: 2px solid #FFD700;
-            padding: 1rem 2rem;
-            position: sticky;
-            top: 35px;
-            z-index: 1000;
+        .form.active {
+            display: block;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #999;
+            font-size: 0.9rem;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            background: #222;
+            border: 1px solid #444;
+            color: #fff;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #FFD700;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 12px;
+            background: #FFD700;
+            color: #000;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: #FFA500;
+        }
+
+        .message {
+            margin-top: 15px;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        .message.error {
+            background: rgba(255, 0, 0, 0.1);
+            color: #ff5252;
+            border: 1px solid #ff5252;
+        }
+
+        .message.success {
+            background: rgba(0, 255, 0, 0.1);
+            color: #4CAF50;
+            border: 1px solid #4CAF50;
+        }
+
+        .dashboard {
+            display: none;
+        }
+
+        .dashboard.active {
+            display: block;
+        }
+
+        .user-panel {
+            background: #111;
+            border: 2px solid #FFD700;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 30px;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
-        .header-left {
-            display: flex;
-            align-items: center;
-            gap: 2rem;
-        }
-
-        .logo-header {
-            width: 40px;
-            height: 40px;
-            background: linear-gradient(135deg, #FFD700, #B8860B);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            color: #000;
-            cursor: pointer;
-            transition: transform 0.3s;
-        }
-
-        .logo-header:hover {
-            transform: scale(1.1);
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 1.5rem;
-        }
-
-        .nav-link {
-            color: #fff;
-            text-decoration: none;
-            padding: 0.5rem 1rem;
-            border-radius: 8px;
-            transition: all 0.3s;
-            cursor: pointer;
-        }
-
-        .nav-link:hover {
-            background: rgba(255,215,0,0.2);
+        .user-info h2 {
             color: #FFD700;
+            margin-bottom: 5px;
         }
 
-        .header-right {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .user-status {
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            font-weight: bold;
-        }
-
-        .container {
-            padding: 2rem;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .screen { display: none; animation: fadeIn 0.5s; }
-        .screen.active { display: block; }
-        
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-
-        /* Login Styles */
-        .login-box {
-            background: rgba(0,0,0,0.9);
-            border: 2px solid #FFD700;
-            border-radius: 20px;
-            padding: 3rem;
-            max-width: 450px;
-            margin: 3rem auto;
-            text-align: center;
-        }
-
-        .logo {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, #FFD700, #B8860B);
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            font-weight: bold;
-            color: #000;
-            margin: 0 auto 2rem;
-            cursor: pointer;
-            transition: transform 0.3s;
-        }
-
-        .logo:hover {
-            transform: scale(1.1);
-        }
-
-        h1 {
-            color: #FFD700;
-            margin-bottom: 0.5rem;
-        }
-
-        .subtitle {
+        .user-info p {
             color: #999;
-            margin-bottom: 2rem;
         }
 
-        .form-group {
-            margin-bottom: 1.5rem;
-            text-align: left;
-        }
-
-        label {
-            display: block;
-            color: #FFD700;
-            margin-bottom: 0.5rem;
-        }
-
-        input, select {
-            width: 100%;
-            padding: 0.75rem;
-            background: rgba(255,255,255,0.1);
-            border: 1px solid #FFD700;
-            border-radius: 8px;
+        .logout-btn {
+            padding: 10px 20px;
+            background: #f44336;
             color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
         }
 
-        .btn {
-            width: 100%;
-            padding: 0.75rem;
-            border: none;
-            border-radius: 8px;
-            font-weight: bold;
+        .logout-btn:hover {
+            background: #d32f2f;
+        }
+
+        .apps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .app-card {
+            background: #111;
+            border: 2px solid #333;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
             cursor: pointer;
-            margin-bottom: 1rem;
             transition: all 0.3s;
         }
 
-        .btn:hover { 
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(255,215,0,0.3);
-        }
-
-        .btn-gold {
-            background: linear-gradient(135deg, #FFD700, #B8860B);
-            color: #000;
-        }
-
-        .btn-outline {
-            background: transparent;
-            border: 1px solid #FFD700;
-            color: #FFD700;
-        }
-
-        .quick-btns {
-            display: flex;
-            gap: 0.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .quick-btns .btn { 
-            flex: 1; 
-            padding: 0.5rem;
-            margin-bottom: 0;
-        }
-
-        .btn-small {
-            padding: 0.5rem 1rem;
-            font-size: 0.9rem;
-            width: auto;
-            display: inline-block;
-            margin: 0 0.5rem;
-        }
-
-        /* Role Selection */
-        .role-header {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .tier-badge {
-            display: inline-block;
-            padding: 0.5rem 1.5rem;
-            border-radius: 20px;
-            font-weight: bold;
-            margin-bottom: 1rem;
-        }
-
-        .tier-guest { background: #333; }
-        .tier-basic { background: #CD7F32; }
-        .tier-pro { background: #C0C0C0; color: #000; }
-        .tier-executive { background: #FFD700; color: #000; }
-
-        .roles-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
-            margin-bottom: 2rem;
-        }
-
-        .role-card {
-            background: rgba(255,215,0,0.1);
-            border: 1px solid #FFD700;
-            border-radius: 15px;
-            padding: 2rem;
-            text-align: center;
-            cursor: pointer;
-            transition: transform 0.3s;
-        }
-
-        .role-card:hover {
+        .app-card:hover {
+            border-color: #FFD700;
             transform: translateY(-5px);
-            background: rgba(255,215,0,0.2);
         }
 
-        .role-icon { font-size: 2.5rem; margin-bottom: 1rem; }
-        .role-title { color: #FFD700; margin-bottom: 0.5rem; }
-
-        /* Dashboard Content */
-        .welcome-box {
-            background: linear-gradient(135deg, rgba(255,215,0,0.1), transparent);
-            border: 1px solid #FFD700;
-            border-radius: 15px;
-            padding: 2rem;
-            margin-bottom: 2rem;
+        .app-icon {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
         }
 
-        /* Hero Section */
-        .hero-section {
-            text-align: center;
-            padding: 4rem 2rem;
-        }
-
-        .hero-title {
-            font-size: 3rem;
-            background: linear-gradient(90deg, #FFD700, #FFF, #FFD700);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 1rem;
-        }
-
-        .version-badge {
-            display: inline-block;
-            background: rgba(255,215,0,0.2);
-            border: 1px solid #FFD700;
+        .app-title {
             color: #FFD700;
-            padding: 4px 12px;
-            border-radius: 12px;
-            font-size: 12px;
-            font-weight: bold;
-            margin-top: 10px;
+            margin-bottom: 5px;
         }
 
-        /* Feedback Modal */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.9);
-            z-index: 2000;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .modal-content {
-            background: #1a1a1a;
-            border: 2px solid #FFD700;
-            border-radius: 20px;
-            padding: 2rem;
-            max-width: 600px;
-            width: 90%;
-            max-height: 80vh;
-            overflow-y: auto;
-        }
-
-        .feedback-section {
-            margin-bottom: 1.5rem;
-        }
-
-        .feedback-section h4 {
-            color: #FFD700;
-            margin-bottom: 0.5rem;
-        }
-
-        .rating-stars {
-            display: flex;
-            gap: 10px;
-            margin: 10px 0;
-        }
-
-        .star {
-            font-size: 30px;
-            cursor: pointer;
-            color: #444;
-            transition: all 0.2s;
-        }
-
-        .star:hover, .star.active {
-            color: #FFD700;
-            transform: scale(1.1);
-        }
-
-        textarea {
-            width: 100%;
-            min-height: 120px;
-            padding: 12px;
-            background: rgba(255,255,255,0.05);
-            border: 1px solid rgba(255,215,0,0.3);
-            border-radius: 8px;
-            color: #fff;
-            resize: vertical;
+        .app-desc {
+            color: #999;
+            font-size: 0.9rem;
         }
     </style>
 </head>
 <body>
-    <!-- Prototype Banner -->
-    <div class="prototype-banner">
-        🚧 PROTOTYPE UNDER CONSTRUCTION - Version 1.1.01 
-        <span>Testing & Feedback Welcome</span>
-    </div>
-
-    <!-- Feedback Button -->
-    <div class="feedback-fab" onclick="openFeedback()">
-        <span style="font-size: 24px;">💬</span>
-    </div>
-
-    <!-- Global Navigation Header -->
-    <header class="global-header">
-        <div class="header-left">
-            <div class="logo-header" onclick="goHome()">N</div>
-            <nav class="nav-links">
-                <a class="nav-link" onclick="goHome()">Home</a>
-                <a class="nav-link" onclick="showScreen('loginScreen')">Apps</a>
-                <a class="nav-link" onclick="showScreen('pricingScreen')">Pricing</a>
-                <a class="nav-link" onclick="showAbout()">About</a>
-            </nav>
-        </div>
-        <div class="header-right">
-            <div id="userStatusBadge" class="user-status tier-guest" style="display: none;">Guest</div>
-            <button id="loginBtn" class="btn btn-gold btn-small" onclick="showScreen('loginScreen')">Sign In</button>
-            <button id="dashboardBtn" class="btn btn-outline btn-small" style="display: none;" onclick="showRoles()">Dashboard</button>
-            <button id="logoutBtn" class="btn btn-outline btn-small" style="display: none;" onclick="logout()">Logout</button>
+    <header class="header">
+        <h1>NEXORA</h1>
+        <p>Professional Suite</p>
+        <div class="contact-info">
+            <span>📧 admin@nexoraprosuite.com</span>
+            <span>📞 (844) 639-6721</span>
+            <span>🌐 nexoraprosuite.com</span>
         </div>
     </header>
 
-    <div class="container">
-        <!-- Home Screen -->
-        <div class="screen active" id="homeScreen">
-            <div class="hero-section">
-                <h1 class="hero-title">Nexora Professional Suite</h1>
-                <p class="subtitle" style="font-size: 1.5rem;">Your All-in-One Professional Platform</p>
-                <div class="version-badge">v1.1.01 Beta</div>
-                
-                <div style="margin-top: 3rem;">
-                    <button class="btn btn-gold" style="width: auto; padding: 1rem 3rem; font-size: 1.2rem;" onclick="showScreen('loginScreen')">Get Started</button>
-                    <button class="btn btn-outline" style="width: auto; padding: 1rem 3rem; font-size: 1.2rem;" onclick="showScreen('pricingScreen')">View Pricing</button>
-                </div>
-            </div>
-        </div>
+    <div class="status-bar" id="statusBar">
+        Initializing...
+    </div>
 
-        <!-- Login Screen -->
-        <div class="screen" id="loginScreen">
-            <div class="login-box">
-                <div class="logo" onclick="goHome()">N</div>
-                <h1>Welcome Back</h1>
-                <p class="subtitle">Sign in to your account</p>
-                
+    <div class="container">
+        <!-- Login/Register -->
+        <div class="auth-box" id="authBox">
+            <div class="tabs">
+                <div class="tab active" onclick="showTab('login')">Login</div>
+                <div class="tab" onclick="showTab('register')">Register</div>
+            </div>
+
+            <!-- Login Form -->
+            <div class="form active" id="loginForm">
                 <div class="form-group">
-                    <label>Email Address</label>
-                    <input type="email" id="email" value="demo@nexora.com">
+                    <label>Email</label>
+                    <input type="email" id="loginEmail" placeholder="your@email.com">
                 </div>
-                
                 <div class="form-group">
                     <label>Password</label>
-                    <input type="password" id="password" value="demo123">
+                    <input type="password" id="loginPassword" placeholder="••••••••">
                 </div>
-                
-                <button class="btn btn-gold" onclick="login()">Sign In</button>
-                
-                <p style="margin: 1rem 0;">Quick Demo Access:</p>
-                <div class="quick-btns">
-                    <button class="btn btn-outline" onclick="quickLogin('basic')">Basic</button>
-                    <button class="btn btn-outline" onclick="quickLogin('pro')">Pro</button>
-                    <button class="btn btn-outline" onclick="quickLogin('executive')">Exec</button>
-                </div>
-                
-                <button class="btn btn-outline" onclick="quickLogin('guest')">Continue as Guest</button>
+                <button class="btn" onclick="login()">Sign In</button>
+                <div id="loginMsg"></div>
             </div>
-        </div>
 
-        <!-- Role Selection -->
-        <div class="screen" id="roleScreen">
-            <div class="role-header">
-                <div class="tier-badge" id="tierBadge">Basic Account</div>
-                <h1>Select Your Professional Role</h1>
-                <p class="subtitle">Choose your dashboard based on your subscription</p>
+            <!-- Register Form -->
+            <div class="form" id="registerForm">
+                <div class="form-group">
+                    <label>Name</label>
+                    <input type="text" id="regName" placeholder="Your Name">
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" id="regEmail" placeholder="your@email.com">
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" id="regPassword" placeholder="Min 6 characters">
+                </div>
+                <button class="btn" onclick="register()">Create Account</button>
+                <div id="registerMsg"></div>
             </div>
-            
-            <div class="roles-grid" id="rolesGrid"></div>
         </div>
 
         <!-- Dashboard -->
-        <div class="screen" id="dashboardScreen">
-            <div class="welcome-box">
-                <h1 id="welcomeTitle" style="color: #FFD700;">Welcome!</h1>
-                <p id="welcomeSubtitle">Your professional dashboard is ready</p>
-            </div>
-        </div>
-
-        <!-- Pricing Screen -->
-        <div class="screen" id="pricingScreen">
-            <div style="text-align: center; margin-bottom: 3rem;">
-                <h1>Choose Your Plan</h1>
-                <p class="subtitle">Unlock powerful features tailored to your needs</p>
-            </div>
-            
-            <div class="roles-grid">
-                <div class="role-card">
-                    <h3>Guest</h3>
-                    <p style="font-size: 2rem; color: #FFD700;">Free</p>
-                    <p>2 Roles • Basic Features</p>
+        <div class="dashboard" id="dashboard">
+            <div class="user-panel">
+                <div class="user-info">
+                    <h2 id="userName">Welcome!</h2>
+                    <p id="userEmail">user@example.com</p>
                 </div>
-                <div class="role-card">
-                    <h3>Basic</h3>
-                    <p style="font-size: 2rem; color: #FFD700;">$19</p>
-                    <p>5 Roles • Standard Features</p>
-                </div>
-                <div class="role-card">
-                    <h3>Professional</h3>
-                    <p style="font-size: 2rem; color: #FFD700;">$49</p>
-                    <p>All Roles • Full Features</p>
-                </div>
-                <div class="role-card">
-                    <h3>Executive</h3>
-                    <p style="font-size: 2rem; color: #FFD700;">$99</p>
-                    <p>Premium • White Label</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Feedback Modal -->
-    <div class="modal" id="feedbackModal">
-        <div class="modal-content">
-            <h2 style="color: #FFD700; margin-bottom: 1rem;">🚀 Help Us Improve Nexora</h2>
-            <p style="color: #999; margin-bottom: 2rem;">Version 1.1.01 - Your feedback shapes our development</p>
-
-            <div class="feedback-section">
-                <h4>How would you rate your experience?</h4>
-                <div class="rating-stars">
-                    <span class="star" onclick="setRating(1)">⭐</span>
-                    <span class="star" onclick="setRating(2)">⭐</span>
-                    <span class="star" onclick="setRating(3)">⭐</span>
-                    <span class="star" onclick="setRating(4)">⭐</span>
-                    <span class="star" onclick="setRating(5)">⭐</span>
-                </div>
+                <button class="logout-btn" onclick="logout()">Sign Out</button>
             </div>
 
-            <div class="feedback-section">
-                <h4>Your detailed feedback</h4>
-                <textarea id="feedbackText" placeholder="Please share your experience, suggestions, or report any bugs..."></textarea>
+            <div class="apps-grid">
+                <div class="app-card" onclick="openApp('email')">
+                    <div class="app-icon">📧</div>
+                    <div class="app-title">Email</div>
+                    <div class="app-desc">Manage emails</div>
+                </div>
+                <div class="app-card" onclick="openApp('calendar')">
+                    <div class="app-icon">📅</div>
+                    <div class="app-title">Calendar</div>
+                    <div class="app-desc">Events</div>
+                </div>
+                <div class="app-card" onclick="openApp('tasks')">
+                    <div class="app-icon">✅</div>
+                    <div class="app-title">Tasks</div>
+                    <div class="app-desc">To-do list</div>
+                </div>
+                <div class="app-card" onclick="openApp('notes')">
+                    <div class="app-icon">📝</div>
+                    <div class="app-title">Notes</div>
+                    <div class="app-desc">Quick notes</div>
+                </div>
+                <div class="app-card" onclick="openApp('files')">
+                    <div class="app-icon">📁</div>
+                    <div class="app-title">Files</div>
+                    <div class="app-desc">Storage</div>
+                </div>
+                <div class="app-card" onclick="openApp('analytics')">
+                    <div class="app-icon">📊</div>
+                    <div class="app-title">Analytics</div>
+                    <div class="app-desc">Stats</div>
+                </div>
             </div>
-
-            <button class="btn btn-gold" onclick="submitFeedback()">Submit Feedback</button>
-            <button class="btn btn-outline" onclick="closeFeedback()">Cancel</button>
         </div>
     </div>
 
     <script>
-        const VERSION = '1.1.01';
-        let currentUser = { tier: null, role: null, loggedIn: false };
-        let currentRating = 0;
+        // YOUR SUPABASE CREDENTIALS
+        const SUPABASE_URL = 'https://gmvwpoueyvneuwznzdbs.supabase.co';
+        const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imdtdndwb3VleXZuZXV3em56ZGJzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTY5NDAzNTcsImV4cCI6MjA3MjUxNjM1N30.X3xYfHVm0UNKIPzfhosYU0Tq3Wv9TDmI70nejtwzQoc';
 
-        function showScreen(screenId) {
-            document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
-            const screen = document.getElementById(screenId);
-            if (screen) screen.classList.add('active');
-        }
+        let supabaseClient = null;
+        let currentUser = null;
 
-        function goHome() {
-            showScreen('homeScreen');
-        }
+        // Initialize
+        window.onload = function() {
+            initSupabase();
+        };
 
-        function login() {
-            currentUser.tier = 'pro';
-            currentUser.loggedIn = true;
-            updateAuthUI();
-            showRoles();
-        }
+        function initSupabase() {
+            try {
+                // Check if Supabase is loaded
+                if (typeof window.supabase === 'undefined') {
+                    throw new Error('Supabase library not loaded');
+                }
 
-        function quickLogin(tier) {
-            currentUser.tier = tier;
-            currentUser.loggedIn = true;
-            updateAuthUI();
-            showRoles();
-        }
-
-        function logout() {
-            currentUser = { tier: null, role: null, loggedIn: false };
-            updateAuthUI();
-            showScreen('homeScreen');
-        }
-
-        function updateAuthUI() {
-            const loginBtn = document.getElementById('loginBtn');
-            const dashboardBtn = document.getElementById('dashboardBtn');
-            const logoutBtn = document.getElementById('logoutBtn');
-            const userStatus = document.getElementById('userStatusBadge');
-            
-            if (currentUser.loggedIn) {
-                loginBtn.style.display = 'none';
-                dashboardBtn.style.display = 'inline-block';
-                logoutBtn.style.display = 'inline-block';
-                userStatus.style.display = 'inline-block';
-                userStatus.textContent = currentUser.tier.toUpperCase();
-                userStatus.className = 'user-status tier-' + currentUser.tier;
-            } else {
-                loginBtn.style.display = 'inline-block';
-                dashboardBtn.style.display = 'none';
-                logoutBtn.style.display = 'none';
-                userStatus.style.display = 'none';
+                // Initialize Supabase client
+                supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+                
+                // Update status
+                updateStatus('Connected to Database', 'connected');
+                
+                // Check for existing session
+                checkSession();
+                
+            } catch (error) {
+                console.error('Initialization error:', error);
+                updateStatus('Running in Demo Mode', 'error');
+                // Continue in demo mode
             }
         }
 
-        function showRoles() {
-            const roles = [
-                { id: 'retired', title: 'Retired', icon: '🌴', tier: 'guest' },
-                { id: 'driver', title: 'CDL Driver', icon: '🚚', tier: 'guest' },
-                { id: 'healthcare', title: 'Healthcare Provider', icon: '⚕️', tier: 'basic' },
-                { id: 'developer', title: 'Software Developer', icon: '💻', tier: 'guest' },
-                { id: 'sales', title: 'Sales Executive', icon: '💼', tier: 'basic' },
-                { id: 'executive', title: 'C-Suite Executive', icon: '👔', tier: 'executive' }
-            ];
-            
-            showScreen('roleScreen');
-            const badge = document.getElementById('tierBadge');
-            badge.className = 'tier-badge tier-' + currentUser.tier;
-            badge.textContent = currentUser.tier.charAt(0).toUpperCase() + currentUser.tier.slice(1) + ' Account';
-            
-            const grid = document.getElementById('rolesGrid');
-            grid.innerHTML = '';
-            
-            roles.forEach(role => {
-                const card = document.createElement('div');
-                card.className = 'role-card';
-                card.innerHTML = `
-                    <div class="role-icon">${role.icon}</div>
-                    <div class="role-title">${role.title}</div>
-                `;
-                card.onclick = () => selectRole(role);
-                grid.appendChild(card);
-            });
+        function updateStatus(message, type) {
+            const statusBar = document.getElementById('statusBar');
+            statusBar.textContent = message;
+            statusBar.className = 'status-bar ' + type;
         }
 
-        function selectRole(role) {
-            currentUser.role = role;
-            showDashboard();
+        async function checkSession() {
+            if (!supabaseClient) return;
+            
+            try {
+                const { data: { session } } = await supabaseClient.auth.getSession();
+                if (session) {
+                    currentUser = session.user;
+                    showDashboard();
+                }
+            } catch (error) {
+                console.error('Session check error:', error);
+            }
+        }
+
+        function showTab(tab) {
+            // Update tabs
+            document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            // Update forms
+            document.querySelectorAll('.form').forEach(f => f.classList.remove('active'));
+            document.getElementById(tab + 'Form').classList.add('active');
+        }
+
+        async function login() {
+            const email = document.getElementById('loginEmail').value;
+            const password = document.getElementById('loginPassword').value;
+            const msgEl = document.getElementById('loginMsg');
+            
+            if (!email || !password) {
+                showMessage(msgEl, 'Please fill all fields', 'error');
+                return;
+            }
+
+            // Demo mode
+            if (!supabaseClient) {
+                localStorage.setItem('demoUser', JSON.stringify({ email }));
+                currentUser = { email };
+                showDashboard();
+                return;
+            }
+
+            try {
+                const { data, error } = await supabaseClient.auth.signInWithPassword({
+                    email: email,
+                    password: password
+                });
+
+                if (error) throw error;
+
+                currentUser = data.user;
+                showDashboard();
+                
+            } catch (error) {
+                showMessage(msgEl, error.message, 'error');
+            }
+        }
+
+        async function register() {
+            const name = document.getElementById('regName').value;
+            const email = document.getElementById('regEmail').value;
+            const password = document.getElementById('regPassword').value;
+            const msgEl = document.getElementById('registerMsg');
+            
+            if (!name || !email || !password) {
+                showMessage(msgEl, 'Please fill all fields', 'error');
+                return;
+            }
+
+            if (password.length < 6) {
+                showMessage(msgEl, 'Password must be at least 6 characters', 'error');
+                return;
+            }
+
+            // Demo mode
+            if (!supabaseClient) {
+                showMessage(msgEl, 'Demo: Account created! You can now login.', 'success');
+                return;
+            }
+
+            try {
+                const { data, error } = await supabaseClient.auth.signUp({
+                    email: email,
+                    password: password,
+                    options: {
+                        data: { name: name }
+                    }
+                });
+
+                if (error) throw error;
+
+                showMessage(msgEl, 'Account created! Check your email for verification.', 'success');
+                
+            } catch (error) {
+                showMessage(msgEl, error.message, 'error');
+            }
+        }
+
+        function showMessage(element, message, type) {
+            element.className = 'message ' + type;
+            element.textContent = message;
         }
 
         function showDashboard() {
-            showScreen('dashboardScreen');
-            document.getElementById('welcomeTitle').textContent = `${currentUser.role.icon} ${currentUser.role.title} Dashboard`;
-            document.getElementById('welcomeSubtitle').textContent = `${currentUser.tier.charAt(0).toUpperCase() + currentUser.tier.slice(1)} tier • Version ${VERSION}`;
+            document.getElementById('authBox').style.display = 'none';
+            document.getElementById('dashboard').classList.add('active');
+            
+            if (currentUser) {
+                document.getElementById('userName').textContent = 'Welcome back!';
+                document.getElementById('userEmail').textContent = currentUser.email || 'Guest User';
+            }
         }
 
-        function showAbout() {
-            alert(`Nexora Professional Suite v${VERSION}\n\n` +
-                  '🚧 PROTOTYPE STATUS 🚧\n' +
-                  'This is a development build currently under construction.\n\n' +
-                  'Please use the feedback button (💬) to report bugs or suggest improvements!');
+        async function logout() {
+            if (supabaseClient) {
+                await supabaseClient.auth.signOut();
+            }
+            localStorage.removeItem('demoUser');
+            window.location.reload();
         }
 
-        function openFeedback() {
-            document.getElementById('feedbackModal').style.display = 'flex';
+        function openApp(appName) {
+            alert(appName.charAt(0).toUpperCase() + appName.slice(1) + ' app coming soon!\n\nThis will be fully functional in the next update.');
         }
 
-        function closeFeedback() {
-            document.getElementById('feedbackModal').style.display = 'none';
-            currentRating = 0;
-            document.querySelectorAll('.star').forEach(s => s.classList.remove('active'));
-            document.getElementById('feedbackText').value = '';
+        // Check for demo user
+        const demoUser = localStorage.getItem('demoUser');
+        if (demoUser) {
+            currentUser = JSON.parse(demoUser);
+            showDashboard();
         }
-
-        function setRating(rating) {
-            currentRating = rating;
-            document.querySelectorAll('.star').forEach((s, index) => {
-                s.classList.toggle('active', index < rating);
-            });
-        }
-
-        function submitFeedback() {
-            const feedbackText = document.getElementById('feedbackText').value;
-            console.log('Feedback submitted:', {
-                version: VERSION,
-                rating: currentRating,
-                feedback: feedbackText,
-                timestamp: new Date().toISOString()
-            });
-            alert(`Thank you for your feedback!\n\nVersion: ${VERSION}\nRating: ${currentRating}/5 stars\n\nYour feedback will be reviewed for v1.1.02!`);
-            closeFeedback();
-        }
-
-        // Initialize on load
-        console.log(`Nexora Professional Suite v${VERSION} - Prototype Build`);
-        console.log('This is a test environment. Please report any issues using the feedback button.');
     </script>
 </body>
 </html>
