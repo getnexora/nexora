@@ -3,248 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nexora Professional Suite v4.0 - Executive Edition</title>
+    <title>Nexora Professional Suite v4.0</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --gold: #FFD700;
-            --gold-dark: #B8860B;
-            --gold-light: #FFF8DC;
-            --black: #000000;
-            --dark: #0a0a0a;
-            --darker: #050505;
-            --white: #FFFFFF;
-            --gray: #333333;
-            --glass: rgba(255, 215, 0, 0.1);
-            --border: rgba(255, 215, 0, 0.3);
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #000000 0%, #1a1a1a 50%, #000000 100%);
+            background: linear-gradient(135deg, #000 0%, #1a1a1a 50%, #000 100%);
             min-height: 100vh;
-            color: var(--white);
-            overflow-x: hidden;
+            color: #fff;
         }
 
-        /* Animated Gold Particles */
-        .particles {
-            position: fixed;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            z-index: 1;
-            pointer-events: none;
-        }
-
-        .particle {
-            position: absolute;
-            width: 4px;
-            height: 4px;
-            background: var(--gold);
-            border-radius: 50%;
-            opacity: 0.6;
-            animation: float 15s infinite linear;
-        }
-
-        @keyframes float {
-            from {
-                transform: translateY(100vh) rotate(0deg);
-                opacity: 0;
-            }
-            10% {
-                opacity: 0.6;
-            }
-            90% {
-                opacity: 0.6;
-            }
-            to {
-                transform: translateY(-100vh) rotate(360deg);
-                opacity: 0;
-            }
-        }
-
-        /* Logo */
-        .nexora-logo {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            font-weight: bold;
-            color: var(--black);
-            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3);
-            animation: pulse 2s ease-in-out infinite;
-            margin: 0 auto 2rem;
-        }
-
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-        }
-
-        /* Role Selection Screen */
-        .role-selection {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 2rem;
-            min-height: 100vh;
-            position: relative;
-            z-index: 10;
-            animation: fadeIn 0.6s ease-out;
-        }
-
-        .role-selection h1 {
-            font-size: 3rem;
-            margin-bottom: 0.5rem;
-            background: linear-gradient(90deg, var(--gold) 0%, var(--gold-light) 50%, var(--gold) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-align: center;
-            animation: shimmer 3s ease-in-out infinite;
-        }
-
-        @keyframes shimmer {
-            0%, 100% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-        }
-
-        .role-selection .tagline {
-            font-size: 1.2rem;
-            color: var(--gold);
-            margin-bottom: 3rem;
-            text-align: center;
-        }
-
-        .roles-container {
-            max-width: 1400px;
-            width: 100%;
-        }
-
-        .role-category {
-            margin-bottom: 3rem;
-        }
-
-        .category-title {
-            font-size: 1.5rem;
-            color: var(--gold);
-            margin-bottom: 1.5rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .roles-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .role-card {
-            background: linear-gradient(135deg, rgba(255, 215, 0, 0.05) 0%, rgba(255, 215, 0, 0.02) 100%);
-            border: 1px solid var(--border);
-            border-radius: 15px;
-            padding: 2rem 1.5rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .role-card::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(45deg, transparent, var(--gold), transparent);
-            opacity: 0;
-            transform: rotate(45deg);
-            transition: opacity 0.6s;
-        }
-
-        .role-card:hover::before {
-            opacity: 0.1;
-            animation: shine 0.6s ease-in-out;
-        }
-
-        @keyframes shine {
-            from { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
-            to { transform: translateX(100%) translateY(100%) rotate(45deg); }
-        }
-
-        .role-card:hover {
-            transform: translateY(-10px);
-            background: linear-gradient(135deg, rgba(255, 215, 0, 0.15) 0%, rgba(255, 215, 0, 0.05) 100%);
-            border-color: var(--gold);
-            box-shadow: 0 20px 40px rgba(255, 215, 0, 0.2);
-        }
-
-        .role-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .role-title {
-            font-size: 1.1rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            color: var(--gold-light);
-        }
-
-        .role-description {
-            font-size: 0.85rem;
-            opacity: 0.7;
-            line-height: 1.4;
-        }
-
-        /* Dashboard */
-        .dashboard {
-            display: none;
-            min-height: 100vh;
-            position: relative;
-            z-index: 10;
-            animation: slideIn 0.6s ease-out;
-        }
-
-        .dashboard.active {
-            display: block;
-        }
-
-        @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateX(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        /* Header */
-        .header {
-            background: linear-gradient(135deg, rgba(0,0,0,0.9) 0%, rgba(10,10,10,0.9) 100%);
-            backdrop-filter: blur(10px);
-            border-bottom: 2px solid var(--border);
+        /* Global Navigation Header */
+        .global-header {
+            background: rgba(0,0,0,0.95);
+            border-bottom: 2px solid #FFD700;
             padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 100;
         }
 
         .header-left {
@@ -253,111 +33,295 @@
             gap: 2rem;
         }
 
-        .logo-small {
+        .logo-header {
             width: 40px;
             height: 40px;
-            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
+            background: linear-gradient(135deg, #FFD700, #B8860B);
             border-radius: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: bold;
-            color: var(--black);
+            color: #000;
+            cursor: pointer;
+            transition: transform 0.3s;
         }
 
-        .nav-menu {
+        .logo-header:hover {
+            transform: scale(1.1);
+        }
+
+        .nav-links {
             display: flex;
-            gap: 1rem;
+            gap: 1.5rem;
         }
 
-        .nav-item {
+        .nav-link {
+            color: #fff;
+            text-decoration: none;
             padding: 0.5rem 1rem;
             border-radius: 8px;
+            transition: all 0.3s;
             cursor: pointer;
-            transition: all 0.3s ease;
-            border: 1px solid transparent;
         }
 
-        .nav-item:hover,
-        .nav-item.active {
-            background: var(--glass);
-            border-color: var(--border);
-            color: var(--gold);
+        .nav-link:hover, .nav-link.active {
+            background: rgba(255,215,0,0.2);
+            color: #FFD700;
         }
 
-        .user-info {
+        .header-right {
             display: flex;
             align-items: center;
             gap: 1rem;
         }
 
-        .user-avatar {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        .user-status {
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
             font-weight: bold;
-            color: var(--black);
         }
 
-        .change-role-btn {
-            padding: 0.5rem 1.5rem;
-            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
-            border: none;
-            border-radius: 8px;
-            color: var(--black);
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .change-role-btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 10px 20px rgba(255, 215, 0, 0.3);
-        }
-
-        /* Dashboard Content */
-        .dashboard-content {
+        .container {
             padding: 2rem;
             max-width: 1400px;
             margin: 0 auto;
         }
 
-        .welcome-section {
-            background: linear-gradient(135deg, rgba(255, 215, 0, 0.05) 0%, transparent 100%);
-            border: 1px solid var(--border);
-            border-radius: 15px;
-            padding: 2rem;
-            margin-bottom: 2rem;
-            animation: fadeInUp 0.8s ease-out;
+        .screen { display: none; animation: fadeIn 0.5s; }
+        .screen.active { display: block; }
+        
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+        /* Login Styles */
+        .login-box {
+            background: rgba(0,0,0,0.9);
+            border: 2px solid #FFD700;
+            border-radius: 20px;
+            padding: 3rem;
+            max-width: 450px;
+            margin: 3rem auto;
+            text-align: center;
         }
 
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .welcome-title {
+        .logo {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #FFD700, #B8860B);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             font-size: 2rem;
-            color: var(--gold);
+            font-weight: bold;
+            color: #000;
+            margin: 0 auto 2rem;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        h1 {
+            color: #FFD700;
             margin-bottom: 0.5rem;
         }
 
-        .welcome-subtitle {
-            opacity: 0.8;
-            font-size: 1.1rem;
+        .subtitle {
+            color: #999;
+            margin-bottom: 2rem;
         }
 
-        /* Stats Grid */
+        .form-group {
+            margin-bottom: 1.5rem;
+            text-align: left;
+        }
+
+        label {
+            display: block;
+            color: #FFD700;
+            margin-bottom: 0.5rem;
+        }
+
+        input {
+            width: 100%;
+            padding: 0.75rem;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid #FFD700;
+            border-radius: 8px;
+            color: #fff;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #FFD700;
+            box-shadow: 0 0 10px rgba(255,215,0,0.3);
+        }
+
+        .btn {
+            width: 100%;
+            padding: 0.75rem;
+            border: none;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-bottom: 1rem;
+            transition: all 0.3s;
+        }
+
+        .btn:hover { 
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255,215,0,0.3);
+        }
+
+        .btn-gold {
+            background: linear-gradient(135deg, #FFD700, #B8860B);
+            color: #000;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid #FFD700;
+            color: #FFD700;
+        }
+
+        .quick-btns {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .quick-btns .btn { 
+            flex: 1; 
+            padding: 0.5rem;
+            margin-bottom: 0;
+        }
+
+        /* Dashboard Layout */
+        .dashboard-container {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .dashboard-main {
+            flex: 1;
+        }
+
+        .dashboard-sidebar {
+            width: 320px;
+        }
+
+        /* Quick Apps Grid */
+        .apps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: rgba(0,0,0,0.5);
+            border: 1px solid #FFD700;
+            border-radius: 15px;
+        }
+
+        .app-tile {
+            background: linear-gradient(135deg, rgba(255,215,0,0.1), rgba(255,215,0,0.05));
+            border: 1px solid rgba(255,215,0,0.3);
+            border-radius: 12px;
+            padding: 1rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .app-tile:hover {
+            transform: translateY(-5px);
+            background: rgba(255,215,0,0.2);
+            box-shadow: 0 10px 20px rgba(255,215,0,0.3);
+        }
+
+        .app-icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .app-label {
+            font-size: 0.85rem;
+            color: #FFD700;
+        }
+
+        /* Role Selection */
+        .role-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .tier-badge {
+            display: inline-block;
+            padding: 0.5rem 1.5rem;
+            border-radius: 20px;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .tier-guest { background: #333; }
+        .tier-basic { background: #CD7F32; }
+        .tier-pro { background: #C0C0C0; color: #000; }
+        .tier-executive { background: #FFD700; color: #000; }
+
+        .roles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .role-card {
+            background: rgba(255,215,0,0.1);
+            border: 1px solid #FFD700;
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .role-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255,215,0,0.2);
+        }
+
+        .role-card.locked {
+            opacity: 0.5;
+            cursor: not-allowed;
+            position: relative;
+        }
+
+        .role-card.locked::after {
+            content: '🔒';
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+        }
+
+        .role-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+        .role-title { color: #FFD700; margin-bottom: 0.5rem; }
+
+        /* Dashboard Content */
+        .dashboard-content {
+            margin-top: 2rem;
+        }
+
+        .welcome-box {
+            background: linear-gradient(135deg, rgba(255,215,0,0.1), transparent);
+            border: 1px solid #FFD700;
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -366,89 +330,117 @@
         }
 
         .stat-card {
-            background: var(--glass);
-            border: 1px solid var(--border);
+            background: rgba(255,215,0,0.1);
+            border: 1px solid #FFD700;
             border-radius: 15px;
             padding: 1.5rem;
+            transition: all 0.3s;
             position: relative;
-            overflow: hidden;
-            animation: fadeInUp 0.8s ease-out backwards;
         }
 
-        .stat-card:nth-child(1) { animation-delay: 0.1s; }
-        .stat-card:nth-child(2) { animation-delay: 0.2s; }
-        .stat-card:nth-child(3) { animation-delay: 0.3s; }
-        .stat-card:nth-child(4) { animation-delay: 0.4s; }
-
-        .stat-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background: linear-gradient(90deg, var(--gold), var(--gold-dark));
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(255,215,0,0.2);
         }
 
         .stat-label {
             font-size: 0.9rem;
-            opacity: 0.7;
+            opacity: 0.8;
             margin-bottom: 0.5rem;
         }
 
         .stat-value {
             font-size: 2rem;
+            color: #FFD700;
             font-weight: bold;
-            color: var(--gold);
             margin-bottom: 0.5rem;
         }
 
-        .stat-change {
-            font-size: 0.9rem;
+        .stat-detail {
+            font-size: 0.85rem;
             color: #10b981;
         }
 
-        .stat-change.negative {
+        .stat-detail.warning {
+            color: #f59e0b;
+        }
+
+        .stat-detail.danger {
             color: #ef4444;
         }
 
-        /* Quick Actions */
-        .quick-actions {
-            background: var(--glass);
-            border: 1px solid var(--border);
+        /* Widgets */
+        .widgets-container {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .widget {
+            background: rgba(0,0,0,0.7);
+            border: 1px solid #FFD700;
             border-radius: 15px;
-            padding: 2rem;
-            margin-bottom: 2rem;
-            animation: fadeInUp 0.8s ease-out 0.5s backwards;
+            padding: 1.5rem;
         }
 
-        .quick-actions h3 {
-            color: var(--gold);
-            margin-bottom: 1.5rem;
-            font-size: 1.3rem;
+        .widget-title {
+            color: #FFD700;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid rgba(255,215,0,0.3);
         }
 
-        .actions-grid {
+        /* Weather Widget */
+        .weather-display {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .weather-main {
+            font-size: 2.5rem;
+            color: #FFD700;
+        }
+
+        .weather-details {
+            text-align: right;
+        }
+
+        /* News Items */
+        .news-item {
+            padding: 0.75rem;
+            margin-bottom: 0.5rem;
+            background: rgba(255,215,0,0.05);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .news-item:hover {
+            background: rgba(255,215,0,0.1);
+        }
+
+        /* Action Buttons */
+        .action-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
             gap: 1rem;
         }
 
         .action-btn {
-            background: linear-gradient(135deg, rgba(255, 215, 0, 0.05) 0%, transparent 100%);
-            border: 1px solid var(--border);
+            background: linear-gradient(135deg, rgba(255,215,0,0.1), transparent);
+            border: 1px solid #FFD700;
             border-radius: 12px;
             padding: 1.5rem;
             text-align: center;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.3s;
         }
 
         .action-btn:hover {
             transform: translateY(-5px);
-            background: var(--glass);
-            border-color: var(--gold);
-            box-shadow: 0 10px 20px rgba(255, 215, 0, 0.2);
+            background: rgba(255,215,0,0.2);
+            box-shadow: 0 10px 20px rgba(255,215,0,0.2);
         }
 
         .action-icon {
@@ -458,809 +450,622 @@
 
         .action-label {
             font-size: 0.9rem;
-            color: var(--gold-light);
+            color: #FFD700;
         }
 
-        /* Recent Activity */
-        .activity-section {
-            background: var(--glass);
-            border: 1px solid var(--border);
-            border-radius: 15px;
-            padding: 2rem;
-            margin-bottom: 2rem;
-            animation: fadeInUp 0.8s ease-out 0.6s backwards;
-        }
-
-        .activity-section h3 {
-            color: var(--gold);
-            margin-bottom: 1.5rem;
-            font-size: 1.3rem;
-        }
-
-        .activity-list {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-
-        .activity-item {
-            padding: 1rem;
-            background: rgba(255, 215, 0, 0.03);
-            border-left: 3px solid var(--gold);
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            transition: all 0.3s ease;
-        }
-
-        .activity-item:hover {
-            background: var(--glass);
-            transform: translateX(5px);
-        }
-
-        .activity-icon {
-            width: 40px;
-            height: 40px;
-            border-radius: 8px;
-            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--black);
-        }
-
-        .activity-details {
-            flex: 1;
-        }
-
-        .activity-title {
-            font-weight: 500;
-            margin-bottom: 0.2rem;
-        }
-
-        .activity-time {
-            font-size: 0.8rem;
-            opacity: 0.6;
-        }
-
-        /* Legal Footer */
-        .legal-footer {
-            background: var(--darker);
-            border-top: 1px solid var(--border);
-            padding: 2rem;
-            margin-top: 3rem;
-            text-align: center;
-        }
-
-        .legal-footer h3 {
-            color: var(--gold);
-            margin-bottom: 1rem;
-        }
-
-        .legal-links {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 2rem;
-            margin-bottom: 1rem;
-        }
-
-        .legal-links a {
-            color: var(--gold-light);
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .legal-links a:hover {
-            color: var(--gold);
-        }
-
-        .copyright {
-            color: var(--gray);
+        .btn-small {
+            padding: 0.5rem 1rem;
             font-size: 0.9rem;
-            margin-top: 1rem;
+            width: auto;
+            display: inline-block;
+            margin: 0 0.5rem;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+        /* Stock Ticker */
+        .stock-ticker {
+            display: flex;
+            gap: 1.5rem;
+            overflow-x: auto;
+            padding: 0.5rem 0;
+        }
+
+        .stock-item {
+            min-width: 100px;
+            text-align: center;
+            padding: 0.5rem;
+            background: rgba(255,215,0,0.05);
+            border-radius: 8px;
+        }
+
+        .stock-symbol {
+            font-weight: bold;
+            color: #FFD700;
+        }
+
+        .stock-price {
+            font-size: 1.2rem;
+        }
+
+        .stock-change {
+            font-size: 0.85rem;
+        }
+
+        .stock-change.positive {
+            color: #10b981;
+        }
+
+        .stock-change.negative {
+            color: #ef4444;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            text-align: center;
+            padding: 4rem 2rem;
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            background: linear-gradient(90deg, #FFD700, #FFF, #FFD700);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+            animation: shimmer 3s infinite;
+        }
+
+        @keyframes shimmer {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
         }
     </style>
 </head>
 <body>
-    <div class="particles" id="particles"></div>
+    <!-- Global Navigation Header -->
+    <header class="global-header">
+        <div class="header-left">
+            <div class="logo-header" onclick="goHome()">N</div>
+            <nav class="nav-links">
+                <a class="nav-link" onclick="goHome()">Home</a>
+                <a class="nav-link" onclick="showApps()">Apps</a>
+                <a class="nav-link" onclick="showScreen('pricingScreen')">Pricing</a>
+                <a class="nav-link" onclick="showAbout()">About</a>
+            </nav>
+        </div>
+        <div class="header-right">
+            <div id="userStatusBadge" class="user-status tier-guest" style="display: none;">Guest</div>
+            <button id="loginBtn" class="btn btn-gold btn-small" onclick="showScreen('loginScreen')">Sign In</button>
+            <button id="dashboardBtn" class="btn btn-outline btn-small" style="display: none;" onclick="showRoles()">Dashboard</button>
+            <button id="logoutBtn" class="btn btn-outline btn-small" style="display: none;" onclick="logout()">Logout</button>
+        </div>
+    </header>
 
-    <!-- Role Selection Screen -->
-    <div class="role-selection" id="roleSelection">
-        <div class="nexora-logo">N</div>
-        <h1>Nexora Professional Suite v4.0</h1>
-        <p class="tagline">Executive Edition - Select Your Professional Role</p>
-        
-        <div class="roles-container">
-            <!-- Corporate Roles -->
-            <div class="role-category">
-                <h2 class="category-title">Corporate & Management</h2>
-                <div class="roles-grid">
-                    <div class="role-card" onclick="selectRole('executive')">
-                        <div class="role-icon">👔</div>
-                        <div class="role-title">C-Suite Executive</div>
-                        <div class="role-description">Strategic planning, KPIs, and board reports</div>
-                    </div>
-                    
-                    <div class="role-card" onclick="selectRole('manager')">
-                        <div class="role-icon">📊</div>
-                        <div class="role-title">Project Manager</div>
-                        <div class="role-description">Team coordination, timelines, and resources</div>
-                    </div>
-                    
-                    <div class="role-card" onclick="selectRole('sales')">
-                        <div class="role-icon">💼</div>
-                        <div class="role-title">Sales Executive</div>
-                        <div class="role-description">Pipeline, deals, and client relationships</div>
-                    </div>
-                    
-                    <div class="role-card" onclick="selectRole('hr')">
-                        <div class="role-icon">👥</div>
-                        <div class="role-title">HR Manager</div>
-                        <div class="role-description">Recruitment, employee data, and policies</div>
-                    </div>
+    <div class="container">
+        <!-- Home/Landing Screen -->
+        <div class="screen active" id="homeScreen">
+            <div class="hero-section">
+                <h1 class="hero-title">Nexora Professional Suite</h1>
+                <p class="subtitle" style="font-size: 1.5rem;">Your All-in-One Professional Platform</p>
+                
+                <div style="margin-top: 3rem;">
+                    <button class="btn btn-gold" style="width: auto; padding: 1rem 3rem; font-size: 1.2rem;" onclick="showScreen('loginScreen')">Get Started</button>
+                    <button class="btn btn-outline" style="width: auto; padding: 1rem 3rem; font-size: 1.2rem;" onclick="showScreen('pricingScreen')">View Pricing</button>
                 </div>
             </div>
+        </div>
 
-            <!-- Technical Roles -->
-            <div class="role-category">
-                <h2 class="category-title">Technical & Creative</h2>
-                <div class="roles-grid">
-                    <div class="role-card" onclick="selectRole('developer')">
-                        <div class="role-icon">💻</div>
-                        <div class="role-title">Software Developer</div>
-                        <div class="role-description">Code management, deployments, and debugging</div>
+        <!-- Login Screen -->
+        <div class="screen" id="loginScreen">
+            <div class="login-box">
+                <div class="logo" onclick="goHome()">N</div>
+                <h1>Welcome Back</h1>
+                <p class="subtitle">Sign in to your account</p>
+                
+                <div class="form-group">
+                    <label>Email Address</label>
+                    <input type="email" id="email" value="demo@nexora.com">
+                </div>
+                
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" id="password" value="demo123">
+                </div>
+                
+                <button class="btn btn-gold" onclick="login()">Sign In</button>
+                
+                <p style="margin: 1rem 0;">Quick Demo Access:</p>
+                <div class="quick-btns">
+                    <button class="btn btn-outline" onclick="quickLogin('basic')">Basic</button>
+                    <button class="btn btn-outline" onclick="quickLogin('pro')">Pro</button>
+                    <button class="btn btn-outline" onclick="quickLogin('executive')">Exec</button>
+                </div>
+                
+                <button class="btn btn-outline" onclick="quickLogin('guest')">Continue as Guest</button>
+            </div>
+        </div>
+
+        <!-- Role Selection -->
+        <div class="screen" id="roleScreen">
+            <div class="role-header">
+                <div class="tier-badge" id="tierBadge">Basic Account</div>
+                <h1>Select Your Professional Role</h1>
+                <p class="subtitle" id="tierAccess">Choose your dashboard based on your subscription</p>
+            </div>
+            
+            <div class="roles-grid" id="rolesGrid"></div>
+        </div>
+
+        <!-- Dashboard -->
+        <div class="screen" id="dashboardScreen">
+            <div class="dashboard-content">
+                <!-- Quick Apps Bar -->
+                <div class="apps-grid">
+                    <div class="app-tile" onclick="openApp('email')">
+                        <div class="app-icon">📧</div>
+                        <div class="app-label">Email</div>
                     </div>
-                    
-                    <div class="role-card" onclick="selectRole('designer')">
-                        <div class="role-icon">🎨</div>
-                        <div class="role-title">UI/UX Designer</div>
-                        <div class="role-description">Design systems, prototypes, and research</div>
+                    <div class="app-tile" onclick="openApp('calendar')">
+                        <div class="app-icon">📅</div>
+                        <div class="app-label">Calendar</div>
                     </div>
-                    
-                    <div class="role-card" onclick="selectRole('analyst')">
-                        <div class="role-icon">📉</div>
-                        <div class="role-title">Data Analyst</div>
-                        <div class="role-description">Reports, visualizations, and insights</div>
+                    <div class="app-tile" onclick="openApp('weather')">
+                        <div class="app-icon">⛅</div>
+                        <div class="app-label">Weather</div>
                     </div>
-                    
-                    <div class="role-card" onclick="selectRole('marketer')">
-                        <div class="role-icon">📈</div>
-                        <div class="role-title">Marketing Specialist</div>
-                        <div class="role-description">Campaigns, analytics, and content</div>
+                    <div class="app-tile" onclick="openApp('news')">
+                        <div class="app-icon">📰</div>
+                        <div class="app-label">News</div>
+                    </div>
+                    <div class="app-tile" onclick="openApp('stocks')">
+                        <div class="app-icon">📈</div>
+                        <div class="app-label">Finance</div>
+                    </div>
+                    <div class="app-tile" onclick="openApp('social')">
+                        <div class="app-icon">💬</div>
+                        <div class="app-label">Social</div>
+                    </div>
+                    <div class="app-tile" onclick="openApp('sports')">
+                        <div class="app-icon">⚽</div>
+                        <div class="app-label">Sports</div>
+                    </div>
+                    <div class="app-tile" onclick="openApp('music')">
+                        <div class="app-icon">🎵</div>
+                        <div class="app-label">Music</div>
+                    </div>
+                    <div class="app-tile" onclick="openApp('tasks')">
+                        <div class="app-icon">✓</div>
+                        <div class="app-label">Tasks</div>
+                    </div>
+                    <div class="app-tile" onclick="openApp('notes')">
+                        <div class="app-icon">📝</div>
+                        <div class="app-label">Notes</div>
+                    </div>
+                    <div class="app-tile" onclick="openApp('maps')">
+                        <div class="app-icon">🗺️</div>
+                        <div class="app-label">Maps</div>
+                    </div>
+                    <div class="app-tile" onclick="openApp('files')">
+                        <div class="app-icon">📁</div>
+                        <div class="app-label">Files</div>
                     </div>
                 </div>
-            </div>
 
-            <!-- Service & Field Roles -->
-            <div class="role-category">
-                <h2 class="category-title">Service & Field Operations</h2>
-                <div class="roles-grid">
-                    <div class="role-card" onclick="selectRole('driver')">
-                        <div class="role-icon">🚚</div>
-                        <div class="role-title">CDL Driver</div>
-                        <div class="role-description">Routes, deliveries, HOS compliance</div>
-                    </div>
-                    
-                    <div class="role-card" onclick="selectRole('healthcare')">
-                        <div class="role-icon">⚕️</div>
-                        <div class="role-title">Healthcare Provider</div>
-                        <div class="role-description">Patients, schedules, and records</div>
-                    </div>
-                    
-                    <div class="role-card" onclick="selectRole('retail')">
-                        <div class="role-icon">🛍️</div>
-                        <div class="role-title">Retail Manager</div>
-                        <div class="role-description">Inventory, sales, and staff</div>
-                    </div>
-                    
-                    <div class="role-card" onclick="selectRole('construction')">
-                        <div class="role-icon">🏗️</div>
-                        <div class="role-title">Construction Manager</div>
-                        <div class="role-description">Projects, safety, and equipment</div>
-                    </div>
+                <div class="welcome-box">
+                    <h1 id="welcomeTitle" style="color: #FFD700;">Welcome!</h1>
+                    <p id="welcomeSubtitle">Your professional dashboard is ready</p>
                 </div>
-            </div>
 
-            <!-- Education & Training -->
-            <div class="role-category">
-                <h2 class="category-title">Education & Training</h2>
-                <div class="roles-grid">
-                    <div class="role-card" onclick="selectRole('student')">
-                        <div class="role-icon">🎓</div>
-                        <div class="role-title">Student</div>
-                        <div class="role-description">Courses, assignments, and grades</div>
+                <div class="dashboard-container">
+                    <div class="dashboard-main">
+                        <!-- Role-Specific Stats -->
+                        <div class="stats-grid" id="statsGrid"></div>
+                        
+                        <!-- Role-Specific Actions -->
+                        <div style="background: rgba(0,0,0,0.5); border: 1px solid #FFD700; border-radius: 15px; padding: 1.5rem; margin-bottom: 2rem;">
+                            <h3 style="color: #FFD700; margin-bottom: 1rem;">Quick Actions</h3>
+                            <div class="action-grid" id="actionGrid"></div>
+                        </div>
                     </div>
-                    
-                    <div class="role-card" onclick="selectRole('teacher')">
-                        <div class="role-icon">📚</div>
-                        <div class="role-title">Educator</div>
-                        <div class="role-description">Lessons, grading, and student progress</div>
-                    </div>
-                    
-                    <div class="role-card" onclick="selectRole('trainer')">
-                        <div class="role-icon">🏋️</div>
-                        <div class="role-title">Fitness Trainer</div>
-                        <div class="role-description">Clients, workouts, and progress tracking</div>
-                    </div>
-                    
-                    <div class="role-card" onclick="selectRole('consultant')">
-                        <div class="role-icon">💡</div>
-                        <div class="role-title">Consultant</div>
-                        <div class="role-description">Clients, projects, and billable hours</div>
+
+                    <div class="dashboard-sidebar">
+                        <!-- Weather Widget -->
+                        <div class="widget">
+                            <div class="widget-title">🌤️ Weather</div>
+                            <div class="weather-display">
+                                <div class="weather-main">72°F</div>
+                                <div class="weather-details">
+                                    <div>Partly Cloudy</div>
+                                    <div style="font-size: 0.85rem; opacity: 0.7;">H: 78° L: 65°</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- News Widget -->
+                        <div class="widget">
+                            <div class="widget-title">📰 Latest News</div>
+                            <div class="news-item">
+                                <strong>Breaking:</strong> Markets reach new highs
+                            </div>
+                            <div class="news-item">
+                                <strong>Tech:</strong> AI advancements announced
+                            </div>
+                            <div class="news-item">
+                                <strong>Local:</strong> Traffic updates on I-95
+                            </div>
+                        </div>
+
+                        <!-- Stock Widget -->
+                        <div class="widget">
+                            <div class="widget-title">📈 Markets</div>
+                            <div class="stock-ticker">
+                                <div class="stock-item">
+                                    <div class="stock-symbol">DOW</div>
+                                    <div class="stock-price">35,421</div>
+                                    <div class="stock-change positive">+0.82%</div>
+                                </div>
+                                <div class="stock-item">
+                                    <div class="stock-symbol">S&P</div>
+                                    <div class="stock-price">4,512</div>
+                                    <div class="stock-change positive">+0.65%</div>
+                                </div>
+                                <div class="stock-item">
+                                    <div class="stock-symbol">NASDAQ</div>
+                                    <div class="stock-price">14,238</div>
+                                    <div class="stock-change negative">-0.12%</div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Legal Footer for Role Selection -->
-        <div class="legal-footer">
-            <h3>Legal Information</h3>
-            <div class="legal-links">
-                <a href="#">Privacy Policy</a>
-                <a href="#">Terms of Service</a>
-                <a href="#">Cookie Policy</a>
-                <a href="#">Data Protection</a>
-                <a href="#">Compliance</a>
+        <!-- Pricing Screen -->
+        <div class="screen" id="pricingScreen">
+            <div style="text-align: center; margin-bottom: 3rem;">
+                <h1>Choose Your Plan</h1>
+                <p class="subtitle">Unlock powerful features tailored to your needs</p>
             </div>
-            <p class="copyright">© 2025 Nexora Professional Suite. All rights reserved. Patent Pending.</p>
-        </div>
-    </div>
-
-    <!-- Dashboard -->
-    <div class="dashboard" id="dashboard">
-        <header class="header">
-            <div class="header-left">
-                <div class="logo-small">N</div>
-                <nav class="nav-menu" id="navMenu">
-                    <!-- Dynamic navigation based on role -->
-                </nav>
-            </div>
-            <div class="user-info">
-                <div class="user-avatar" id="userAvatar">UN</div>
-                <span id="userName">User Name</span>
-                <button class="change-role-btn" onclick="changeRole()">Change Role</button>
-            </div>
-        </header>
-
-        <div class="dashboard-content">
-            <div class="welcome-section">
-                <h2 class="welcome-title" id="welcomeTitle">Welcome back!</h2>
-                <p class="welcome-subtitle" id="welcomeSubtitle">Your personalized dashboard is ready</p>
-            </div>
-
-            <div class="stats-grid" id="statsGrid">
-                <!-- Dynamic stats based on role -->
-            </div>
-
-            <div class="quick-actions">
-                <h3>Quick Actions</h3>
-                <div class="actions-grid" id="actionsGrid">
-                    <!-- Dynamic actions based on role -->
+            
+            <div class="roles-grid">
+                <div class="role-card">
+                    <h3>Guest</h3>
+                    <div class="stat-value">Free</div>
+                    <p>2 Roles • Basic Features</p>
+                </div>
+                <div class="role-card">
+                    <h3>Basic</h3>
+                    <div class="stat-value">$19</div>
+                    <p>5 Roles • Standard Features</p>
+                </div>
+                <div class="role-card">
+                    <h3>Professional</h3>
+                    <div class="stat-value">$49</div>
+                    <p>All Roles • Full Features</p>
+                </div>
+                <div class="role-card">
+                    <h3>Executive</h3>
+                    <div class="stat-value">$99</div>
+                    <p>Premium • White Label</p>
                 </div>
             </div>
-
-            <div class="activity-section">
-                <h3>Recent Activity</h3>
-                <div class="activity-list" id="activityList">
-                    <!-- Dynamic activity based on role -->
-                </div>
-            </div>
-        </div>
-
-        <!-- Legal Footer for Dashboard -->
-        <div class="legal-footer">
-            <h3>Legal & Compliance</h3>
-            <div class="legal-links">
-                <a href="#">Privacy Policy</a>
-                <a href="#">Terms of Service</a>
-                <a href="#">Cookie Policy</a>
-                <a href="#">GDPR Compliance</a>
-                <a href="#">Accessibility</a>
-                <a href="#">Security</a>
-            </div>
-            <p class="copyright">© 2025 Nexora Professional Suite v4.0 Executive Edition. All rights reserved.<br>
-            Licensed under Enterprise Agreement. Patent US10,XXX,XXX.</p>
         </div>
     </div>
 
     <script>
-        // Create gold particles
-        function createParticles() {
-            const particlesContainer = document.getElementById('particles');
-            for (let i = 0; i < 30; i++) {
-                const particle = document.createElement('div');
-                particle.className = 'particle';
-                particle.style.left = Math.random() * 100 + '%';
-                particle.style.animationDelay = Math.random() * 15 + 's';
-                particle.style.animationDuration = (15 + Math.random() * 10) + 's';
-                particlesContainer.appendChild(particle);
-            }
-        }
-        createParticles();
+        let currentUser = { tier: null, role: null, loggedIn: false };
 
-        // Extended role configurations
+        const roles = [
+            { id: 'driver', title: 'CDL Driver', icon: '🚚', tier: 'guest' },
+            { id: 'healthcare', title: 'Healthcare Provider', icon: '⚕️', tier: 'basic' },
+            { id: 'developer', title: 'Software Developer', icon: '💻', tier: 'guest' },
+            { id: 'teacher', title: 'Teacher', icon: '📚', tier: 'basic' },
+            { id: 'sales', title: 'Sales Executive', icon: '💼', tier: 'basic' },
+            { id: 'manager', title: 'Project Manager', icon: '📊', tier: 'pro' },
+            { id: 'analyst', title: 'Data Analyst', icon: '📉', tier: 'pro' },
+            { id: 'executive', title: 'C-Suite Executive', icon: '👔', tier: 'executive' },
+            { id: 'student', title: 'Student', icon: '🎓', tier: 'guest' },
+            { id: 'retail', title: 'Retail Manager', icon: '🛍️', tier: 'basic' },
+            { id: 'chef', title: 'Chef', icon: '👨‍🍳', tier: 'basic' },
+            { id: 'lawyer', title: 'Attorney', icon: '⚖️', tier: 'pro' }
+        ];
+
+        // Role-specific dashboard configurations
         const roleConfigs = {
-            executive: {
-                title: 'C-Suite Executive',
-                icon: '👔',
-                navItems: ['Overview', 'Board Reports', 'Strategy', 'KPIs', 'Stakeholders'],
-                stats: [
-                    { label: 'Company Valuation', value: '$45.2M', change: '+12% YoY' },
-                    { label: 'Revenue Growth', value: '24%', change: '+6% QoQ' },
-                    { label: 'EBITDA Margin', value: '18.5%', change: '+2.1%' },
-                    { label: 'Market Share', value: '14.2%', change: '+1.8%' }
-                ],
-                actions: [
-                    { icon: '📊', label: 'Board Deck' },
-                    { icon: '💰', label: 'Financials' },
-                    { icon: '🎯', label: 'Strategy' },
-                    { icon: '📈', label: 'Forecast' },
-                    { icon: '🤝', label: 'M&A Review' },
-                    { icon: '⚡', label: 'Risk Report' }
-                ],
-                activities: [
-                    { icon: '📊', title: 'Q3 board presentation finalized', time: '1 hour ago' },
-                    { icon: '💰', title: 'Series B funding round closed', time: '3 hours ago' },
-                    { icon: '🎯', title: 'Strategic partnership with TechCorp', time: '1 day ago' },
-                    { icon: '📈', title: 'Exceeded quarterly revenue target by 15%', time: '2 days ago' }
-                ]
-            },
             driver: {
-                title: 'CDL Driver',
-                icon: '🚚',
-                navItems: ['Routes', 'Deliveries', 'HOS Log', 'Vehicle', 'Safety'],
                 stats: [
-                    { label: 'Miles Today', value: '342', change: '58 remaining' },
-                    { label: 'Deliveries', value: '12/15', change: '3 pending' },
-                    { label: 'HOS Available', value: '4.5h', change: 'Reset in 6h' },
-                    { label: 'Safety Score', value: '98%', change: '+2% this month' }
+                    { label: 'Miles Today', value: '342', detail: '158 miles remaining', detailClass: '' },
+                    { label: 'HOS Remaining', value: '5.5 hrs', detail: 'Drive time left', detailClass: 'warning' },
+                    { label: 'Fuel Efficiency', value: '6.8 MPG', detail: '↑ 0.3 from last week', detailClass: '' },
+                    { label: 'On-Time Delivery', value: '98%', detail: 'Last 30 days', detailClass: '' },
+                    { label: 'Safety Score', value: '94/100', detail: 'No violations', detailClass: '' },
+                    { label: 'Next Delivery', value: '2:30 PM', detail: 'Chicago, IL', detailClass: '' }
                 ],
                 actions: [
-                    { icon: '🗺️', label: 'Route' },
-                    { icon: '📋', label: 'Pre-Trip' },
-                    { icon: '⛽', label: 'Fuel Stop' },
-                    { icon: '🔧', label: 'Report Issue' },
-                    { icon: '⏰', label: 'HOS Log' },
-                    { icon: '📱', label: 'Dispatch' }
-                ],
-                activities: [
-                    { icon: '✅', title: 'Delivery completed - Chicago warehouse', time: '30 min ago' },
-                    { icon: '⛽', title: 'Fuel stop - 82 gallons', time: '2 hours ago' },
-                    { icon: '📋', title: 'Pre-trip inspection passed', time: '6 hours ago' },
-                    { icon: '🗺️', title: 'Route optimized - saved 45 miles', time: '1 day ago' }
-                ]
-            },
-            student: {
-                title: 'Student',
-                icon: '🎓',
-                navItems: ['Courses', 'Assignments', 'Grades', 'Schedule', 'Resources'],
-                stats: [
-                    { label: 'GPA', value: '3.7', change: '+0.2 this semester' },
-                    { label: 'Credits', value: '78/120', change: '15 in progress' },
-                    { label: 'Assignments Due', value: '5', change: '2 this week' },
-                    { label: 'Attendance', value: '94%', change: '+2% this month' }
-                ],
-                actions: [
-                    { icon: '📝', label: 'Assignment' },
-                    { icon: '📚', label: 'Study' },
-                    { icon: '🗓️', label: 'Schedule' },
-                    { icon: '📖', label: 'Library' },
-                    { icon: '👥', label: 'Study Group' },
-                    { icon: '💬', label: 'Office Hours' }
-                ],
-                activities: [
-                    { icon: '✅', title: 'Calculus homework submitted', time: '2 hours ago' },
-                    { icon: '📚', title: 'Joined Biology study group', time: '5 hours ago' },
-                    { icon: '🎯', title: 'Midterm exam - scored 92%', time: '2 days ago' },
-                    { icon: '📝', title: 'Research paper draft completed', time: '3 days ago' }
+                    { icon: '🗺️', label: 'Route Planning' },
+                    { icon: '⛽', label: 'Find Fuel' },
+                    { icon: '📋', label: 'Pre-Trip Check' },
+                    { icon: '🚨', label: 'Report Issue' },
+                    { icon: '⏰', label: 'Log Hours' },
+                    { icon: '📱', label: 'Contact Dispatch' }
                 ]
             },
             healthcare: {
-                title: 'Healthcare Provider',
-                icon: '⚕️',
-                navItems: ['Patients', 'Appointments', 'Records', 'Lab Results', 'Prescriptions'],
                 stats: [
-                    { label: 'Patients Today', value: '18/24', change: '6 remaining' },
-                    { label: 'Urgent Cases', value: '2', change: 'Triage needed' },
-                    { label: 'Lab Pending', value: '8', change: '3 critical' },
-                    { label: 'Satisfaction', value: '4.8/5', change: '+0.2 this month' }
+                    { label: 'Patients Today', value: '18/24', detail: '6 remaining appointments', detailClass: '' },
+                    { label: 'Avg Wait Time', value: '12 min', detail: '↓ 5 min from average', detailClass: '' },
+                    { label: 'Critical Labs', value: '3', detail: 'Review immediately', detailClass: 'danger' },
+                    { label: 'Bed Occupancy', value: '87%', detail: '14 beds available', detailClass: '' },
+                    { label: 'Prescriptions', value: '42', detail: 'Pending approval: 5', detailClass: 'warning' },
+                    { label: 'Patient Satisfaction', value: '4.8/5', detail: 'Last 30 days', detailClass: '' }
                 ],
                 actions: [
-                    { icon: '👤', label: 'Patient' },
-                    { icon: '💉', label: 'Procedure' },
-                    { icon: '🧪', label: 'Lab Order' },
-                    { icon: '💊', label: 'Prescribe' },
-                    { icon: '📋', label: 'Chart' },
+                    { icon: '👥', label: 'Patient Records' },
+                    { icon: '💉', label: 'Procedures' },
+                    { icon: '🧪', label: 'Lab Results' },
+                    { icon: '💊', label: 'Medications' },
+                    { icon: '📊', label: 'Charts' },
                     { icon: '🚨', label: 'Emergency' }
-                ],
-                activities: [
-                    { icon: '👤', title: 'Patient consultation completed', time: '15 min ago' },
-                    { icon: '🧪', title: 'Lab results reviewed - 5 patients', time: '1 hour ago' },
-                    { icon: '💉', title: 'Vaccination administered', time: '2 hours ago' },
-                    { icon: '📋', title: 'Medical records updated', time: '3 hours ago' }
-                ]
-            },
-            hr: {
-                title: 'HR Manager',
-                icon: '👥',
-                navItems: ['Employees', 'Recruitment', 'Benefits', 'Policies', 'Training'],
-                stats: [
-                    { label: 'Headcount', value: '342', change: '+12 this month' },
-                    { label: 'Open Positions', value: '18', change: '5 critical' },
-                    { label: 'Retention Rate', value: '91%', change: '+3% YoY' },
-                    { label: 'eNPS Score', value: '72', change: '+8 points' }
-                ],
-                actions: [
-                    { icon: '📝', label: 'Post Job' },
-                    { icon: '👤', label: 'Interview' },
-                    { icon: '📊', label: 'Review' },
-                    { icon: '🎓', label: 'Training' },
-                    { icon: '💼', label: 'Onboard' },
-                    { icon: '📋', label: 'Policy' }
-                ],
-                activities: [
-                    { icon: '👤', title: '3 interviews scheduled for Sr. Developer role', time: '1 hour ago' },
-                    { icon: '💼', title: 'New employee onboarding completed', time: '3 hours ago' },
-                    { icon: '📊', title: 'Q3 performance reviews initiated', time: '1 day ago' },
-                    { icon: '🎓', title: 'Leadership training program launched', time: '2 days ago' }
-                ]
-            },
-            retail: {
-                title: 'Retail Manager',
-                icon: '🛍️',
-                navItems: ['Sales', 'Inventory', 'Staff', 'Customers', 'Reports'],
-                stats: [
-                    { label: 'Daily Sales', value: '$24,850', change: '+15% vs target' },
-                    { label: 'Units Sold', value: '342', change: '+45 vs yesterday' },
-                    { label: 'Conversion Rate', value: '32%', change: '+5%' },
-                    { label: 'Stock Level', value: '78%', change: 'Reorder needed' }
-                ],
-                actions: [
-                    { icon: '💰', label: 'Register' },
-                    { icon: '📦', label: 'Restock' },
-                    { icon: '👥', label: 'Schedule' },
-                    { icon: '📊', label: 'Reports' },
-                    { icon: '🏷️', label: 'Pricing' },
-                    { icon: '🎯', label: 'Promotion' }
-                ],
-                activities: [
-                    { icon: '💰', title: 'Flash sale generated $5,200', time: '1 hour ago' },
-                    { icon: '📦', title: 'Inventory restock completed', time: '3 hours ago' },
-                    { icon: '👥', title: 'Staff meeting - new product training', time: '5 hours ago' },
-                    { icon: '🎯', title: 'Weekend promotion setup complete', time: '1 day ago' }
-                ]
-            },
-            construction: {
-                title: 'Construction Manager',
-                icon: '🏗️',
-                navItems: ['Projects', 'Safety', 'Equipment', 'Crew', 'Materials'],
-                stats: [
-                    { label: 'Active Projects', value: '6', change: '2 on schedule' },
-                    { label: 'Safety Score', value: '98.5%', change: '+0.5%' },
-                    { label: 'Equipment Util', value: '87%', change: 'Optimal' },
-                    { label: 'Budget Status', value: '-2.3%', change: 'Under budget' }
-                ],
-                actions: [
-                    { icon: '👷', label: 'Safety Check' },
-                    { icon: '📋', label: 'Inspect' },
-                    { icon: '🚜', label: 'Equipment' },
-                    { icon: '📊', label: 'Progress' },
-                    { icon: '📦', label: 'Materials' },
-                    { icon: '⚠️', label: 'Permit' }
-                ],
-                activities: [
-                    { icon: '👷', title: 'Safety inspection passed - Site B', time: '2 hours ago' },
-                    { icon: '📊', title: 'Phase 2 completed ahead of schedule', time: '4 hours ago' },
-                    { icon: '🚜', title: 'Equipment maintenance completed', time: '1 day ago' },
-                    { icon: '📋', title: 'Building permit approved', time: '2 days ago' }
-                ]
-            },
-            teacher: {
-                title: 'Educator',
-                icon: '📚',
-                navItems: ['Classes', 'Students', 'Lessons', 'Grading', 'Resources'],
-                stats: [
-                    { label: 'Students', value: '124', change: '5 classes' },
-                    { label: 'Assignments', value: '32', change: '8 to grade' },
-                    { label: 'Attendance', value: '92%', change: '+3% this week' },
-                    { label: 'Avg Grade', value: 'B+', change: '+0.3 GPA' }
-                ],
-                actions: [
-                    { icon: '📝', label: 'Lesson Plan' },
-                    { icon: '✅', label: 'Grade' },
-                    { icon: '👥', label: 'Parent Contact' },
-                    { icon: '📚', label: 'Materials' },
-                    { icon: '📊', label: 'Progress' },
-                    { icon: '🎯', label: 'Assessment' }
-                ],
-                activities: [
-                    { icon: '✅', title: 'Math quiz graded - Class 3B', time: '1 hour ago' },
-                    { icon: '📝', title: 'Next week lesson plans completed', time: '3 hours ago' },
-                    { icon: '👥', title: 'Parent-teacher conference scheduled', time: '5 hours ago' },
-                    { icon: '📊', title: 'Mid-term progress reports sent', time: '1 day ago' }
-                ]
-            },
-            trainer: {
-                title: 'Fitness Trainer',
-                icon: '🏋️',
-                navItems: ['Clients', 'Sessions', 'Programs', 'Progress', 'Nutrition'],
-                stats: [
-                    { label: 'Active Clients', value: '42', change: '+5 this month' },
-                    { label: 'Sessions Today', value: '8/10', change: '2 remaining' },
-                    { label: 'Client Retention', value: '89%', change: '+4%' },
-                    { label: 'Avg Progress', value: '+12%', change: 'Strength gains' }
-                ],
-                actions: [
-                    { icon: '💪', label: 'Workout' },
-                    { icon: '📊', label: 'Assessment' },
-                    { icon: '🥗', label: 'Meal Plan' },
-                    { icon: '📅', label: 'Schedule' },
-                    { icon: '📈', label: 'Track' },
-                    { icon: '🎯', label: 'Goals' }
-                ],
-                activities: [
-                    { icon: '💪', title: 'HIIT session completed with John', time: '1 hour ago' },
-                    { icon: '📊', title: 'Monthly assessment - Sarah +15lbs muscle', time: '3 hours ago' },
-                    { icon: '🥗', title: 'Nutrition plan updated for 5 clients', time: '5 hours ago' },
-                    { icon: '🎯', title: 'New 12-week program created', time: '1 day ago' }
-                ]
-            },
-            consultant: {
-                title: 'Consultant',
-                icon: '💡',
-                navItems: ['Clients', 'Projects', 'Billing', 'Proposals', 'Reports'],
-                stats: [
-                    { label: 'Active Projects', value: '8', change: '3 closing soon' },
-                    { label: 'Billable Hours', value: '142h', change: '+22h this week' },
-                    { label: 'Revenue MTD', value: '$68.5k', change: '+18% vs target' },
-                    { label: 'Client Satisfaction', value: '4.9/5', change: '+0.2' }
-                ],
-                actions: [
-                    { icon: '📋', label: 'Proposal' },
-                    { icon: '💰', label: 'Invoice' },
-                    { icon: '📊', label: 'Analysis' },
-                    { icon: '🎯', label: 'Strategy' },
-                    { icon: '📝', label: 'Report' },
-                    { icon: '🤝', label: 'Meeting' }
-                ],
-                activities: [
-                    { icon: '📋', title: 'Proposal submitted to Fortune 500 client', time: '2 hours ago' },
-                    { icon: '💰', title: 'Invoice processed - $45,000', time: '4 hours ago' },
-                    { icon: '📊', title: 'Market analysis completed for TechStart', time: '6 hours ago' },
-                    { icon: '🤝', title: 'Strategy session with executive team', time: '1 day ago' }
                 ]
             },
             developer: {
-                title: 'Software Developer',
-                icon: '💻',
-                navItems: ['Projects', 'Code Review', 'Deployments', 'Documentation', 'APIs'],
                 stats: [
-                    { label: 'Active PRs', value: '12', change: '+3 this week' },
-                    { label: 'Code Coverage', value: '87%', change: '+2.3%' },
-                    { label: 'Build Success', value: '96%', change: '+1.2%' },
-                    { label: 'Open Issues', value: '24', change: '-5 this week', negative: true }
+                    { label: 'Pull Requests', value: '7', detail: '3 awaiting review', detailClass: 'warning' },
+                    { label: 'Build Status', value: 'Passing', detail: 'All tests green', detailClass: '' },
+                    { label: 'Code Coverage', value: '84%', detail: '↑ 2% this week', detailClass: '' },
+                    { label: 'Sprint Progress', value: '65%', detail: '4 days remaining', detailClass: '' },
+                    { label: 'Bugs Assigned', value: '12', detail: '3 critical', detailClass: 'danger' },
+                    { label: 'Deploy Queue', value: '2', detail: 'Ready for staging', detailClass: '' }
                 ],
                 actions: [
+                    { icon: '💻', label: 'Code Editor' },
+                    { icon: '🔀', label: 'Git Repos' },
                     { icon: '🚀', label: 'Deploy' },
-                    { icon: '🔍', label: 'Review PR' },
                     { icon: '🐛', label: 'Debug' },
-                    { icon: '📝', label: 'Document' },
-                    { icon: '⚡', label: 'Optimize' },
-                    { icon: '🔧', label: 'Configure' }
-                ],
-                activities: [
-                    { icon: '✅', title: 'Deployment successful to production', time: '2 minutes ago' },
-                    { icon: '🔄', title: 'PR #142 merged to main branch', time: '15 minutes ago' },
-                    { icon: '🐛', title: 'Fixed critical bug in auth module', time: '1 hour ago' },
-                    { icon: '📦', title: 'Package dependencies updated', time: '3 hours ago' }
+                    { icon: '📝', label: 'Documentation' },
+                    { icon: '🔧', label: 'CI/CD Pipeline' }
                 ]
             },
-            designer: {
-                title: 'UI/UX Designer',
-                icon: '🎨',
-                navItems: ['Projects', 'Design System', 'Prototypes', 'Research', 'Assets'],
+            teacher: {
                 stats: [
-                    { label: 'Active Projects', value: '8', change: '+2 this week' },
-                    { label: 'Components', value: '156', change: '+12 added' },
-                    { label: 'User Tests', value: '24', change: '+5 this month' },
-                    { label: 'Iterations', value: '3.2', change: 'Avg per design' }
+                    { label: 'Classes Today', value: '5/7', detail: '2 remaining', detailClass: '' },
+                    { label: 'Assignments Due', value: '28', detail: 'Need grading', detailClass: 'warning' },
+                    { label: 'Student Average', value: '82%', detail: 'Class GPA: 3.3', detailClass: '' },
+                    { label: 'Attendance Rate', value: '94%', detail: 'Today: 26/28', detailClass: '' },
+                    { label: 'Parent Messages', value: '6', detail: '3 unread', detailClass: 'warning' },
+                    { label: 'Lesson Plans', value: '100%', detail: 'Week complete', detailClass: '' }
                 ],
                 actions: [
-                    { icon: '🎨', label: 'New Design' },
-                    { icon: '📐', label: 'Prototype' },
-                    { icon: '🎯', label: 'User Test' },
-                    { icon: '🖼️', label: 'Export Assets' },
-                    { icon: '📊', label: 'Research' },
-                    { icon: '🔄', label: 'Iterate' }
-                ],
-                activities: [
-                    { icon: '🎨', title: 'Updated brand color palette', time: '30 minutes ago' },
-                    { icon: '📐', title: 'New prototype for mobile app', time: '2 hours ago' },
-                    { icon: '👥', title: 'User testing session completed', time: '4 hours ago' },
-                    { icon: '✨', title: 'Design system v2.1 published', time: '1 day ago' }
-                ]
-            },
-            manager: {
-                title: 'Project Manager',
-                icon: '📊',
-                navItems: ['Dashboard', 'Teams', 'Timeline', 'Resources', 'Reports'],
-                stats: [
-                    { label: 'Active Projects', value: '15', change: '+3 this month' },
-                    { label: 'Team Velocity', value: '42pts', change: '+8 pts' },
-                    { label: 'On Schedule', value: '78%', change: '+5%' },
-                    { label: 'Budget Used', value: '62%', change: 'On track' }
-                ],
-                actions: [
-                    { icon: '📋', label: 'New Task' },
-                    { icon: '👥', label: 'Team Meeting' },
-                    { icon: '📊', label: 'Report' },
-                    { icon: '🎯', label: 'Set Goals' },
-                    { icon: '📅', label: 'Schedule' },
-                    { icon: '💰', label: 'Budget' }
-                ],
-                activities: [
-                    { icon: '✅', title: 'Sprint 14 completed successfully', time: '1 hour ago' },
-                    { icon: '📊', title: 'Q3 report submitted to stakeholders', time: '3 hours ago' },
-                    { icon: '👥', title: 'Team standup completed', time: '5 hours ago' },
-                    { icon: '🎯', title: 'Milestone 3 achieved', time: '1 day ago' }
-                ]
-            },
-            marketer: {
-                title: 'Marketing Specialist',
-                icon: '📈',
-                navItems: ['Campaigns', 'Analytics', 'Content', 'Social', 'Email'],
-                stats: [
-                    { label: 'Campaign ROI', value: '342%', change: '+45%' },
-                    { label: 'Engagement', value: '8.7%', change: '+2.1%' },
-                    { label: 'Leads', value: '1,247', change: '+234 this week' },
-                    { label: 'Conversion', value: '4.2%', change: '+0.8%' }
-                ],
-                actions: [
-                    { icon: '📣', label: 'Campaign' },
-                    { icon: '✍️', label: 'Content' },
-                    { icon: '📧', label: 'Email Blast' },
-                    { icon: '📱', label: 'Social Post' },
-                    { icon: '📈', label: 'Analytics' },
-                    { icon: '🎯', label: 'A/B Test' }
-                ],
-                activities: [
-                    { icon: '📣', title: 'Summer campaign launched', time: '2 hours ago' },
-                    { icon: '📧', title: 'Newsletter sent to 10k subscribers', time: '4 hours ago' },
-                    { icon: '📱', title: 'Social media posts scheduled', time: '6 hours ago' },
-                    { icon: '📈', title: 'Weekly analytics report generated', time: '1 day ago' }
-                ]
-            },
-            analyst: {
-                title: 'Data Analyst',
-                icon: '📉',
-                navItems: ['Dashboards', 'Reports', 'Data Sources', 'Models', 'Insights'],
-                stats: [
-                    { label: 'Datasets', value: '47', change: '+5 connected' },
-                    { label: 'Accuracy', value: '94.2%', change: '+1.3%' },
-                    { label: 'Reports', value: '28', change: '+7 this month' },
-                    { label: 'Queries/Day', value: '156', change: '+23' }
-                ],
-                actions: [
-                    { icon: '📊', label: 'Visualize' },
-                    { icon: '🔍', label: 'Query' },
-                    { icon: '📈', label: 'Analyze' },
-                    { icon: '🤖', label: 'ML Model' },
-                    { icon: '📑', label: 'Report' },
-                    { icon: '🔄', label: 'ETL Job' }
-                ],
-                activities: [
-                    { icon: '📊', title: 'Sales forecast model updated', time: '1 hour ago' },
-                    { icon: '🔍', title: 'Customer segmentation completed', time: '3 hours ago' },
-                    { icon: '📈', title: 'Monthly KPI dashboard refreshed', time: '5 hours ago' },
-                    { icon: '🤖', title: 'Predictive model deployed', time: '1 day ago' }
+                    { icon: '📝', label: 'Grade Work' },
+                    { icon: '📚', label: 'Lesson Plans' },
+                    { icon: '👥', label: 'Student Records' },
+                    { icon: '📊', label: 'Progress Reports' },
+                    { icon: '💬', label: 'Parent Portal' },
+                    { icon: '🎓', label: 'Resources' }
                 ]
             },
             sales: {
-                title: 'Sales Executive',
-                icon: '💼',
-                navItems: ['Pipeline', 'Contacts', 'Deals', 'Activities', 'Reports'],
                 stats: [
-                    { label: 'Pipeline Value', value: '$2.4M', change: '+$450k' },
-                    { label: 'Win Rate', value: '32%', change: '+5%' },
-                    { label: 'Active Deals', value: '67', change: '+12 this week' },
-                    { label: 'Quota', value: '87%', change: 'On track' }
+                    { label: 'Pipeline Value', value: '$2.4M', detail: '12 deals in progress', detailClass: '' },
+                    { label: 'Quota Progress', value: '78%', detail: '$180k to goal', detailClass: 'warning' },
+                    { label: 'Win Rate', value: '34%', detail: '↑ 5% this quarter', detailClass: '' },
+                    { label: 'Calls Today', value: '18/25', detail: '7 scheduled remaining', detailClass: '' },
+                    { label: 'Proposals Sent', value: '6', detail: '2 awaiting signature', detailClass: '' },
+                    { label: 'Follow-ups', value: '14', detail: 'Due today', detailClass: 'warning' }
                 ],
                 actions: [
-                    { icon: '📞', label: 'Call' },
-                    { icon: '📧', label: 'Email' },
-                    { icon: '🤝', label: 'Meeting' },
-                    { icon: '💰', label: 'New Deal' },
-                    { icon: '📝', label: 'Quote' },
-                    { icon: '✅', label: 'Close Deal' }
+                    { icon: '📞', label: 'Make Calls' },
+                    { icon: '💰', label: 'Deal Pipeline' },
+                    { icon: '📧', label: 'Email Campaigns' },
+                    { icon: '🤝', label: 'Schedule Meeting' },
+                    { icon: '📊', label: 'Sales Reports' },
+                    { icon: '🎯', label: 'Leads' }
+                ]
+            },
+            student: {
+                stats: [
+                    { label: 'Current GPA', value: '3.7', detail: 'Dean\'s List', detailClass: '' },
+                    { label: 'Credits', value: '78/120', detail: '42 remaining', detailClass: '' },
+                    { label: 'Assignments Due', value: '5', detail: '2 due tomorrow', detailClass: 'warning' },
+                    { label: 'Study Hours', value: '28h', detail: 'This week', detailClass: '' },
+                    { label: 'Attendance', value: '96%', detail: 'No absences this month', detailClass: '' },
+                    { label: 'Next Exam', value: '3 days', detail: 'Calculus II', detailClass: 'warning' }
                 ],
-                activities: [
-                    { icon: '💰', title: 'Deal worth $125k closed', time: '30 minutes ago' },
-                    { icon: '🤝', title: 'Client meeting with Acme Corp', time: '2 hours ago' },
-                    { icon: '📞', title: '15 discovery calls completed', time: '4 hours ago' },
-                    { icon: '📧', title: 'Proposal sent to 3 prospects', time: '1 day ago' }
+                actions: [
+                    { icon: '📚', label: 'Course Materials' },
+                    { icon: '📝', label: 'Assignments' },
+                    { icon: '🗓️', label: 'Class Schedule' },
+                    { icon: '📊', label: 'Grades' },
+                    { icon: '👥', label: 'Study Groups' },
+                    { icon: '📖', label: 'Library' }
+                ]
+            },
+            retail: {
+                stats: [
+                    { label: 'Sales Today', value: '$18,420', detail: '↑ 12% vs yesterday', detailClass: '' },
+                    { label: 'Customers', value: '342', detail: 'Avg transaction: $53.80', detailClass: '' },
+                    { label: 'Stock Level', value: '78%', detail: '15 items low', detailClass: 'warning' },
+                    { label: 'Staff on Duty', value: '12/14', detail: '2 called out', detailClass: 'warning' },
+                    { label: 'Returns', value: '8', detail: '$420 total', detailClass: '' },
+                    { label: 'Conversion Rate', value: '42%', detail: '↑ 3% from last week', detailClass: '' }
+                ],
+                actions: [
+                    { icon: '💰', label: 'POS System' },
+                    { icon: '📦', label: 'Inventory' },
+                    { icon: '👥', label: 'Staff Schedule' },
+                    { icon: '📊', label: 'Sales Reports' },
+                    { icon: '🏷️', label: 'Promotions' },
+                    { icon: '📱', label: 'Customer Service' }
+                ]
+            },
+            chef: {
+                stats: [
+                    { label: 'Orders Tonight', value: '142', detail: 'Est. 180 by close', detailClass: '' },
+                    { label: 'Avg Ticket Time', value: '18 min', detail: 'Target: 15 min', detailClass: 'warning' },
+                    { label: 'Food Cost', value: '28%', detail: 'Within budget', detailClass: '' },
+                    { label: 'Inventory', value: '92%', detail: 'Order seafood tomorrow', detailClass: '' },
+                    { label: 'Staff', value: '8/8', detail: 'Full team tonight', detailClass: '' },
+                    { label: 'Special Sold', value: '34/50', detail: 'Lobster Risotto', detailClass: '' }
+                ],
+                actions: [
+                    { icon: '🍽️', label: 'Orders' },
+                    { icon: '📋', label: 'Menu Planning' },
+                    { icon: '📦', label: 'Inventory' },
+                    { icon: '👨‍🍳', label: 'Prep List' },
+                    { icon: '⏰', label: 'Timers' },
+                    { icon: '📊', label: 'Food Cost' }
                 ]
             }
         };
 
-        let currentRole = null;
+        const tierLevels = { guest: 0, basic: 1, pro: 2, executive: 3 };
+
+        function showScreen(screenId) {
+            document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+            document.getElementById(screenId).classList.add('active');
+            window.scrollTo(0, 0);
+        }
+
+        function goHome() {
+            if (currentUser.loggedIn && currentUser.role) {
+                showDashboard();
+            } else {
+                showScreen('homeScreen');
+            }
+        }
+
+        function login() {
+            currentUser.tier = 'pro';
+            currentUser.loggedIn = true;
+            updateAuthUI();
+            showRoles();
+        }
+
+        function quickLogin(tier) {
+            currentUser.tier = tier;
+            currentUser.loggedIn = true;
+            updateAuthUI();
+            showRoles();
+        }
+
+        function logout() {
+            currentUser = { tier: null, role: null, loggedIn: false };
+            updateAuthUI();
+            showScreen('homeScreen');
+        }
+
+        function updateAuthUI() {
+            const loginBtn = document.getElementById('loginBtn');
+            const dashboardBtn = document.getElementById('dashboardBtn');
+            const logoutBtn = document.getElementById('logoutBtn');
+            const userStatus = document.getElementById('userStatusBadge');
+            
+            if (currentUser.loggedIn) {
+                loginBtn.style.display = 'none';
+                dashboardBtn.style.display = 'inline-block';
+                logoutBtn.style.display = 'inline-block';
+                userStatus.style.display = 'inline-block';
+                userStatus.textContent = currentUser.tier.toUpperCase();
+                userStatus.className = 'user-status tier-' + currentUser.tier;
+            } else {
+                loginBtn.style.display = 'inline-block';
+                dashboardBtn.style.display = 'none';
+                logoutBtn.style.display = 'none';
+                userStatus.style.display = 'none';
+            }
+        }
+
+        function showRoles() {
+            if (!currentUser.loggedIn) {
+                showScreen('loginScreen');
+                return;
+            }
+            
+            showScreen('roleScreen');
+            
+            const badge = document.getElementById('tierBadge');
+            badge.className = 'tier-badge tier-' + currentUser.tier;
+            badge.textContent = currentUser.tier.charAt(0).toUpperCase() + currentUser.tier.slice(1) + ' Account';
+            
+            const grid = document.getElementById('rolesGrid');
+            grid.innerHTML = '';
+            
+            roles.forEach(role => {
+                const canAccess = tierLevels[currentUser.tier] >= tierLevels[role.tier];
+                const card = document.createElement('div');
+                card.className = 'role-card' + (canAccess ? '' : ' locked');
+                card.innerHTML = `
+                    <div class="role-icon">${role.icon}</div>
+                    <div class="role-title">${role.title}</div>
+                    ${!canAccess ? `<small style="color: #999;">Requires ${role.tier}</small>` : ''}
+                `;
+                if (canAccess) {
+                    card.onclick = () => selectRole(role);
+                }
+                grid.appendChild(card);
+            });
+        }
 
         function selectRole(role) {
-            currentRole = role;
-            const config = roleConfigs[role];
-            
-            // Hide role selection, show dashboard
-            document.getElementById('roleSelection').style.display = 'none';
-            document.getElementById('dashboard').classList.add('active');
-            
-            // Update header
-            document.getElementById('userAvatar').textContent = config.icon;
-            document.getElementById('userName').textContent = `${config.title}`;
-            
-            // Update navigation
-            const navMenu = document.getElementById('navMenu');
-            navMenu.innerHTML = config.navItems.map((item, index) => 
-                `<div class="nav-item ${index === 0 ? 'active' : ''}">${item}</div>`
-            ).join('');
-            
-            // Update welcome message
-            document.getElementById('welcomeTitle').textContent = `Welcome to Executive Dashboard`;
-            document.getElementById('welcomeSubtitle').textContent = `${config.title} Professional Suite - Optimized for Excellence`;
-            
-            // Update stats
-            const statsGrid = document.getElementById('statsGrid');
-            statsGrid.innerHTML = config.stats.map(stat => `
-                <div class="stat-card">
-                    <div class="stat-label">${stat.label}</div>
-                    <div class="stat-value">${stat.value}</div>
-                    <div class="stat-change ${stat.negative ? 'negative' : ''}">${stat.change}</div>
-                </div>
-            `).join('');
-            
-            // Update actions
-            const actionsGrid = document.getElementById('actionsGrid');
-            actionsGrid.innerHTML = config.actions.map(action => `
-                <div class="action-btn">
-                    <div class="action-icon">${action.icon}</div>
-                    <div class="action-label">${action.label}</div>
-                </div>
-            `).join('');
-            
-            // Update activities
-            const activityList = document.getElementById('activityList');
-            activityList.innerHTML = config.activities.map(activity => `
-                <div class="activity-item">
-                    <div class="activity-icon">${activity.icon}</div>
-                    <div class="activity-details">
-                        <div class="activity-title">${activity.title}</div>
-                        <div class="activity-time">${activity.time}</div>
-                    </div>
-                </div>
-            `).join('');
+            currentUser.role = role;
+            showDashboard();
         }
 
-        function changeRole() {
-            // Reset to role selection
-            document.getElementById('dashboard').classList.remove('active');
-            document.getElementById('roleSelection').style.display = 'flex';
-            currentRole = null;
-        }
-
-        // Add click handlers to nav items
-        document.addEventListener('click', function(e) {
-            if (e.target.classList.contains('nav-item')) {
-                document.querySelectorAll('.nav-item').forEach(item => {
-                    item.classList.remove('active');
-                });
-                e.target.classList.add('active');
+        function showDashboard() {
+            if (!currentUser.loggedIn || !currentUser.role) {
+                showScreen('loginScreen');
+                return;
             }
-        });
+            
+            showScreen('dashboardScreen');
+            
+            document.getElementById('welcomeTitle').textContent = `${currentUser.role.icon} ${currentUser.role.title} Dashboard`;
+            document.getElementById('welcomeSubtitle').textContent = `${currentUser.tier.charAt(0).toUpperCase() + currentUser.tier.slice(1)} tier • Real-time professional insights`;
+            
+            // Load role-specific stats
+            const config = roleConfigs[currentUser.role.id] || roleConfigs['developer'];
+            const statsGrid = document.getElementById('statsGrid');
+            
+            if (config.stats) {
+                statsGrid.innerHTML = config.stats.map(stat => `
+                    <div class="stat-card">
+                        <div class="stat-label">${stat.label}</div>
+                        <div class="stat-value">${stat.value}</div>
+                        <div class="stat-detail ${stat.detailClass || ''}">${stat.detail}</div>
+                    </div>
+                `).join('');
+            }
+            
+            // Load role-specific actions
+            const actionGrid = document.getElementById('actionGrid');
+            if (config.actions) {
+                actionGrid.innerHTML = config.actions.map(action => `
+                    <div class="action-btn">
+                        <div class="action-icon">${action.icon}</div>
+                        <div class="action-label">${action.label}</div>
+                    </div>
+                `).join('');
+            }
+        }
+
+        function openApp(appName) {
+            alert(`Opening ${appName} app... This would integrate with real ${appName} services.`);
+        }
+
+        function showApps() {
+            if (currentUser.loggedIn) {
+                showDashboard();
+            } else {
+                alert('Sign in to access all apps!');
+                showScreen('loginScreen');
+            }
+        }
+
+        function showAbout() {
+            alert('Nexora Professional Suite v4.0 - Your complete professional platform');
+        }
+
+        // Initialize
+        updateAuthUI();
     </script>
 </body>
 </html>
