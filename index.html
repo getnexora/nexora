@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nexora Professional Suite v4.0</title>
+    <title>Nexora Professional Suite v1.1.01 - Prototype</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
@@ -12,6 +12,58 @@
             background: linear-gradient(135deg, #000 0%, #1a1a1a 50%, #000 100%);
             min-height: 100vh;
             color: #fff;
+            padding-top: 35px;
+        }
+
+        /* Prototype Banner */
+        .prototype-banner {
+            background: linear-gradient(90deg, #FFD700, #FF6B6B, #FFD700);
+            color: #000;
+            text-align: center;
+            padding: 10px;
+            font-weight: bold;
+            font-size: 14px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 2001;
+        }
+
+        .prototype-banner span {
+            background: rgba(0,0,0,0.8);
+            color: #FFD700;
+            padding: 2px 10px;
+            border-radius: 12px;
+            margin-left: 10px;
+        }
+
+        /* Feedback FAB */
+        .feedback-fab {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #FFD700, #FFA500);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 5px 20px rgba(255,215,0,0.4);
+            z-index: 1999;
+            transition: all 0.3s;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .feedback-fab:hover {
+            transform: scale(1.1);
         }
 
         /* Global Navigation Header */
@@ -20,7 +72,7 @@
             border-bottom: 2px solid #FFD700;
             padding: 1rem 2rem;
             position: sticky;
-            top: 0;
+            top: 35px;
             z-index: 1000;
             display: flex;
             justify-content: space-between;
@@ -65,7 +117,7 @@
             cursor: pointer;
         }
 
-        .nav-link:hover, .nav-link.active {
+        .nav-link:hover {
             background: rgba(255,215,0,0.2);
             color: #FFD700;
         }
@@ -122,7 +174,7 @@
         }
 
         .logo:hover {
-            transform: scale(1.05);
+            transform: scale(1.1);
         }
 
         h1 {
@@ -146,19 +198,13 @@
             margin-bottom: 0.5rem;
         }
 
-        input {
+        input, select {
             width: 100%;
             padding: 0.75rem;
             background: rgba(255,255,255,0.1);
             border: 1px solid #FFD700;
             border-radius: 8px;
             color: #fff;
-        }
-
-        input:focus {
-            outline: none;
-            border-color: #FFD700;
-            box-shadow: 0 0 10px rgba(255,215,0,0.3);
         }
 
         .btn {
@@ -200,56 +246,12 @@
             margin-bottom: 0;
         }
 
-        /* Dashboard Layout */
-        .dashboard-container {
-            display: flex;
-            gap: 2rem;
-        }
-
-        .dashboard-main {
-            flex: 1;
-        }
-
-        .dashboard-sidebar {
-            width: 320px;
-        }
-
-        /* Quick Apps Grid */
-        .apps-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-            gap: 1rem;
-            margin-bottom: 2rem;
-            padding: 1.5rem;
-            background: rgba(0,0,0,0.5);
-            border: 1px solid #FFD700;
-            border-radius: 15px;
-        }
-
-        .app-tile {
-            background: linear-gradient(135deg, rgba(255,215,0,0.1), rgba(255,215,0,0.05));
-            border: 1px solid rgba(255,215,0,0.3);
-            border-radius: 12px;
-            padding: 1rem;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .app-tile:hover {
-            transform: translateY(-5px);
-            background: rgba(255,215,0,0.2);
-            box-shadow: 0 10px 20px rgba(255,215,0,0.3);
-        }
-
-        .app-icon {
-            font-size: 2rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .app-label {
-            font-size: 0.85rem;
-            color: #FFD700;
+        .btn-small {
+            padding: 0.5rem 1rem;
+            font-size: 0.9rem;
+            width: auto;
+            display: inline-block;
+            margin: 0 0.5rem;
         }
 
         /* Role Selection */
@@ -293,209 +295,16 @@
             background: rgba(255,215,0,0.2);
         }
 
-        .role-card.locked {
-            opacity: 0.5;
-            cursor: not-allowed;
-            position: relative;
-        }
-
-        .role-card.locked::after {
-            content: '🔒';
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-        }
-
         .role-icon { font-size: 2.5rem; margin-bottom: 1rem; }
         .role-title { color: #FFD700; margin-bottom: 0.5rem; }
 
         /* Dashboard Content */
-        .dashboard-content {
-            margin-top: 2rem;
-        }
-
         .welcome-box {
             background: linear-gradient(135deg, rgba(255,215,0,0.1), transparent);
             border: 1px solid #FFD700;
             border-radius: 15px;
             padding: 2rem;
             margin-bottom: 2rem;
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin-bottom: 2rem;
-        }
-
-        .stat-card {
-            background: rgba(255,215,0,0.1);
-            border: 1px solid #FFD700;
-            border-radius: 15px;
-            padding: 1.5rem;
-            transition: all 0.3s;
-            position: relative;
-        }
-
-        .stat-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(255,215,0,0.2);
-        }
-
-        .stat-label {
-            font-size: 0.9rem;
-            opacity: 0.8;
-            margin-bottom: 0.5rem;
-        }
-
-        .stat-value {
-            font-size: 2rem;
-            color: #FFD700;
-            font-weight: bold;
-            margin-bottom: 0.5rem;
-        }
-
-        .stat-detail {
-            font-size: 0.85rem;
-            color: #10b981;
-        }
-
-        .stat-detail.warning {
-            color: #f59e0b;
-        }
-
-        .stat-detail.danger {
-            color: #ef4444;
-        }
-
-        /* Widgets */
-        .widgets-container {
-            display: grid;
-            gap: 1.5rem;
-        }
-
-        .widget {
-            background: rgba(0,0,0,0.7);
-            border: 1px solid #FFD700;
-            border-radius: 15px;
-            padding: 1.5rem;
-        }
-
-        .widget-title {
-            color: #FFD700;
-            font-size: 1.1rem;
-            margin-bottom: 1rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 1px solid rgba(255,215,0,0.3);
-        }
-
-        /* Weather Widget */
-        .weather-display {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .weather-main {
-            font-size: 2.5rem;
-            color: #FFD700;
-        }
-
-        .weather-details {
-            text-align: right;
-        }
-
-        /* News Items */
-        .news-item {
-            padding: 0.75rem;
-            margin-bottom: 0.5rem;
-            background: rgba(255,215,0,0.05);
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .news-item:hover {
-            background: rgba(255,215,0,0.1);
-        }
-
-        /* Action Buttons */
-        .action-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 1rem;
-        }
-
-        .action-btn {
-            background: linear-gradient(135deg, rgba(255,215,0,0.1), transparent);
-            border: 1px solid #FFD700;
-            border-radius: 12px;
-            padding: 1.5rem;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .action-btn:hover {
-            transform: translateY(-5px);
-            background: rgba(255,215,0,0.2);
-            box-shadow: 0 10px 20px rgba(255,215,0,0.2);
-        }
-
-        .action-icon {
-            font-size: 2rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .action-label {
-            font-size: 0.9rem;
-            color: #FFD700;
-        }
-
-        .btn-small {
-            padding: 0.5rem 1rem;
-            font-size: 0.9rem;
-            width: auto;
-            display: inline-block;
-            margin: 0 0.5rem;
-        }
-
-        /* Stock Ticker */
-        .stock-ticker {
-            display: flex;
-            gap: 1.5rem;
-            overflow-x: auto;
-            padding: 0.5rem 0;
-        }
-
-        .stock-item {
-            min-width: 100px;
-            text-align: center;
-            padding: 0.5rem;
-            background: rgba(255,215,0,0.05);
-            border-radius: 8px;
-        }
-
-        .stock-symbol {
-            font-weight: bold;
-            color: #FFD700;
-        }
-
-        .stock-price {
-            font-size: 1.2rem;
-        }
-
-        .stock-change {
-            font-size: 0.85rem;
-        }
-
-        .stock-change.positive {
-            color: #10b981;
-        }
-
-        .stock-change.negative {
-            color: #ef4444;
         }
 
         /* Hero Section */
@@ -510,23 +319,103 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             margin-bottom: 1rem;
-            animation: shimmer 3s infinite;
         }
 
-        @keyframes shimmer {
-            0%, 100% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
+        .version-badge {
+            display: inline-block;
+            background: rgba(255,215,0,0.2);
+            border: 1px solid #FFD700;
+            color: #FFD700;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        /* Feedback Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.9);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background: #1a1a1a;
+            border: 2px solid #FFD700;
+            border-radius: 20px;
+            padding: 2rem;
+            max-width: 600px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+
+        .feedback-section {
+            margin-bottom: 1.5rem;
+        }
+
+        .feedback-section h4 {
+            color: #FFD700;
+            margin-bottom: 0.5rem;
+        }
+
+        .rating-stars {
+            display: flex;
+            gap: 10px;
+            margin: 10px 0;
+        }
+
+        .star {
+            font-size: 30px;
+            cursor: pointer;
+            color: #444;
+            transition: all 0.2s;
+        }
+
+        .star:hover, .star.active {
+            color: #FFD700;
+            transform: scale(1.1);
+        }
+
+        textarea {
+            width: 100%;
+            min-height: 120px;
+            padding: 12px;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,215,0,0.3);
+            border-radius: 8px;
+            color: #fff;
+            resize: vertical;
         }
     </style>
 </head>
 <body>
+    <!-- Prototype Banner -->
+    <div class="prototype-banner">
+        🚧 PROTOTYPE UNDER CONSTRUCTION - Version 1.1.01 
+        <span>Testing & Feedback Welcome</span>
+    </div>
+
+    <!-- Feedback Button -->
+    <div class="feedback-fab" onclick="openFeedback()">
+        <span style="font-size: 24px;">💬</span>
+    </div>
+
     <!-- Global Navigation Header -->
     <header class="global-header">
         <div class="header-left">
             <div class="logo-header" onclick="goHome()">N</div>
             <nav class="nav-links">
                 <a class="nav-link" onclick="goHome()">Home</a>
-                <a class="nav-link" onclick="showApps()">Apps</a>
+                <a class="nav-link" onclick="showScreen('loginScreen')">Apps</a>
                 <a class="nav-link" onclick="showScreen('pricingScreen')">Pricing</a>
                 <a class="nav-link" onclick="showAbout()">About</a>
             </nav>
@@ -540,11 +429,12 @@
     </header>
 
     <div class="container">
-        <!-- Home/Landing Screen -->
+        <!-- Home Screen -->
         <div class="screen active" id="homeScreen">
             <div class="hero-section">
                 <h1 class="hero-title">Nexora Professional Suite</h1>
                 <p class="subtitle" style="font-size: 1.5rem;">Your All-in-One Professional Platform</p>
+                <div class="version-badge">v1.1.01 Beta</div>
                 
                 <div style="margin-top: 3rem;">
                     <button class="btn btn-gold" style="width: auto; padding: 1rem 3rem; font-size: 1.2rem;" onclick="showScreen('loginScreen')">Get Started</button>
@@ -588,7 +478,7 @@
             <div class="role-header">
                 <div class="tier-badge" id="tierBadge">Basic Account</div>
                 <h1>Select Your Professional Role</h1>
-                <p class="subtitle" id="tierAccess">Choose your dashboard based on your subscription</p>
+                <p class="subtitle">Choose your dashboard based on your subscription</p>
             </div>
             
             <div class="roles-grid" id="rolesGrid"></div>
@@ -596,126 +486,9 @@
 
         <!-- Dashboard -->
         <div class="screen" id="dashboardScreen">
-            <div class="dashboard-content">
-                <!-- Quick Apps Bar -->
-                <div class="apps-grid">
-                    <div class="app-tile" onclick="openApp('email')">
-                        <div class="app-icon">📧</div>
-                        <div class="app-label">Email</div>
-                    </div>
-                    <div class="app-tile" onclick="openApp('calendar')">
-                        <div class="app-icon">📅</div>
-                        <div class="app-label">Calendar</div>
-                    </div>
-                    <div class="app-tile" onclick="openApp('weather')">
-                        <div class="app-icon">⛅</div>
-                        <div class="app-label">Weather</div>
-                    </div>
-                    <div class="app-tile" onclick="openApp('news')">
-                        <div class="app-icon">📰</div>
-                        <div class="app-label">News</div>
-                    </div>
-                    <div class="app-tile" onclick="openApp('stocks')">
-                        <div class="app-icon">📈</div>
-                        <div class="app-label">Finance</div>
-                    </div>
-                    <div class="app-tile" onclick="openApp('social')">
-                        <div class="app-icon">💬</div>
-                        <div class="app-label">Social</div>
-                    </div>
-                    <div class="app-tile" onclick="openApp('sports')">
-                        <div class="app-icon">⚽</div>
-                        <div class="app-label">Sports</div>
-                    </div>
-                    <div class="app-tile" onclick="openApp('music')">
-                        <div class="app-icon">🎵</div>
-                        <div class="app-label">Music</div>
-                    </div>
-                    <div class="app-tile" onclick="openApp('tasks')">
-                        <div class="app-icon">✓</div>
-                        <div class="app-label">Tasks</div>
-                    </div>
-                    <div class="app-tile" onclick="openApp('notes')">
-                        <div class="app-icon">📝</div>
-                        <div class="app-label">Notes</div>
-                    </div>
-                    <div class="app-tile" onclick="openApp('maps')">
-                        <div class="app-icon">🗺️</div>
-                        <div class="app-label">Maps</div>
-                    </div>
-                    <div class="app-tile" onclick="openApp('files')">
-                        <div class="app-icon">📁</div>
-                        <div class="app-label">Files</div>
-                    </div>
-                </div>
-
-                <div class="welcome-box">
-                    <h1 id="welcomeTitle" style="color: #FFD700;">Welcome!</h1>
-                    <p id="welcomeSubtitle">Your professional dashboard is ready</p>
-                </div>
-
-                <div class="dashboard-container">
-                    <div class="dashboard-main">
-                        <!-- Role-Specific Stats -->
-                        <div class="stats-grid" id="statsGrid"></div>
-                        
-                        <!-- Role-Specific Actions -->
-                        <div style="background: rgba(0,0,0,0.5); border: 1px solid #FFD700; border-radius: 15px; padding: 1.5rem; margin-bottom: 2rem;">
-                            <h3 style="color: #FFD700; margin-bottom: 1rem;">Quick Actions</h3>
-                            <div class="action-grid" id="actionGrid"></div>
-                        </div>
-                    </div>
-
-                    <div class="dashboard-sidebar">
-                        <!-- Weather Widget -->
-                        <div class="widget">
-                            <div class="widget-title">🌤️ Weather</div>
-                            <div class="weather-display">
-                                <div class="weather-main">72°F</div>
-                                <div class="weather-details">
-                                    <div>Partly Cloudy</div>
-                                    <div style="font-size: 0.85rem; opacity: 0.7;">H: 78° L: 65°</div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- News Widget -->
-                        <div class="widget">
-                            <div class="widget-title">📰 Latest News</div>
-                            <div class="news-item">
-                                <strong>Breaking:</strong> Markets reach new highs
-                            </div>
-                            <div class="news-item">
-                                <strong>Tech:</strong> AI advancements announced
-                            </div>
-                            <div class="news-item">
-                                <strong>Local:</strong> Traffic updates on I-95
-                            </div>
-                        </div>
-
-                        <!-- Stock Widget -->
-                        <div class="widget">
-                            <div class="widget-title">📈 Markets</div>
-                            <div class="stock-ticker">
-                                <div class="stock-item">
-                                    <div class="stock-symbol">DOW</div>
-                                    <div class="stock-price">35,421</div>
-                                    <div class="stock-change positive">+0.82%</div>
-                                </div>
-                                <div class="stock-item">
-                                    <div class="stock-symbol">S&P</div>
-                                    <div class="stock-price">4,512</div>
-                                    <div class="stock-change positive">+0.65%</div>
-                                </div>
-                                <div class="stock-item">
-                                    <div class="stock-symbol">NASDAQ</div>
-                                    <div class="stock-price">14,238</div>
-                                    <div class="stock-change negative">-0.12%</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div class="welcome-box">
+                <h1 id="welcomeTitle" style="color: #FFD700;">Welcome!</h1>
+                <p id="welcomeSubtitle">Your professional dashboard is ready</p>
             </div>
         </div>
 
@@ -729,280 +502,68 @@
             <div class="roles-grid">
                 <div class="role-card">
                     <h3>Guest</h3>
-                    <div class="stat-value">Free</div>
+                    <p style="font-size: 2rem; color: #FFD700;">Free</p>
                     <p>2 Roles • Basic Features</p>
                 </div>
                 <div class="role-card">
                     <h3>Basic</h3>
-                    <div class="stat-value">$19</div>
+                    <p style="font-size: 2rem; color: #FFD700;">$19</p>
                     <p>5 Roles • Standard Features</p>
                 </div>
                 <div class="role-card">
                     <h3>Professional</h3>
-                    <div class="stat-value">$49</div>
+                    <p style="font-size: 2rem; color: #FFD700;">$49</p>
                     <p>All Roles • Full Features</p>
                 </div>
                 <div class="role-card">
                     <h3>Executive</h3>
-                    <div class="stat-value">$99</div>
+                    <p style="font-size: 2rem; color: #FFD700;">$99</p>
                     <p>Premium • White Label</p>
                 </div>
             </div>
         </div>
     </div>
 
+    <!-- Feedback Modal -->
+    <div class="modal" id="feedbackModal">
+        <div class="modal-content">
+            <h2 style="color: #FFD700; margin-bottom: 1rem;">🚀 Help Us Improve Nexora</h2>
+            <p style="color: #999; margin-bottom: 2rem;">Version 1.1.01 - Your feedback shapes our development</p>
+
+            <div class="feedback-section">
+                <h4>How would you rate your experience?</h4>
+                <div class="rating-stars">
+                    <span class="star" onclick="setRating(1)">⭐</span>
+                    <span class="star" onclick="setRating(2)">⭐</span>
+                    <span class="star" onclick="setRating(3)">⭐</span>
+                    <span class="star" onclick="setRating(4)">⭐</span>
+                    <span class="star" onclick="setRating(5)">⭐</span>
+                </div>
+            </div>
+
+            <div class="feedback-section">
+                <h4>Your detailed feedback</h4>
+                <textarea id="feedbackText" placeholder="Please share your experience, suggestions, or report any bugs..."></textarea>
+            </div>
+
+            <button class="btn btn-gold" onclick="submitFeedback()">Submit Feedback</button>
+            <button class="btn btn-outline" onclick="closeFeedback()">Cancel</button>
+        </div>
+    </div>
+
     <script>
+        const VERSION = '1.1.01';
         let currentUser = { tier: null, role: null, loggedIn: false };
-
-        const roles = [
-            { id: 'driver', title: 'CDL Driver', icon: '🚚', tier: 'guest' },
-            { id: 'healthcare', title: 'Healthcare Provider', icon: '⚕️', tier: 'basic' },
-            { id: 'developer', title: 'Software Developer', icon: '💻', tier: 'guest' },
-            { id: 'teacher', title: 'Teacher', icon: '📚', tier: 'basic' },
-            { id: 'sales', title: 'Sales Executive', icon: '💼', tier: 'basic' },
-            { id: 'manager', title: 'Project Manager', icon: '📊', tier: 'pro' },
-            { id: 'analyst', title: 'Data Analyst', icon: '📉', tier: 'pro' },
-            { id: 'executive', title: 'C-Suite Executive', icon: '👔', tier: 'executive' },
-            { id: 'student', title: 'Student', icon: '🎓', tier: 'guest' },
-            { id: 'retail', title: 'Retail Manager', icon: '🛍️', tier: 'basic' },
-            { id: 'chef', title: 'Chef', icon: '👨‍🍳', tier: 'basic' },
-            { id: 'lawyer', title: 'Attorney', icon: '⚖️', tier: 'pro' }
-        ];
-
-        // Role-specific dashboard configurations
-        const roleConfigs = {
-            driver: {
-                stats: [
-                    { label: 'Miles Today', value: '342', detail: '158 miles remaining', detailClass: '' },
-                    { label: 'HOS Remaining', value: '5.5 hrs', detail: 'Drive time left', detailClass: 'warning' },
-                    { label: 'Fuel Efficiency', value: '6.8 MPG', detail: '↑ 0.3 from last week', detailClass: '' },
-                    { label: 'On-Time Delivery', value: '98%', detail: 'Last 30 days', detailClass: '' },
-                    { label: 'Safety Score', value: '94/100', detail: 'No violations', detailClass: '' },
-                    { label: 'Next Delivery', value: '2:30 PM', detail: 'Chicago, IL', detailClass: '' }
-                ],
-                actions: [
-                    { icon: '🗺️', label: 'Route Planning' },
-                    { icon: '⛽', label: 'Find Fuel' },
-                    { icon: '📋', label: 'Pre-Trip Check' },
-                    { icon: '🚨', label: 'Report Issue' },
-                    { icon: '⏰', label: 'Log Hours' },
-                    { icon: '📱', label: 'Contact Dispatch' }
-                ]
-            },
-            healthcare: {
-                stats: [
-                    { label: 'Patients Today', value: '18/24', detail: '6 remaining appointments', detailClass: '' },
-                    { label: 'Avg Wait Time', value: '12 min', detail: '↓ 5 min from average', detailClass: '' },
-                    { label: 'Critical Labs', value: '3', detail: 'Review immediately', detailClass: 'danger' },
-                    { label: 'Bed Occupancy', value: '87%', detail: '14 beds available', detailClass: '' },
-                    { label: 'Prescriptions', value: '42', detail: 'Pending approval: 5', detailClass: 'warning' },
-                    { label: 'Patient Satisfaction', value: '4.8/5', detail: 'Last 30 days', detailClass: '' }
-                ],
-                actions: [
-                    { icon: '👥', label: 'Patient Records' },
-                    { icon: '💉', label: 'Procedures' },
-                    { icon: '🧪', label: 'Lab Results' },
-                    { icon: '💊', label: 'Medications' },
-                    { icon: '📊', label: 'Charts' },
-                    { icon: '🚨', label: 'Emergency' }
-                ]
-            },
-            developer: {
-                stats: [
-                    { label: 'Pull Requests', value: '7', detail: '3 awaiting review', detailClass: 'warning' },
-                    { label: 'Build Status', value: 'Passing', detail: 'All tests green', detailClass: '' },
-                    { label: 'Code Coverage', value: '84%', detail: '↑ 2% this week', detailClass: '' },
-                    { label: 'Sprint Progress', value: '65%', detail: '4 days remaining', detailClass: '' },
-                    { label: 'Bugs Assigned', value: '12', detail: '3 critical', detailClass: 'danger' },
-                    { label: 'Deploy Queue', value: '2', detail: 'Ready for staging', detailClass: '' }
-                ],
-                actions: [
-                    { icon: '💻', label: 'Code Editor' },
-                    { icon: '🔀', label: 'Git Repos' },
-                    { icon: '🚀', label: 'Deploy' },
-                    { icon: '🐛', label: 'Debug' },
-                    { icon: '📝', label: 'Documentation' },
-                    { icon: '🔧', label: 'CI/CD Pipeline' }
-                ]
-            },
-            teacher: {
-                stats: [
-                    { label: 'Classes Today', value: '5/7', detail: '2 remaining', detailClass: '' },
-                    { label: 'Assignments Due', value: '28', detail: 'Need grading', detailClass: 'warning' },
-                    { label: 'Student Average', value: '82%', detail: 'Class GPA: 3.3', detailClass: '' },
-                    { label: 'Attendance Rate', value: '94%', detail: 'Today: 26/28', detailClass: '' },
-                    { label: 'Parent Messages', value: '6', detail: '3 unread', detailClass: 'warning' },
-                    { label: 'Lesson Plans', value: '100%', detail: 'Week complete', detailClass: '' }
-                ],
-                actions: [
-                    { icon: '📝', label: 'Grade Work' },
-                    { icon: '📚', label: 'Lesson Plans' },
-                    { icon: '👥', label: 'Student Records' },
-                    { icon: '📊', label: 'Progress Reports' },
-                    { icon: '💬', label: 'Parent Portal' },
-                    { icon: '🎓', label: 'Resources' }
-                ]
-            },
-            sales: {
-                stats: [
-                    { label: 'Pipeline Value', value: '$2.4M', detail: '12 deals in progress', detailClass: '' },
-                    { label: 'Quota Progress', value: '78%', detail: '$180k to goal', detailClass: 'warning' },
-                    { label: 'Win Rate', value: '34%', detail: '↑ 5% this quarter', detailClass: '' },
-                    { label: 'Calls Today', value: '18/25', detail: '7 scheduled remaining', detailClass: '' },
-                    { label: 'Proposals Sent', value: '6', detail: '2 awaiting signature', detailClass: '' },
-                    { label: 'Follow-ups', value: '14', detail: 'Due today', detailClass: 'warning' }
-                ],
-                actions: [
-                    { icon: '📞', label: 'Make Calls' },
-                    { icon: '💰', label: 'Deal Pipeline' },
-                    { icon: '📧', label: 'Email Campaigns' },
-                    { icon: '🤝', label: 'Schedule Meeting' },
-                    { icon: '📊', label: 'Sales Reports' },
-                    { icon: '🎯', label: 'Leads' }
-                ]
-            },
-            student: {
-                stats: [
-                    { label: 'Current GPA', value: '3.7', detail: 'Dean\'s List', detailClass: '' },
-                    { label: 'Credits', value: '78/120', detail: '42 remaining', detailClass: '' },
-                    { label: 'Assignments Due', value: '5', detail: '2 due tomorrow', detailClass: 'warning' },
-                    { label: 'Study Hours', value: '28h', detail: 'This week', detailClass: '' },
-                    { label: 'Attendance', value: '96%', detail: 'No absences this month', detailClass: '' },
-                    { label: 'Next Exam', value: '3 days', detail: 'Calculus II', detailClass: 'warning' }
-                ],
-                actions: [
-                    { icon: '📚', label: 'Course Materials' },
-                    { icon: '📝', label: 'Assignments' },
-                    { icon: '🗓️', label: 'Class Schedule' },
-                    { icon: '📊', label: 'Grades' },
-                    { icon: '👥', label: 'Study Groups' },
-                    { icon: '📖', label: 'Library' }
-                ]
-            },
-            manager: {
-                stats: [
-                    { label: 'Active Projects', value: '15', detail: '3 at risk', detailClass: 'warning' },
-                    { label: 'Team Velocity', value: '42 pts', detail: '↑ 8 pts from last sprint', detailClass: '' },
-                    { label: 'Budget Status', value: '68%', detail: '$320k remaining', detailClass: '' },
-                    { label: 'Team Health', value: '8.2/10', detail: 'Morale survey', detailClass: '' },
-                    { label: 'Deadlines', value: '4 this week', detail: '2 critical', detailClass: 'warning' },
-                    { label: 'Resource Util', value: '87%', detail: 'Near capacity', detailClass: 'warning' }
-                ],
-                actions: [
-                    { icon: '📊', label: 'Dashboards' },
-                    { icon: '👥', label: 'Team Meeting' },
-                    { icon: '📋', label: 'Task Board' },
-                    { icon: '💰', label: 'Budget Review' },
-                    { icon: '📈', label: 'Reports' },
-                    { icon: '🎯', label: 'OKRs' }
-                ]
-            },
-            analyst: {
-                stats: [
-                    { label: 'Queries Run', value: '42 today', detail: '156 this week', detailClass: '' },
-                    { label: 'Data Accuracy', value: '99.2%', detail: 'Last validation', detailClass: '' },
-                    { label: 'Reports Due', value: '3', detail: '1 tomorrow', detailClass: 'warning' },
-                    { label: 'Models Running', value: '5', detail: '2 completed', detailClass: '' },
-                    { label: 'Data Size', value: '2.4TB', detail: '↑ 120GB this week', detailClass: '' },
-                    { label: 'API Calls', value: '8,420', detail: 'Within limits', detailClass: '' }
-                ],
-                actions: [
-                    { icon: '🔍', label: 'Query Builder' },
-                    { icon: '📊', label: 'Visualize' },
-                    { icon: '🤖', label: 'ML Models' },
-                    { icon: '📈', label: 'Dashboards' },
-                    { icon: '🔄', label: 'ETL Jobs' },
-                    { icon: '📑', label: 'Reports' }
-                ]
-            },
-            executive: {
-                stats: [
-                    { label: 'Revenue YTD', value: '$48.2M', detail: '↑ 18% vs target', detailClass: '' },
-                    { label: 'EBITDA', value: '22%', detail: '↑ 3% QoQ', detailClass: '' },
-                    { label: 'Stock Price', value: '$124.50', detail: '↑ $2.30 today', detailClass: '' },
-                    { label: 'NPS Score', value: '72', detail: 'Industry leader', detailClass: '' },
-                    { label: 'Headcount', value: '1,842', detail: '+125 this quarter', detailClass: '' },
-                    { label: 'Board Meeting', value: '5 days', detail: 'Deck in progress', detailClass: 'warning' }
-                ],
-                actions: [
-                    { icon: '📊', label: 'Board Deck' },
-                    { icon: '💼', label: 'M&A Pipeline' },
-                    { icon: '🌍', label: 'Global Ops' },
-                    { icon: '📈', label: 'Investor Relations' },
-                    { icon: '🎯', label: 'Strategy' },
-                    { icon: '🏆', label: 'KPIs' }
-                ]
-            },
-            lawyer: {
-                stats: [
-                    { label: 'Active Cases', value: '28', detail: '3 trials this month', detailClass: 'warning' },
-                    { label: 'Billable Hours', value: '142.5', detail: 'Target: 150', detailClass: 'warning' },
-                    { label: 'Documents', value: '15 pending', detail: '5 need review', detailClass: 'warning' },
-                    { label: 'Court Dates', value: '8', detail: 'Next: Thursday 2PM', detailClass: '' },
-                    { label: 'Client Meetings', value: '12 this week', detail: '3 today', detailClass: '' },
-                    { label: 'Pro Bono', value: '8h/20h', detail: 'Quarterly target', detailClass: '' }
-                ],
-                actions: [
-                    { icon: '⚖️', label: 'Case Files' },
-                    { icon: '📄', label: 'Documents' },
-                    { icon: '📅', label: 'Court Calendar' },
-                    { icon: '⏰', label: 'Time Tracking' },
-                    { icon: '💼', label: 'Client Portal' },
-                    { icon: '📚', label: 'Legal Research' }
-                ]
-            },
-            retail: {
-                stats: [
-                    { label: 'Sales Today', value: '$18,420', detail: '↑ 12% vs yesterday', detailClass: '' },
-                    { label: 'Customers', value: '342', detail: 'Avg transaction: $53.80', detailClass: '' },
-                    { label: 'Stock Level', value: '78%', detail: '15 items low', detailClass: 'warning' },
-                    { label: 'Staff on Duty', value: '12/14', detail: '2 called out', detailClass: 'warning' },
-                    { label: 'Returns', value: '8', detail: '$420 total', detailClass: '' },
-                    { label: 'Conversion Rate', value: '42%', detail: '↑ 3% from last week', detailClass: '' }
-                ],
-                actions: [
-                    { icon: '💰', label: 'POS System' },
-                    { icon: '📦', label: 'Inventory' },
-                    { icon: '👥', label: 'Staff Schedule' },
-                    { icon: '📊', label: 'Sales Reports' },
-                    { icon: '🏷️', label: 'Promotions' },
-                    { icon: '📱', label: 'Customer Service' }
-                ]
-            },
-            chef: {
-                stats: [
-                    { label: 'Orders Tonight', value: '142', detail: 'Est. 180 by close', detailClass: '' },
-                    { label: 'Avg Ticket Time', value: '18 min', detail: 'Target: 15 min', detailClass: 'warning' },
-                    { label: 'Food Cost', value: '28%', detail: 'Within budget', detailClass: '' },
-                    { label: 'Inventory', value: '92%', detail: 'Order seafood tomorrow', detailClass: '' },
-                    { label: 'Staff', value: '8/8', detail: 'Full team tonight', detailClass: '' },
-                    { label: 'Special Sold', value: '34/50', detail: 'Lobster Risotto', detailClass: '' }
-                ],
-                actions: [
-                    { icon: '🍽️', label: 'Orders' },
-                    { icon: '📋', label: 'Menu Planning' },
-                    { icon: '📦', label: 'Inventory' },
-                    { icon: '👨‍🍳', label: 'Prep List' },
-                    { icon: '⏰', label: 'Timers' },
-                    { icon: '📊', label: 'Food Cost' }
-                ]
-            }
-        };
-
-        const tierLevels = { guest: 0, basic: 1, pro: 2, executive: 3 };
+        let currentRating = 0;
 
         function showScreen(screenId) {
             document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
-            document.getElementById(screenId).classList.add('active');
-            window.scrollTo(0, 0);
+            const screen = document.getElementById(screenId);
+            if (screen) screen.classList.add('active');
         }
 
         function goHome() {
-            if (currentUser.loggedIn && currentUser.role) {
-                showDashboard();
-            } else {
-                showScreen('homeScreen');
-            }
+            showScreen('homeScreen');
         }
 
         function login() {
@@ -1047,13 +608,16 @@
         }
 
         function showRoles() {
-            if (!currentUser.loggedIn) {
-                showScreen('loginScreen');
-                return;
-            }
+            const roles = [
+                { id: 'retired', title: 'Retired', icon: '🌴', tier: 'guest' },
+                { id: 'driver', title: 'CDL Driver', icon: '🚚', tier: 'guest' },
+                { id: 'healthcare', title: 'Healthcare Provider', icon: '⚕️', tier: 'basic' },
+                { id: 'developer', title: 'Software Developer', icon: '💻', tier: 'guest' },
+                { id: 'sales', title: 'Sales Executive', icon: '💼', tier: 'basic' },
+                { id: 'executive', title: 'C-Suite Executive', icon: '👔', tier: 'executive' }
+            ];
             
             showScreen('roleScreen');
-            
             const badge = document.getElementById('tierBadge');
             badge.className = 'tier-badge tier-' + currentUser.tier;
             badge.textContent = currentUser.tier.charAt(0).toUpperCase() + currentUser.tier.slice(1) + ' Account';
@@ -1062,17 +626,13 @@
             grid.innerHTML = '';
             
             roles.forEach(role => {
-                const canAccess = tierLevels[currentUser.tier] >= tierLevels[role.tier];
                 const card = document.createElement('div');
-                card.className = 'role-card' + (canAccess ? '' : ' locked');
+                card.className = 'role-card';
                 card.innerHTML = `
                     <div class="role-icon">${role.icon}</div>
                     <div class="role-title">${role.title}</div>
-                    ${!canAccess ? `<small style="color: #999;">Requires ${role.tier}</small>` : ''}
                 `;
-                if (canAccess) {
-                    card.onclick = () => selectRole(role);
-                }
+                card.onclick = () => selectRole(role);
                 grid.appendChild(card);
             });
         }
@@ -1083,61 +643,51 @@
         }
 
         function showDashboard() {
-            if (!currentUser.loggedIn || !currentUser.role) {
-                showScreen('loginScreen');
-                return;
-            }
-            
             showScreen('dashboardScreen');
-            
             document.getElementById('welcomeTitle').textContent = `${currentUser.role.icon} ${currentUser.role.title} Dashboard`;
-            document.getElementById('welcomeSubtitle').textContent = `${currentUser.tier.charAt(0).toUpperCase() + currentUser.tier.slice(1)} tier • Real-time professional insights`;
-            
-            // Load role-specific stats
-            const config = roleConfigs[currentUser.role.id] || roleConfigs['developer'];
-            const statsGrid = document.getElementById('statsGrid');
-            
-            if (config.stats) {
-                statsGrid.innerHTML = config.stats.map(stat => `
-                    <div class="stat-card">
-                        <div class="stat-label">${stat.label}</div>
-                        <div class="stat-value">${stat.value}</div>
-                        <div class="stat-detail ${stat.detailClass || ''}">${stat.detail}</div>
-                    </div>
-                `).join('');
-            }
-            
-            // Load role-specific actions
-            const actionGrid = document.getElementById('actionGrid');
-            if (config.actions) {
-                actionGrid.innerHTML = config.actions.map(action => `
-                    <div class="action-btn">
-                        <div class="action-icon">${action.icon}</div>
-                        <div class="action-label">${action.label}</div>
-                    </div>
-                `).join('');
-            }
-        }
-
-        function openApp(appName) {
-            alert(`Opening ${appName} app... This would integrate with real ${appName} services.`);
-        }
-
-        function showApps() {
-            if (currentUser.loggedIn) {
-                showDashboard();
-            } else {
-                alert('Sign in to access all apps!');
-                showScreen('loginScreen');
-            }
+            document.getElementById('welcomeSubtitle').textContent = `${currentUser.tier.charAt(0).toUpperCase() + currentUser.tier.slice(1)} tier • Version ${VERSION}`;
         }
 
         function showAbout() {
-            alert('Nexora Professional Suite v4.0 - Your complete professional platform');
+            alert(`Nexora Professional Suite v${VERSION}\n\n` +
+                  '🚧 PROTOTYPE STATUS 🚧\n' +
+                  'This is a development build currently under construction.\n\n' +
+                  'Please use the feedback button (💬) to report bugs or suggest improvements!');
         }
 
-        // Initialize
-        updateAuthUI();
+        function openFeedback() {
+            document.getElementById('feedbackModal').style.display = 'flex';
+        }
+
+        function closeFeedback() {
+            document.getElementById('feedbackModal').style.display = 'none';
+            currentRating = 0;
+            document.querySelectorAll('.star').forEach(s => s.classList.remove('active'));
+            document.getElementById('feedbackText').value = '';
+        }
+
+        function setRating(rating) {
+            currentRating = rating;
+            document.querySelectorAll('.star').forEach((s, index) => {
+                s.classList.toggle('active', index < rating);
+            });
+        }
+
+        function submitFeedback() {
+            const feedbackText = document.getElementById('feedbackText').value;
+            console.log('Feedback submitted:', {
+                version: VERSION,
+                rating: currentRating,
+                feedback: feedbackText,
+                timestamp: new Date().toISOString()
+            });
+            alert(`Thank you for your feedback!\n\nVersion: ${VERSION}\nRating: ${currentRating}/5 stars\n\nYour feedback will be reviewed for v1.1.02!`);
+            closeFeedback();
+        }
+
+        // Initialize on load
+        console.log(`Nexora Professional Suite v${VERSION} - Prototype Build`);
+        console.log('This is a test environment. Please report any issues using the feedback button.');
     </script>
 </body>
 </html>
