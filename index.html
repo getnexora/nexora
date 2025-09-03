@@ -1100,6 +1100,22 @@
     </style>
 </head>
 <body>
+    <!-- Top Information Bar (Always Visible) -->
+    <div style="background: rgba(0, 0, 0, 0.5); backdrop-filter: blur(10px); padding: 8px; text-align: center; position: sticky; top: 0; z-index: 1001; border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
+        <div style="display: flex; justify-content: space-between; align-items: center; max-width: 1400px; margin: 0 auto; flex-wrap: wrap; gap: 10px;">
+            <div style="color: var(--text-secondary); font-size: 12px;">
+                © 2024 Nexora Technologies™ | All Rights Reserved
+            </div>
+            <div style="display: flex; gap: 15px; align-items: center; flex-wrap: wrap;">
+                <span style="color: var(--text-secondary); font-size: 12px;">📧 support@nexora.com</span>
+                <span style="color: var(--text-secondary); font-size: 12px;">📞 1-800-555-0100</span>
+                <a href="#" onclick="showFeedbackForm(); return false;" style="color: var(--text-primary); font-size: 12px; text-decoration: none;">💬 Feedback</a>
+                <a href="#" onclick="showSection('legal', null); return false;" style="color: var(--text-primary); font-size: 12px; text-decoration: none;">⚖️ Legal</a>
+                <span style="color: #4caf50; font-size: 12px;">🟢 All Systems Operational</span>
+            </div>
+        </div>
+    </div>
+
     <div class="floating-shapes">
         <div class="shape shape1"></div>
         <div class="shape shape2"></div>
