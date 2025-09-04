@@ -21,9 +21,7 @@ body {
   top: 0;
   z-index: 1000;
 }
-.navbar .logo img {
-  height: 40px;
-}
+/* REMOVED: .navbar .logo img rule - this was conflicting */
 .nav-links {
   list-style: none;
   display: flex;
@@ -109,13 +107,12 @@ footer {
 .contact-form button {
   align-self: center;
 }
-/* Logo styling */
+/* Logo styling - Now works properly! */
 .logo img {
-  height: 100px;     /* Adjust size – try 60, 80, 100 until it looks right */
+  height: 80px;     /* Adjust size – try 60, 80, 100 until it looks right */
   width: auto;      /* Keeps aspect ratio */
   display: block;
 }
-
 .logo {
-  padding: 20px;    /* Adds space around the logo */
+  padding: 10px;    /* Adds space around the logo */
 }
