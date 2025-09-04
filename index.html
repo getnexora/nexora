@@ -274,6 +274,11 @@
     <div class="container">
         <!-- Login/Register -->
         <div class="auth-box" id="authBox">
+            <div style="text-align: center; margin-bottom: 30px;">
+                <img src="https://raw.githubusercontent.com/yourusername/nexora-suite/main/logo.png" 
+                     alt="Nexora Pro Suite" 
+                     style="width: 100px; height: 100px; border-radius: 50%; box-shadow: 0 0 30px rgba(255, 215, 0, 0.4);">
+            </div>
             <div class="tabs">
                 <div class="tab active" onclick="showTab('login')">Login</div>
                 <div class="tab" onclick="showTab('register')">Register</div>
@@ -358,7 +363,7 @@
     </div>
 
     <script>
-        // YOUR SUPABASE CREDENTIALS
+        // YOUR SUPABASE CREDENTIALS - CONNECTED!
         const SUPABASE_URL = 'https://gmvwpoueyvneuwznzdbs.supabase.co';
         const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imdtdndwb3VleXZuZXV3em56ZGJzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTY5NDAzNTcsImV4cCI6MjA3MjUxNjM1N30.X3xYfHVm0UNKIPzfhosYU0Tq3Wv9TDmI70nejtwzQoc';
 
@@ -367,8 +372,49 @@
 
         // Initialize
         window.onload = function() {
-            initSupabase();
+            // Check if this is a verification callback
+            const urlParams = new URLSearchParams(window.location.search);
+            const hashParams = new URLSearchParams(window.location.hash.substring(1));
+            
+            if (urlParams.get('type') === 'signup' || hashParams.get('type') === 'signup') {
+                showVerificationSuccess();
+            } else if (urlParams.get('error_description') || hashParams.get('error_description')) {
+                showVerificationError();
+            } else {
+                initSupabase();
+            }
         };
+
+        function showVerificationSuccess() {
+            const authBox = document.getElementById('authBox');
+            authBox.innerHTML = `
+                <div style="text-align: center; padding: 40px;">
+                    <div style="font-size: 3rem; margin-bottom: 20px;">✅</div>
+                    <h2 style="color: #4CAF50; margin-bottom: 20px;">Email Verified Successfully!</h2>
+                    <p style="color: #999; margin-bottom: 30px;">Your account is now active. You can login.</p>
+                    <button class="btn" onclick="window.location.href='https://nexoraprosuite.com'">Go to Login</button>
+                </div>
+            `;
+            updateStatus('✅ Email Verified', 'connected');
+        }
+
+        function showVerificationError() {
+            const authBox = document.getElementById('authBox');
+            const errorMsg = new URLSearchParams(window.location.hash.substring(1)).get('error_description') || 
+                           new URLSearchParams(window.location.search).get('error_description') ||
+                           'Verification link expired or invalid';
+            
+            authBox.innerHTML = `
+                <div style="text-align: center; padding: 40px;">
+                    <div style="font-size: 3rem; margin-bottom: 20px;">⚠️</div>
+                    <h2 style="color: #f44336; margin-bottom: 20px;">Verification Error</h2>
+                    <p style="color: #999; margin-bottom: 20px;">${errorMsg}</p>
+                    <p style="color: #999; margin-bottom: 30px;">Please try registering again or contact support.</p>
+                    <button class="btn" onclick="window.location.href='https://nexoraprosuite.com'">Back to Login</button>
+                </div>
+            `;
+            updateStatus('Verification Error', 'error');
+        }
 
         function initSupabase() {
             try {
@@ -381,14 +427,14 @@
                 supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
                 
                 // Update status
-                updateStatus('Connected to Database', 'connected');
+                updateStatus('✅ Connected to Database', 'connected');
                 
                 // Check for existing session
                 checkSession();
                 
             } catch (error) {
                 console.error('Initialization error:', error);
-                updateStatus('Running in Demo Mode', 'error');
+                updateStatus('📱 Running in Test Mode', 'error');
                 // Continue in demo mode
             }
         }
@@ -435,9 +481,12 @@
 
             // Demo mode
             if (!supabaseClient) {
-                localStorage.setItem('demoUser', JSON.stringify({ email }));
-                currentUser = { email };
-                showDashboard();
+                showMessage(msgEl, 'Test Mode: Logging in...', 'success');
+                setTimeout(() => {
+                    localStorage.setItem('demoUser', JSON.stringify({ email }));
+                    currentUser = { email };
+                    showDashboard();
+                }, 1000);
                 return;
             }
 
@@ -475,25 +524,48 @@
 
             // Demo mode
             if (!supabaseClient) {
-                showMessage(msgEl, 'Demo: Account created! You can now login.', 'success');
+                showMessage(msgEl, '✅ Test Mode: Account created! You can now login.', 'success');
+                setTimeout(() => {
+                    document.querySelectorAll('.tab')[0].click();
+                }, 2000);
                 return;
             }
 
             try {
+                console.log('Attempting registration for:', email);
+                showMessage(msgEl, 'Creating account...', 'success');
+                
                 const { data, error } = await supabaseClient.auth.signUp({
                     email: email,
                     password: password,
                     options: {
-                        data: { name: name }
+                        data: { name: name },
+                        emailRedirectTo: 'https://nexoraprosuite.com'
                     }
                 });
 
-                if (error) throw error;
+                if (error) {
+                    console.error('Registration error:', error);
+                    throw error;
+                }
 
-                showMessage(msgEl, 'Account created! Check your email for verification.', 'success');
+                console.log('Registration response:', data);
+                
+                if (data.user && data.user.identities && data.user.identities.length === 0) {
+                    showMessage(msgEl, '⚠️ This email is already registered. Please login instead.', 'error');
+                } else if (data.user) {
+                    showMessage(msgEl, '✅ Account created successfully! You can now login.', 'success');
+                    // Auto-switch to login tab after 2 seconds
+                    setTimeout(() => {
+                        document.querySelectorAll('.tab')[0].click();
+                    }, 2000);
+                } else {
+                    showMessage(msgEl, '✅ Registration submitted! Check your email.', 'success');
+                }
                 
             } catch (error) {
-                showMessage(msgEl, error.message, 'error');
+                console.error('Full error:', error);
+                showMessage(msgEl, 'Error: ' + error.message, 'error');
             }
         }
 
@@ -508,7 +580,7 @@
             
             if (currentUser) {
                 document.getElementById('userName').textContent = 'Welcome back!';
-                document.getElementById('userEmail').textContent = currentUser.email || 'Guest User';
+                document.getElementById('userEmail').textContent = currentUser.email || 'Test User';
             }
         }
 
@@ -521,7 +593,7 @@
         }
 
         function openApp(appName) {
-            alert(appName.charAt(0).toUpperCase() + appName.slice(1) + ' app coming soon!\n\nThis will be fully functional in the next update.');
+            alert('🚀 ' + appName.charAt(0).toUpperCase() + appName.slice(1) + ' App\n\nThis feature will be fully functional soon!\n\nContact: admin@nexoraprosuite.com');
         }
 
         // Check for demo user
