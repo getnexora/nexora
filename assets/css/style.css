@@ -109,3 +109,13 @@ footer {
 .contact-form button {
   align-self: center;
 }
+/* Logo styling */
+.logo img {
+  height: 60px;     /* Adjust size – try 60, 80, 100 until it looks right */
+  width: auto;      /* Keeps aspect ratio */
+  display: block;
+}
+
+.logo {
+  padding: 10px;    /* Adds space around the logo */
+}
