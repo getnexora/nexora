@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Developer Login - Nexora ProSuite</title>
+  <link rel="icon" type="image/png" href="assets/img/logo-icon.png" />
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <!-- Navigation -->
+  <header>
+    <nav class="navbar">
+      <div class="logo">
+        <img src="assets/img/logo.png" alt="Nexora ProSuite Logo" />
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="features.html">Features</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="login.html" class="active">Developer</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Login Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <div class="login-container">
+        <h2 style="color: #f5c542; margin-bottom: 2rem;">Developer Login</h2>
+        <form id="loginForm" class="contact-form" style="max-width: 400px; margin: 0 auto;">
+          <input type="text" id="username" placeholder="Username" required style="background-color: #1a1a1a; color: #ffffff; border: 2px solid #333333; padding: 1rem; border-radius: 10px;">
+          <input type="password" id="password" placeholder="Password" required style="background-color: #1a1a1a; color: #ffffff; border: 2px solid #333333; padding: 1rem; border-radius: 10px;">
+          <button type="submit" class="cta-button primary">Login</button>
+        </form>
+        <p id="errorMsg" style="color: #ff6b6b; display: none; text-align: center; margin-top: 1rem;">Invalid credentials</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Nexora ProSuite. All rights reserved.</p>
+  </footer>
+  
+  <script src="assets/js/login.js"></script>
+</body>
+</html>
