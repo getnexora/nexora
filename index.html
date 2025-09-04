@@ -4,30 +4,29 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Nexora ProSuite</title>
-  <script src="https://unpkg.com/@supabase/supabase-js"></script>
+
   <style>
     body {
+      margin: 0;
       font-family: Arial, sans-serif;
       background: #000;
-      color: #FFD700;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
+      color: #fff;
     }
-    .signup-box {
+
+    /* Signup section styles */
+    .signup-section {
       background: #111;
       padding: 2rem;
-      border-radius: 12px;
-      box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
-      max-width: 400px;
-      width: 100%;
       text-align: center;
+      box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+    }
+    .signup-box {
+      max-width: 500px;
+      margin: 0 auto;
     }
     .signup-box h2 {
       margin-bottom: 1rem;
+      color: #FFD700;
     }
     label {
       display: block;
@@ -58,26 +57,77 @@
     #status {
       margin-top: 1rem;
     }
+    .skip-button {
+      background: transparent;
+      color: #FFD700;
+      border: 2px solid #FFD700;
+      padding: 0.6rem 1.2rem;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .skip-button:hover {
+      background: #FFD700;
+      color: #000;
+    }
   </style>
 </head>
 <body>
-  <div class="signup-box">
-    <h2>Join the Nexora ProSuite Beta</h2>
-    <form id="signup-form">
-      <label>Name:
-        <input type="text" id="name" required>
-      </label>
-      <label>Email:
-        <input type="email" id="email" required>
-      </label>
-      <label>Feedback (optional):
-        <textarea id="feedback"></textarea>
-      </label>
-      <button type="submit">Sign Up</button>
-    </form>
-    <p id="status"></p>
+
+  <!-- Beta Signup Section -->
+  <section class="signup-section" id="signup">
+    <div class="signup-box">
+      <h2>Join the Nexora ProSuite Beta</h2>
+      <form id="signup-form">
+        <label>Name:
+          <input type="text" id="name" required>
+        </label>
+        <label>Email:
+          <input type="email" id="email" required>
+        </label>
+        <label>Feedback (optional):
+          <textarea id="feedback"></textarea>
+        </label>
+        <button type="submit">Sign Up</button>
+      </form>
+      <p id="status"></p>
+      <button class="skip-button" onclick="document.getElementById('main-site').scrollIntoView({behavior:'smooth'})">
+        Skip for now → Continue to Site
+      </button>
+    </div>
+  </section>
+
+  <!-- Main site content wrapper -->
+  <div id="main-site">
+
+    <!-- Your original homepage starts here -->
+    <header>
+      <h1>Welcome to Nexora ProSuite</h1>
+      <p>The universal hub for apps, languages, and currencies — connecting all 195 countries in one place.</p>
+    </header>
+
+    <main>
+      <section>
+        <h2>About Nexora</h2>
+        <p>Nexora ProSuite adapts to every language, currency, timezone, and application worldwide. 
+        We’re building the ultimate centralized hub for seamless global connection.</p>
+      </section>
+
+      <section>
+        <h2>Our Vision</h2>
+        <p>To break barriers between businesses, people, and technology — enabling true global collaboration 
+        without borders.</p>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2025 Nexora ProSuite. All rights reserved.</p>
+    </footer>
+    <!-- Your original homepage ends here -->
+
   </div>
 
+  <!-- Supabase script -->
+  <script src="https://unpkg.com/@supabase/supabase-js"></script>
   <script>
     const { createClient } = supabase;
     const SUPABASE_URL = "https://gmvwpoueyvneuwznzdbs.supabase.co";
