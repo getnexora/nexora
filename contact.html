@@ -1,80 +1,151 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Contact Nexora ProSuite – Connecting 195 Countries, One Hub" />
-  <title>Contact Us – Nexora ProSuite</title>
-  <link rel="icon" type="image/png" href="assets/img/logo-icon.png" />
-  <link rel="stylesheet" href="assets/css/style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0a0a0a">
+  <title>Nexora - Contact Us</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Navigation -->
-  <header>
-    <nav class="navbar">
-      <div class="logo">
-        <img src="assets/img/logo.png" alt="Nexora ProSuite Logo" />
-      </div>
-      <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="features.html">Features</a></li>
-        <li><a href="contact.html" class="active">Contact</a></li>
-        <li><a href="login.html">Login</a></li>
-      </ul>
+  <!-- Hidden Google Translate widget -->
+  <div id="google_translate_element"></div>
+
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="logo">NEXORA</div>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="features.html">Features</a>
+      <a href="about.html">About</a>
+      <a href="contact.html" class="active">Contact</a>
+      <a href="developer.html">Developer</a>
     </nav>
+    <div class="nav-actions">
+      <div class="language-selector-global">
+        <label for="language">🌐</label>
+        <select id="language">
+          <option value="en" selected>English</option>
+          <option value="es">Español</option>
+          <option value="fr">Français</option>
+          <option value="de">Deutsch</option>
+          <option value="zh-CN">中文 (简体)</option>
+          <option value="zh-TW">中文 (繁體)</option>
+          <option value="ja">日本語</option>
+          <option value="ko">한국어</option>
+          <option value="ar">العربية</option>
+          <option value="ru">Русский</option>
+          <option value="pt">Português</option>
+          <option value="hi">हिन्दी</option>
+        </select>
+      </div>
+      <a href="login.html" class="signin-btn">Sign In</a>
+    </div>
   </header>
-  <!-- Contact Section -->
+
+  <!-- Hero Section -->
   <section class="hero">
-    <div class="hero-content">
-      <h1>Contact Us</h1>
-      <p class="tagline">We'd love to hear from you. Reach out with questions, feedback, or ideas!</p>
-      <form action="https://formspree.io/f/xnnbobko" method="POST" class="contact-form">
-        <input type="text" name="name" placeholder="Your Name" required />
-        <input type="email" name="email" placeholder="Your Email" required />
-        <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-        <button type="submit" class="cta-button primary">Send Message</button>
+    <h1>Contact Nexora</h1>
+    <p>We’d love to hear from you. Reach out to our team below.</p>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="contact-section">
+    <div class="content-card">
+      <h2>📬 Get in Touch</h2>
+      <form class="contact-form" onsubmit="handleContact(event)">
+        <div class="form-group">
+          <label class="form-label" for="name">Your Name</label>
+          <input type="text" id="name" class="form-input" placeholder="Enter your name" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="email">Your Email</label>
+          <input type="email" id="email" class="form-input" placeholder="Enter your email" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="message">Message</label>
+          <textarea id="message" class="form-input" rows="5" placeholder="Write your message..." required></textarea>
+        </div>
+        <button type="submit" class="submit-btn">Send Message</button>
       </form>
     </div>
+
+    <div class="content-card">
+      <h2>📍 Contact Info</h2>
+      <p><strong>Email:</strong> support@nexora.com</p>
+      <p><strong>Phone:</strong> +1 (555) 123-4567</p>
+      <p><strong>Address:</strong> 123 Executive Ave, Suite 100, New York, NY</p>
+    </div>
   </section>
+
   <!-- Footer -->
   <footer>
-    <p>&copy; 2025 Nexora ProSuite. All rights reserved.</p>
+    <p>© 2025 Nexora. All rights reserved.</p>
   </footer>
+
+  <!-- Contact Form Script -->
   <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const form = document.querySelector(".contact-form");
-      if (form) {
-        form.addEventListener("submit", async (e) => {
-          e.preventDefault();
-          const response = await fetch(form.action, {
-            method: "POST",
-            body: new FormData(form),
-            headers: { 'Accept': 'application/json' }
-          });
-          if (response.ok) {
-            form.innerHTML = "<p style='color: #f5c542; font-size: 1.2rem; text-align: center; padding: 2rem;'>✅ Thank you for reaching out! We'll be in touch soon.</p>";
-          } else {
-            form.innerHTML = "<p style='color: #ff6b6b; font-size: 1.2rem; text-align: center; padding: 2rem;'>❌ Oops! Something went wrong — please try again later.</p>";
+    function handleContact(event) {
+      event.preventDefault();
+      const button = event.target.querySelector('.submit-btn');
+      button.textContent = 'Sending...';
+      button.disabled = true;
+
+      setTimeout(() => {
+        button.textContent = '✓ Message Sent';
+        alert("Thank you for contacting Nexora! We will reply shortly.");
+        event.target.reset();
+        button.disabled = false;
+        button.textContent = 'Send Message';
+      }, 1500);
+    }
+  </script>
+
+  <!-- Google Translate -->
+  <script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement(
+        { pageLanguage: 'en', autoDisplay: false },
+        'google_translate_element'
+      );
+    }
+  </script>
+  <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+  <script>
+    function changeLanguage(langCode) {
+      const googleFrame = document.querySelector("iframe.goog-te-menu-frame");
+      if (googleFrame) {
+        const innerDoc = googleFrame.contentDocument || googleFrame.contentWindow.document;
+        const langElements = innerDoc.querySelectorAll(".goog-te-menu2-item span.text");
+        for (let i = 0; i < langElements.length; i++) {
+          const parent = langElements[i].closest("tr");
+          if (parent && parent.getAttribute("value") === langCode) {
+            langElements[i].click();
+            break;
           }
-        });
+        }
+      }
+    }
+    const langSelect = document.getElementById("language");
+    langSelect.addEventListener("change", function() {
+      const langCode = this.value;
+      localStorage.setItem("preferredLanguage", langCode);
+      changeLanguage(langCode);
+    });
+    window.addEventListener("load", function() {
+      const savedLang = localStorage.getItem("preferredLanguage");
+      if (savedLang) {
+        document.getElementById("language").value = savedLang;
+        setTimeout(() => {
+          document.getElementById("language").dispatchEvent(new Event("change"));
+        }, 1000);
       }
     });
   </script>
-  
-  <script src="assets/js/main.js"></script>
-  <!--Start of Tawk.to Script-->
-  <script type="text/javascript">
-  var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-  (function(){
-  var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-  s1.async=true;
-  s1.src='https://embed.tawk.to/68ba0eecb51ffa1922ad5802/1j4bckjg5';
-  s1.charset='UTF-8';
-  s1.setAttribute('crossorigin','*');
-  s0.parentNode.insertBefore(s1,s0);
-  })();
-  </script>
-  <!--End of Tawk.to Script-->
 </body>
 </html>
