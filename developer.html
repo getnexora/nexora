@@ -3,17 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nexora — Developers</title>
-
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
-  <!-- Main stylesheet -->
-  <link rel="stylesheet" href="css/style.css" />
-
-  <!-- Favicon -->
-  <link rel="icon" href="img/logo-icon.png" type="image/png" />
+  <title>Nexora – Developer</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 <body>
   <!-- Navbar -->
@@ -24,49 +15,41 @@
       <a href="features.html">Features</a>
       <a href="developer.html">Developers</a>
       <a href="contact.html">Contact</a>
-      <a href="dashboard.html">Dashboard</a>
+      <a href="login.html" class="signin-btn">Sign In</a>
     </nav>
-    <a href="login.html" class="signin-btn">Sign In</a>
   </header>
 
   <!-- Developer Section -->
-  <main style="padding:8rem 2rem 4rem; max-width:1100px; margin:auto;">
-    <h1 style="font-size:2.5rem; font-weight:800; margin-bottom:1.5rem;">Developer Hub</h1>
-    <p style="color:#aaa; font-size:1.1rem; margin-bottom:3rem;">
-      Nexora provides powerful tools and APIs to help developers build, integrate, 
-      and scale applications with ease.
-    </p>
+  <section class="developers">
+    <h1>Developer Resources</h1>
+    <p>Welcome developers! Here you’ll find everything you need to build with Nexora.</p>
 
-    <section style="display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:2rem;">
-      <div style="background:#111; border:1px solid #222; border-radius:12px; padding:2rem;">
-        <h2 style="margin-bottom:1rem; color:#c9a227;">📚 Documentation</h2>
-        <p>Comprehensive guides and tutorials to get you started quickly with Nexora’s platform.</p>
+    <div class="dev-resources">
+      <div class="resource">
+        <h3>API Documentation</h3>
+        <p>Comprehensive API docs to help you integrate with Nexora quickly.</p>
       </div>
-      <div style="background:#111; border:1px solid #222; border-radius:12px; padding:2rem;">
-        <h2 style="margin-bottom:1rem; color:#c9a227;">🔗 APIs</h2>
-        <p>Powerful RESTful and GraphQL APIs to integrate Nexora into your own applications.</p>
+      <div class="resource">
+        <h3>SDKs & Libraries</h3>
+        <p>Pre-built SDKs in multiple languages to speed up development.</p>
       </div>
-      <div style="background:#111; border:1px solid #222; border-radius:12px; padding:2rem;">
-        <h2 style="margin-bottom:1rem; color:#c9a227;">🛠️ Tools</h2>
-        <p>SDKs, CLI tools, and code samples to make development faster and easier.</p>
+      <div class="resource">
+        <h3>Community</h3>
+        <p>Join our developer forum and collaborate with others building on Nexora.</p>
       </div>
-      <div style="background:#111; border:1px solid #222; border-radius:12px; padding:2rem;">
-        <h2 style="margin-bottom:1rem; color:#c9a227;">🤝 Community</h2>
-        <p>Join our developer community, share knowledge, and collaborate on open-source projects.</p>
+      <div class="resource">
+        <h3>Support</h3>
+        <p>Get in touch with our support team for technical guidance.</p>
       </div>
-    </section>
-  </main>
-
-  <!-- Call to Action -->
-  <section style="text-align:center; padding:4rem 2rem; background:#111; border-top:1px solid #222; border-bottom:1px solid #222;">
-    <h2 style="font-size:2rem; font-weight:700; margin-bottom:1rem;">Start Building Today</h2>
-    <p style="color:#aaa; margin-bottom:2rem;">Sign up to get API keys, developer tools, and access to our community.</p>
-    <a href="signup.html" class="signin-btn">Get API Access</a>
+    </div>
   </section>
 
   <!-- Footer -->
-  <footer style="text-align:center; padding:2rem; color:#666;">
-    © 2025 Nexora. All rights reserved.
+  <footer>
+    <p>&copy; 2025 Nexora. All rights reserved.</p>
   </footer>
+
+  <!-- Scripts -->
+  <script src="assets/js/main.js"></script>
 </body>
 </html>
