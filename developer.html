@@ -21,6 +21,7 @@
         <li><a href="features.html">Features</a></li>
         <li><a href="contact.html">Contact</a></li>
         <li><a href="developer.html" class="active">Developer</a></li>
+        <li><a href="#" onclick="logOut()" style="color:#ff6b6b;">Logout</a></li>
       </ul>
     </nav>
   </header>
@@ -30,6 +31,7 @@
     <div class="container">
       <h1>My Tools</h1>
       <p class="section-subtitle">Quick access to development resources</p>
+      <p style="text-align:center;opacity:0.7;">Logged in as: <span id="whoami"></span></p>
       
       <div class="tools-grid">
         <!-- ChatGPT Card -->
@@ -95,16 +97,6 @@
           </div>
           <h3 class="tool-name">FreedomVoice</h3>
         </a>
-        
-        <!-- Template for adding new cards - just copy and modify -->
-        <!-- 
-        <a href="YOUR_URL_HERE" target="_blank" class="tool-card">
-          <div class="tool-logo">
-            <span class="tool-emoji">EMOJI_HERE</span>
-          </div>
-          <h3 class="tool-name">TOOL_NAME</h3>
-        </a>
-        -->
       </div>
     </div>
   </section>
@@ -128,5 +120,33 @@
   })();
   </script>
   <!--End of Tawk.to Script-->
+  
+  <!-- Supabase Authentication -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script>
+    const SUPABASE_URL = "https://gmvwpoueyvneuwznzdbs.supabase.co";
+    const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imdtdndwb3VleXZuZXV3em56ZGJzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTY5NDAzNTcsImV4cCI6MjA3MjUxNjM1N30.X3xYfHVm0UNKIPzfhosYU0Tq3Wv9TDmI70nejtwzQoc";
+
+    const sb = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+    async function requireAuth() {
+      const { data: { session } } = await sb.auth.getSession();
+      if (!session) {
+        window.location.href = "login.html";
+        return;
+      }
+      // Show the logged-in email
+      const el = document.getElementById("whoami");
+      if (el) el.textContent = session.user.email;
+    }
+
+    async function logOut() {
+      await sb.auth.signOut();
+      window.location.href = "index.html";
+    }
+
+    // Run check on load
+    requireAuth();
+  </script>
 </body>
 </html>
