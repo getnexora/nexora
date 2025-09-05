@@ -24,25 +24,6 @@
         <div class="tagline">Executive Access Portal</div>
       </div>
 
-      <!-- Global Language Dropdown -->
-      <div class="language-selector-global">
-        <label for="language">🌐 Language</label>
-        <select id="language">
-          <option value="en" selected>English</option>
-          <option value="es">Español</option>
-          <option value="fr">Français</option>
-          <option value="de">Deutsch</option>
-          <option value="zh-CN">中文 (Simplified)</option>
-          <option value="zh-TW">中文 (Traditional)</option>
-          <option value="ja">日本語</option>
-          <option value="ko">한국어</option>
-          <option value="ar">العربية</option>
-          <option value="ru">Русский</option>
-          <option value="pt">Português</option>
-          <option value="hi">हिन्दी</option>
-        </select>
-      </div>
-
       <!-- Signup Form -->
       <form class="login-form" onsubmit="handleSignup(event)">
         <div class="form-group">
@@ -77,9 +58,9 @@
         </div>
 
         <div class="form-group">
-          <label class="form-label" for="confirmPassword">Confirm Password</label>
+          <label class="form-label" for="confirm-password">Confirm Password</label>
           <div class="input-wrapper">
-            <input type="password" id="confirmPassword" class="form-input" placeholder="Confirm your password" required>
+            <input type="password" id="confirm-password" class="form-input password-input" placeholder="Confirm your password" required>
           </div>
         </div>
 
@@ -89,7 +70,7 @@
       <div class="divider"><span>or</span></div>
 
       <div class="signup-link">
-        <p>Already have an account? <a href="login.html">Sign In</a></p>
+        <p>Already have an account? <a href="login.html">Sign in here</a></p>
       </div>
     </div>
   </div>
@@ -113,13 +94,14 @@
       const name = document.getElementById('name').value;
       const email = document.getElementById('email').value;
       const password = document.getElementById('password').value;
-      const confirmPassword = document.getElementById('confirmPassword').value;
+      const confirmPassword = document.getElementById('confirm-password').value;
 
       if (password !== confirmPassword) {
         alert("Passwords do not match!");
         return;
       }
 
+      // Simulated account creation
       localStorage.setItem("nexora_userType", "registered");
       localStorage.setItem("nexoraUser", email);
 
@@ -145,36 +127,5 @@
     }
   </script>
   <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-  <script>
-    function changeLanguage(langCode) {
-      const googleFrame = document.querySelector("iframe.goog-te-menu-frame");
-      if (googleFrame) {
-        const innerDoc = googleFrame.contentDocument || googleFrame.contentWindow.document;
-        const langElements = innerDoc.querySelectorAll(".goog-te-menu2-item span.text");
-        for (let i = 0; i < langElements.length; i++) {
-          const parent = langElements[i].closest("tr");
-          if (parent && parent.getAttribute("value") === langCode) {
-            langElements[i].click();
-            break;
-          }
-        }
-      }
-    }
-    const langSelect = document.getElementById("language");
-    langSelect.addEventListener("change", function() {
-      const langCode = this.value;
-      localStorage.setItem("preferredLanguage", langCode);
-      changeLanguage(langCode);
-    });
-    window.addEventListener("load", function() {
-      const savedLang = localStorage.getItem("preferredLanguage");
-      if (savedLang) {
-        document.getElementById("language").value = savedLang;
-        setTimeout(() => {
-          document.getElementById("language").dispatchEvent(new Event("change"));
-        }, 1000);
-      }
-    });
-  </script>
 </body>
 </html>
