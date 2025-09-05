@@ -4,94 +4,64 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#0a0a0a">
-  <title>Nexora - Home</title>
+  <title>Nexora - Executive Access Portal</title>
 
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <!-- Premium Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-  <!-- Styles -->
-  <link rel="stylesheet" href="style.css">
+  <!-- Global Stylesheet (FIXED PATH) -->
+  <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-  <!-- Hidden Google Translate widget -->
+  <!-- Hidden Google Translate Widget -->
   <div id="google_translate_element"></div>
 
   <!-- Navbar -->
   <nav class="navbar">
-    <div class="logo">
-      <img src="img/logo-icon.png" alt="Nexora Logo">
-      <span class="logo-text">NEXORA</span>
-    </div>
-
+    <div class="logo">NEXORA</div>
     <ul class="nav-links">
       <li><a href="index.html" class="active">Home</a></li>
-      <li><a href="features.html">Features</a></li>
       <li><a href="about.html">About</a></li>
+      <li><a href="features.html">Features</a></li>
       <li><a href="contact.html">Contact</a></li>
+      <li><a href="developer.html">Developer</a></li>
     </ul>
-
-    <div class="nav-signin">
-      <a href="login.html" class="signin-btn">Sign In</a>
-    </div>
+    <a href="login.html" class="signin-btn">Sign In</a>
   </nav>
 
-  <!-- Global Language Selector -->
-  <div class="language-selector-global">
-    <select id="language">
-      <option value="en" selected>English</option>
-      <option value="es">Español</option>
-      <option value="fr">Français</option>
-      <option value="de">Deutsch</option>
-      <option value="zh-CN">中文 (简体)</option>
-      <option value="zh-TW">中文 (繁體)</option>
-      <option value="ja">日本語</option>
-      <option value="ko">한국어</option>
-      <option value="ar">العربية</option>
-      <option value="ru">Русский</option>
-      <option value="pt">Português</option>
-      <option value="hi">हिन्दी</option>
-    </select>
-  </div>
-
-  <!-- Hero -->
-  <section class="hero">
+  <!-- Hero Section -->
+  <header class="hero">
     <h1>Welcome to Nexora</h1>
-    <p>The premier executive access portal for global professionals.</p>
-    <a href="features.html" class="cta-button">Explore Features</a>
-  </section>
+    <p>Your secure executive access portal</p>
+    <a href="signup.html" class="cta-btn">Get Started</a>
+  </header>
 
-  <!-- Features -->
-  <section class="features-grid">
-    <div class="feature-card">
-      <h3>🔒 Secure Access</h3>
-      <p>Enterprise-grade security and encrypted sessions.</p>
-    </div>
-    <div class="feature-card">
-      <h3>🌐 Multilingual</h3>
-      <p>Seamlessly interact in your preferred language.</p>
-    </div>
-    <div class="feature-card">
-      <h3>⚡ Fast Performance</h3>
-      <p>Optimized systems for speed and reliability.</p>
+  <!-- Features Section -->
+  <section class="features">
+    <h2>Our Features</h2>
+    <div class="features-grid">
+      <div class="feature-card">
+        <h3>Secure Login</h3>
+        <p>Advanced authentication ensures your data is always safe.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Multi-Language</h3>
+        <p>Access Nexora in your preferred language worldwide.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Guest Access</h3>
+        <p>Explore with limited features before creating an account.</p>
+      </div>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer>
-    <p>© 2025 Nexora. All rights reserved.</p>
+  <footer class="footer">
+    <p>&copy; 2025 Nexora. All rights reserved.</p>
   </footer>
 
-  <!-- Scripts -->
-  <script>
-    // Hide Sign In if already logged in
-    window.addEventListener("load", function() {
-      const userType = localStorage.getItem("nexora_userType");
-      const signinBtn = document.querySelector(".signin-btn");
-      if (userType === "registered" || userType === "guest") {
-        if (signinBtn) signinBtn.style.display = "none";
-      }
-    });
-  </script>
+  <!-- JavaScript (FIXED PATH) -->
+  <script src="assets/js/main.js"></script>
 
   <!-- Google Translate -->
   <script type="text/javascript">
@@ -103,38 +73,5 @@
     }
   </script>
   <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-  <script>
-    function changeLanguage(langCode) {
-      const googleFrame = document.querySelector("iframe.goog-te-menu-frame");
-      if (googleFrame) {
-        const innerDoc = googleFrame.contentDocument || googleFrame.contentWindow.document;
-        const langElements = innerDoc.querySelectorAll(".goog-te-menu2-item span.text");
-        for (let i = 0; i < langElements.length; i++) {
-          const parent = langElements[i].closest("tr");
-          if (parent && parent.getAttribute("value") === langCode) {
-            langElements[i].click();
-            break;
-          }
-        }
-      }
-    }
-
-    const langSelect = document.getElementById("language");
-    langSelect.addEventListener("change", function() {
-      const langCode = this.value;
-      localStorage.setItem("preferredLanguage", langCode);
-      changeLanguage(langCode);
-    });
-
-    window.addEventListener("load", function() {
-      const savedLang = localStorage.getItem("preferredLanguage");
-      if (savedLang) {
-        document.getElementById("language").value = savedLang;
-        setTimeout(() => {
-          document.getElementById("language").dispatchEvent(new Event("change"));
-        }, 1000);
-      }
-    });
-  </script>
 </body>
 </html>
