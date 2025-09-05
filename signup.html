@@ -1,59 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nexora – Sign Up</title>
-  <link rel="stylesheet" href="assets/css/style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up - Nexora ProSuite</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body class="login-page">
+
   <div class="login-container">
     <div class="login-card">
       <div class="logo-section">
-        <div class="logo">Nexora</div>
-        <p class="tagline">Create your account</p>
+        <h1 class="logo">Nexora</h1>
+        <p class="tagline">Join Nexora Today</p>
       </div>
 
-      <!-- Signup Form -->
-      <form id="signupForm">
-        <div class="form-group">
-          <label for="name" class="form-label">Full Name</label>
-          <input type="text" id="name" class="form-input" required />
-        </div>
-
+      <form>
         <div class="form-group">
           <label for="email" class="form-label">Email</label>
-          <input type="email" id="email" class="form-input" required />
+          <input type="email" id="email" class="form-input" required>
         </div>
 
         <div class="form-group">
           <label for="password" class="form-label">Password</label>
           <div class="input-wrapper">
-            <input type="password" id="password" class="form-input" required />
-            <button type="button" class="password-toggle" id="togglePassword">
-              👁
-            </button>
+            <input type="password" id="password" class="form-input" required>
+            <button type="button" class="password-toggle" data-target="password">👁</button>
           </div>
         </div>
 
         <div class="form-group">
           <label for="confirmPassword" class="form-label">Confirm Password</label>
-          <input type="password" id="confirmPassword" class="form-input" required />
+          <div class="input-wrapper">
+            <input type="password" id="confirmPassword" class="form-input" required>
+            <button type="button" class="password-toggle" data-target="confirmPassword">👁</button>
+          </div>
         </div>
 
-        <button type="submit" class="submit-btn">Create Account</button>
-        <button type="button" class="guest-btn">Continue as Guest</button>
+        <button type="submit" class="submit-btn">Sign Up</button>
+
+        <div class="divider"><span>OR</span></div>
+
+        <p class="signup-link">Already have an account? <a href="login.html">Login</a></p>
       </form>
-
-      <div class="divider"><span>or</span></div>
-
-      <p class="signup-link">
-        Already have an account? <a href="login.html">Log In</a>
-      </p>
     </div>
   </div>
 
-  <!-- Scripts -->
+  <script src="assets/js/main.js"></script>
   <script src="assets/js/login.js"></script>
 </body>
 </html>
