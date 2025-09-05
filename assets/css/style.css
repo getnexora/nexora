@@ -190,3 +190,15 @@ body {
 .footer-links a:hover {
   color: #d4af37;
 }
+/* Hero Graphic */
+.hero-graphic {
+  margin-bottom: 2rem;
+}
+
+.hero-graphic svg {
+  max-width: 200px;
+  height: auto;
+  margin: 0 auto;
+  display: block;
+  opacity: 0.9;
+}
