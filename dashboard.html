@@ -1,54 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nexora – Dashboard</title>
-  <link rel="stylesheet" href="assets/css/style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - Nexora ProSuite</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
+
   <!-- Navbar -->
   <header class="navbar">
     <div class="logo">Nexora</div>
     <nav>
       <a href="index.html">Home</a>
+      <a href="about.html">About</a>
       <a href="features.html">Features</a>
-      <a href="developer.html">Developers</a>
       <a href="contact.html">Contact</a>
-      <a href="login.html" class="signin-btn">Sign Out</a>
+      <a href="developer.html">Developers</a>
     </nav>
+    <a href="login.html" class="signin-btn">Sign Out</a>
   </header>
 
   <!-- Dashboard Section -->
-  <main class="dashboard">
+  <main class="dashboard-container" style="padding-top: 80px;">
     <h1>Welcome to Your Dashboard</h1>
-    <p>Here you can access your account details and manage your Nexora apps.</p>
+    <p>This is your personal Nexora hub. From here, you can manage apps, track stats, and more.</p>
 
-    <div class="dashboard-widgets">
-      <div class="card">
-        <h2>Profile</h2>
-        <p>Update your account details and settings.</p>
-        <button class="btn">Edit Profile</button>
+    <section class="dashboard-widgets">
+      <div class="widget-card">
+        <h2>Statistics</h2>
+        <p>Loading your stats...</p>
       </div>
-      <div class="card">
-        <h2>My Apps</h2>
-        <p>View and manage your connected applications.</p>
-        <button class="btn">Manage Apps</button>
+
+      <div class="widget-card">
+        <h2>Apps</h2>
+        <p>Manage your Nexora apps here.</p>
       </div>
-      <div class="card">
-        <h2>Analytics</h2>
-        <p>See usage and activity insights.</p>
-        <button class="btn">View Analytics</button>
+
+      <div class="widget-card">
+        <h2>Notifications</h2>
+        <ul id="notifications">
+          <li>No new notifications.</li>
+        </ul>
       </div>
-    </div>
+    </section>
   </main>
 
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2025 Nexora. All rights reserved.</p>
-  </footer>
-
   <!-- Scripts -->
+  <script src="assets/js/main.js"></script>
   <script src="assets/js/dashboard.js"></script>
 </body>
 </html>
