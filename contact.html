@@ -1,67 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact Us - Nexora ProSuite</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Nexora ProSuite</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-  <!-- =========================
-       Navbar
-       ========================= -->
-  <header class="navbar">
-    <div class="logo">Nexora ProSuite</div>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="features.html">Features</a>
-      <a href="developer.html">Developers</a>
-      <a href="contact.html">Contact</a>
-      <a href="login.html" class="signin-btn">Sign In</a>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="logo">Nexora ProSuite</div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="features.html">Features</a>
+            <a href="about.html">About</a>
+            <a href="developer.html">Developer</a>
+            <a href="contact.html" class="active">Contact</a>
+            <a href="login.html" class="signin-btn">Sign In</a>
+        </div>
     </nav>
-  </header>
 
-  <!-- =========================
-       Contact Section
-       ========================= -->
-  <section style="padding: 6rem 2rem; max-width: 600px; margin: 0 auto;">
-    <h1>Contact Us</h1>
-    <p style="margin-top: 1rem; color: #ccc;">
-      Have questions or need support? Get in touch with our team and we’ll respond as soon as possible.
-    </p>
+    <!-- Contact Content -->
+    <main>
+        <div class="page-header">
+            <h1>Contact Us</h1>
+            <p>Get in touch with our team</p>
+        </div>
 
-    <form style="margin-top: 2rem;">
-      <div class="form-group">
-        <label for="name" class="form-label">Name</label>
-        <input type="text" id="name" class="form-input" placeholder="Your full name">
-      </div>
+        <section class="contact-container">
+            <div class="contact-form-section">
+                <h2>Send us a Message</h2>
+                <form id="contactForm" class="contact-form">
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" name="name" class="form-input" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" class="form-input" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" name="subject" class="form-input" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" class="form-input" rows="5" required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+            </div>
 
-      <div class="form-group">
-        <label for="email" class="form-label">Email</label>
-        <input type="email" id="email" class="form-input" placeholder="Your email address">
-      </div>
+            <div class="contact-info-section">
+                <h2>Get in Touch</h2>
+                <div class="contact-info">
+                    <div class="info-item">
+                        <span class="icon">📧</span>
+                        <div>
+                            <h3>Email</h3>
+                            <p>support@nexoraprosuite.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <span class="icon">💬</span>
+                        <div>
+                            <h3>Live Chat</h3>
+                            <p>Available 24/7 for premium users</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <span class="icon">📍</span>
+                        <div>
+                            <h3>Headquarters</h3>
+                            <p>Global Operations Center<br>Available in 195 Countries</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <span class="icon">🌐</span>
+                        <div>
+                            <h3>Social Media</h3>
+                            <p>Follow us @NexoraProSuite</p>
+                        </div>
+                    </div>
+                </div>
 
-      <div class="form-group">
-        <label for="message" class="form-label">Message</label>
-        <textarea id="message" class="form-input" rows="5" placeholder="Write your message here"></textarea>
-      </div>
+                <div class="support-hours">
+                    <h3>Support Hours</h3>
+                    <p>Standard Support: Monday - Friday, 9 AM - 5 PM EST</p>
+                    <p>Premium Support: 24/7/365</p>
+                </div>
+            </div>
+        </section>
+    </main>
 
-      <button type="submit" class="submit-btn">Send Message</button>
-    </form>
-  </section>
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2024 Nexora ProSuite. All rights reserved.</p>
+        <div class="footer-links">
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+            <a href="developer.html">Developers</a>
+        </div>
+    </footer>
 
-  <!-- =========================
-       Footer
-       ========================= -->
-  <footer style="padding: 2rem; text-align: center; background:#0a0a0a; color:#777;">
-    <p>&copy; 2025 Nexora ProSuite. All rights reserved.</p>
-  </footer>
-
-  <!-- =========================
-       Scripts
-       ========================= -->
-  <script src="assets/js/main.js"></script>
+    <script src="assets/js/main.js"></script>
 </body>
 </html>
