@@ -554,3 +554,9 @@ body {
     grid-template-columns: 1fr;
   }
 }
+body.login-page .navbar,
+body.login-page .nav-signin,
+body.login-page .signin-btn,
+body.login-page .language-selector-global {
+  display: none !important;
+}
