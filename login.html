@@ -111,6 +111,16 @@
             text-transform: uppercase;
         }
 
+        /* Language & Region Selector Section */
+        .locale-selectors {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-bottom: 32px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid var(--glass-border);
+        }
+
         /* Form Styles */
         .login-form {
             margin-top: 32px;
@@ -146,6 +156,44 @@
             font-size: 15px;
             transition: all 0.3s ease;
             font-family: inherit;
+        }
+
+        /* Select Input Specific Styles */
+        .select-input {
+            width: 100%;
+            padding: 14px 16px;
+            padding-right: 40px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            color: var(--text-primary);
+            font-size: 15px;
+            transition: all 0.3s ease;
+            font-family: inherit;
+            cursor: pointer;
+            appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23a0a0a0' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 12px center;
+            background-size: 20px;
+        }
+
+        .select-input:hover {
+            border-color: rgba(255, 215, 0, 0.3);
+            background-color: rgba(255, 255, 255, 0.04);
+        }
+
+        .select-input:focus {
+            outline: none;
+            border-color: var(--primary-gold);
+            background-color: rgba(255, 255, 255, 0.05);
+            box-shadow: 0 0 0 3px rgba(255, 215, 0, 0.1);
+        }
+
+        .select-input option {
+            background: var(--bg-card);
+            color: var(--text-primary);
+            padding: 10px;
         }
 
         .form-input:focus {
@@ -369,6 +417,10 @@
             .logo {
                 font-size: 36px;
             }
+            
+            .locale-selectors {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -384,6 +436,29 @@
             <div class="logo-section">
                 <div class="logo">NEXORA</div>
                 <div class="tagline">Executive Access Portal</div>
+            </div>
+
+            <!-- Language & Region Selectors -->
+            <div class="locale-selectors">
+                <div class="form-group">
+                    <label class="form-label" for="language">Language</label>
+                    <select id="language" class="select-input" onchange="setLanguage(this.value)">
+                        <option value="en">English</option>
+                        <option value="es">Español</option>
+                        <option value="fr">Français</option>
+                        <option value="de">Deutsch</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label" for="region">Region</label>
+                    <select id="region" class="select-input" onchange="setRegion(this.value)">
+                        <option value="us">United States</option>
+                        <option value="mx">Mexico</option>
+                        <option value="fr">France</option>
+                        <option value="de">Germany</option>
+                    </select>
+                </div>
             </div>
 
             <!-- Login Form -->
@@ -460,6 +535,35 @@
     </div>
 
     <script>
+        // Language & Region Functions
+        function setLanguage(lang) {
+            localStorage.setItem("nexora_language", lang);
+            console.log("Language set to:", lang);
+            // Future: This would trigger UI translation
+        }
+
+        function setRegion(region) {
+            localStorage.setItem("nexora_region", region);
+            console.log("Region set to:", region);
+            // Future: This would update currency, date format, etc.
+        }
+
+        // Restore saved language & region on page load
+        document.addEventListener("DOMContentLoaded", () => {
+            const savedLang = localStorage.getItem("nexora_language");
+            const savedRegion = localStorage.getItem("nexora_region");
+            
+            if (savedLang) {
+                document.getElementById("language").value = savedLang;
+                console.log("Restored language:", savedLang);
+            }
+            
+            if (savedRegion) {
+                document.getElementById("region").value = savedRegion;
+                console.log("Restored region:", savedRegion);
+            }
+        });
+
         // Password Toggle Functionality
         function togglePassword() {
             const passwordInput = document.getElementById('password');
@@ -481,6 +585,8 @@
             const email = document.getElementById('email').value;
             const password = document.getElementById('password').value;
             const remember = document.getElementById('remember').checked;
+            const language = document.getElementById('language').value;
+            const region = document.getElementById('region').value;
             
             // Store login state
             if (remember) {
@@ -488,6 +594,13 @@
             } else {
                 sessionStorage.setItem('nexoraUser', email);
             }
+            
+            // Log the current locale settings
+            console.log("Logging in with:", {
+                email: email,
+                language: language,
+                region: region
+            });
             
             // Show loading state
             const button = event.target.querySelector('.submit-btn');
