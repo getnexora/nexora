@@ -5,9 +5,201 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Nexora - Secure Login</title>
   <style>
-    /* --- existing styles here (same as before) --- */
+    /* ===== Base Styles ===== */
+    :root {
+      --primary-gold: #d4af37;
+      --bg-dark: #0f0f0f;
+      --card-bg: rgba(255, 255, 255, 0.05);
+      --text-primary: #fff;
+      --text-secondary: #aaa;
+      --border-light: rgba(255, 255, 255, 0.1);
+    }
 
-    /* Language Selector */
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
+      color: var(--text-primary);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    /* ===== Container ===== */
+    .login-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      padding: 20px;
+    }
+
+    .login-card {
+      background: var(--card-bg);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--border-light);
+      border-radius: 16px;
+      padding: 40px;
+      width: 100%;
+      max-width: 400px;
+      box-shadow: 0 0 40px rgba(0, 0, 0, 0.6);
+      position: relative;
+    }
+
+    /* ===== Logo Section ===== */
+    .logo-section {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: bold;
+      color: var(--primary-gold);
+      letter-spacing: 2px;
+    }
+
+    .tagline {
+      font-size: 14px;
+      color: var(--text-secondary);
+    }
+
+    /* ===== Form Styles ===== */
+    .login-form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-label {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 14px;
+    }
+
+    .input-wrapper {
+      position: relative;
+    }
+
+    .form-input {
+      width: 100%;
+      padding: 12px 40px 12px 12px;
+      border-radius: 8px;
+      border: 1px solid var(--border-light);
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--text-primary);
+      font-size: 14px;
+    }
+
+    .form-input:focus {
+      outline: none;
+      border-color: var(--primary-gold);
+    }
+
+    /* ===== Password Toggle (Eyeball) ===== */
+    .password-toggle {
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--text-secondary);
+      display: flex;
+      align-items: center;
+    }
+
+    .eye-icon {
+      width: 20px;
+      height: 20px;
+      display: none;
+    }
+
+    .password-toggle .eye-open {
+      display: inline;
+    }
+
+    .password-toggle.showing .eye-open {
+      display: none;
+    }
+
+    .password-toggle.showing .eye-closed {
+      display: inline;
+    }
+
+    /* ===== Options ===== */
+    .form-options {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      font-size: 14px;
+    }
+
+    .form-options a {
+      color: var(--primary-gold);
+      text-decoration: none;
+    }
+
+    /* ===== Buttons ===== */
+    .submit-btn {
+      background: var(--primary-gold);
+      border: none;
+      padding: 12px;
+      border-radius: 8px;
+      color: #000;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .submit-btn:hover {
+      background: #e0c04f;
+    }
+
+    /* ===== Divider ===== */
+    .divider {
+      text-align: center;
+      margin: 20px 0;
+      color: var(--text-secondary);
+      position: relative;
+    }
+
+    .divider span {
+      background: var(--bg-dark);
+      padding: 0 10px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .divider::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: var(--border-light);
+      z-index: 0;
+    }
+
+    /* ===== Signup Link ===== */
+    .signup-link {
+      text-align: center;
+      font-size: 14px;
+    }
+
+    .signup-link a {
+      color: var(--primary-gold);
+      text-decoration: none;
+    }
+
+    /* ===== Language Selector ===== */
     .language-selector {
       position: absolute;
       top: 16px;
@@ -97,7 +289,7 @@
 
       <!-- Signup -->
       <div class="signup-link">
-        <p>Don't have an account? <a href="#">Sign up</a></p>
+        <p>Don't have an account? <a href="signup.html">Sign up</a></p>
       </div>
     </div>
   </div>
