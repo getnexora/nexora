@@ -691,3 +691,10 @@ footer {
     grid-template-columns: repeat(2, 1fr);
   }
 }
+/* Shrink Tawk.to button on mobile */
+@media (max-width: 768px) {
+  iframe[src*="tawk.to"] {
+    transform: scale(0.8);
+    transform-origin: bottom right;
+  }
+}
