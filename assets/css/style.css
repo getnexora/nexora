@@ -2,7 +2,7 @@
    Nexora Global Stylesheet
    ========================= */
 
-/* Fonts & Base */
+/* Reset & Base */
 * {
   margin: 0;
   padding: 0;
@@ -24,6 +24,7 @@ a {
   transition: 0.2s;
 }
 a:hover {
+  color: #e3b93c;
   text-decoration: underline;
 }
 
@@ -33,19 +34,18 @@ a:hover {
 .navbar {
   width: 100%;
   padding: 1rem 2rem;
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(0, 0, 0, 0.9);
   display: flex;
   justify-content: space-between;
   align-items: center;
   position: fixed;
   top: 0;
   z-index: 100;
+  border-bottom: 1px solid rgba(201, 162, 39, 0.3);
 }
 
-.navbar .logo {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: #c9a227;
+.navbar .logo img {
+  height: 40px;
 }
 
 .navbar nav a {
@@ -59,9 +59,36 @@ a:hover {
   padding: 0.6rem 1rem;
   border-radius: 6px;
   font-weight: 600;
+  transition: background 0.2s;
 }
 .signin-btn:hover {
   background: #e3b93c;
+}
+
+/* =========================
+   Hero Section
+   ========================= */
+.hero {
+  height: 100vh;
+  background: url("../img/logo.png") no-repeat center/contain,
+              linear-gradient(180deg, #0a0a0a, #111);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 2rem;
+}
+.hero h1 {
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: #c9a227;
+  margin-bottom: 1rem;
+}
+.hero p {
+  font-size: 1.2rem;
+  color: #ddd;
+  max-width: 600px;
 }
 
 /* =========================
@@ -74,50 +101,20 @@ body.login-page {
   padding: 2rem;
 }
 
-.login-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  max-width: 420px;
-}
-
 .login-card {
   background: #111;
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 12px;
   padding: 2rem;
   width: 100%;
+  max-width: 420px;
   box-shadow: 0 8px 20px rgba(0,0,0,0.5);
   text-align: center;
 }
 
-.logo-section .logo {
-  font-size: 1.8rem;
-  font-weight: 800;
-  color: #c9a227;
-}
-.logo-section .tagline {
-  font-size: 0.9rem;
-  color: #aaa;
-  margin-bottom: 1.5rem;
-}
-
-/* Form */
-.form-group {
-  margin-bottom: 1.5rem;
-  text-align: left;
-}
-
-.form-label {
-  font-size: 0.9rem;
-  margin-bottom: 0.4rem;
-  display: block;
-  font-weight: 500;
-}
-
-.input-wrapper {
-  position: relative;
+.login-card .logo img {
+  height: 50px;
+  margin-bottom: 1rem;
 }
 
 .form-input {
@@ -128,145 +125,44 @@ body.login-page {
   border-radius: 8px;
   color: #fff;
   font-size: 1rem;
+  margin-bottom: 1rem;
 }
 .form-input:focus {
   border-color: #c9a227;
   outline: none;
 }
 
-.password-toggle {
-  position: absolute;
-  top: 50%;
-  right: 12px;
-  transform: translateY(-50%);
-  background: none;
-  border: none;
-  cursor: pointer;
-  color: #aaa;
-}
-
-.eye-icon {
-  width: 20px;
-  height: 20px;
-  display: none;
-}
-.password-toggle.showing .eye-open {
-  display: none;
-}
-.password-toggle.showing .eye-closed {
-  display: block;
-}
-.password-toggle:not(.showing) .eye-open {
-  display: block;
-}
-.password-toggle:not(.showing) .eye-closed {
-  display: none;
-}
-
-/* Options */
-.form-options {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 1.5rem;
-  font-size: 0.85rem;
-}
-
-.remember-me label {
-  margin-left: 0.3rem;
-  color: #aaa;
-}
-
-/* Buttons */
-.submit-btn,
-.guest-btn {
-  width: 100%;
+.submit-btn {
+  background: #c9a227;
+  color: #0a0a0a;
   padding: 0.9rem;
-  margin-bottom: 1rem;
   border: none;
   border-radius: 8px;
   font-weight: 600;
   font-size: 1rem;
   cursor: pointer;
+  width: 100%;
+  margin-top: 1rem;
   transition: 0.2s;
-}
-
-.submit-btn {
-  background: #c9a227;
-  color: #0a0a0a;
 }
 .submit-btn:hover {
   background: #e3b93c;
 }
 
-.guest-btn {
-  background: #222;
-  color: #fff;
-  border: 1px solid #333;
-}
-.guest-btn:hover {
-  background: #333;
-}
-
-.guest-notice {
-  font-size: 0.8rem;
+/* =========================
+   Footer
+   ========================= */
+footer {
+  background: #0d0d0d;
   color: #aaa;
-}
-
-/* Divider */
-.divider {
-  margin: 1.5rem 0;
   text-align: center;
-  position: relative;
+  padding: 1.5rem;
+  border-top: 1px solid rgba(201, 162, 39, 0.2);
 }
-.divider span {
-  background: #111;
-  padding: 0 0.5rem;
-  color: #666;
-}
-.divider::before {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 0;
-  width: 100%;
-  height: 1px;
-  background: #333;
-  z-index: -1;
-}
-
-/* Signup Link */
-.signup-link {
-  font-size: 0.9rem;
-  margin-top: 1rem;
-}
-.signup-link a {
+footer a {
   color: #c9a227;
-  font-weight: 600;
+  font-weight: 500;
 }
-
-/* =========================
-   Language Selector
-   ========================= */
-.language-selector-global {
-  margin: 1rem auto;
-  text-align: center;
+footer a:hover {
+  color: #e3b93c;
 }
-.language-selector-global select {
-  background: #1a1a1a;
-  border: 1px solid #333;
-  color: #fff;
-  padding: 0.5rem 1rem;
-  border-radius: 6px;
-  font-size: 0.9rem;
-}
-
-/* =========================
-   Hide Navbar on Login Page
-   ========================= */
-body.login-page .navbar,
-body.login-page .signin-btn,
-body.login-page .language-selector-global.navbar-version {
-  display: none !important;
-}
-
