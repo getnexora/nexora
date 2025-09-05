@@ -3,17 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nexora — Dashboard</title>
-
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
-  <!-- Main stylesheet -->
-  <link rel="stylesheet" href="css/style.css" />
-
-  <!-- Favicon -->
-  <link rel="icon" href="img/logo-icon.png" type="image/png" />
+  <title>Nexora – Dashboard</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 <body>
   <!-- Navbar -->
@@ -24,48 +15,40 @@
       <a href="features.html">Features</a>
       <a href="developer.html">Developers</a>
       <a href="contact.html">Contact</a>
-      <a href="dashboard.html">Dashboard</a>
+      <a href="login.html" class="signin-btn">Sign Out</a>
     </nav>
-    <a href="login.html" class="signin-btn">Logout</a>
   </header>
 
-  <!-- Dashboard Content -->
-  <main style="padding: 8rem 2rem 4rem; max-width: 1100px; margin: auto;">
-    <h1>Welcome back, User 👋</h1>
-    <p style="color:#aaa; margin-bottom:2rem;">Here’s an overview of your account and recent activity.</p>
+  <!-- Dashboard Section -->
+  <main class="dashboard">
+    <h1>Welcome to Your Dashboard</h1>
+    <p>Here you can access your account details and manage your Nexora apps.</p>
 
-    <!-- Dashboard Grid -->
-    <section style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
-      <div style="background:#111; border:1px solid #222; border-radius:12px; padding:1.5rem; box-shadow:0 6px 16px rgba(0,0,0,0.4);">
-        <h2 style="margin-bottom:1rem; color:#c9a227;">Profile</h2>
-        <p>Name: John Doe</p>
-        <p>Email: you@example.com</p>
+    <div class="dashboard-widgets">
+      <div class="card">
+        <h2>Profile</h2>
+        <p>Update your account details and settings.</p>
+        <button class="btn">Edit Profile</button>
       </div>
-
-      <div style="background:#111; border:1px solid #222; border-radius:12px; padding:1.5rem; box-shadow:0 6px 16px rgba(0,0,0,0.4);">
-        <h2 style="margin-bottom:1rem; color:#c9a227;">Recent Activity</h2>
-        <ul style="list-style:none; padding:0;">
-          <li>✔️ Logged in today</li>
-          <li>✔️ Updated profile</li>
-          <li>✔️ Viewed features</li>
-        </ul>
+      <div class="card">
+        <h2>My Apps</h2>
+        <p>View and manage your connected applications.</p>
+        <button class="btn">Manage Apps</button>
       </div>
-
-      <div style="background:#111; border:1px solid #222; border-radius:12px; padding:1.5rem; box-shadow:0 6px 16px rgba(0,0,0,0.4);">
-        <h2 style="margin-bottom:1rem; color:#c9a227;">Quick Links</h2>
-        <a href="features.html" style="color:#c9a227; display:block; margin-bottom:0.5rem;">Explore Features</a>
-        <a href="developer.html" style="color:#c9a227; display:block; margin-bottom:0.5rem;">Developer Tools</a>
-        <a href="contact.html" style="color:#c9a227; display:block;">Support</a>
+      <div class="card">
+        <h2>Analytics</h2>
+        <p>See usage and activity insights.</p>
+        <button class="btn">View Analytics</button>
       </div>
-    </section>
+    </div>
   </main>
 
   <!-- Footer -->
-  <footer style="text-align:center; padding:2rem; color:#666;">
-    © 2025 Nexora. All rights reserved.
+  <footer>
+    <p>&copy; 2025 Nexora. All rights reserved.</p>
   </footer>
 
-  <!-- Dashboard Script -->
-  <script src="js/dashboard.js"></script>
+  <!-- Scripts -->
+  <script src="assets/js/dashboard.js"></script>
 </body>
 </html>
