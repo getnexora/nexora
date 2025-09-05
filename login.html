@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Developer Login - Nexora ProSuite</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login • Nexora ProSuite</title>
   <link rel="icon" type="image/png" href="assets/img/logo-icon.png" />
-  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 <body>
-  <!-- Navigation -->
   <header>
     <nav class="navbar">
       <div class="logo">
@@ -16,34 +15,55 @@
       </div>
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="features.html">Features</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        <li><a href="login.html" class="active">Developer</a></li>
       </ul>
     </nav>
   </header>
 
-  <!-- Login Section -->
   <section class="hero">
-    <div class="hero-content">
-      <div class="login-container">
-        <h2 style="color: #f5c542; margin-bottom: 2rem;">Developer Login</h2>
-        <form id="loginForm" class="contact-form" style="max-width: 400px; margin: 0 auto;">
-          <input type="text" id="username" placeholder="Username" required style="background-color: #1a1a1a; color: #ffffff; border: 2px solid #333333; padding: 1rem; border-radius: 10px;">
-          <input type="password" id="password" placeholder="Password" required style="background-color: #1a1a1a; color: #ffffff; border: 2px solid #333333; padding: 1rem; border-radius: 10px;">
-          <button type="submit" class="cta-button primary">Login</button>
-        </form>
-        <p id="errorMsg" style="color: #ff6b6b; display: none; text-align: center; margin-top: 1rem;">Invalid credentials</p>
+    <div class="hero-content" style="max-width:420px;margin:auto;">
+      <h1>Login / Sign Up</h1>
+      <p class="tagline">Access your Nexora dashboard</p>
+
+      <div class="contact-form">
+        <input id="email" type="email" placeholder="Email" required />
+        <input id="password" type="password" placeholder="Password" required />
+        <button class="cta-button primary" id="loginBtn">Log In</button>
+        <button class="cta-button secondary" id="signupBtn">Sign Up</button>
+        <p id="msg" style="color:#fff;opacity:.9;text-align:center;margin-top:1rem;"></p>
       </div>
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2025 Nexora ProSuite. All rights reserved.</p>
-  </footer>
-  
-  <script src="assets/js/login.js"></script>
+  <!-- Supabase (CDN) -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+  <script>
+    // Your Supabase project credentials
+    const SUPABASE_URL = "https://gmvwpoueyvneuwznzdbs.supabase.co";
+    const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imdtdndwb3VleXZuZXV3em56ZGJzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTY5NDAzNTcsImV4cCI6MjA3MjUxNjM1N30.X3xYfHVm0UNKIPzfhosYU0Tq3Wv9TDmI70nejtwzQoc";
+
+    const sb = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+    const $ = id => document.getElementById(id);
+    const show = (t) => $("msg").textContent = t || "";
+
+    $("loginBtn").addEventListener("click", async () => {
+      show("Signing in…");
+      const email = $("email").value.trim();
+      const password = $("password").value;
+      const { data, error } = await sb.auth.signInWithPassword({ email, password });
+      if (error) return show(error.message);
+      show("Success! Redirecting…");
+      window.location.href = "developer.html";
+    });
+
+    $("signupBtn").addEventListener("click", async () => {
+      show("Creating account…");
+      const email = $("email").value.trim();
+      const password = $("password").value;
+      const { data, error } = await sb.auth.signUp({ email, password });
+      if (error) return show(error.message);
+      show("Check your email to confirm, then log in.");
+    });
+  </script>
 </body>
 </html>
