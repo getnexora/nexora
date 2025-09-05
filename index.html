@@ -6,32 +6,31 @@
   <meta name="description" content="Nexora ProSuite – Connecting 195 Countries, One Hub" />
   <title>Nexora ProSuite</title>
   <link rel="icon" type="image/png" href="assets/img/logo-icon.png" />
+  
+  <!-- Premium Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <!-- Global Stylesheet -->
   <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 <body>
-  <!-- Premium Login Button - Gold Style -->
-  <a href="login.html" style="
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    background: linear-gradient(135deg, #FFD700 0%, #FFA500 50%, #FFD700 100%);
-    color: #0a0a0a;
-    padding: 12px 28px;
-    border-radius: 12px;
-    text-decoration: none;
-    font-weight: 700;
-    font-size: 14px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3);
-    transition: all 0.3s ease;
-    z-index: 9999;
-    display: inline-block;
-    font-family: 'Inter', -apple-system, sans-serif;
-  " onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 15px 40px rgba(255, 215, 0, 0.4)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 10px 30px rgba(255, 215, 0, 0.3)'">
-    Sign In
-  </a>
-
+  <!-- Language Selector -->
+  <div class="language-selector-global">
+    <select id="language" onchange="changeLanguage(this.value)">
+      <option value="en">🌐 English</option>
+      <option value="es">🇪🇸 Español</option>
+      <option value="fr">🇫🇷 Français</option>
+      <option value="de">🇩🇪 Deutsch</option>
+      <option value="zh-CN">🇨🇳 中文</option>
+      <option value="ja">🇯🇵 日本語</option>
+      <option value="ko">🇰🇷 한국어</option>
+      <option value="ar">🇸🇦 العربية</option>
+      <option value="ru">🇷🇺 Русский</option>
+      <option value="pt">🇵🇹 Português</option>
+      <option value="hi">🇮🇳 हिन्दी</option>
+    </select>
+  </div>
+  
   <!-- Navigation -->
   <header>
     <nav class="navbar">
@@ -44,63 +43,138 @@
         <li><a href="features.html">Features</a></li>
         <li><a href="contact.html">Contact</a></li>
         <li><a href="developer.html">Developer</a></li>
+        <li class="nav-signin"><a href="login.html" class="signin-btn">Sign In</a></li>
       </ul>
     </nav>
   </header>
+  
   <!-- Hero Section -->
   <section class="hero">
     <div class="hero-content">
-      <img src="assets/img/logo.png" alt="Nexora ProSuite Logo" class="hero-logo" />
+      <img src="assets/img/logo.png" alt="Nexora ProSuite Logo" class="hero-logo" style="max-width: 200px; margin-bottom: 30px;" />
       <h1>Nexora ProSuite</h1>
       <p class="tagline">Connecting 195 Countries, One Hub</p>
       <div class="cta-buttons">
         <a href="contact.html" class="cta-button primary">Get Started</a>
-        <a href="features.html" class="cta-button secondary">Learn More</a>
+        <a href="features.html" class="cta-button secondary" style="background: transparent; border: 2px solid var(--primary-gold); color: var(--primary-gold); margin-left: 20px;">Learn More</a>
       </div>
     </div>
   </section>
   
   <!-- Features Section -->
   <section class="features">
-    <h2>Why Choose Nexora ProSuite?</h2>
-    <div class="features-grid">
-      <div class="feature-card">🌍 Connects 195 Countries</div>
-      <div class="feature-card">🗣️ Supports All Languages</div>
-      <div class="feature-card">💱 Handles Every Currency</div>
-      <div class="feature-card">🕒 Adapts to All Timezones</div>
-      <div class="feature-card">📱 Centralizes All Apps</div>
+    <div class="container">
+      <h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 50px;">Why Choose Nexora ProSuite?</h2>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div style="font-size: 48px; margin-bottom: 20px;">🌍</div>
+          <h3 style="color: var(--primary-gold); margin-bottom: 10px;">Global Reach</h3>
+          <p>Connects 195 Countries seamlessly</p>
+        </div>
+        <div class="feature-card">
+          <div style="font-size: 48px; margin-bottom: 20px;">🗣️</div>
+          <h3 style="color: var(--primary-gold); margin-bottom: 10px;">Universal Language</h3>
+          <p>Supports All Languages with real-time translation</p>
+        </div>
+        <div class="feature-card">
+          <div style="font-size: 48px; margin-bottom: 20px;">💱</div>
+          <h3 style="color: var(--primary-gold); margin-bottom: 10px;">Multi-Currency</h3>
+          <p>Handles Every Currency with live exchange rates</p>
+        </div>
+        <div class="feature-card">
+          <div style="font-size: 48px; margin-bottom: 20px;">🕒</div>
+          <h3 style="color: var(--primary-gold); margin-bottom: 10px;">Time Sync</h3>
+          <p>Adapts to All Timezones automatically</p>
+        </div>
+        <div class="feature-card">
+          <div style="font-size: 48px; margin-bottom: 20px;">📱</div>
+          <h3 style="color: var(--primary-gold); margin-bottom: 10px;">App Hub</h3>
+          <p>Centralizes All Apps in one dashboard</p>
+        </div>
+      </div>
     </div>
   </section>
   
   <!-- How It Works -->
-  <section class="how-it-works">
-    <h2>How It Works</h2>
-    <ol>
-      <li><strong>Join</strong> our global platform</li>
-      <li><strong>Connect</strong> with partners worldwide</li>
-      <li><strong>Grow</strong> your reach and opportunities</li>
-    </ol>
+  <section class="how-it-works" style="padding: 80px 30px; background: var(--bg-secondary);">
+    <div class="container">
+      <h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 50px; color: var(--primary-gold);">How It Works</h2>
+      <ol style="max-width: 600px; margin: 0 auto; list-style: none; counter-reset: step-counter;">
+        <li style="margin-bottom: 30px; padding-left: 60px; position: relative; counter-increment: step-counter;">
+          <span style="position: absolute; left: 0; top: 0; background: var(--primary-gold-gradient); width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; color: var(--bg-primary);">1</span>
+          <strong style="color: var(--primary-gold); font-size: 1.2rem;">Join</strong>
+          <p style="color: var(--text-secondary); margin-top: 5px;">Connect to our global platform instantly</p>
+        </li>
+        <li style="margin-bottom: 30px; padding-left: 60px; position: relative; counter-increment: step-counter;">
+          <span style="position: absolute; left: 0; top: 0; background: var(--primary-gold-gradient); width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; color: var(--bg-primary);">2</span>
+          <strong style="color: var(--primary-gold); font-size: 1.2rem;">Connect</strong>
+          <p style="color: var(--text-secondary); margin-top: 5px;">Link with partners worldwide seamlessly</p>
+        </li>
+        <li style="margin-bottom: 30px; padding-left: 60px; position: relative; counter-increment: step-counter;">
+          <span style="position: absolute; left: 0; top: 0; background: var(--primary-gold-gradient); width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; color: var(--bg-primary);">3</span>
+          <strong style="color: var(--primary-gold); font-size: 1.2rem;">Grow</strong>
+          <p style="color: var(--text-secondary); margin-top: 5px;">Expand your reach and opportunities globally</p>
+        </li>
+      </ol>
+    </div>
   </section>
   
   <!-- Testimonials -->
-  <section class="testimonials">
-    <h2>What People Are Saying</h2>
-    <p><em>"Nexora ProSuite is redefining global connectivity."</em> – Early Beta User</p>
+  <section class="testimonials" style="padding: 80px 30px;">
+    <div class="container">
+      <h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 40px;">What People Are Saying</h2>
+      <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+        <p style="font-size: 1.5rem; font-style: italic; color: var(--text-secondary); margin-bottom: 20px;">
+          "Nexora ProSuite is redefining global connectivity. It's the future of international business."
+        </p>
+        <p style="color: var(--primary-gold);">– Early Beta User</p>
+      </div>
+    </div>
   </section>
   
   <!-- Final Call to Action -->
-  <section class="final-cta">
-    <h2>Be Part of the Future</h2>
-    <a href="contact.html" class="cta-button primary">Join the Beta</a>
+  <section class="final-cta" style="padding: 80px 30px; background: var(--bg-secondary);">
+    <div class="container" style="text-align: center;">
+      <h2 style="font-size: 2.5rem; margin-bottom: 30px; color: var(--primary-gold);">Be Part of the Future</h2>
+      <a href="contact.html" class="cta-button primary">Join the Beta</a>
+    </div>
   </section>
   
   <!-- Footer -->
   <footer>
     <p>&copy; 2025 Nexora ProSuite. All rights reserved.</p>
+    <p style="margin-top: 10px;">
+      <a href="#" style="color: var(--text-secondary); margin: 0 10px;">Privacy Policy</a> |
+      <a href="#" style="color: var(--text-secondary); margin: 0 10px;">Terms of Service</a> |
+      <a href="#" style="color: var(--text-secondary); margin: 0 10px;">Contact</a>
+    </p>
   </footer>
   
-  <script src="assets/js/main.js"></script>
-  <!--Start of Tawk.to Script-->
+  <!-- Language Change Script -->
+  <script>
+    function changeLanguage(lang) {
+      localStorage.setItem('nexora_language', lang);
+      console.log('Language changed to:', lang);
+      // Future: Add Google Translate or custom translation logic here
+      
+      // Show feedback
+      const selector = document.querySelector('.language-selector-global select');
+      selector.style.background = 'rgba(255, 215, 0, 0.2)';
+      setTimeout(() => {
+        selector.style.background = 'rgba(255, 215, 0, 0.05)';
+      }, 300);
+    }
+    
+    // Restore saved language on load
+    document.addEventListener('DOMContentLoaded', function() {
+      const savedLang = localStorage.getItem('nexora_language');
+      if (savedLang) {
+        document.getElementById('language').value = savedLang;
+      }
+    });
+  </script>
+  
+  <!-- Tawk.to Script -->
   <script type="text/javascript">
   var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
   (function(){
@@ -112,6 +186,5 @@
   s0.parentNode.insertBefore(s1,s0);
   })();
   </script>
-  <!--End of Tawk.to Script-->
 </body>
 </html>
