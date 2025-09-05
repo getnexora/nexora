@@ -6,25 +6,26 @@
   <meta name="theme-color" content="#0a0a0a">
   <title>Nexora - Executive Access Portal</title>
 
-  <!-- Premium Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 
-  <!-- Global Stylesheet -->
-  <link rel="stylesheet" href="assets/style.css">
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css">
 </head>
 <body class="login-page">
-  <!-- Hidden Google Translate Widget -->
+  <!-- Hidden Google Translate widget -->
   <div id="google_translate_element"></div>
 
   <div class="login-container">
     <div class="login-card">
-      <!-- Logo Section -->
+
+      <!-- Logo -->
       <div class="logo-section">
         <div class="logo">NEXORA</div>
         <div class="tagline">Executive Access Portal</div>
       </div>
 
-      <!-- Global Language Dropdown -->
+      <!-- Language Selector -->
       <div class="language-selector-global">
         <label for="language">🌐 Language</label>
         <select id="language">
@@ -32,8 +33,8 @@
           <option value="es">Español</option>
           <option value="fr">Français</option>
           <option value="de">Deutsch</option>
-          <option value="zh-CN">中文 (Simplified)</option>
-          <option value="zh-TW">中文 (Traditional)</option>
+          <option value="zh-CN">中文 (简体)</option>
+          <option value="zh-TW">中文 (繁體)</option>
           <option value="ja">日本語</option>
           <option value="ko">한국어</option>
           <option value="ar">العربية</option>
@@ -45,6 +46,7 @@
 
       <!-- Login Form -->
       <form class="login-form" onsubmit="handleLogin(event)">
+        <!-- Email -->
         <div class="form-group">
           <label class="form-label" for="email">Email Address</label>
           <div class="input-wrapper">
@@ -52,24 +54,25 @@
           </div>
         </div>
 
+        <!-- Password -->
         <div class="form-group">
           <label class="form-label" for="password">Password</label>
           <div class="input-wrapper">
-            <input type="password" id="password" class="form-input password-input" placeholder="Enter your password" required>
-            <button type="button" class="password-toggle" id="passwordToggle" onclick="togglePassword()" aria-label="Toggle password visibility">
+            <input type="password" id="password" class="form-input" placeholder="Enter your password" required>
+            <button type="button" class="password-toggle" id="passwordToggle" onclick="togglePassword()">
               <!-- Eye Open -->
               <svg class="eye-icon eye-open" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5z"/>
               </svg>
               <!-- Eye Closed -->
               <svg class="eye-icon eye-closed" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M12 7c2.76 0 5 2.24 5 5 0 .65-.13 1.26-.36 1.83l2.92 2.92c1.51-1.26 2.7-2.89 3.43-4.75-1.73-4.39-6-7.5-11-7.5zM2 4.27l2.28 2.28c-.7 1.1-1.2 2.3-1.28 3.72 1.73 4.39 6 7.5 11 7.5 1.55 0 3.03-.3 4.38-.84l.42.42L19.73 22 21 20.73z"/>
+                <path d="M2 4.27L3.27 3 21 20.73 19.73 22l-1.44-1.44C16.97 21.23 14.6 22 12 22c-5 0-9.27-3.11-11-7.5 0-2.14 1.18-4.1 3.05-5.68L2 4.27zM12 7c2.76 0 5 2.24 5 5 0 .79-.2 1.53-.53 2.2L9.8 7.53C10.47 7.2 11.21 7 12 7z"/>
               </svg>
             </button>
           </div>
         </div>
 
-        <!-- Remember Me & Forgot Password -->
+        <!-- Options -->
         <div class="form-options">
           <div class="remember-me">
             <input type="checkbox" id="remember">
@@ -78,13 +81,16 @@
           <a href="#" class="forgot-password">Forgot password?</a>
         </div>
 
-        <button type="submit" class="submit-btn">Sign In to Nexora</button>
+        <!-- Buttons -->
+        <button type="submit" class="submit-btn">Sign In</button>
         <button type="button" class="guest-btn" onclick="handleGuestLogin()">Continue as Guest</button>
         <p class="guest-notice">Limited features available in guest mode</p>
       </form>
 
+      <!-- Divider -->
       <div class="divider"><span>or</span></div>
 
+      <!-- Signup -->
       <div class="signup-link">
         <p>New to Nexora? <a href="signup.html">Create an account</a></p>
       </div>
@@ -94,14 +100,14 @@
   <!-- Scripts -->
   <script>
     function togglePassword() {
-      const passwordInput = document.getElementById('password');
-      const toggleButton = document.getElementById('passwordToggle');
-      if (passwordInput.type === 'password') {
-        passwordInput.type = 'text';
-        toggleButton.classList.add('showing');
+      const input = document.getElementById('password');
+      const btn = document.getElementById('passwordToggle');
+      if (input.type === 'password') {
+        input.type = 'text';
+        btn.classList.add('showing');
       } else {
-        passwordInput.type = 'password';
-        toggleButton.classList.remove('showing');
+        input.type = 'password';
+        btn.classList.remove('showing');
       }
     }
 
@@ -109,16 +115,20 @@
       event.preventDefault();
       const email = document.getElementById('email').value;
       const remember = document.getElementById('remember').checked;
+
       localStorage.setItem('nexora_userType', 'registered');
       localStorage.removeItem('nexora_guestLogin');
+
       if (remember) {
         localStorage.setItem('nexoraUser', email);
       } else {
         sessionStorage.setItem('nexoraUser', email);
       }
+
       const button = event.target.querySelector('.submit-btn');
       button.textContent = 'Signing in...';
       button.disabled = true;
+
       setTimeout(() => {
         button.textContent = '✓ Success';
         setTimeout(() => {
@@ -130,9 +140,11 @@
     function handleGuestLogin() {
       localStorage.setItem("nexora_userType", "guest");
       localStorage.setItem("nexora_guestLogin", "true");
+
       const guestBtn = document.querySelector('.guest-btn');
       guestBtn.textContent = 'Setting up guest access...';
       guestBtn.disabled = true;
+
       setTimeout(() => {
         guestBtn.textContent = '✓ Guest Access Granted';
         alert("Welcome to Nexora!\n\nAs a guest, you have limited access.");
@@ -168,12 +180,14 @@
         }
       }
     }
+
     const langSelect = document.getElementById("language");
     langSelect.addEventListener("change", function() {
       const langCode = this.value;
       localStorage.setItem("preferredLanguage", langCode);
       changeLanguage(langCode);
     });
+
     window.addEventListener("load", function() {
       const savedLang = localStorage.getItem("preferredLanguage");
       if (savedLang) {
