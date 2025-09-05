@@ -1,183 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nexora Dashboard</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-  <style>
-    /* Sidebar Layout */
-    .dashboard-wrapper {
-      display: flex;
-      min-height: 100vh;
-      background: #0a0a0a;
-      color: #fff;
-    }
-    .sidebar {
-      width: 240px;
-      background: #111;
-      padding: 20px;
-      display: flex;
-      flex-direction: column;
-      border-right: 1px solid rgba(255,255,255,0.1);
-    }
-    .sidebar .logo {
-      font-size: 1.6rem;
-      font-weight: 700;
-      margin-bottom: 30px;
-      color: var(--primary-gold, #f5c518);
-    }
-    .sidebar nav a {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 10px;
-      margin: 5px 0;
-      border-radius: 8px;
-      color: #ddd;
-      text-decoration: none;
-      transition: background 0.2s;
-    }
-    .sidebar nav a:hover {
-      background: rgba(255,255,255,0.1);
-    }
-    .sidebar nav a.active {
-      background: rgba(245, 197, 24, 0.2);
-      color: var(--primary-gold, #f5c518);
-    }
-    .sidebar .bottom-section {
-      margin-top: auto;
-    }
-    .signout-btn {
-      width: 100%;
-      margin-top: 10px;
-      padding: 10px;
-      border: none;
-      border-radius: 8px;
-      background: #b91c1c;
-      color: #fff;
-      cursor: pointer;
-    }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nexora — Dashboard</title>
 
-    /* Main Content */
-    .dashboard-main {
-      flex: 1;
-      padding: 30px;
-    }
-    .dashboard-main header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 30px;
-    }
-    .dashboard-main h1 {
-      font-size: 1.8rem;
-    }
-    .language-selector-global select {
-      padding: 6px 12px;
-      border-radius: 6px;
-      border: none;
-      font-size: 14px;
-    }
-    .features-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
-    }
-    .feature-card {
-      background: #1a1a1a;
-      padding: 20px;
-      border-radius: 12px;
-      border: 1px solid rgba(255,255,255,0.1);
-      transition: transform 0.2s;
-    }
-    .feature-card:hover {
-      transform: translateY(-4px);
-    }
-  </style>
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Main stylesheet -->
+  <link rel="stylesheet" href="css/style.css" />
+
+  <!-- Favicon -->
+  <link rel="icon" href="img/logo-icon.png" type="image/png" />
 </head>
-<body class="dashboard-page">
+<body>
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="logo">Nexora</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="features.html">Features</a>
+      <a href="developer.html">Developers</a>
+      <a href="contact.html">Contact</a>
+      <a href="dashboard.html">Dashboard</a>
+    </nav>
+    <a href="login.html" class="signin-btn">Logout</a>
+  </header>
 
-  <div class="dashboard-wrapper">
-    <!-- Sidebar -->
-    <aside class="sidebar">
-      <div class="logo">NEXORA</div>
-      <nav>
-        <a href="dashboard.html" class="active">🏠 Dashboard</a>
-        <a href="features.html">⚡ Features</a>
-        <a href="about.html">ℹ️ About</a>
-        <a href="contact.html">📞 Contact</a>
-      </nav>
-      <div class="bottom-section">
-        <button class="signout-btn" onclick="handleSignOut()">🚪 Sign Out</button>
+  <!-- Dashboard Content -->
+  <main style="padding: 8rem 2rem 4rem; max-width: 1100px; margin: auto;">
+    <h1>Welcome back, User 👋</h1>
+    <p style="color:#aaa; margin-bottom:2rem;">Here’s an overview of your account and recent activity.</p>
+
+    <!-- Dashboard Grid -->
+    <section style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
+      <div style="background:#111; border:1px solid #222; border-radius:12px; padding:1.5rem; box-shadow:0 6px 16px rgba(0,0,0,0.4);">
+        <h2 style="margin-bottom:1rem; color:#c9a227;">Profile</h2>
+        <p>Name: John Doe</p>
+        <p>Email: you@example.com</p>
       </div>
-    </aside>
 
-    <!-- Main Content -->
-    <main class="dashboard-main">
-      <header>
-        <h1>Welcome back, <span id="userName">User</span> 👋</h1>
-        <!-- Language Selector -->
-        <div class="language-selector-global">
-          <select id="language">
-            <option value="en" selected>English</option>
-            <option value="es">Español</option>
-            <option value="fr">Français</option>
-            <option value="de">Deutsch</option>
-            <option value="zh-CN">中文 (Simplified)</option>
-            <option value="ja">日本語</option>
-          </select>
-        </div>
-      </header>
+      <div style="background:#111; border:1px solid #222; border-radius:12px; padding:1.5rem; box-shadow:0 6px 16px rgba(0,0,0,0.4);">
+        <h2 style="margin-bottom:1rem; color:#c9a227;">Recent Activity</h2>
+        <ul style="list-style:none; padding:0;">
+          <li>✔️ Logged in today</li>
+          <li>✔️ Updated profile</li>
+          <li>✔️ Viewed features</li>
+        </ul>
+      </div>
 
-      <!-- Dashboard Features -->
-      <section class="features-grid">
-        <div class="feature-card">
-          <h3>📊 Analytics</h3>
-          <p>View your account insights and activity trends.</p>
-        </div>
-        <div class="feature-card">
-          <h3>⚙️ Settings</h3>
-          <p>Manage your profile, security, and preferences.</p>
-        </div>
-        <div class="feature-card">
-          <h3>📰 Updates</h3>
-          <p>Stay informed with the latest Nexora news.</p>
-        </div>
-        <div class="feature-card">
-          <h3>💬 Support</h3>
-          <p>Get help from our support team anytime.</p>
-        </div>
-      </section>
-    </main>
-  </div>
+      <div style="background:#111; border:1px solid #222; border-radius:12px; padding:1.5rem; box-shadow:0 6px 16px rgba(0,0,0,0.4);">
+        <h2 style="margin-bottom:1rem; color:#c9a227;">Quick Links</h2>
+        <a href="features.html" style="color:#c9a227; display:block; margin-bottom:0.5rem;">Explore Features</a>
+        <a href="developer.html" style="color:#c9a227; display:block; margin-bottom:0.5rem;">Developer Tools</a>
+        <a href="contact.html" style="color:#c9a227; display:block;">Support</a>
+      </div>
+    </section>
+  </main>
 
-  <!-- Scripts -->
-  <script>
-    // 🌍 Language persistence
-    const langSelect = document.getElementById("language");
-    langSelect.addEventListener("change", function() {
-      localStorage.setItem("preferredLanguage", this.value);
-    });
-    window.addEventListener("load", function() {
-      const savedLang = localStorage.getItem("preferredLanguage");
-      if (savedLang) {
-        langSelect.value = savedLang;
-      }
-      const savedUser = localStorage.getItem("nexoraUser") || sessionStorage.getItem("nexoraUser");
-      if (savedUser) {
-        document.getElementById("userName").textContent = savedUser.split("@")[0];
-      }
-    });
+  <!-- Footer -->
+  <footer style="text-align:center; padding:2rem; color:#666;">
+    © 2025 Nexora. All rights reserved.
+  </footer>
 
-    // 🚪 Sign Out
-    function handleSignOut() {
-      localStorage.removeItem("nexoraUser");
-      sessionStorage.removeItem("nexoraUser");
-      localStorage.removeItem("nexora_userType");
-      window.location.href = "login.html";
-    }
-  </script>
+  <!-- Dashboard Script -->
+  <script src="js/dashboard.js"></script>
 </body>
 </html>
