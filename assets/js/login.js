@@ -1,31 +1,73 @@
-// Login validation
-document.getElementById("loginForm").addEventListener("submit", function(e) {
-  e.preventDefault();
-  
-  const username = document.getElementById("username").value;
-  const password = document.getElementById("password").value;
-  const errorMsg = document.getElementById("errorMsg");
-  
-  // Hardcoded credentials (you can change these)
-  if (username === "admin" && password === "mypassword123") {
-    // Set session flag
-    sessionStorage.setItem("isLoggedIn", "true");
-    sessionStorage.setItem("loginTime", new Date().getTime());
-    
-    // Redirect to dashboard
-    window.location.href = "dashboard.html";
-  } else {
-    // Show error message
-    errorMsg.style.display = "block";
-    
-    // Hide error after 3 seconds
-    setTimeout(() => {
-      errorMsg.style.display = "none";
-    }, 3000);
-  }
-});
+// ========================
+// Nexora Login / Signup JS
+// ========================
 
-// Clear form on page load
-window.addEventListener("load", function() {
-  document.getElementById("loginForm").reset();
+// Password toggle
+const togglePassword = document.getElementById("togglePassword");
+const passwordInput = document.getElementById("password");
+
+if (togglePassword && passwordInput) {
+  togglePassword.addEventListener("click", () => {
+    const type =
+      passwordInput.getAttribute("type") === "password" ? "text" : "password";
+    passwordInput.setAttribute("type", type);
+  });
+}
+
+// Handle login form
+const loginForm = document.getElementById("loginForm");
+if (loginForm) {
+  loginForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const email = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value.trim();
+
+    if (!email || !password) {
+      alert("⚠️ Please enter your email and password.");
+      return;
+    }
+
+    // Temporary success response
+    alert(`✅ Logged in as ${email}`);
+    window.location.href = "dashboard.html";
+  });
+}
+
+// Handle signup form
+const signupForm = document.getElementById("signupForm");
+if (signupForm) {
+  signupForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value.trim();
+    const confirmPassword = document
+      .getElementById("confirmPassword")
+      .value.trim();
+
+    if (!name || !email || !password || !confirmPassword) {
+      alert("⚠️ Please fill in all fields.");
+      return;
+    }
+
+    if (password !== confirmPassword) {
+      alert("⚠️ Passwords do not match.");
+      return;
+    }
+
+    // Temporary success response
+    alert(`✅ Account created for ${name}`);
+    window.location.href = "dashboard.html";
+  });
+}
+
+// Guest login
+const guestButtons = document.querySelectorAll(".guest-btn");
+guestButtons.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    alert("✅ Continuing as Guest");
+    window.location.href = "dashboard.html";
+  });
 });
