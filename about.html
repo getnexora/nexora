@@ -1,140 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#0a0a0a">
-  <title>About Nexora</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nexora — About Us</title>
 
-  <!-- Premium Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <!-- Global Stylesheet -->
-  <link rel="stylesheet" href="style.css">
+  <!-- Main stylesheet -->
+  <link rel="stylesheet" href="css/style.css" />
+
+  <!-- Favicon -->
+  <link rel="icon" href="img/logo-icon.png" type="image/png" />
 </head>
 <body>
-  <!-- Hidden Google Translate Widget -->
-  <div id="google_translate_element"></div>
-
   <!-- Navbar -->
-  <nav class="navbar">
-    <div class="nav-logo">
-      <a href="index.html">NEXORA</a>
-    </div>
-    <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="features.html">Features</a></li>
-      <li><a href="about.html" class="active">About</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
-    <div class="nav-actions">
-      <div class="language-selector-global">
-        <select id="language">
-          <option value="en" selected>English</option>
-          <option value="es">Español</option>
-          <option value="fr">Français</option>
-          <option value="de">Deutsch</option>
-          <option value="zh-CN">中文 (Simplified)</option>
-          <option value="zh-TW">中文 (Traditional)</option>
-          <option value="ja">日本語</option>
-          <option value="ko">한국어</option>
-          <option value="ar">العربية</option>
-          <option value="ru">Русский</option>
-          <option value="pt">Português</option>
-          <option value="hi">हिन्दी</option>
-        </select>
-      </div>
-      <a href="login.html" class="signin-btn">Sign In</a>
-    </div>
-  </nav>
-
-  <!-- Hero Section -->
-  <header class="hero about-hero">
-    <h1>About Nexora</h1>
-    <p>Empowering executives with secure, intelligent, and seamless access.</p>
+  <header class="navbar">
+    <div class="logo">Nexora</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="features.html">Features</a>
+      <a href="developer.html">Developers</a>
+      <a href="contact.html">Contact</a>
+      <a href="dashboard.html">Dashboard</a>
+    </nav>
+    <a href="login.html" class="signin-btn">Sign In</a>
   </header>
 
-  <!-- About Content -->
-  <main class="content-section">
-    <section class="about-intro">
-      <h2>Our Mission</h2>
-      <p>
-        Nexora was founded with a single vision: to create a secure and intuitive 
-        platform that empowers leaders and organizations to access information, 
-        collaborate effectively, and make confident decisions.
-      </p>
-    </section>
+  <!-- About Section -->
+  <main style="padding:8rem 2rem 4rem; max-width:1000px; margin:auto;">
+    <h1 style="font-size:2.5rem; font-weight:800; margin-bottom:1.5rem;">About Nexora</h1>
+    <p style="color:#aaa; font-size:1.1rem; margin-bottom:2rem;">
+      Nexora was founded with a simple mission: to empower individuals and businesses 
+      through innovative digital solutions. We believe in building tools that are fast, 
+      secure, and scalable — helping you bring your ideas to life without limits.
+    </p>
 
-    <section class="about-values">
-      <h2>Our Values</h2>
-      <ul>
-        <li><strong>Security First:</strong> Every feature is designed with privacy and protection at its core.</li>
-        <li><strong>Innovation:</strong> We continuously push the boundaries of technology.</li>
-        <li><strong>Accessibility:</strong> Ensuring seamless use for executives worldwide.</li>
-        <li><strong>Trust:</strong> Transparency and reliability are the foundation of our platform.</li>
-      </ul>
-    </section>
-
-    <section class="about-team">
-      <h2>Our Team</h2>
-      <p>
-        Behind Nexora is a diverse team of engineers, designers, and strategists 
-        who are passionate about delivering excellence. We are driven by 
-        collaboration, integrity, and the pursuit of innovation.
-      </p>
+    <section style="display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:2rem; margin-top:3rem;">
+      <div style="background:#111; border:1px solid #222; border-radius:12px; padding:2rem;">
+        <h2 style="margin-bottom:1rem; color:#c9a227;">Our Mission</h2>
+        <p>We aim to simplify technology so that anyone, anywhere can innovate and grow with confidence.</p>
+      </div>
+      <div style="background:#111; border:1px solid #222; border-radius:12px; padding:2rem;">
+        <h2 style="margin-bottom:1rem; color:#c9a227;">Our Values</h2>
+        <p>Transparency, security, and collaboration drive everything we do at Nexora.</p>
+      </div>
+      <div style="background:#111; border:1px solid #222; border-radius:12px; padding:2rem;">
+        <h2 style="margin-bottom:1rem; color:#c9a227;">Our Vision</h2>
+        <p>We see a future where digital innovation is accessible to everyone, not just a select few.</p>
+      </div>
     </section>
   </main>
 
+  <!-- Call to Action -->
+  <section style="text-align:center; padding:4rem 2rem; background:#111; border-top:1px solid #222; border-bottom:1px solid #222;">
+    <h2 style="font-size:2rem; font-weight:700; margin-bottom:1rem;">Join Nexora Today</h2>
+    <p style="color:#aaa; margin-bottom:2rem;">Be part of a community built for creators, developers, and innovators.</p>
+    <a href="signup.html" class="signin-btn">Get Started</a>
+  </section>
+
   <!-- Footer -->
-  <footer class="footer">
-    <p>&copy; <span id="year"></span> Nexora. All rights reserved.</p>
+  <footer style="text-align:center; padding:2rem; color:#666;">
+    © 2025 Nexora. All rights reserved.
   </footer>
-
-  <!-- Scripts -->
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
-
-  <!-- Google Translate -->
-  <script type="text/javascript">
-    function googleTranslateElementInit() {
-      new google.translate.TranslateElement(
-        { pageLanguage: 'en', autoDisplay: false },
-        'google_translate_element'
-      );
-    }
-  </script>
-  <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-  <script>
-    function changeLanguage(langCode) {
-      const googleFrame = document.querySelector("iframe.goog-te-menu-frame");
-      if (googleFrame) {
-        const innerDoc = googleFrame.contentDocument || googleFrame.contentWindow.document;
-        const langElements = innerDoc.querySelectorAll(".goog-te-menu2-item span.text");
-        for (let i = 0; i < langElements.length; i++) {
-          const parent = langElements[i].closest("tr");
-          if (parent && parent.getAttribute("value") === langCode) {
-            langElements[i].click();
-            break;
-          }
-        }
-      }
-    }
-    const langSelect = document.getElementById("language");
-    langSelect.addEventListener("change", function() {
-      const langCode = this.value;
-      localStorage.setItem("preferredLanguage", langCode);
-      changeLanguage(langCode);
-    });
-    window.addEventListener("load", function() {
-      const savedLang = localStorage.getItem("preferredLanguage");
-      if (savedLang) {
-        document.getElementById("language").value = savedLang;
-        setTimeout(() => {
-          document.getElementById("language").dispatchEvent(new Event("change"));
-        }, 1000);
-      }
-    });
-  </script>
 </body>
 </html>
