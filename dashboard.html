@@ -6,67 +6,156 @@
   <title>Nexora Dashboard</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <style>
+    /* Sidebar Layout */
+    .dashboard-wrapper {
+      display: flex;
+      min-height: 100vh;
+      background: #0a0a0a;
+      color: #fff;
+    }
+    .sidebar {
+      width: 240px;
+      background: #111;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      border-right: 1px solid rgba(255,255,255,0.1);
+    }
+    .sidebar .logo {
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin-bottom: 30px;
+      color: var(--primary-gold, #f5c518);
+    }
+    .sidebar nav a {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px;
+      margin: 5px 0;
+      border-radius: 8px;
+      color: #ddd;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .sidebar nav a:hover {
+      background: rgba(255,255,255,0.1);
+    }
+    .sidebar nav a.active {
+      background: rgba(245, 197, 24, 0.2);
+      color: var(--primary-gold, #f5c518);
+    }
+    .sidebar .bottom-section {
+      margin-top: auto;
+    }
+    .signout-btn {
+      width: 100%;
+      margin-top: 10px;
+      padding: 10px;
+      border: none;
+      border-radius: 8px;
+      background: #b91c1c;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    /* Main Content */
+    .dashboard-main {
+      flex: 1;
+      padding: 30px;
+    }
+    .dashboard-main header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
+    }
+    .dashboard-main h1 {
+      font-size: 1.8rem;
+    }
+    .language-selector-global select {
+      padding: 6px 12px;
+      border-radius: 6px;
+      border: none;
+      font-size: 14px;
+    }
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+    .feature-card {
+      background: #1a1a1a;
+      padding: 20px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.1);
+      transition: transform 0.2s;
+    }
+    .feature-card:hover {
+      transform: translateY(-4px);
+    }
+  </style>
 </head>
 <body class="dashboard-page">
 
-  <!-- 🌐 Global Navbar -->
-  <nav class="navbar">
-    <div class="nav-left">
-      <a href="index.html" class="logo">NEXORA</a>
-    </div>
-    <div class="nav-center">
-      <a href="dashboard.html">Dashboard</a>
-      <a href="features.html">Features</a>
-      <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
-    </div>
-    <div class="nav-right">
-      <!-- Language Selector -->
-      <div class="language-selector-global">
-        <select id="language">
-          <option value="en" selected>English</option>
-          <option value="es">Español</option>
-          <option value="fr">Français</option>
-          <option value="de">Deutsch</option>
-          <option value="zh-CN">中文 (Simplified)</option>
-          <option value="ja">日本語</option>
-        </select>
+  <div class="dashboard-wrapper">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="logo">NEXORA</div>
+      <nav>
+        <a href="dashboard.html" class="active">🏠 Dashboard</a>
+        <a href="features.html">⚡ Features</a>
+        <a href="about.html">ℹ️ About</a>
+        <a href="contact.html">📞 Contact</a>
+      </nav>
+      <div class="bottom-section">
+        <button class="signout-btn" onclick="handleSignOut()">🚪 Sign Out</button>
       </div>
-      <button class="signout-btn" onclick="handleSignOut()">Sign Out</button>
-    </div>
-  </nav>
+    </aside>
 
-  <!-- 🏠 Dashboard Content -->
-  <main class="dashboard-container">
-    <section class="welcome-section">
-      <h1>Welcome back, <span id="userName">User</span> 👋</h1>
-      <p>This is your personalized Nexora Dashboard.</p>
-    </section>
+    <!-- Main Content -->
+    <main class="dashboard-main">
+      <header>
+        <h1>Welcome back, <span id="userName">User</span> 👋</h1>
+        <!-- Language Selector -->
+        <div class="language-selector-global">
+          <select id="language">
+            <option value="en" selected>English</option>
+            <option value="es">Español</option>
+            <option value="fr">Français</option>
+            <option value="de">Deutsch</option>
+            <option value="zh-CN">中文 (Simplified)</option>
+            <option value="ja">日本語</option>
+          </select>
+        </div>
+      </header>
 
-    <!-- ⚡ Dashboard Features -->
-    <section class="features-grid">
-      <div class="feature-card">
-        <h3>📊 Analytics</h3>
-        <p>View your account insights and activity trends.</p>
-      </div>
-      <div class="feature-card">
-        <h3>⚙️ Settings</h3>
-        <p>Manage your profile, security, and preferences.</p>
-      </div>
-      <div class="feature-card">
-        <h3>📰 Updates</h3>
-        <p>Stay informed with the latest Nexora news.</p>
-      </div>
-      <div class="feature-card">
-        <h3>💬 Support</h3>
-        <p>Get help from our support team anytime.</p>
-      </div>
-    </section>
-  </main>
+      <!-- Dashboard Features -->
+      <section class="features-grid">
+        <div class="feature-card">
+          <h3>📊 Analytics</h3>
+          <p>View your account insights and activity trends.</p>
+        </div>
+        <div class="feature-card">
+          <h3>⚙️ Settings</h3>
+          <p>Manage your profile, security, and preferences.</p>
+        </div>
+        <div class="feature-card">
+          <h3>📰 Updates</h3>
+          <p>Stay informed with the latest Nexora news.</p>
+        </div>
+        <div class="feature-card">
+          <h3>💬 Support</h3>
+          <p>Get help from our support team anytime.</p>
+        </div>
+      </section>
+    </main>
+  </div>
 
   <!-- Scripts -->
   <script>
-    // 🌍 Language Persistence
+    // 🌍 Language persistence
     const langSelect = document.getElementById("language");
     langSelect.addEventListener("change", function() {
       localStorage.setItem("preferredLanguage", this.value);
@@ -76,7 +165,6 @@
       if (savedLang) {
         langSelect.value = savedLang;
       }
-      // Load user name from local/session storage
       const savedUser = localStorage.getItem("nexoraUser") || sessionStorage.getItem("nexoraUser");
       if (savedUser) {
         document.getElementById("userName").textContent = savedUser.split("@")[0];
