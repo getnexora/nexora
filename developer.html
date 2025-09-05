@@ -1,163 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Developer - Nexora ProSuite</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Developers - Nexora ProSuite</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-    <!-- Navigation Bar -->
-    <nav class="navbar">
-        <div class="logo">Nexora ProSuite</div>
-        <div class="nav-links">
-            <a href="index.html">Home</a>
-            <a href="features.html">Features</a>
-            <a href="about.html">About</a>
-            <a href="developer.html" class="active">Developer</a>
-            <a href="contact.html">Contact</a>
-            <a href="login.html" class="signin-btn">Sign In</a>
-        </div>
-    </nav>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">Nexora ProSuite</div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="features.html">Features</a>
+      <a href="about.html">About</a>
+      <a href="developer.html">Developer</a>
+      <a href="contact.html">Contact</a>
+      <a href="login.html" class="signin-btn">Sign In</a>
+    </div>
+  </nav>
 
-    <!-- Developer Content -->
-    <main>
-        <div class="page-header">
-            <h1>Developer Portal</h1>
-            <p>Build amazing applications with Nexora ProSuite API</p>
-        </div>
+  <!-- Page Content -->
+  <main>
+    <section class="features-grid">
+      <h2>Developer Resources</h2>
+      <p>Access our API documentation, SDKs, and integration guides to build with Nexora ProSuite.</p>
+      <p><a href="mailto:devsupport@nexoraprosuite.com">Contact our developer support team</a> for help.</p>
+    </section>
+  </main>
 
-        <section class="developer-content">
-            <!-- API Overview -->
-            <div class="api-section">
-                <h2>API Documentation</h2>
-                <p>Access our comprehensive API to integrate Nexora ProSuite into your applications.</p>
-                
-                <div class="api-features">
-                    <div class="api-card">
-                        <h3>🚀 RESTful API</h3>
-                        <p>Modern REST architecture with JSON responses</p>
-                        <a href="#" class="api-link">View Docs →</a>
-                    </div>
-                    <div class="api-card">
-                        <h3>🔄 Real-time Updates</h3>
-                        <p>WebSocket support for live data streaming</p>
-                        <a href="#" class="api-link">Learn More →</a>
-                    </div>
-                    <div class="api-card">
-                        <h3>🔐 OAuth 2.0</h3>
-                        <p>Secure authentication and authorization</p>
-                        <a href="#" class="api-link">Setup Guide →</a>
-                    </div>
-                    <div class="api-card">
-                        <h3>📊 Analytics API</h3>
-                        <p>Access detailed analytics and reporting data</p>
-                        <a href="#" class="api-link">Explore →</a>
-                    </div>
-                </div>
-            </div>
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2024 Nexora ProSuite. All rights reserved.</p>
+    <div class="footer-links">
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="developer.html">Developers</a>
+    </div>
+  </footer>
 
-            <!-- Quick Start -->
-            <div class="quickstart-section">
-                <h2>Quick Start Guide</h2>
-                <div class="steps">
-                    <div class="step">
-                        <span class="step-number">1</span>
-                        <h3>Create Account</h3>
-                        <p>Sign up for a free developer account</p>
-                    </div>
-                    <div class="step">
-                        <span class="step-number">2</span>
-                        <h3>Get API Key</h3>
-                        <p>Generate your unique API credentials</p>
-                    </div>
-                    <div class="step">
-                        <span class="step-number">3</span>
-                        <h3>Make First Call</h3>
-                        <p>Test the API with our examples</p>
-                    </div>
-                    <div class="step">
-                        <span class="step-number">4</span>
-                        <h3>Build & Deploy</h3>
-                        <p>Create and launch your application</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Code Examples -->
-            <div class="code-section">
-                <h2>Code Examples</h2>
-                <div class="code-tabs">
-                    <button class="tab-btn active">JavaScript</button>
-                    <button class="tab-btn">Python</button>
-                    <button class="tab-btn">PHP</button>
-                    <button class="tab-btn">Java</button>
-                </div>
-                <div class="code-block">
-                    <pre><code>// Initialize Nexora API
-const nexora = new NexoraAPI({
-    apiKey: 'YOUR_API_KEY',
-    region: 'global'
-});
-
-// Make a request
-nexora.connect()
-    .then(response => {
-        console.log('Connected:', response);
-    })
-    .catch(error => {
-        console.error('Error:', error);
-    });</code></pre>
-                </div>
-            </div>
-
-            <!-- SDKs -->
-            <div class="sdk-section">
-                <h2>Available SDKs</h2>
-                <div class="sdk-grid">
-                    <div class="sdk-card">
-                        <span class="sdk-icon">🟨</span>
-                        <h3>JavaScript SDK</h3>
-                        <p>npm install nexora-sdk</p>
-                    </div>
-                    <div class="sdk-card">
-                        <span class="sdk-icon">🐍</span>
-                        <h3>Python SDK</h3>
-                        <p>pip install nexora</p>
-                    </div>
-                    <div class="sdk-card">
-                        <span class="sdk-icon">🐘</span>
-                        <h3>PHP SDK</h3>
-                        <p>composer require nexora/sdk</p>
-                    </div>
-                    <div class="sdk-card">
-                        <span class="sdk-icon">☕</span>
-                        <h3>Java SDK</h3>
-                        <p>Maven Central Repository</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- CTA -->
-            <div class="developer-cta">
-                <h2>Ready to Build?</h2>
-                <p>Join thousands of developers building with Nexora ProSuite</p>
-                <a href="signup.html" class="cta-button">Get Your API Key</a>
-            </div>
-        </section>
-    </main>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <p>&copy; 2024 Nexora ProSuite. All rights reserved.</p>
-        <div class="footer-links">
-            <a href="about.html">About</a>
-            <a href="contact.html">Contact</a>
-            <a href="developer.html">Developers</a>
-        </div>
-    </footer>
-
-    <script src="assets/js/main.js"></script>
+  <script src="assets/js/main.js"></script>
 </body>
 </html>
