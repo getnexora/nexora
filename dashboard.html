@@ -1,11 +1,140 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Developer Dashboard - Nexora ProSuite</title>
   <link rel="icon" type="image/png" href="assets/img/logo-icon.png" />
-  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <style>
+    /* Dashboard Specific Styles */
+    .dashboard {
+      padding: 4rem 2rem;
+      min-height: calc(100vh - 200px);
+      background: linear-gradient(180deg, #000000, #0a0a0a);
+    }
+    
+    .dashboard-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    
+    .dashboard h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      color: #f5c542;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    }
+    
+    .dashboard-subtitle {
+      color: #ffffff;
+      opacity: 0.9;
+      font-size: 1.2rem;
+      margin-bottom: 3rem;
+    }
+    
+    .tool-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .tool-card {
+      background: linear-gradient(135deg, rgba(245, 197, 66, 0.1), rgba(245, 197, 66, 0.05));
+      border: 2px solid rgba(245, 197, 66, 0.3);
+      border-radius: 15px;
+      padding: 2rem;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .tool-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(245, 197, 66, 0.2), transparent);
+      transition: left 0.5s ease;
+    }
+    
+    .tool-card:hover::before {
+      left: 100%;
+    }
+    
+    .tool-card:hover {
+      transform: translateY(-5px) scale(1.02);
+      border-color: #f5c542;
+      box-shadow: 0 8px 30px rgba(245, 197, 66, 0.3);
+      background: linear-gradient(135deg, rgba(245, 197, 66, 0.2), rgba(245, 197, 66, 0.1));
+    }
+    
+    .tool-icon {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 1.5rem auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      background: rgba(245, 197, 66, 0.1);
+      border-radius: 12px;
+      border: 2px solid rgba(245, 197, 66, 0.3);
+    }
+    
+    .tool-card img {
+      width: 50px;
+      height: 50px;
+      object-fit: contain;
+    }
+    
+    .tool-card a {
+      display: block;
+      color: #f5c542;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.1rem;
+      text-align: center;
+    }
+    
+    .tool-card p {
+      color: #ffffff;
+      opacity: 0.8;
+      font-size: 0.9rem;
+      margin-top: 0.5rem;
+      text-align: center;
+    }
+    
+    /* Logout button styling */
+    #logoutBtn {
+      color: #ff6b6b;
+      transition: color 0.3s ease;
+    }
+    
+    #logoutBtn:hover {
+      color: #ffffff;
+    }
+    
+    @media (max-width: 768px) {
+      .tool-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1.5rem;
+      }
+      
+      .dashboard h1 {
+        font-size: 2.5rem;
+      }
+      
+      .tool-card {
+        padding: 1.5rem;
+      }
+    }
+  </style>
 </head>
 <body>
   <!-- Navigation -->
@@ -19,43 +148,96 @@
         <li><a href="about.html">About</a></li>
         <li><a href="features.html">Features</a></li>
         <li><a href="contact.html">Contact</a></li>
+        <li><a href="dashboard.html" class="active">Dashboard</a></li>
         <li><a href="#" id="logoutBtn">Logout</a></li>
       </ul>
     </nav>
   </header>
 
-  <!-- Dashboard Content -->
-  <section class="hero">
-    <div class="hero-content">
-      <h1 style="color: #f5c542; margin-bottom: 2rem;">Developer Dashboard</h1>
-      <p class="tagline">Welcome to your central hub</p>
+  <!-- Developer Dashboard -->
+  <section class="dashboard">
+    <div class="dashboard-header">
+      <h1>Developer Dashboard</h1>
+      <p class="dashboard-subtitle">Quick access to all your development tools</p>
+    </div>
+    
+    <div class="tool-grid">
+      <!-- AI Tools -->
+      <div class="tool-card">
+        <div class="tool-icon">🤖</div>
+        <a href="https://chat.openai.com" target="_blank">ChatGPT</a>
+        <p>AI assistant for coding & content</p>
+      </div>
       
-      <!-- Dashboard Grid -->
-      <div class="features-grid" style="margin-top: 3rem;">
-        <div class="feature-card">
-          <h3>📊 Analytics</h3>
-          <p>View site statistics</p>
-        </div>
-        <div class="feature-card">
-          <h3>📝 Content Manager</h3>
-          <p>Edit pages and posts</p>
-        </div>
-        <div class="feature-card">
-          <h3>👥 User Management</h3>
-          <p>Manage user accounts</p>
-        </div>
-        <div class="feature-card">
-          <h3>⚙️ Settings</h3>
-          <p>Configure site options</p>
-        </div>
-        <div class="feature-card">
-          <h3>📧 Messages</h3>
-          <p>View form submissions</p>
-        </div>
-        <div class="feature-card">
-          <h3>🔧 Tools</h3>
-          <p>Developer utilities</p>
-        </div>
+      <div class="tool-card">
+        <div class="tool-icon">🧠</div>
+        <a href="https://claude.ai" target="_blank">Claude AI</a>
+        <p>Advanced AI for complex tasks</p>
+      </div>
+      
+      <!-- Development Tools -->
+      <div class="tool-card">
+        <div class="tool-icon">📦</div>
+        <a href="https://github.com/getnexora/nexora" target="_blank">GitHub Repo</a>
+        <p>Source code & version control</p>
+      </div>
+      
+      <div class="tool-card">
+        <div class="tool-icon">🌐</div>
+        <a href="https://getnexora.github.io/nexora/" target="_blank">Live Site</a>
+        <p>View your production website</p>
+      </div>
+      
+      <!-- Communication Tools -->
+      <div class="tool-card">
+        <div class="tool-icon">💬</div>
+        <a href="https://dashboard.tawk.to" target="_blank">Tawk.to Chat</a>
+        <p>Live chat dashboard & messages</p>
+      </div>
+      
+      <div class="tool-card">
+        <div class="tool-icon">📧</div>
+        <a href="https://formspree.io/forms/xnnbobko/submissions" target="_blank">Formspree</a>
+        <p>Contact form submissions</p>
+      </div>
+      
+      <!-- Backend Services -->
+      <div class="tool-card">
+        <div class="tool-icon">🗄️</div>
+        <a href="https://supabase.com/dashboard" target="_blank">Supabase</a>
+        <p>Database & authentication</p>
+      </div>
+      
+      <div class="tool-card">
+        <div class="tool-icon">📞</div>
+        <a href="https://weblink.freedomvoice.com" target="_blank">Business Phone</a>
+        <p>Virtual phone system</p>
+      </div>
+      
+      <!-- Analytics & Monitoring -->
+      <div class="tool-card">
+        <div class="tool-icon">📊</div>
+        <a href="https://analytics.google.com" target="_blank">Google Analytics</a>
+        <p>Website traffic & insights</p>
+      </div>
+      
+      <div class="tool-card">
+        <div class="tool-icon">🔍</div>
+        <a href="https://search.google.com/search-console" target="_blank">Search Console</a>
+        <p>SEO & search performance</p>
+      </div>
+      
+      <!-- Additional Tools -->
+      <div class="tool-card">
+        <div class="tool-icon">🎨</div>
+        <a href="https://www.canva.com" target="_blank">Canva</a>
+        <p>Design & graphics editor</p>
+      </div>
+      
+      <div class="tool-card">
+        <div class="tool-icon">➕</div>
+        <a href="#" onclick="alert('Add new tool links here!')">Add Tool</a>
+        <p>Expand your toolkit</p>
       </div>
     </div>
   </section>
@@ -66,5 +248,19 @@
   </footer>
 
   <script src="assets/js/dashboard.js"></script>
+  <script src="assets/js/main.js"></script>
+  <!--Start of Tawk.to Script-->
+  <script type="text/javascript">
+  var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+  (function(){
+  var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+  s1.async=true;
+  s1.src='https://embed.tawk.to/68ba0eecb51ffa1922ad5802/1j4bckjg5';
+  s1.charset='UTF-8';
+  s1.setAttribute('crossorigin','*');
+  s0.parentNode.insertBefore(s1,s0);
+  })();
+  </script>
+  <!--End of Tawk.to Script-->
 </body>
 </html>
