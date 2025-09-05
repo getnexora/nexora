@@ -1,62 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About Us - Nexora ProSuite</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Nexora ProSuite</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-  <!-- =========================
-       Navbar
-       ========================= -->
-  <header class="navbar">
-    <div class="logo">Nexora ProSuite</div>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="features.html">Features</a>
-      <a href="developer.html">Developers</a>
-      <a href="contact.html">Contact</a>
-      <a href="login.html" class="signin-btn">Sign In</a>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="logo">Nexora ProSuite</div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="features.html">Features</a>
+            <a href="about.html" class="active">About</a>
+            <a href="developer.html">Developer</a>
+            <a href="contact.html">Contact</a>
+            <a href="login.html" class="signin-btn">Sign In</a>
+        </div>
     </nav>
-  </header>
 
-  <!-- =========================
-       About Section
-       ========================= -->
-  <section style="padding: 6rem 2rem; max-width: 900px; margin: 0 auto;">
-    <h1>About Nexora ProSuite</h1>
-    <p style="margin-top: 1rem; color: #ccc;">
-      Nexora ProSuite is more than just a platform — it’s a global hub that connects professionals,
-      businesses, and innovators across 195 countries. We believe in breaking down barriers and
-      creating seamless collaboration opportunities worldwide.
-    </p>
+    <!-- About Content -->
+    <main>
+        <div class="page-header">
+            <h1>About Nexora ProSuite</h1>
+            <p>Learn about our mission to connect the world</p>
+        </div>
 
-    <h2 style="margin-top: 2.5rem;">Our Mission</h2>
-    <p style="margin-top: 0.5rem; color: #aaa;">
-      To empower individuals and organizations by providing secure, scalable, and modern tools
-      that drive global connectivity and productivity.
-    </p>
+        <section class="about-content">
+            <div class="content-section">
+                <h2>Our Mission</h2>
+                <p>Nexora ProSuite is dedicated to breaking down barriers and connecting businesses, individuals, and communities across 195 countries. We believe in the power of seamless global connectivity to drive innovation, foster collaboration, and create opportunities for everyone.</p>
+            </div>
 
-    <h2 style="margin-top: 2.5rem;">Our Vision</h2>
-    <p style="margin-top: 0.5rem; color: #aaa;">
-      A world where distance is no longer a barrier to collaboration, innovation, or growth.
-      Nexora ProSuite is building the bridge to that future.
-    </p>
-  </section>
+            <div class="content-section">
+                <h2>What We Do</h2>
+                <p>We provide a comprehensive platform that enables:</p>
+                <ul>
+                    <li>Real-time global communication and collaboration</li>
+                    <li>Secure data sharing and management</li>
+                    <li>Cross-border business operations</li>
+                    <li>Multi-language support and localization</li>
+                    <li>Enterprise-grade security and compliance</li>
+                </ul>
+            </div>
 
-  <!-- =========================
-       Footer
-       ========================= -->
-  <footer style="padding: 2rem; text-align: center; background:#0a0a0a; color:#777;">
-    <p>&copy; 2025 Nexora ProSuite. All rights reserved.</p>
-  </footer>
+            <div class="content-section">
+                <h2>Our Values</h2>
+                <div class="values-grid">
+                    <div class="value-item">
+                        <h3>Innovation</h3>
+                        <p>Continuously pushing boundaries to deliver cutting-edge solutions</p>
+                    </div>
+                    <div class="value-item">
+                        <h3>Security</h3>
+                        <p>Protecting your data with the highest security standards</p>
+                    </div>
+                    <div class="value-item">
+                        <h3>Accessibility</h3>
+                        <p>Making our platform available to everyone, everywhere</p>
+                    </div>
+                    <div class="value-item">
+                        <h3>Reliability</h3>
+                        <p>Ensuring 99.9% uptime for uninterrupted service</p>
+                    </div>
+                </div>
+            </div>
 
-  <!-- =========================
-       Scripts
-       ========================= -->
-  <script src="assets/js/main.js"></script>
+            <div class="content-section">
+                <h2>Join Our Journey</h2>
+                <p>Be part of the global connectivity revolution. Whether you're a small business, enterprise, or individual user, Nexora ProSuite has the tools you need to succeed in our interconnected world.</p>
+                <a href="signup.html" class="cta-button">Get Started Today</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2024 Nexora ProSuite. All rights reserved.</p>
+        <div class="footer-links">
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+            <a href="developer.html">Developers</a>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
 </body>
 </html>
