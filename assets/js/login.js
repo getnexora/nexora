@@ -1,66 +1,23 @@
-// ========================
-// Nexora Login / Signup JS
-// ========================
-
+// Wait until the DOM is fully loaded
 document.addEventListener("DOMContentLoaded", () => {
-  // Password toggle(s) — supports multiple buttons/inputs safely
-  document.querySelectorAll(".password-toggle").forEach((btn) => {
-    const targetId = btn.dataset.target;           // e.g. "password" or "confirmPassword"
-    const input = document.getElementById(targetId);
-    if (!input) return;
+  // Select all password toggle buttons
+  const toggles = document.querySelectorAll(".password-toggle");
 
-    btn.addEventListener("click", () => {
-      input.type = input.type === "password" ? "text" : "password";
-      // Optional: toggle a class for styling the icon state
-      btn.classList.toggle("showing");
-    });
-  });
+  toggles.forEach(toggle => {
+    toggle.addEventListener("click", () => {
+      // Find the target input using data-target attribute
+      const targetId = toggle.getAttribute("data-target");
+      const input = document.getElementById(targetId);
 
-  // Handle login form
-  const loginForm = document.getElementById("loginForm");
-  if (loginForm) {
-    loginForm.addEventListener("submit", (e) => {
-      e.preventDefault();
-      const email = (document.getElementById("email") || {}).value?.trim();
-      const password = (document.getElementById("password") || {}).value?.trim();
+      if (!input) return; // If no input found, do nothing
 
-      if (!email || !password) {
-        alert("⚠️ Please enter your email and password.");
-        return;
+      if (input.type === "password") {
+        input.type = "text";
+        toggle.textContent = "🙈"; // Change icon when showing password
+      } else {
+        input.type = "password";
+        toggle.textContent = "👁"; // Reset icon when hiding password
       }
-      alert(`✅ Logged in as ${email}`);
-      window.location.href = "dashboard.html";
-    });
-  }
-
-  // Handle signup form
-  const signupForm = document.getElementById("signupForm");
-  if (signupForm) {
-    signupForm.addEventListener("submit", (e) => {
-      e.preventDefault();
-      const name = (document.getElementById("name") || {}).value?.trim();
-      const email = (document.getElementById("email") || {}).value?.trim();
-      const password = (document.getElementById("password") || {}).value?.trim();
-      const confirmPassword = (document.getElementById("confirmPassword") || {}).value?.trim();
-
-      if (!name || !email || !password || !confirmPassword) {
-        alert("⚠️ Please fill in all fields.");
-        return;
-      }
-      if (password !== confirmPassword) {
-        alert("⚠️ Passwords do not match.");
-        return;
-      }
-      alert(`✅ Account created for ${name}`);
-      window.location.href = "dashboard.html";
-    });
-  }
-
-  // Guest login buttons
-  document.querySelectorAll(".guest-btn").forEach((btn) => {
-    btn.addEventListener("click", () => {
-      alert("✅ Continuing as Guest");
-      window.location.href = "dashboard.html";
     });
   });
 });
