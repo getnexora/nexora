@@ -3,227 +3,93 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Developer Dashboard - Nexora ProSuite</title>
-  <link rel="icon" type="image/png" href="assets/img/logo-icon.png" />
-  <link rel="stylesheet" href="assets/css/style.css">
-  <style>
-    /* Dashboard Specific Styles */
-    body {
-      background-color: #000000;
-      color: #f5c542;
-      margin: 0;
-      padding: 0;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
-    
-    .dashboard-header {
-      text-align: center;
-      padding: 2rem 1rem;
-      background: linear-gradient(180deg, #000000, #0a0a0a);
-      border-bottom: 1px solid rgba(245, 197, 66, 0.3);
-    }
-    
-    .dashboard-header h2 {
-      color: #f5c542;
-      font-size: 2.5rem;
-      margin: 0;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-    }
-    
-    .dashboard-subtitle {
-      color: #ffffff;
-      opacity: 0.8;
-      margin-top: 0.5rem;
-    }
-    
-    .dashboard {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-      gap: 20px;
-      padding: 2rem;
-      max-width: 1200px;
-      margin: 0 auto;
-      width: 100%;
-      flex: 1;
-    }
-    
-    .app-card {
-      background: linear-gradient(135deg, rgba(245, 197, 66, 0.1), rgba(245, 197, 66, 0.05));
-      border: 2px solid rgba(245, 197, 66, 0.3);
-      border-radius: 12px;
-      text-align: center;
-      padding: 1.5rem 1rem;
-      transition: all 0.3s ease;
-      cursor: pointer;
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .app-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(245, 197, 66, 0.2), transparent);
-      transition: left 0.5s ease;
-    }
-    
-    .app-card:hover::before {
-      left: 100%;
-    }
-    
-    .app-card:hover {
-      transform: scale(1.05) translateY(-5px);
-      background: linear-gradient(135deg, rgba(245, 197, 66, 0.2), rgba(245, 197, 66, 0.1));
-      border-color: #f5c542;
-      box-shadow: 0 8px 25px rgba(245, 197, 66, 0.3);
-    }
-    
-    .app-icon {
-      width: 60px;
-      height: 60px;
-      margin: 0 auto 10px auto;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 2.5rem;
-    }
-    
-    .app-card img {
-      max-width: 60px;
-      height: auto;
-    }
-    
-    .app-card a {
-      display: block;
-      color: #f5c542;
-      font-weight: bold;
-      text-decoration: none;
-      margin-top: 0.5rem;
-      font-size: 1rem;
-    }
-    
-    .app-card a:hover {
-      color: #ffffff;
-    }
-    
-    #logoutBtn {
-      color: #ff6b6b !important;
-    }
-    
-    @media (max-width: 768px) {
-      .dashboard {
-        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-        gap: 15px;
-        padding: 1rem;
-      }
-      
-      .dashboard-header h2 {
-        font-size: 2rem;
-      }
-    }
-  </style>
+  <title>Nexora Dashboard</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
-<body>
-  <!-- Navigation -->
-  <header>
-    <nav class="navbar">
-      <div class="logo">
-        <img src="assets/img/logo.png" alt="Nexora ProSuite Logo" onerror="this.style.display='none'">
+<body class="dashboard-page">
+
+  <!-- 🌐 Global Navbar -->
+  <nav class="navbar">
+    <div class="nav-left">
+      <a href="index.html" class="logo">NEXORA</a>
+    </div>
+    <div class="nav-center">
+      <a href="dashboard.html">Dashboard</a>
+      <a href="features.html">Features</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="nav-right">
+      <!-- Language Selector -->
+      <div class="language-selector-global">
+        <select id="language">
+          <option value="en" selected>English</option>
+          <option value="es">Español</option>
+          <option value="fr">Français</option>
+          <option value="de">Deutsch</option>
+          <option value="zh-CN">中文 (Simplified)</option>
+          <option value="ja">日本語</option>
+        </select>
       </div>
-      <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="features.html">Features</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        <li><a href="dashboard.html" class="active">Dashboard</a></li>
-        <li><a href="#" id="logoutBtn">Logout</a></li>
-      </ul>
-    </nav>
-  </header>
-  
-  <!-- Dashboard Header -->
-  <div class="dashboard-header">
-    <h2>Developer Dashboard</h2>
-    <p class="dashboard-subtitle">Quick access to all your tools</p>
-  </div>
-  
-  <!-- Dashboard Grid -->
-  <main class="dashboard">
-    <!-- AI Tools -->
-    <div class="app-card" onclick="window.open('https://chat.openai.com', '_blank')">
-      <div class="app-icon">🤖</div>
-      <a href="https://chat.openai.com" target="_blank">ChatGPT</a>
+      <button class="signout-btn" onclick="handleSignOut()">Sign Out</button>
     </div>
-    
-    <div class="app-card" onclick="window.open('https://claude.ai', '_blank')">
-      <div class="app-icon">🧠</div>
-      <a href="https://claude.ai" target="_blank">Claude</a>
-    </div>
-    
-    <!-- Google -->
-    <div class="app-card" onclick="window.open('https://accounts.google.com', '_blank')">
-      <div class="app-icon">🔍</div>
-      <a href="https://accounts.google.com" target="_blank">Google</a>
-    </div>
-    
-    <!-- GitHub -->
-    <div class="app-card" onclick="window.open('https://github.com/getnexora/nexora', '_blank')">
-      <div class="app-icon">💻</div>
-      <a href="https://github.com/getnexora/nexora" target="_blank">GitHub Repo</a>
-    </div>
-    
-    <!-- Live Site -->
-    <div class="app-card" onclick="window.open('https://getnexora.github.io/nexora/', '_blank')">
-      <div class="app-icon">🌐</div>
-      <a href="https://getnexora.github.io/nexora/" target="_blank">Live Site</a>
-    </div>
-    
-    <!-- Chat -->
-    <div class="app-card" onclick="window.open('https://dashboard.tawk.to', '_blank')">
-      <div class="app-icon">💬</div>
-      <a href="https://dashboard.tawk.to" target="_blank">Live Chat</a>
-    </div>
-    
-    <!-- Contact Form -->
-    <div class="app-card" onclick="window.open('https://formspree.io/forms/xnnbobko/submissions', '_blank')">
-      <div class="app-icon">📧</div>
-      <a href="https://formspree.io/forms/xnnbobko/submissions" target="_blank">Formspree</a>
-    </div>
-    
-    <!-- Supabase -->
-    <div class="app-card" onclick="window.open('https://supabase.com/dashboard', '_blank')">
-      <div class="app-icon">🗄️</div>
-      <a href="https://supabase.com/dashboard" target="_blank">Supabase</a>
-    </div>
-    
-    <!-- Business Phone -->
-    <div class="app-card" onclick="window.open('https://weblink.freedomvoice.com', '_blank')">
-      <div class="app-icon">📞</div>
-      <a href="https://weblink.freedomvoice.com" target="_blank">Business Phone</a>
-    </div>
+  </nav>
+
+  <!-- 🏠 Dashboard Content -->
+  <main class="dashboard-container">
+    <section class="welcome-section">
+      <h1>Welcome back, <span id="userName">User</span> 👋</h1>
+      <p>This is your personalized Nexora Dashboard.</p>
+    </section>
+
+    <!-- ⚡ Dashboard Features -->
+    <section class="features-grid">
+      <div class="feature-card">
+        <h3>📊 Analytics</h3>
+        <p>View your account insights and activity trends.</p>
+      </div>
+      <div class="feature-card">
+        <h3>⚙️ Settings</h3>
+        <p>Manage your profile, security, and preferences.</p>
+      </div>
+      <div class="feature-card">
+        <h3>📰 Updates</h3>
+        <p>Stay informed with the latest Nexora news.</p>
+      </div>
+      <div class="feature-card">
+        <h3>💬 Support</h3>
+        <p>Get help from our support team anytime.</p>
+      </div>
+    </section>
   </main>
-  
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2025 Nexora ProSuite. All rights reserved.</p>
-  </footer>
-  
-  <!-- Dashboard Protection Script -->
-  <script src="assets/js/dashboard.js"></script>
-  
-  <!-- Make cards fully clickable -->
+
+  <!-- Scripts -->
   <script>
-    // Prevent link default behavior since we're using onclick
-    document.querySelectorAll('.app-card a').forEach(link => {
-      link.addEventListener('click', function(e) {
-        e.preventDefault();
-      });
+    // 🌍 Language Persistence
+    const langSelect = document.getElementById("language");
+    langSelect.addEventListener("change", function() {
+      localStorage.setItem("preferredLanguage", this.value);
     });
+    window.addEventListener("load", function() {
+      const savedLang = localStorage.getItem("preferredLanguage");
+      if (savedLang) {
+        langSelect.value = savedLang;
+      }
+      // Load user name from local/session storage
+      const savedUser = localStorage.getItem("nexoraUser") || sessionStorage.getItem("nexoraUser");
+      if (savedUser) {
+        document.getElementById("userName").textContent = savedUser.split("@")[0];
+      }
+    });
+
+    // 🚪 Sign Out
+    function handleSignOut() {
+      localStorage.removeItem("nexoraUser");
+      sessionStorage.removeItem("nexoraUser");
+      localStorage.removeItem("nexora_userType");
+      window.location.href = "login.html";
+    }
   </script>
 </body>
 </html>
