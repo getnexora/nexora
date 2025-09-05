@@ -1,85 +1,124 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Nexora ProSuite Features" />
-  <title>Features - Nexora ProSuite</title>
-  <link rel="icon" type="image/png" href="assets/img/logo-icon.png" />
-  <link rel="stylesheet" href="assets/css/style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0a0a0a">
+  <title>Nexora - Features</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Navigation -->
-  <header>
-    <nav class="navbar">
-      <div class="logo">
-        <img src="assets/img/logo.png" alt="Nexora ProSuite Logo" />
-      </div>
-      <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="features.html" class="active">Features</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        <li><a href="login.html">Login</a></li>
-      </ul>
+  <!-- Hidden Google Translate widget -->
+  <div id="google_translate_element"></div>
+
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="logo">NEXORA</div>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="features.html" class="active">Features</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="developer.html">Developer</a>
     </nav>
+    <div class="nav-actions">
+      <div class="language-selector-global">
+        <label for="language">🌐</label>
+        <select id="language">
+          <option value="en" selected>English</option>
+          <option value="es">Español</option>
+          <option value="fr">Français</option>
+          <option value="de">Deutsch</option>
+          <option value="zh-CN">中文 (简体)</option>
+          <option value="zh-TW">中文 (繁體)</option>
+          <option value="ja">日本語</option>
+          <option value="ko">한국어</option>
+          <option value="ar">العربية</option>
+          <option value="ru">Русский</option>
+          <option value="pt">Português</option>
+          <option value="hi">हिन्दी</option>
+        </select>
+      </div>
+      <a href="login.html" class="signin-btn">Sign In</a>
+    </div>
   </header>
-  <!-- Features Hero -->
+
+  <!-- Hero Section -->
   <section class="hero">
-    <div class="hero-content">
-      <h1>Powerful Features</h1>
-      <p class="tagline">A single hub, endless possibilities.</p>
+    <h1>Powerful Features for Modern Professionals</h1>
+    <p>Discover the advanced tools Nexora provides to keep you ahead.</p>
+  </section>
+
+  <!-- Features Grid -->
+  <section class="features-grid">
+    <div class="feature-card">
+      <h3>🌐 Global Access</h3>
+      <p>Instant translation and localization to connect with users worldwide.</p>
+    </div>
+    <div class="feature-card">
+      <h3>🔒 Secure Login</h3>
+      <p>Advanced authentication and encryption to protect your data.</p>
+    </div>
+    <div class="feature-card">
+      <h3>⚡ Performance</h3>
+      <p>Lightning-fast performance optimized for executives on the go.</p>
+    </div>
+    <div class="feature-card">
+      <h3>🤝 Guest Access</h3>
+      <p>Allow visitors to explore Nexora with limited guest features.</p>
     </div>
   </section>
-  <!-- Features Content -->
-  <section class="content-section">
-    <div class="container">
-      <ul class="feature-list">
-        <li>
-          🌍 <strong>Worldwide Access</strong> – Built to connect all <strong>195 countries</strong> seamlessly.
-        </li>
-        <li>
-          🗣️ <strong>Language Translation</strong> – Instantly adapts to <strong>every language</strong>.
-        </li>
-        <li>
-          💱 <strong>Multi-Currency Transactions</strong> – Integrated support for <strong>every global currency</strong>.
-        </li>
-        <li>
-          🕒 <strong>Timezone Intelligence</strong> – Automatically adapts across <strong>all time zones</strong>.
-        </li>
-        <li>
-          📱 <strong>Centralized App Hub</strong> – Unify apps, workflows, and data into <strong>one intuitive platform</strong>.
-        </li>
-        <li>
-          🔒 <strong>Enterprise Security</strong> – Bank-level encryption and <strong>secure infrastructure</strong>.
-        </li>
-        <li>
-          📈 <strong>Scalable Solutions</strong> – Grows with your business from <strong>startup to enterprise</strong>.
-        </li>
-        <li>
-          🤝 <strong>Global Collaboration</strong> – Real-time tools for <strong>worldwide teams</strong>.
-        </li>
-      </ul>
-    </div>
-  </section>
+
   <!-- Footer -->
   <footer>
-    <p>&copy; 2025 Nexora ProSuite. All rights reserved.</p>
+    <p>© 2025 Nexora. All rights reserved.</p>
   </footer>
-  
-  <script src="assets/js/main.js"></script>
-  <!--Start of Tawk.to Script-->
+
+  <!-- Google Translate -->
   <script type="text/javascript">
-  var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-  (function(){
-  var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-  s1.async=true;
-  s1.src='https://embed.tawk.to/68ba0eecb51ffa1922ad5802/1j4bckjg5';
-  s1.charset='UTF-8';
-  s1.setAttribute('crossorigin','*');
-  s0.parentNode.insertBefore(s1,s0);
-  })();
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement(
+        { pageLanguage: 'en', autoDisplay: false },
+        'google_translate_element'
+      );
+    }
   </script>
-  <!--End of Tawk.to Script-->
+  <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+  <script>
+    function changeLanguage(langCode) {
+      const googleFrame = document.querySelector("iframe.goog-te-menu-frame");
+      if (googleFrame) {
+        const innerDoc = googleFrame.contentDocument || googleFrame.contentWindow.document;
+        const langElements = innerDoc.querySelectorAll(".goog-te-menu2-item span.text");
+        for (let i = 0; i < langElements.length; i++) {
+          const parent = langElements[i].closest("tr");
+          if (parent && parent.getAttribute("value") === langCode) {
+            langElements[i].click();
+            break;
+          }
+        }
+      }
+    }
+    const langSelect = document.getElementById("language");
+    langSelect.addEventListener("change", function() {
+      const langCode = this.value;
+      localStorage.setItem("preferredLanguage", langCode);
+      changeLanguage(langCode);
+    });
+    window.addEventListener("load", function() {
+      const savedLang = localStorage.getItem("preferredLanguage");
+      if (savedLang) {
+        document.getElementById("language").value = savedLang;
+        setTimeout(() => {
+          document.getElementById("language").dispatchEvent(new Event("change"));
+        }, 1000);
+      }
+    });
+  </script>
 </body>
 </html>
