@@ -6,8 +6,75 @@
   <title>Login • Nexora ProSuite</title>
   <link rel="icon" type="image/png" href="assets/img/logo-icon.png" />
   <link rel="stylesheet" href="assets/css/style.css" />
+</head><!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login • Nexora ProSuite</title>
+  <link rel="icon" type="image/png" href="assets/img/logo-icon.png" />
+  <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 <body>
+  <header>
+    <nav class="navbar">
+      <div class="logo">
+        <img src="assets/img/logo.png" alt="Nexora ProSuite Logo" />
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content" style="max-width:420px;margin:auto;">
+      <h1>Login / Sign Up</h1>
+      <p class="tagline">Access your Nexora dashboard</p>
+
+      <div class="contact-form">
+        <input id="email" type="email" placeholder="Email" required />
+        <input id="password" type="password" placeholder="Password" required />
+        <button class="cta-button primary" id="loginBtn">Log In</button>
+        <button class="cta-button secondary" id="signupBtn">Sign Up</button>
+        <p id="msg" style="color:#fff;opacity:.9;text-align:center;margin-top:1rem;"></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Supabase (CDN) -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+  <script>
+    // Your Supabase project credentials
+    const SUPABASE_URL = "https://gmvwpoueyvneuwznzdbs.supabase.co";
+    const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imdtdndwb3VleXZuZXV3em56ZGJzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTY5NDAzNTcsImV4cCI6MjA3MjUxNjM1N30.X3xYfHVm0UNKIPzfhosYU0Tq3Wv9TDmI70nejtwzQoc";
+
+    const sb = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+    const $ = id => document.getElementById(id);
+    const show = (t) => $("msg").textContent = t || "";
+
+    $("loginBtn").addEventListener("click", async () => {
+      show("Signing in…");
+      const email = $("email").value.trim();
+      const password = $("password").value;
+      const { data, error } = await sb.auth.signInWithPassword({ email, password });
+      if (error) return show(error.message);
+      show("Success! Redirecting…");
+      window.location.href = "developer.html";
+    });
+
+    $("signupBtn").addEventListener("click", async () => {
+      show("Creating account…");
+      const email = $("email").value.trim();
+      const password = $("password").value;
+      const { data, error } = await sb.auth.signUp({ email, password });
+      if (error) return show(error.message);
+      show("Check your email to confirm, then log in.");
+    });
+  </script>
+</body>
+</html><body>
   <header>
     <nav class="navbar">
       <div class="logo">
