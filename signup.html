@@ -6,14 +6,14 @@
   <meta name="theme-color" content="#0a0a0a">
   <title>Nexora - Create Account</title>
 
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <!-- Premium Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-  <!-- Styles -->
+  <!-- Global Stylesheet -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body class="login-page">
-  <!-- Hidden Google Translate widget -->
+  <!-- Hidden Google Translate Widget -->
   <div id="google_translate_element"></div>
 
   <div class="login-container">
@@ -21,10 +21,10 @@
       <!-- Logo Section -->
       <div class="logo-section">
         <div class="logo">NEXORA</div>
-        <div class="tagline">Create Your Account</div>
+        <div class="tagline">Executive Access Portal</div>
       </div>
 
-      <!-- Language Selector -->
+      <!-- Global Language Dropdown -->
       <div class="language-selector-global">
         <label for="language">🌐 Language</label>
         <select id="language">
@@ -32,8 +32,8 @@
           <option value="es">Español</option>
           <option value="fr">Français</option>
           <option value="de">Deutsch</option>
-          <option value="zh-CN">中文 (简体)</option>
-          <option value="zh-TW">中文 (繁體)</option>
+          <option value="zh-CN">中文 (Simplified)</option>
+          <option value="zh-TW">中文 (Traditional)</option>
           <option value="ja">日本語</option>
           <option value="ko">한국어</option>
           <option value="ar">العربية</option>
@@ -46,13 +46,17 @@
       <!-- Signup Form -->
       <form class="login-form" onsubmit="handleSignup(event)">
         <div class="form-group">
-          <label class="form-label" for="fullname">Full Name</label>
-          <input type="text" id="fullname" class="form-input" placeholder="Enter your full name" required>
+          <label class="form-label" for="name">Full Name</label>
+          <div class="input-wrapper">
+            <input type="text" id="name" class="form-input" placeholder="Enter your full name" required>
+          </div>
         </div>
 
         <div class="form-group">
           <label class="form-label" for="email">Email Address</label>
-          <input type="email" id="email" class="form-input" placeholder="Enter your email" required>
+          <div class="input-wrapper">
+            <input type="email" id="email" class="form-input" placeholder="Enter your email" required>
+          </div>
         </div>
 
         <div class="form-group">
@@ -72,9 +76,21 @@
           </div>
         </div>
 
+        <div class="form-group">
+          <label class="form-label" for="confirmPassword">Confirm Password</label>
+          <div class="input-wrapper">
+            <input type="password" id="confirmPassword" class="form-input" placeholder="Confirm your password" required>
+          </div>
+        </div>
+
         <button type="submit" class="submit-btn">Create Account</button>
-        <p class="guest-notice">Already have an account? <a href="login.html">Sign in</a></p>
       </form>
+
+      <div class="divider"><span>or</span></div>
+
+      <div class="signup-link">
+        <p>Already have an account? <a href="login.html">Sign In</a></p>
+      </div>
     </div>
   </div>
 
@@ -94,20 +110,26 @@
 
     function handleSignup(event) {
       event.preventDefault();
-      const name = document.getElementById('fullname').value;
+      const name = document.getElementById('name').value;
       const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+      const confirmPassword = document.getElementById('confirmPassword').value;
 
-      localStorage.setItem('nexora_userType', 'registered');
-      localStorage.setItem('nexoraUser', email);
+      if (password !== confirmPassword) {
+        alert("Passwords do not match!");
+        return;
+      }
+
+      localStorage.setItem("nexora_userType", "registered");
+      localStorage.setItem("nexoraUser", email);
 
       const button = event.target.querySelector('.submit-btn');
       button.textContent = 'Creating account...';
       button.disabled = true;
-
       setTimeout(() => {
         button.textContent = '✓ Account Created';
         setTimeout(() => {
-          window.location.href = 'index.html';
+          window.location.href = "index.html";
         }, 1000);
       }, 1500);
     }
