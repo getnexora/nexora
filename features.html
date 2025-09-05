@@ -3,17 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nexora — Features</title>
-
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
-  <!-- Main stylesheet -->
-  <link rel="stylesheet" href="css/style.css" />
-
-  <!-- Favicon -->
-  <link rel="icon" href="img/logo-icon.png" type="image/png" />
+  <title>Nexora – Features</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 <body>
   <!-- Navbar -->
@@ -24,49 +15,39 @@
       <a href="features.html">Features</a>
       <a href="developer.html">Developers</a>
       <a href="contact.html">Contact</a>
-      <a href="dashboard.html">Dashboard</a>
+      <a href="login.html" class="signin-btn">Sign In</a>
     </nav>
-    <a href="login.html" class="signin-btn">Sign In</a>
   </header>
 
   <!-- Features Section -->
-  <main style="padding:8rem 2rem 4rem; max-width:1100px; margin:auto;">
-    <h1 style="font-size:2.5rem; font-weight:800; margin-bottom:1.5rem;">Features</h1>
-    <p style="color:#aaa; font-size:1.1rem; margin-bottom:3rem;">
-      Nexora comes packed with powerful features designed to make your digital 
-      experience seamless, secure, and scalable.
-    </p>
-
-    <section style="display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:2rem;">
-      <div style="background:#111; border:1px solid #222; border-radius:12px; padding:2rem;">
-        <h2 style="margin-bottom:1rem; color:#c9a227;">⚡ Performance</h2>
-        <p>Lightning-fast load times and optimized workflows keep you moving without delays.</p>
+  <section class="features">
+    <h1>Our Features</h1>
+    <div class="features-list">
+      <div class="feature">
+        <h3>Performance</h3>
+        <p>Optimized for speed and reliability across all devices.</p>
       </div>
-      <div style="background:#111; border:1px solid #222; border-radius:12px; padding:2rem;">
-        <h2 style="margin-bottom:1rem; color:#c9a227;">🔒 Security</h2>
-        <p>Enterprise-level encryption and multi-factor authentication to protect your data.</p>
+      <div class="feature">
+        <h3>Security</h3>
+        <p>Advanced security features to protect your data and privacy.</p>
       </div>
-      <div style="background:#111; border:1px solid #222; border-radius:12px; padding:2rem;">
-        <h2 style="margin-bottom:1rem; color:#c9a227;">🌍 Collaboration</h2>
-        <p>Work together in real-time with tools designed for global teams and organizations.</p>
+      <div class="feature">
+        <h3>Scalability</h3>
+        <p>Built to grow with your project, from small apps to global platforms.</p>
       </div>
-      <div style="background:#111; border:1px solid #222; border-radius:12px; padding:2rem;">
-        <h2 style="margin-bottom:1rem; color:#c9a227;">📈 Scalability</h2>
-        <p>From small projects to enterprise platforms, Nexora adapts to your growth.</p>
+      <div class="feature">
+        <h3>Integration</h3>
+        <p>Seamless API and developer tools for easy integration.</p>
       </div>
-    </section>
-  </main>
-
-  <!-- Call to Action -->
-  <section style="text-align:center; padding:4rem 2rem; background:#111; border-top:1px solid #222; border-bottom:1px solid #222;">
-    <h2 style="font-size:2rem; font-weight:700; margin-bottom:1rem;">Discover What’s Possible</h2>
-    <p style="color:#aaa; margin-bottom:2rem;">Sign up today and unlock all the features Nexora has to offer.</p>
-    <a href="signup.html" class="signin-btn">Create Account</a>
+    </div>
   </section>
 
   <!-- Footer -->
-  <footer style="text-align:center; padding:2rem; color:#666;">
-    © 2025 Nexora. All rights reserved.
+  <footer>
+    <p>&copy; 2025 Nexora. All rights reserved.</p>
   </footer>
+
+  <!-- Scripts -->
+  <script src="assets/js/main.js"></script>
 </body>
 </html>
