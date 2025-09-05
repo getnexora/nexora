@@ -1,1 +1,29 @@
+// ===== Nexora ProSuite - Main JS =====
+
+// Mobile nav toggle (optional if you add hamburger menu later)
+const navToggle = document.querySelector(".nav-toggle");
+const navLinks = document.querySelector(".nav-links");
+
+if (navToggle && navLinks) {
+  navToggle.addEventListener("click", () => {
+    navLinks.classList.toggle("active");
+  });
+}
+
+// Password toggle (login/signup forms)
+document.querySelectorAll("input[type='password']").forEach((input) => {
+  const toggle = document.createElement("span");
+  toggle.textContent = "👁";
+  toggle.style.cursor = "pointer";
+  toggle.style.marginLeft = "8px";
+
+  toggle.addEventListener("click", () => {
+    input.type = input.type === "password" ? "text" : "password";
+  });
+
+  input.insertAdjacentElement("afterend", toggle);
+});
+
+// Placeholder for dashboard functionality
+console.log("Nexora ProSuite JS loaded successfully 🚀");
 
