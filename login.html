@@ -34,11 +34,8 @@
             background: var(--bg-primary);
             color: var(--text-primary);
             min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
             position: relative;
-            overflow: hidden;
+            overflow-x: hidden;
         }
 
         /* Luxury Background Effects */
@@ -55,13 +52,53 @@
             z-index: 0;
         }
 
-        /* Login Container */
+        /* Navigation Bar */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--glass-border);
+            padding: 20px 40px;
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-gold);
+        }
+
+        /* Login Container - Adjusted for Navbar */
         .login-container {
             position: relative;
             z-index: 1;
             width: 100%;
             max-width: 420px;
             padding: 20px;
+            margin: 120px auto 40px; /* Added top margin for navbar */
+            display: flex;
+            align-items: center;
+            min-height: calc(100vh - 120px);
         }
 
         /* Login Card */
@@ -74,6 +111,7 @@
             border: 1px solid var(--glass-border);
             position: relative;
             overflow: hidden;
+            width: 100%;
         }
 
         /* Gold Accent Line */
@@ -336,6 +374,59 @@
             transform: translateY(0);
         }
 
+        /* Guest Login Button */
+        .guest-btn {
+            width: 100%;
+            padding: 16px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            color: var(--text-secondary);
+            font-size: 16px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 12px;
+            text-transform: uppercase;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .guest-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.05);
+            transition: left 0.5s ease;
+        }
+
+        .guest-btn:hover::before {
+            left: 100%;
+        }
+
+        .guest-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--text-primary);
+            border-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .guest-btn:active {
+            transform: translateY(0);
+        }
+
+        .guest-notice {
+            font-size: 11px;
+            color: var(--text-secondary);
+            text-align: center;
+            margin-top: 8px;
+            opacity: 0.7;
+        }
+
         /* Divider */
         .divider {
             text-align: center;
@@ -385,29 +476,25 @@
             opacity: 0.8;
         }
 
-        /* Back to Home Link */
-        .back-home {
-            position: absolute;
-            top: 30px;
-            left: 30px;
-            color: var(--text-secondary);
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            transition: all 0.3s ease;
-            font-size: 14px;
-        }
-
-        .back-home:hover {
-            color: var(--primary-gold);
-            transform: translateX(-5px);
-        }
-
         /* Responsive Design */
+        @media (max-width: 768px) {
+            nav {
+                padding: 15px 20px;
+            }
+            
+            .nav-links {
+                gap: 15px;
+            }
+            
+            .nav-links a {
+                font-size: 12px;
+            }
+        }
+
         @media (max-width: 480px) {
             .login-container {
                 padding: 16px;
+                margin-top: 80px;
             }
             
             .login-card {
@@ -421,14 +508,34 @@
             .locale-selectors {
                 grid-template-columns: 1fr;
             }
+            
+            nav {
+                padding: 12px 16px;
+            }
+            
+            .nav-links {
+                gap: 10px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .nav-links a {
+                font-size: 11px;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Back to Home Link -->
-    <a href="index.html" class="back-home">
-        ← Back to Nexora
-    </a>
+    <!-- Navigation Bar -->
+    <nav>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="features.html">Features</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="developer.html">Developer</a></li>
+        </ul>
+    </nav>
 
     <div class="login-container">
         <div class="login-card">
@@ -520,6 +627,12 @@
                 <button type="submit" class="submit-btn">
                     Sign In to Nexora
                 </button>
+                
+                <!-- Guest Login Button -->
+                <button type="button" class="guest-btn" onclick="handleGuestLogin()">
+                    Continue as Guest
+                </button>
+                <p class="guest-notice">Limited features available in guest mode</p>
             </form>
 
             <!-- Divider -->
@@ -529,12 +642,41 @@
 
             <!-- Sign Up Link -->
             <div class="signup-link">
-                <p>New to Nexora? <a href="#">Create an account</a></p>
+                <p>New to Nexora? <a href="signup.html">Create an account</a></p>
             </div>
         </div>
     </div>
 
     <script>
+        // Guest Login Function
+        function handleGuestLogin() {
+            // Save guest status to localStorage
+            localStorage.setItem("nexora_userType", "guest");
+            localStorage.setItem("nexora_guestLogin", "true");
+            
+            // Log guest login
+            console.log("Guest login initiated");
+            
+            // Show loading feedback
+            const guestBtn = document.querySelector('.guest-btn');
+            const originalText = guestBtn.textContent;
+            guestBtn.textContent = 'Setting up guest access...';
+            guestBtn.disabled = true;
+            
+            // Simulate setup delay
+            setTimeout(() => {
+                guestBtn.textContent = '✓ Guest Access Granted';
+                
+                // Alert user about limitations
+                alert("Welcome to Nexora!\n\nAs a guest, you have limited access:\n• View-only mode for most features\n• Cannot save preferences\n• No access to premium content\n\nCreate an account for full access!");
+                
+                // Redirect to main site
+                setTimeout(() => {
+                    window.location.href = "index.html";
+                }, 1000);
+            }, 1500);
+        }
+
         // Language & Region Functions
         function setLanguage(lang) {
             localStorage.setItem("nexora_language", lang);
@@ -562,6 +704,12 @@
                 document.getElementById("region").value = savedRegion;
                 console.log("Restored region:", savedRegion);
             }
+
+            // Check if user is already logged in
+            const userType = localStorage.getItem("nexora_userType");
+            if (userType) {
+                console.log("User type detected:", userType);
+            }
         });
 
         // Password Toggle Functionality
@@ -588,6 +736,10 @@
             const language = document.getElementById('language').value;
             const region = document.getElementById('region').value;
             
+            // Set user type as registered user
+            localStorage.setItem('nexora_userType', 'registered');
+            localStorage.removeItem('nexora_guestLogin'); // Clear guest flag if exists
+            
             // Store login state
             if (remember) {
                 localStorage.setItem('nexoraUser', email);
@@ -599,7 +751,8 @@
             console.log("Logging in with:", {
                 email: email,
                 language: language,
-                region: region
+                region: region,
+                userType: 'registered'
             });
             
             // Show loading state
