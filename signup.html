@@ -9,55 +9,46 @@
 <body class="login-page">
   <div class="login-container">
     <div class="login-card">
-      <!-- Logo Section -->
       <div class="logo-section">
         <div class="logo">Nexora</div>
         <p class="tagline">Create your account</p>
       </div>
 
       <!-- Signup Form -->
-      <form>
+      <form id="signupForm">
         <div class="form-group">
           <label for="name" class="form-label">Full Name</label>
-          <input type="text" id="name" class="form-input" placeholder="John Doe" required />
+          <input type="text" id="name" class="form-input" required />
         </div>
 
         <div class="form-group">
           <label for="email" class="form-label">Email</label>
-          <input type="email" id="email" class="form-input" placeholder="you@example.com" required />
+          <input type="email" id="email" class="form-input" required />
         </div>
 
         <div class="form-group">
           <label for="password" class="form-label">Password</label>
           <div class="input-wrapper">
-            <input type="password" id="password" class="form-input" placeholder="••••••••" required />
-            <button type="button" class="password-toggle" onclick="togglePassword()">
-              <span class="eye-icon eye-open">👁️</span>
-              <span class="eye-icon eye-closed">🙈</span>
+            <input type="password" id="password" class="form-input" required />
+            <button type="button" class="password-toggle" id="togglePassword">
+              👁
             </button>
           </div>
         </div>
 
         <div class="form-group">
-          <label for="confirm-password" class="form-label">Confirm Password</label>
-          <div class="input-wrapper">
-            <input type="password" id="confirm-password" class="form-input" placeholder="••••••••" required />
-            <button type="button" class="password-toggle" onclick="toggleConfirmPassword()">
-              <span class="eye-icon eye-open">👁️</span>
-              <span class="eye-icon eye-closed">🙈</span>
-            </button>
-          </div>
+          <label for="confirmPassword" class="form-label">Confirm Password</label>
+          <input type="password" id="confirmPassword" class="form-input" required />
         </div>
 
-        <button type="submit" class="submit-btn">Sign Up</button>
+        <button type="submit" class="submit-btn">Create Account</button>
+        <button type="button" class="guest-btn">Continue as Guest</button>
       </form>
 
-      <!-- Divider -->
       <div class="divider"><span>or</span></div>
 
-      <!-- Login Link -->
       <p class="signup-link">
-        Already have an account? <a href="login.html">Log in</a>
+        Already have an account? <a href="login.html">Log In</a>
       </p>
     </div>
   </div>
