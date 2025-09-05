@@ -1,325 +1,478 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nexora - Secure Login</title>
-  <style>
-    /* ===== Base Styles ===== */
-    :root {
-      --primary-gold: #d4af37;
-      --bg-dark: #0f0f0f;
-      --card-bg: rgba(255, 255, 255, 0.05);
-      --text-primary: #fff;
-      --text-secondary: #aaa;
-      --border-light: rgba(255, 255, 255, 0.1);
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0a0a0a">
+    <title>Nexora - Executive Access Portal</title>
+    
+    <!-- Premium Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Global Stylesheet -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    
+    <!-- Login Page Specific Styles -->
+    <style>
+        /* Custom Language Selector for Login */
+        .language-selector {
+            margin-bottom: 24px;
+        }
 
-    body {
-      margin: 0;
-      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
-      color: var(--text-primary);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-    }
+        .language-selector label {
+            display: block;
+            margin-bottom: 6px;
+            color: var(--text-secondary);
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
 
-    /* ===== Container ===== */
-    .login-container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 100%;
-      padding: 20px;
-    }
+        .language-selector select {
+            width: 100%;
+            padding: 12px 14px;
+            background: rgba(255, 215, 0, 0.05);
+            border: 1px solid var(--primary-gold);
+            border-radius: 12px;
+            color: var(--text-primary);
+            font-size: 14px;
+            font-family: inherit;
+            appearance: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23FFD700' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 12px center;
+            background-size: 20px;
+            padding-right: 40px;
+        }
 
-    .login-card {
-      background: var(--card-bg);
-      backdrop-filter: blur(10px);
-      border: 1px solid var(--border-light);
-      border-radius: 16px;
-      padding: 40px;
-      width: 100%;
-      max-width: 400px;
-      box-shadow: 0 0 40px rgba(0, 0, 0, 0.6);
-      position: relative;
-    }
+        .language-selector select:hover {
+            background-color: rgba(255, 215, 0, 0.1);
+            border-color: var(--primary-gold);
+        }
 
-    /* ===== Logo Section ===== */
-    .logo-section {
-      text-align: center;
-      margin-bottom: 30px;
-    }
+        .language-selector select:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(255, 215, 0, 0.3);
+        }
 
-    .logo {
-      font-size: 28px;
-      font-weight: bold;
-      color: var(--primary-gold);
-      letter-spacing: 2px;
-    }
+        .language-selector option {
+            background: var(--bg-card);
+            color: var(--text-primary);
+        }
 
-    .tagline {
-      font-size: 14px;
-      color: var(--text-secondary);
-    }
+        /* Password field specific */
+        .password-input {
+            padding-right: 50px;
+        }
 
-    /* ===== Form Styles ===== */
-    .login-form {
-      display: flex;
-      flex-direction: column;
-    }
+        /* Eye icons for password toggle */
+        .eye-open {
+            display: block;
+        }
 
-    .form-group {
-      margin-bottom: 20px;
-    }
+        .eye-closed {
+            display: none;
+        }
 
-    .form-label {
-      display: block;
-      margin-bottom: 8px;
-      font-size: 14px;
-    }
+        .password-toggle.showing .eye-open {
+            display: none;
+        }
 
-    .input-wrapper {
-      position: relative;
-    }
+        .password-toggle.showing .eye-closed {
+            display: block;
+        }
 
-    .form-input {
-      width: 100%;
-      padding: 12px 40px 12px 12px;
-      border-radius: 8px;
-      border: 1px solid var(--border-light);
-      background: rgba(255, 255, 255, 0.08);
-      color: var(--text-primary);
-      font-size: 14px;
-    }
+        /* Form Options */
+        .form-options {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 32px;
+        }
 
-    .form-input:focus {
-      outline: none;
-      border-color: var(--primary-gold);
-    }
+        .remember-me {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
 
-    /* ===== Password Toggle (Eyeball) ===== */
-    .password-toggle {
-      position: absolute;
-      right: 10px;
-      top: 50%;
-      transform: translateY(-50%);
-      background: none;
-      border: none;
-      cursor: pointer;
-      color: var(--text-secondary);
-      display: flex;
-      align-items: center;
-    }
+        .remember-me input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            accent-color: var(--primary-gold);
+        }
 
-    .eye-icon {
-      width: 20px;
-      height: 20px;
-      display: none;
-    }
+        .remember-me label {
+            color: var(--text-secondary);
+            font-size: 14px;
+            cursor: pointer;
+        }
 
-    .password-toggle .eye-open {
-      display: inline;
-    }
+        .forgot-password {
+            color: var(--primary-gold);
+            text-decoration: none;
+            font-size: 14px;
+            transition: opacity 0.3s ease;
+        }
 
-    .password-toggle.showing .eye-open {
-      display: none;
-    }
+        .forgot-password:hover {
+            opacity: 0.8;
+        }
 
-    .password-toggle.showing .eye-closed {
-      display: inline;
-    }
+        .guest-notice {
+            font-size: 11px;
+            color: var(--text-secondary);
+            text-align: center;
+            margin-top: 8px;
+            opacity: 0.7;
+        }
 
-    /* ===== Options ===== */
-    .form-options {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 20px;
-      font-size: 14px;
-    }
-
-    .form-options a {
-      color: var(--primary-gold);
-      text-decoration: none;
-    }
-
-    /* ===== Buttons ===== */
-    .submit-btn {
-      background: var(--primary-gold);
-      border: none;
-      padding: 12px;
-      border-radius: 8px;
-      color: #000;
-      font-weight: bold;
-      cursor: pointer;
-      transition: background 0.3s ease;
-    }
-
-    .submit-btn:hover {
-      background: #e0c04f;
-    }
-
-    /* ===== Divider ===== */
-    .divider {
-      text-align: center;
-      margin: 20px 0;
-      color: var(--text-secondary);
-      position: relative;
-    }
-
-    .divider span {
-      background: var(--bg-dark);
-      padding: 0 10px;
-      position: relative;
-      z-index: 1;
-    }
-
-    .divider::before {
-      content: "";
-      position: absolute;
-      top: 50%;
-      left: 0;
-      right: 0;
-      height: 1px;
-      background: var(--border-light);
-      z-index: 0;
-    }
-
-    /* ===== Signup Link ===== */
-    .signup-link {
-      text-align: center;
-      font-size: 14px;
-    }
-
-    .signup-link a {
-      color: var(--primary-gold);
-      text-decoration: none;
-    }
-
-    /* ===== Language Selector ===== */
-    .language-selector {
-      position: absolute;
-      top: 16px;
-      right: 16px;
-      z-index: 2;
-    }
-    .language-selector select {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 8px;
-      padding: 6px 12px;
-      color: var(--text-primary);
-      font-size: 14px;
-      cursor: pointer;
-    }
-    .language-selector select:focus {
-      outline: none;
-      border-color: var(--primary-gold);
-    }
-  </style>
+        .signup-link p {
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+    </style>
 </head>
-<body>
-  <div class="login-container">
-    <div class="login-card">
-      
-      <!-- 🌍 Language Selector -->
-      <div class="language-selector">
-        <select id="language" onchange="changeLanguage(this.value)">
-          <option value="en">English</option>
-          <option value="es">Español</option>
-          <option value="fr">Français</option>
-          <option value="de">Deutsch</option>
-          <option value="zh">中文</option>
-          <option value="ja">日本語</option>
-        </select>
-      </div>
+<body class="login-page">
+    <!-- Hidden Google Translate Widget -->
+    <div id="google_translate_element"></div>
 
-      <!-- Logo Section -->
-      <div class="logo-section">
-        <div class="logo">NEXORA</div>
-        <div class="tagline">Executive Access Portal</div>
-      </div>
+    <div class="login-container">
+        <div class="login-card">
+            <!-- Logo Section -->
+            <div class="logo-section">
+                <div class="logo">NEXORA</div>
+                <div class="tagline">Executive Access Portal</div>
+            </div>
 
-      <!-- Login Form -->
-      <form class="login-form" onsubmit="handleLogin(event)">
-        <!-- Email -->
-        <div class="form-group">
-          <label class="form-label" for="email">Email Address</label>
-          <div class="input-wrapper">
-            <input type="email" id="email" class="form-input" placeholder="Enter your email" required />
-          </div>
+            <!-- Custom Language Dropdown -->
+            <div class="language-selector">
+                <label for="language">🌐 Language</label>
+                <select id="language">
+                    <option value="en" selected>English</option>
+                    <option value="es">Español</option>
+                    <option value="fr">Français</option>
+                    <option value="de">Deutsch</option>
+                    <option value="zh-CN">中文 (Simplified)</option>
+                    <option value="zh-TW">中文 (Traditional)</option>
+                    <option value="ja">日本語</option>
+                    <option value="ko">한국어</option>
+                    <option value="ar">العربية</option>
+                    <option value="ru">Русский</option>
+                    <option value="pt">Português</option>
+                    <option value="hi">हिन्दी</option>
+                    <option value="af">Afrikaans</option>
+                    <option value="sq">Albanian</option>
+                    <option value="am">Amharic</option>
+                    <option value="hy">Armenian</option>
+                    <option value="az">Azerbaijani</option>
+                    <option value="eu">Basque</option>
+                    <option value="be">Belarusian</option>
+                    <option value="bn">Bengali</option>
+                    <option value="bs">Bosnian</option>
+                    <option value="bg">Bulgarian</option>
+                    <option value="ca">Catalan</option>
+                    <option value="ceb">Cebuano</option>
+                    <option value="ny">Chichewa</option>
+                    <option value="co">Corsican</option>
+                    <option value="hr">Croatian</option>
+                    <option value="cs">Czech</option>
+                    <option value="da">Danish</option>
+                    <option value="nl">Dutch</option>
+                    <option value="eo">Esperanto</option>
+                    <option value="et">Estonian</option>
+                    <option value="tl">Filipino</option>
+                    <option value="fi">Finnish</option>
+                    <option value="fy">Frisian</option>
+                    <option value="gl">Galician</option>
+                    <option value="ka">Georgian</option>
+                    <option value="el">Greek</option>
+                    <option value="gu">Gujarati</option>
+                    <option value="ht">Haitian Creole</option>
+                    <option value="ha">Hausa</option>
+                    <option value="haw">Hawaiian</option>
+                    <option value="iw">Hebrew</option>
+                    <option value="hmn">Hmong</option>
+                    <option value="hu">Hungarian</option>
+                    <option value="is">Icelandic</option>
+                    <option value="ig">Igbo</option>
+                    <option value="id">Indonesian</option>
+                    <option value="ga">Irish</option>
+                    <option value="it">Italian</option>
+                    <option value="jw">Javanese</option>
+                    <option value="kn">Kannada</option>
+                    <option value="kk">Kazakh</option>
+                    <option value="km">Khmer</option>
+                    <option value="ku">Kurdish (Kurmanji)</option>
+                    <option value="ky">Kyrgyz</option>
+                    <option value="lo">Lao</option>
+                    <option value="la">Latin</option>
+                    <option value="lv">Latvian</option>
+                    <option value="lt">Lithuanian</option>
+                    <option value="lb">Luxembourgish</option>
+                    <option value="mk">Macedonian</option>
+                    <option value="mg">Malagasy</option>
+                    <option value="ms">Malay</option>
+                    <option value="ml">Malayalam</option>
+                    <option value="mt">Maltese</option>
+                    <option value="mi">Maori</option>
+                    <option value="mr">Marathi</option>
+                    <option value="mn">Mongolian</option>
+                    <option value="my">Myanmar (Burmese)</option>
+                    <option value="ne">Nepali</option>
+                    <option value="no">Norwegian</option>
+                    <option value="ps">Pashto</option>
+                    <option value="fa">Persian</option>
+                    <option value="pl">Polish</option>
+                    <option value="pa">Punjabi</option>
+                    <option value="ro">Romanian</option>
+                    <option value="sm">Samoan</option>
+                    <option value="gd">Scots Gaelic</option>
+                    <option value="sr">Serbian</option>
+                    <option value="st">Sesotho</option>
+                    <option value="sn">Shona</option>
+                    <option value="sd">Sindhi</option>
+                    <option value="si">Sinhala</option>
+                    <option value="sk">Slovak</option>
+                    <option value="sl">Slovenian</option>
+                    <option value="so">Somali</option>
+                    <option value="su">Sundanese</option>
+                    <option value="sw">Swahili</option>
+                    <option value="sv">Swedish</option>
+                    <option value="tg">Tajik</option>
+                    <option value="ta">Tamil</option>
+                    <option value="te">Telugu</option>
+                    <option value="th">Thai</option>
+                    <option value="tr">Turkish</option>
+                    <option value="uk">Ukrainian</option>
+                    <option value="ur">Urdu</option>
+                    <option value="uz">Uzbek</option>
+                    <option value="vi">Vietnamese</option>
+                    <option value="cy">Welsh</option>
+                    <option value="xh">Xhosa</option>
+                    <option value="yi">Yiddish</option>
+                    <option value="yo">Yoruba</option>
+                    <option value="zu">Zulu</option>
+                </select>
+            </div>
+
+            <!-- Login Form -->
+            <form class="login-form" onsubmit="handleLogin(event)">
+                <!-- Email Input -->
+                <div class="form-group">
+                    <label class="form-label" for="email">Email Address</label>
+                    <div class="input-wrapper">
+                        <input 
+                            type="email" 
+                            id="email" 
+                            class="form-input" 
+                            placeholder="Enter your email"
+                            required
+                        >
+                    </div>
+                </div>
+
+                <!-- Password Input with Toggle -->
+                <div class="form-group">
+                    <label class="form-label" for="password">Password</label>
+                    <div class="input-wrapper">
+                        <input 
+                            type="password" 
+                            id="password" 
+                            class="form-input password-input" 
+                            placeholder="Enter your password"
+                            required
+                        >
+                        <button 
+                            type="button" 
+                            class="password-toggle" 
+                            id="passwordToggle"
+                            onclick="togglePassword()"
+                            aria-label="Toggle password visibility"
+                        >
+                            <!-- Eye Open Icon -->
+                            <svg class="eye-icon eye-open" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/>
+                            </svg>
+                            <!-- Eye Closed Icon -->
+                            <svg class="eye-icon eye-closed" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 7c2.76 0 5 2.24 5 5 0 .65-.13 1.26-.36 1.83l2.92 2.92c1.51-1.26 2.7-2.89 3.43-4.75-1.73-4.39-6-7.5-11-7.5-1.4 0-2.74.25-3.98.7l2.16 2.16C10.74 7.13 11.35 7 12 7zM2 4.27l2.28 2.28.46.46C3.08 8.3 1.78 10.02 1 12c1.73 4.39 6 7.5 11 7.5 1.55 0 3.03-.3 4.38-.84l.42.42L19.73 22 21 20.73 3.27 3 2 4.27zM7.53 9.8l1.55 1.55c-.05.21-.08.43-.08.65 0 1.66 1.34 3 3 3 .22 0 .44-.03.65-.08l1.55 1.55c-.67.33-1.41.53-2.2.53-2.76 0-5-2.24-5-5 0-.79.2-1.53.53-2.2zm4.31-.78l3.15 3.15.02-.16c0-1.66-1.34-3-3-3l-.17.01z"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Remember Me & Forgot Password -->
+                <div class="form-options">
+                    <div class="remember-me">
+                        <input type="checkbox" id="remember">
+                        <label for="remember">Remember me</label>
+                    </div>
+                    <a href="#" class="forgot-password">Forgot password?</a>
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit" class="submit-btn">
+                    Sign In to Nexora
+                </button>
+                
+                <!-- Guest Login Button -->
+                <button type="button" class="guest-btn" onclick="handleGuestLogin()">
+                    Continue as Guest
+                </button>
+                <p class="guest-notice">Limited features available in guest mode</p>
+            </form>
+
+            <!-- Divider -->
+            <div class="divider">
+                <span>or</span>
+            </div>
+
+            <!-- Sign Up Link -->
+            <div class="signup-link">
+                <p>New to Nexora? <a href="signup.html">Create an account</a></p>
+            </div>
         </div>
-
-        <!-- Password -->
-        <div class="form-group">
-          <label class="form-label" for="password">Password</label>
-          <div class="input-wrapper">
-            <input type="password" id="password" class="form-input" placeholder="Enter your password" required />
-            <button type="button" class="password-toggle" id="passwordToggle" onclick="togglePassword()">
-              <!-- Eye Open -->
-              <svg class="eye-icon eye-open" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5z"/>
-              </svg>
-              <!-- Eye Closed -->
-              <svg class="eye-icon eye-closed" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M2 4.27L3.27 3 21 20.73 19.73 22l-1.44-1.44C16.97 21.23 14.6 22 12 22c-5 0-9.27-3.11-11-7.5 0-2.14 1.18-4.1 3.05-5.68L2 4.27zM12 7c2.76 0 5 2.24 5 5 0 .79-.2 1.53-.53 2.2L9.8 7.53C10.47 7.2 11.21 7 12 7z"/>
-              </svg>
-            </button>
-          </div>
-        </div>
-
-        <!-- Options -->
-        <div class="form-options">
-          <div class="remember-me">
-            <input type="checkbox" id="remember" />
-            <label for="remember">Remember me</label>
-          </div>
-          <a href="#" class="forgot-password">Forgot password?</a>
-        </div>
-
-        <!-- Submit -->
-        <button type="submit" class="submit-btn">Sign In</button>
-      </form>
-
-      <!-- Divider -->
-      <div class="divider"><span>or</span></div>
-
-      <!-- Signup -->
-      <div class="signup-link">
-        <p>Don't have an account? <a href="signup.html">Sign up</a></p>
-      </div>
     </div>
-  </div>
 
-  <script>
-    function togglePassword() {
-      const input = document.getElementById('password');
-      const btn = document.getElementById('passwordToggle');
-      if (input.type === 'password') {
-        input.type = 'text';
-        btn.classList.add('showing');
-      } else {
-        input.type = 'password';
-        btn.classList.remove('showing');
-      }
-    }
+    <!-- Scripts -->
+    <script>
+        // Password Toggle Functionality
+        function togglePassword() {
+            const passwordInput = document.getElementById('password');
+            const toggleButton = document.getElementById('passwordToggle');
+            
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                toggleButton.classList.add('showing');
+            } else {
+                passwordInput.type = 'password';
+                toggleButton.classList.remove('showing');
+            }
+        }
 
-    function handleLogin(event) {
-      event.preventDefault();
-      const email = document.getElementById('email').value;
-      const password = document.getElementById('password').value;
-      console.log("Login attempt:", { email, password });
-      alert("Login successful (demo)");
-    }
+        // Handle Login Form Submission
+        function handleLogin(event) {
+            event.preventDefault();
+            
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const remember = document.getElementById('remember').checked;
+            
+            // Set user type as registered user
+            localStorage.setItem('nexora_userType', 'registered');
+            localStorage.removeItem('nexora_guestLogin');
+            
+            // Store login state
+            if (remember) {
+                localStorage.setItem('nexoraUser', email);
+            } else {
+                sessionStorage.setItem('nexoraUser', email);
+            }
+            
+            console.log("Logging in as registered user");
+            
+            // Show loading state
+            const button = event.target.querySelector('.submit-btn');
+            const originalText = button.textContent;
+            button.textContent = 'Signing in...';
+            button.disabled = true;
+            
+            // Simulate authentication delay
+            setTimeout(() => {
+                button.textContent = '✓ Success';
+                setTimeout(() => {
+                    window.location.href = 'index.html';
+                }, 1000);
+            }, 1500);
+        }
 
-    // 🌍 Language selector logic
-    function changeLanguage(lang) {
-      alert("Language switched to: " + lang);
-      // Future: integrate real translations here
-    }
-  </script>
+        // Guest Login Function
+        function handleGuestLogin() {
+            localStorage.setItem("nexora_userType", "guest");
+            localStorage.setItem("nexora_guestLogin", "true");
+            
+            console.log("Guest login initiated");
+            
+            const guestBtn = document.querySelector('.guest-btn');
+            const originalText = guestBtn.textContent;
+            guestBtn.textContent = 'Setting up guest access...';
+            guestBtn.disabled = true;
+            
+            setTimeout(() => {
+                guestBtn.textContent = '✓ Guest Access Granted';
+                
+                alert("Welcome to Nexora!\n\nAs a guest, you have limited access:\n• View-only mode for most features\n• Cannot save preferences\n• No access to premium content\n\nCreate an account for full access!");
+                
+                setTimeout(() => {
+                    window.location.href = "index.html";
+                }, 1000);
+            }, 1500);
+        }
+
+        // Add smooth focus animations
+        document.querySelectorAll('.form-input').forEach(input => {
+            input.addEventListener('focus', function() {
+                this.parentElement.style.transform = 'scale(1.02)';
+            });
+            
+            input.addEventListener('blur', function() {
+                this.parentElement.style.transform = 'scale(1)';
+            });
+        });
+    </script>
+    
+    <!-- Google Translate Script -->
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement(
+                { pageLanguage: 'en', autoDisplay: false },
+                'google_translate_element'
+            );
+        }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    
+    <!-- Connect Custom Dropdown to Google Translate -->
+    <script>
+        function changeLanguage(langCode) {
+            const googleFrame = document.querySelector("iframe.goog-te-menu-frame");
+
+            if (googleFrame) {
+                const innerDoc = googleFrame.contentDocument || googleFrame.contentWindow.document;
+                const langElements = innerDoc.querySelectorAll(".goog-te-menu2-item span.text");
+
+                for (let i = 0; i < langElements.length; i++) {
+                    const parent = langElements[i].closest("tr");
+                    if (parent && parent.getAttribute("value") === langCode) {
+                        langElements[i].click();
+                        break;
+                    }
+                }
+            }
+        }
+
+        const langSelect = document.getElementById("language");
+
+        langSelect.addEventListener("change", function() {
+            const langCode = this.value;
+            localStorage.setItem("preferredLanguage", langCode);
+            changeLanguage(langCode);
+        });
+
+        // Auto-apply saved preference
+        window.addEventListener("load", function() {
+            const savedLang = localStorage.getItem("preferredLanguage");
+            if (savedLang) {
+                document.getElementById("language").value = savedLang;
+                setTimeout(function() {
+                    document.getElementById("language").dispatchEvent(new Event("change"));
+                }, 1000);
+            }
+        });
+    </script>
 </body>
 </html>
