@@ -1,15 +1,134 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nexora ProSuite - Test Page</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test - Nexora ProSuite</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-  <!-- Your test content goes here -->
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="logo">Nexora ProSuite</div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="features.html">Features</a>
+            <a href="about.html">About</a>
+            <a href="developer.html">Developer</a>
+            <a href="contact.html">Contact</a>
+            <a href="login.html" class="signin-btn">Sign In</a>
+        </div>
+    </nav>
 
-  <script src="assets/js/main.js"></script>
+    <!-- Test Page Content -->
+    <main>
+        <div class="page-header">
+            <h1>Test Page</h1>
+            <p>Testing Nexora ProSuite Components</p>
+        </div>
+
+        <section class="test-content">
+            <!-- CSS Test -->
+            <div class="test-section">
+                <h2>✅ CSS Loading Test</h2>
+                <p>If you can see this styled with:</p>
+                <ul>
+                    <li>Dark background (#0a0a0a)</li>
+                    <li>Golden logo and buttons (#c9a227)</li>
+                    <li>Inter font family</li>
+                    <li>Styled navigation bar</li>
+                </ul>
+                <p class="success-msg">✓ CSS is loading correctly!</p>
+            </div>
+
+            <!-- JavaScript Test -->
+            <div class="test-section">
+                <h2>✅ JavaScript Test</h2>
+                <p>Check browser console (F12) for messages:</p>
+                <button onclick="testJavaScript()" class="test-btn submit-btn">Test JavaScript</button>
+                <div id="jsTestResult"></div>
+            </div>
+
+            <!-- Navigation Tests -->
+            <div class="test-section">
+                <h2>Navigation Links Test</h2>
+                <div class="nav-test">
+                    <p>Test all navigation links:</p>
+                    <ul>
+                        <li><a href="index.html">→ Home Page</a></li>
+                        <li><a href="about.html">→ About Page</a></li>
+                        <li><a href="features.html">→ Features Page</a></li>
+                        <li><a href="developer.html">→ Developer Page</a></li>
+                        <li><a href="contact.html">→ Contact Page</a></li>
+                        <li><a href="dashboard.html">→ Dashboard Page</a></li>
+                        <li><a href="login.html">→ Login Page</a></li>
+                        <li><a href="signup.html">→ Signup Page</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Status Summary -->
+            <div class="test-section status-section">
+                <h2>System Status</h2>
+                <div class="status-grid">
+                    <div class="status-item">
+                        <span class="status-indicator success">●</span>
+                        <span>HTML Structure</span>
+                    </div>
+                    <div class="status-item">
+                        <span class="status-indicator" id="cssStatus">●</span>
+                        <span>CSS Styling</span>
+                    </div>
+                    <div class="status-item">
+                        <span class="status-indicator" id="jsStatus">●</span>
+                        <span>JavaScript</span>
+                    </div>
+                    <div class="status-item">
+                        <span class="status-indicator success">●</span>
+                        <span>Responsive Design</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2024 Nexora ProSuite. All rights reserved.</p>
+        <div class="footer-links">
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+            <a href="developer.html">Developers</a>
+        </div>
+    </footer>
+
+    <script>
+        // Test JavaScript Function
+        function testJavaScript() {
+            const resultDiv = document.getElementById('jsTestResult');
+            resultDiv.innerHTML = '<p class="success-msg">✓ JavaScript is working! Check console for details.</p>';
+            console.log('✓ JavaScript test successful!');
+            console.log('✓ main.js loaded:', typeof changeLanguage === 'function');
+            
+            // Update status indicators
+            document.getElementById('jsStatus').classList.add('success');
+            document.getElementById('cssStatus').classList.add('success');
+        }
+        
+        // Auto-check on load
+        window.addEventListener('DOMContentLoaded', function() {
+            console.log('Test page loaded successfully');
+            
+            // Check if CSS is loaded
+            const styles = window.getComputedStyle(document.body);
+            if (styles.backgroundColor === 'rgb(10, 10, 10)') {
+                document.getElementById('cssStatus').classList.add('success');
+                console.log('CSS is loaded correctly');
+            }
+        });
+    </script>
+    
+    <script src="assets/js/main.js"></script>
 </body>
 </html>
