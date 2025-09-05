@@ -3,52 +3,32 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nexora — Login</title>
-
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
-  <!-- Main stylesheet -->
-  <link rel="stylesheet" href="css/style.css" />
-
-  <!-- Favicon -->
-  <link rel="icon" href="img/logo-icon.png" type="image/png" />
+  <title>Nexora – Login</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 <body class="login-page">
-  <!-- Login Container -->
   <div class="login-container">
     <div class="login-card">
       <!-- Logo Section -->
       <div class="logo-section">
         <div class="logo">Nexora</div>
-        <p class="tagline">Sign in to continue</p>
+        <p class="tagline">Sign in to your account</p>
       </div>
 
       <!-- Login Form -->
       <form>
         <div class="form-group">
-          <label class="form-label" for="email">Email</label>
-          <div class="input-wrapper">
-            <input type="email" id="email" class="form-input" placeholder="you@example.com" required />
-          </div>
+          <label for="email" class="form-label">Email</label>
+          <input type="email" id="email" class="form-input" placeholder="you@example.com" required />
         </div>
 
         <div class="form-group">
-          <label class="form-label" for="password">Password</label>
+          <label for="password" class="form-label">Password</label>
           <div class="input-wrapper">
             <input type="password" id="password" class="form-input" placeholder="••••••••" required />
-            <button type="button" class="password-toggle" id="togglePassword">
-              <!-- Eye open -->
-              <svg class="eye-icon eye-open" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.477 0 8.268 2.943 9.542 7-1.274 4.057-5.065 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-              </svg>
-              <!-- Eye closed -->
-              <svg class="eye-icon eye-closed" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.269-2.943-9.543-7a9.956 9.956 0 012.64-4.362m3.123-2.163A9.959 9.959 0 0112 5c4.477 0 8.268 2.943 9.542 7a9.953 9.953 0 01-4.54 5.818M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3l18 18" />
-              </svg>
+            <button type="button" class="password-toggle" onclick="togglePassword()">
+              <span class="eye-icon eye-open">👁️</span>
+              <span class="eye-icon eye-closed">🙈</span>
             </button>
           </div>
         </div>
@@ -62,28 +42,21 @@
         </div>
 
         <button type="submit" class="submit-btn">Sign In</button>
-
         <button type="button" class="guest-btn">Continue as Guest</button>
-        <p class="guest-notice">You will have limited access as a guest.</p>
+        <p class="guest-notice">Guests have limited access.</p>
       </form>
 
       <!-- Divider -->
       <div class="divider"><span>or</span></div>
 
       <!-- Signup Link -->
-      <p class="signup-link">Don’t have an account? <a href="signup.html">Sign up</a></p>
+      <p class="signup-link">
+        Don’t have an account? <a href="signup.html">Sign up</a>
+      </p>
     </div>
   </div>
 
-  <!-- Script: password toggle -->
-  <script>
-    const togglePassword = document.getElementById('togglePassword');
-    const passwordInput = document.getElementById('password');
-
-    togglePassword.addEventListener('click', () => {
-      const isShowing = togglePassword.classList.toggle('showing');
-      passwordInput.type = isShowing ? 'text' : 'password';
-    });
-  </script>
+  <!-- Scripts -->
+  <script src="assets/js/login.js"></script>
 </body>
 </html>
