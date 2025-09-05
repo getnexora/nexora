@@ -5,14 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Nexora — Home</title>
 
-  <!-- Fonts (matches your CSS's 'Inter' family) -->
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <!-- Main stylesheet -->
   <link rel="stylesheet" href="css/style.css" />
 
-  <!-- Favicon (optional) -->
+  <!-- Favicon -->
   <link rel="icon" href="img/logo-icon.png" type="image/png" />
 </head>
 <body>
@@ -22,54 +22,50 @@
     <nav>
       <a href="index.html">Home</a>
       <a href="features.html">Features</a>
-      <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
       <a href="developer.html">Developers</a>
+      <a href="contact.html">Contact</a>
       <a href="dashboard.html">Dashboard</a>
-      <a href="login.html" class="signin-btn">Sign In</a>
     </nav>
+    <a href="login.html" class="signin-btn">Sign In</a>
   </header>
 
-  <!-- Page Content -->
-  <main style="padding: 6rem 2rem 3rem;">
-    <!-- Hero -->
-    <section style="max-width: 1100px; margin: 0 auto; text-align: center;">
-      <h1 style="font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; margin-bottom: 0.75rem;">
-        Build faster with <span style="color:#c9a227;">Nexora</span>
-      </h1>
-      <p style="color:#bbb; max-width: 780px; margin: 0 auto 1.75rem;">
-        The modern toolkit for teams that want clean design, secure auth, and a delightful UX out of the box.
-      </p>
-      <div style="display:flex; gap:0.75rem; justify-content:center; flex-wrap:wrap;">
-        <a href="signup.html" class="signin-btn" style="display:inline-block;">Get Started</a>
-        <a href="features.html" style="border:1px solid #333; padding:0.6rem 1rem; border-radius:8px; color:#fff;">
-          Explore Features
-        </a>
-      </div>
-    </section>
+  <!-- Hero Section -->
+  <section style="padding:8rem 2rem 6rem; text-align:center; max-width:900px; margin:auto;">
+    <h1 style="font-size:2.5rem; font-weight:800; margin-bottom:1rem;">Welcome to Nexora</h1>
+    <p style="color:#aaa; font-size:1.1rem; margin-bottom:2rem;">
+      A modern platform built for innovation, collaboration, and growth.  
+      Join us today and explore what’s possible with Nexora.
+    </p>
+    <a href="signup.html" class="signin-btn" style="margin-right:1rem;">Get Started</a>
+    <a href="features.html" style="color:#c9a227; font-weight:600;">Learn More →</a>
+  </section>
 
-    <!-- Feature Cards -->
-    <section style="max-width:1100px; margin: 2.5rem auto 0;">
-      <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(240px,1fr)); gap:1rem;">
-        <article style="background:#111; border:1px solid rgba(255,255,255,0.08); border-radius:12px; padding:1.25rem;">
-          <h3 style="margin-bottom:0.4rem;">Simple, clean UI</h3>
-          <p style="color:#aaa;">Opinionated styles with smart defaults so you can ship in hours, not weeks.</p>
-        </article>
-        <article style="background:#111; border:1px solid rgba(255,255,255,0.08); border-radius:12px; padding:1.25rem;">
-          <h3 style="margin-bottom:0.4rem;">Secure auth</h3>
-          <p style="color:#aaa;">Login & signup pages styled and ready. Just connect your backend.</p>
-        </article>
-        <article style="background:#111; border:1px solid rgba(255,255,255,0.08); border-radius:12px; padding:1.25rem;">
-          <h3 style="margin-bottom:0.4rem;">Responsive by default</h3>
-          <p style="color:#aaa;">Looks great on phones, tablets, and desktops out of the box.</p>
-        </article>
-      </div>
-    </section>
-  </main>
+  <!-- Features Preview -->
+  <section style="display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:2rem; max-width:1100px; margin:4rem auto; padding:0 2rem;">
+    <div style="background:#111; border:1px solid #222; border-radius:12px; padding:2rem; text-align:center;">
+      <h2 style="margin-bottom:1rem; color:#c9a227;">Fast</h2>
+      <p>Optimized for speed and seamless performance across all devices.</p>
+    </div>
+    <div style="background:#111; border:1px solid #222; border-radius:12px; padding:2rem; text-align:center;">
+      <h2 style="margin-bottom:1rem; color:#c9a227;">Secure</h2>
+      <p>Advanced security features to keep your data safe and protected.</p>
+    </div>
+    <div style="background:#111; border:1px solid #222; border-radius:12px; padding:2rem; text-align:center;">
+      <h2 style="margin-bottom:1rem; color:#c9a227;">Scalable</h2>
+      <p>Designed to grow with you, from small projects to global platforms.</p>
+    </div>
+  </section>
+
+  <!-- Call to Action -->
+  <section style="text-align:center; padding:4rem 2rem; background:#111; border-top:1px solid #222; border-bottom:1px solid #222;">
+    <h2 style="font-size:2rem; font-weight:700; margin-bottom:1rem;">Ready to get started?</h2>
+    <p style="color:#aaa; margin-bottom:2rem;">Sign up today and unlock the power of Nexora.</p>
+    <a href="signup.html" class="signin-btn">Create Account</a>
+  </section>
 
   <!-- Footer -->
-  <footer style="text-align:center; padding:2rem; font-size:0.9rem; color:#aaa;">
-    &copy; 2025 Nexora. All rights reserved.
+  <footer style="text-align:center; padding:2rem; color:#666;">
+    © 2025 Nexora. All rights reserved.
   </footer>
 </body>
 </html>
