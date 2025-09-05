@@ -1,54 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dashboard - Nexora ProSuite</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Nexora ProSuite</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-
-  <!-- Navbar -->
-  <header class="navbar">
-    <div class="logo">Nexora</div>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="features.html">Features</a>
-      <a href="contact.html">Contact</a>
-      <a href="developer.html">Developers</a>
+    <!-- Dashboard Navigation -->
+    <nav class="navbar dashboard-nav">
+        <div class="logo">Nexora ProSuite</div>
+        <div class="nav-links">
+            <a href="dashboard.html" class="active">Dashboard</a>
+            <a href="features.html">Features</a>
+            <a href="developer.html">Developer</a>
+            <a href="contact.html">Support</a>
+            <a href="#" onclick="logout()" class="signin-btn">Logout</a>
+        </div>
     </nav>
-    <a href="login.html" class="signin-btn">Sign Out</a>
-  </header>
 
-  <!-- Dashboard Section -->
-  <main class="dashboard-container" style="padding-top: 80px;">
-    <h1>Welcome to Your Dashboard</h1>
-    <p>This is your personal Nexora hub. From here, you can manage apps, track stats, and more.</p>
+    <!-- Dashboard Content -->
+    <main class="dashboard-main">
+        <div class="dashboard-header">
+            <h1>Welcome to Your Dashboard</h1>
+            <p id="userGreeting">Hello, User!</p>
+        </div>
 
-    <section class="dashboard-widgets">
-      <div class="widget-card">
-        <h2>Statistics</h2>
-        <p>Loading your stats...</p>
-      </div>
+        <!-- Stats Cards -->
+        <section class="stats-grid">
+            <div class="stat-card">
+                <span class="stat-icon">🌍</span>
+                <div class="stat-content">
+                    <h3>Countries Connected</h3>
+                    <p class="stat-number">195</p>
+                </div>
+            </div>
+            
+            <div class="stat-card">
+                <span class="stat-icon">👥</span>
+                <div class="stat-content">
+                    <h3>Active Users</h3>
+                    <p class="stat-number">1.2M+</p>
+                </div>
+            </div>
+            
+            <div class="stat-card">
+                <span class="stat-icon">📊</span>
+                <div class="stat-content">
+                    <h3>Data Processed</h3>
+                    <p class="stat-number">5.7TB</p>
+                </div>
+            </div>
+            
+            <div class="stat-card">
+                <span class="stat-icon">⚡</span>
+                <div class="stat-content">
+                    <h3>Uptime</h3>
+                    <p class="stat-number">99.9%</p>
+                </div>
+            </div>
+        </section>
 
-      <div class="widget-card">
-        <h2>Apps</h2>
-        <p>Manage your Nexora apps here.</p>
-      </div>
+        <!-- Quick Actions -->
+        <section class="quick-actions">
+            <h2>Quick Actions</h2>
+            <div class="action-buttons">
+                <button class="action-btn" onclick="createNewProject()">
+                    <span>➕</span> New Project
+                </button>
+                <button class="action-btn" onclick="viewAnalytics()">
+                    <span>📈</span> Analytics
+                </button>
+                <button class="action-btn" onclick="manageTeam()">
+                    <span>👥</span> Team
+                </button>
+                <button class="action-btn" onclick="openSettings()">
+                    <span>⚙️</span> Settings
+                </button>
+            </div>
+        </section>
+    </main>
 
-      <div class="widget-card">
-        <h2>Notifications</h2>
-        <ul id="notifications">
-          <li>No new notifications.</li>
-        </ul>
-      </div>
-    </section>
-  </main>
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2024 Nexora ProSuite. All rights reserved.</p>
+        <div class="footer-links">
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+            <a href="developer.html">Developers</a>
+        </div>
+    </footer>
 
-  <!-- Scripts -->
-  <script src="assets/js/main.js"></script>
-  <script src="assets/js/dashboard.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/dashboard.js"></script>
 </body>
 </html>
