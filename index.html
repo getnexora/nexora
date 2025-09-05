@@ -1,77 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#0a0a0a">
-  <title>Nexora - Executive Access Portal</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nexora — Home</title>
 
-  <!-- Premium Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <!-- Fonts (matches your CSS's 'Inter' family) -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <!-- Global Stylesheet (FIXED PATH) -->
-  <link rel="stylesheet" href="assets/css/style.css">
+  <!-- Main stylesheet -->
+  <link rel="stylesheet" href="css/style.css" />
+
+  <!-- Favicon (optional) -->
+  <link rel="icon" href="img/logo-icon.png" type="image/png" />
 </head>
 <body>
-  <!-- Hidden Google Translate Widget -->
-  <div id="google_translate_element"></div>
-
   <!-- Navbar -->
-  <nav class="navbar">
-    <div class="logo">NEXORA</div>
-    <ul class="nav-links">
-      <li><a href="index.html" class="active">Home</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="features.html">Features</a></li>
-      <li><a href="contact.html">Contact</a></li>
-      <li><a href="developer.html">Developer</a></li>
-    </ul>
-    <a href="login.html" class="signin-btn">Sign In</a>
-  </nav>
-
-  <!-- Hero Section -->
-  <header class="hero">
-    <h1>Welcome to Nexora</h1>
-    <p>Your secure executive access portal</p>
-    <a href="signup.html" class="cta-btn">Get Started</a>
+  <header class="navbar">
+    <div class="logo">Nexora</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="features.html">Features</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="developer.html">Developers</a>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="login.html" class="signin-btn">Sign In</a>
+    </nav>
   </header>
 
-  <!-- Features Section -->
-  <section class="features">
-    <h2>Our Features</h2>
-    <div class="features-grid">
-      <div class="feature-card">
-        <h3>Secure Login</h3>
-        <p>Advanced authentication ensures your data is always safe.</p>
+  <!-- Page Content -->
+  <main style="padding: 6rem 2rem 3rem;">
+    <!-- Hero -->
+    <section style="max-width: 1100px; margin: 0 auto; text-align: center;">
+      <h1 style="font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; margin-bottom: 0.75rem;">
+        Build faster with <span style="color:#c9a227;">Nexora</span>
+      </h1>
+      <p style="color:#bbb; max-width: 780px; margin: 0 auto 1.75rem;">
+        The modern toolkit for teams that want clean design, secure auth, and a delightful UX out of the box.
+      </p>
+      <div style="display:flex; gap:0.75rem; justify-content:center; flex-wrap:wrap;">
+        <a href="signup.html" class="signin-btn" style="display:inline-block;">Get Started</a>
+        <a href="features.html" style="border:1px solid #333; padding:0.6rem 1rem; border-radius:8px; color:#fff;">
+          Explore Features
+        </a>
       </div>
-      <div class="feature-card">
-        <h3>Multi-Language</h3>
-        <p>Access Nexora in your preferred language worldwide.</p>
+    </section>
+
+    <!-- Feature Cards -->
+    <section style="max-width:1100px; margin: 2.5rem auto 0;">
+      <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(240px,1fr)); gap:1rem;">
+        <article style="background:#111; border:1px solid rgba(255,255,255,0.08); border-radius:12px; padding:1.25rem;">
+          <h3 style="margin-bottom:0.4rem;">Simple, clean UI</h3>
+          <p style="color:#aaa;">Opinionated styles with smart defaults so you can ship in hours, not weeks.</p>
+        </article>
+        <article style="background:#111; border:1px solid rgba(255,255,255,0.08); border-radius:12px; padding:1.25rem;">
+          <h3 style="margin-bottom:0.4rem;">Secure auth</h3>
+          <p style="color:#aaa;">Login & signup pages styled and ready. Just connect your backend.</p>
+        </article>
+        <article style="background:#111; border:1px solid rgba(255,255,255,0.08); border-radius:12px; padding:1.25rem;">
+          <h3 style="margin-bottom:0.4rem;">Responsive by default</h3>
+          <p style="color:#aaa;">Looks great on phones, tablets, and desktops out of the box.</p>
+        </article>
       </div>
-      <div class="feature-card">
-        <h3>Guest Access</h3>
-        <p>Explore with limited features before creating an account.</p>
-      </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
   <!-- Footer -->
-  <footer class="footer">
-    <p>&copy; 2025 Nexora. All rights reserved.</p>
+  <footer style="text-align:center; padding:2rem; font-size:0.9rem; color:#aaa;">
+    &copy; 2025 Nexora. All rights reserved.
   </footer>
-
-  <!-- JavaScript (FIXED PATH) -->
-  <script src="assets/js/main.js"></script>
-
-  <!-- Google Translate -->
-  <script type="text/javascript">
-    function googleTranslateElementInit() {
-      new google.translate.TranslateElement(
-        { pageLanguage: 'en', autoDisplay: false },
-        'google_translate_element'
-      );
-    }
-  </script>
-  <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 </html>
