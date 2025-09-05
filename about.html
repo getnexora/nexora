@@ -4,38 +4,38 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#0a0a0a">
-  <title>Nexora - About Us</title>
+  <title>About Nexora</title>
 
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <!-- Premium Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-  <!-- Styles -->
+  <!-- Global Stylesheet -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Hidden Google Translate widget -->
+  <!-- Hidden Google Translate Widget -->
   <div id="google_translate_element"></div>
 
   <!-- Navbar -->
-  <header class="navbar">
-    <div class="logo">NEXORA</div>
-    <nav class="nav-links">
-      <a href="index.html">Home</a>
-      <a href="features.html">Features</a>
-      <a href="about.html" class="active">About</a>
-      <a href="contact.html">Contact</a>
-      <a href="developer.html">Developer</a>
-    </nav>
+  <nav class="navbar">
+    <div class="nav-logo">
+      <a href="index.html">NEXORA</a>
+    </div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="features.html">Features</a></li>
+      <li><a href="about.html" class="active">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
     <div class="nav-actions">
       <div class="language-selector-global">
-        <label for="language">🌐</label>
         <select id="language">
           <option value="en" selected>English</option>
           <option value="es">Español</option>
           <option value="fr">Français</option>
           <option value="de">Deutsch</option>
-          <option value="zh-CN">中文 (简体)</option>
-          <option value="zh-TW">中文 (繁體)</option>
+          <option value="zh-CN">中文 (Simplified)</option>
+          <option value="zh-TW">中文 (Traditional)</option>
           <option value="ja">日本語</option>
           <option value="ko">한국어</option>
           <option value="ar">العربية</option>
@@ -46,34 +46,54 @@
       </div>
       <a href="login.html" class="signin-btn">Sign In</a>
     </div>
-  </header>
+  </nav>
 
   <!-- Hero Section -->
-  <section class="hero">
+  <header class="hero about-hero">
     <h1>About Nexora</h1>
-    <p>Our mission is to empower professionals with secure and innovative tools.</p>
-  </section>
+    <p>Empowering executives with secure, intelligent, and seamless access.</p>
+  </header>
 
   <!-- About Content -->
-  <section class="about-content">
-    <div class="about-card">
-      <h2>🌍 Our Vision</h2>
-      <p>Nexora was created to give leaders and innovators a trusted digital platform that adapts to their global needs.</p>
-    </div>
-    <div class="about-card">
-      <h2>💡 Innovation</h2>
-      <p>We continually integrate cutting-edge technology to deliver seamless and secure user experiences.</p>
-    </div>
-    <div class="about-card">
-      <h2>🤝 Community</h2>
-      <p>Nexora values collaboration, inclusion, and accessibility — making tools available for everyone, everywhere.</p>
-    </div>
-  </section>
+  <main class="content-section">
+    <section class="about-intro">
+      <h2>Our Mission</h2>
+      <p>
+        Nexora was founded with a single vision: to create a secure and intuitive 
+        platform that empowers leaders and organizations to access information, 
+        collaborate effectively, and make confident decisions.
+      </p>
+    </section>
+
+    <section class="about-values">
+      <h2>Our Values</h2>
+      <ul>
+        <li><strong>Security First:</strong> Every feature is designed with privacy and protection at its core.</li>
+        <li><strong>Innovation:</strong> We continuously push the boundaries of technology.</li>
+        <li><strong>Accessibility:</strong> Ensuring seamless use for executives worldwide.</li>
+        <li><strong>Trust:</strong> Transparency and reliability are the foundation of our platform.</li>
+      </ul>
+    </section>
+
+    <section class="about-team">
+      <h2>Our Team</h2>
+      <p>
+        Behind Nexora is a diverse team of engineers, designers, and strategists 
+        who are passionate about delivering excellence. We are driven by 
+        collaboration, integrity, and the pursuit of innovation.
+      </p>
+    </section>
+  </main>
 
   <!-- Footer -->
-  <footer>
-    <p>© 2025 Nexora. All rights reserved.</p>
+  <footer class="footer">
+    <p>&copy; <span id="year"></span> Nexora. All rights reserved.</p>
   </footer>
+
+  <!-- Scripts -->
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 
   <!-- Google Translate -->
   <script type="text/javascript">
