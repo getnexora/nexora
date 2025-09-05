@@ -3,14 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nexora — Test Page</title>
-
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
-  <!-- Main stylesheet -->
-  <link rel="stylesheet" href="css/style.css" />
+  <title>Nexora – Test Page</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 <body>
   <!-- Navbar -->
@@ -21,65 +15,42 @@
       <a href="features.html">Features</a>
       <a href="developer.html">Developers</a>
       <a href="contact.html">Contact</a>
-      <a href="dashboard.html">Dashboard</a>
     </nav>
-    <a href="login.html" class="signin-btn">Sign In</a>
   </header>
 
-  <!-- Test Content -->
-  <main style="padding:8rem 2rem 4rem; max-width:1100px; margin:auto;">
-    <h1 style="font-size:2.5rem; font-weight:800; margin-bottom:1.5rem;">Test Page</h1>
-    <p style="color:#aaa; margin-bottom:2rem;">
-      This page is used to test layout, buttons, forms, and components. 
-      You can safely make changes here without affecting the main site.
-    </p>
+  <!-- Test Section -->
+  <main style="padding: 6rem 2rem;">
+    <h1>Test Page</h1>
+    <p>This page is for experimenting with new code, styles, and scripts.</p>
 
-    <!-- Buttons -->
-    <section style="margin-bottom:3rem;">
-      <h2 style="color:#c9a227; margin-bottom:1rem;">Buttons</h2>
-      <button class="submit-btn">Primary Button</button>
-      <button class="guest-btn">Secondary Button</button>
-    </section>
+    <section class="test-area">
+      <div class="card">
+        <h2>Test Card</h2>
+        <p>This is a sample card element to preview styling.</p>
+        <button class="btn">Click Me</button>
+      </div>
 
-    <!-- Form -->
-    <section style="margin-bottom:3rem;">
-      <h2 style="color:#c9a227; margin-bottom:1rem;">Form Elements</h2>
-      <form>
-        <div class="form-group">
-          <label class="form-label" for="test-input">Text Input</label>
-          <input type="text" id="test-input" class="form-input" placeholder="Type here..." />
-        </div>
-        <div class="form-group">
-          <label class="form-label" for="test-password">Password Input</label>
-          <div class="input-wrapper">
-            <input type="password" id="test-password" class="form-input" placeholder="Enter password" />
-            <button type="button" class="password-toggle">
-              <span class="eye-icon eye-open">👁️</span>
-              <span class="eye-icon eye-closed">🙈</span>
-            </button>
-          </div>
-        </div>
-        <button class="submit-btn" type="submit">Submit</button>
-      </form>
-    </section>
-
-    <!-- Grid -->
-    <section>
-      <h2 style="color:#c9a227; margin-bottom:1rem;">Grid Test</h2>
-      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:1rem;">
-        <div style="background:#111; border:1px solid #222; border-radius:8px; padding:1.5rem;">Box 1</div>
-        <div style="background:#111; border:1px solid #222; border-radius:8px; padding:1.5rem;">Box 2</div>
-        <div style="background:#111; border:1px solid #222; border-radius:8px; padding:1.5rem;">Box 3</div>
+      <div class="card">
+        <h2>Interactive Example</h2>
+        <p>Click the button to see JavaScript in action.</p>
+        <button class="btn" id="testButton">Test Script</button>
       </div>
     </section>
   </main>
 
   <!-- Footer -->
-  <footer style="text-align:center; padding:2rem; color:#666;">
-    © 2025 Nexora. Test Page.
+  <footer>
+    <p>&copy; 2025 Nexora. All rights reserved.</p>
   </footer>
 
   <!-- Scripts -->
-  <script src="js/main.js"></script>
+  <script src="assets/js/login.js"></script>
+  <script src="assets/js/dashboard.js"></script>
+  <script>
+    // Inline test script
+    document.getElementById("testButton").addEventListener("click", () => {
+      alert("✅ Test button works!");
+    });
+  </script>
 </body>
 </html>
