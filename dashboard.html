@@ -41,7 +41,8 @@
       margin: 0 auto;
     }
     
-    .tool-card {
+    /* Make the link itself the card */
+    a.tool-card {
       background: linear-gradient(135deg, rgba(245, 197, 66, 0.1), rgba(245, 197, 66, 0.05));
       border: 2px solid rgba(245, 197, 66, 0.3);
       border-radius: 15px;
@@ -50,9 +51,14 @@
       cursor: pointer;
       position: relative;
       overflow: hidden;
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
     }
     
-    .tool-card::before {
+    a.tool-card::before {
       content: '';
       position: absolute;
       top: 0;
@@ -63,11 +69,11 @@
       transition: left 0.5s ease;
     }
     
-    .tool-card:hover::before {
+    a.tool-card:hover::before {
       left: 100%;
     }
     
-    .tool-card:hover {
+    a.tool-card:hover {
       transform: translateY(-5px) scale(1.02);
       border-color: #f5c542;
       box-shadow: 0 8px 30px rgba(245, 197, 66, 0.3);
@@ -87,27 +93,17 @@
       border: 2px solid rgba(245, 197, 66, 0.3);
     }
     
-    .tool-card img {
+    a.tool-card img {
       width: 50px;
       height: 50px;
       object-fit: contain;
     }
     
-    .tool-card a {
-      display: block;
+    a.tool-card p {
       color: #f5c542;
-      text-decoration: none;
       font-weight: bold;
       font-size: 1.1rem;
-      text-align: center;
-    }
-    
-    .tool-card p {
-      color: #ffffff;
-      opacity: 0.8;
-      font-size: 0.9rem;
       margin-top: 0.5rem;
-      text-align: center;
     }
     
     /* Logout button styling */
@@ -130,7 +126,7 @@
         font-size: 2.5rem;
       }
       
-      .tool-card {
+      a.tool-card {
         padding: 1.5rem;
       }
     }
@@ -156,111 +152,4 @@
 
   <!-- Developer Dashboard -->
   <section class="dashboard">
-    <div class="dashboard-header">
-      <h1>Developer Dashboard</h1>
-      <p class="dashboard-subtitle">Quick access to all your development tools</p>
-    </div>
-    
-    <div class="tool-grid">
-      <!-- AI Tools -->
-      <div class="tool-card">
-        <div class="tool-icon">🤖</div>
-        <a href="https://chat.openai.com" target="_blank">ChatGPT</a>
-        <p>AI assistant for coding & content</p>
-      </div>
-      
-      <div class="tool-card">
-        <div class="tool-icon">🧠</div>
-        <a href="https://claude.ai" target="_blank">Claude AI</a>
-        <p>Advanced AI for complex tasks</p>
-      </div>
-      
-      <!-- Development Tools -->
-      <div class="tool-card">
-        <div class="tool-icon">📦</div>
-        <a href="https://github.com/getnexora/nexora" target="_blank">GitHub Repo</a>
-        <p>Source code & version control</p>
-      </div>
-      
-      <div class="tool-card">
-        <div class="tool-icon">🌐</div>
-        <a href="https://getnexora.github.io/nexora/" target="_blank">Live Site</a>
-        <p>View your production website</p>
-      </div>
-      
-      <!-- Communication Tools -->
-      <div class="tool-card">
-        <div class="tool-icon">💬</div>
-        <a href="https://dashboard.tawk.to" target="_blank">Tawk.to Chat</a>
-        <p>Live chat dashboard & messages</p>
-      </div>
-      
-      <div class="tool-card">
-        <div class="tool-icon">📧</div>
-        <a href="https://formspree.io/forms/xnnbobko/submissions" target="_blank">Formspree</a>
-        <p>Contact form submissions</p>
-      </div>
-      
-      <!-- Backend Services -->
-      <div class="tool-card">
-        <div class="tool-icon">🗄️</div>
-        <a href="https://supabase.com/dashboard" target="_blank">Supabase</a>
-        <p>Database & authentication</p>
-      </div>
-      
-      <div class="tool-card">
-        <div class="tool-icon">📞</div>
-        <a href="https://weblink.freedomvoice.com" target="_blank">Business Phone</a>
-        <p>Virtual phone system</p>
-      </div>
-      
-      <!-- Analytics & Monitoring -->
-      <div class="tool-card">
-        <div class="tool-icon">📊</div>
-        <a href="https://analytics.google.com" target="_blank">Google Analytics</a>
-        <p>Website traffic & insights</p>
-      </div>
-      
-      <div class="tool-card">
-        <div class="tool-icon">🔍</div>
-        <a href="https://search.google.com/search-console" target="_blank">Search Console</a>
-        <p>SEO & search performance</p>
-      </div>
-      
-      <!-- Additional Tools -->
-      <div class="tool-card">
-        <div class="tool-icon">🎨</div>
-        <a href="https://www.canva.com" target="_blank">Canva</a>
-        <p>Design & graphics editor</p>
-      </div>
-      
-      <div class="tool-card">
-        <div class="tool-icon">➕</div>
-        <a href="#" onclick="alert('Add new tool links here!')">Add Tool</a>
-        <p>Expand your toolkit</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2025 Nexora ProSuite. All rights reserved.</p>
-  </footer>
-
-  <script src="assets/js/dashboard.js"></script>
-  <script src="assets/js/main.js"></script>
-  <!--Start of Tawk.to Script-->
-  <script type="text/javascript">
-  var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-  (function(){
-  var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-  s1.async=true;
-  s1.src='https://embed.tawk.to/68ba0eecb51ffa1922ad5802/1j4bckjg5';
-  s1.charset='UTF-8';
-  s1.setAttribute('crossorigin','*');
-  s0.parentNode.insertBefore(s1,s0);
-  })();
-  </script>
-  <!--End of Tawk.to Script-->
-</body>
-</html>
+    <div cla
