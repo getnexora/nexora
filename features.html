@@ -1,124 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#0a0a0a">
-  <title>Nexora - Features</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nexora — Features</title>
 
   <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <!-- Styles -->
-  <link rel="stylesheet" href="style.css">
+  <!-- Main stylesheet -->
+  <link rel="stylesheet" href="css/style.css" />
+
+  <!-- Favicon -->
+  <link rel="icon" href="img/logo-icon.png" type="image/png" />
 </head>
 <body>
-  <!-- Hidden Google Translate widget -->
-  <div id="google_translate_element"></div>
-
   <!-- Navbar -->
   <header class="navbar">
-    <div class="logo">NEXORA</div>
-    <nav class="nav-links">
+    <div class="logo">Nexora</div>
+    <nav>
       <a href="index.html">Home</a>
-      <a href="features.html" class="active">Features</a>
-      <a href="about.html">About</a>
+      <a href="features.html">Features</a>
+      <a href="developer.html">Developers</a>
       <a href="contact.html">Contact</a>
-      <a href="developer.html">Developer</a>
+      <a href="dashboard.html">Dashboard</a>
     </nav>
-    <div class="nav-actions">
-      <div class="language-selector-global">
-        <label for="language">🌐</label>
-        <select id="language">
-          <option value="en" selected>English</option>
-          <option value="es">Español</option>
-          <option value="fr">Français</option>
-          <option value="de">Deutsch</option>
-          <option value="zh-CN">中文 (简体)</option>
-          <option value="zh-TW">中文 (繁體)</option>
-          <option value="ja">日本語</option>
-          <option value="ko">한국어</option>
-          <option value="ar">العربية</option>
-          <option value="ru">Русский</option>
-          <option value="pt">Português</option>
-          <option value="hi">हिन्दी</option>
-        </select>
-      </div>
-      <a href="login.html" class="signin-btn">Sign In</a>
-    </div>
+    <a href="login.html" class="signin-btn">Sign In</a>
   </header>
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <h1>Powerful Features for Modern Professionals</h1>
-    <p>Discover the advanced tools Nexora provides to keep you ahead.</p>
-  </section>
+  <!-- Features Section -->
+  <main style="padding:8rem 2rem 4rem; max-width:1100px; margin:auto;">
+    <h1 style="font-size:2.5rem; font-weight:800; margin-bottom:1.5rem;">Features</h1>
+    <p style="color:#aaa; font-size:1.1rem; margin-bottom:3rem;">
+      Nexora comes packed with powerful features designed to make your digital 
+      experience seamless, secure, and scalable.
+    </p>
 
-  <!-- Features Grid -->
-  <section class="features-grid">
-    <div class="feature-card">
-      <h3>🌐 Global Access</h3>
-      <p>Instant translation and localization to connect with users worldwide.</p>
-    </div>
-    <div class="feature-card">
-      <h3>🔒 Secure Login</h3>
-      <p>Advanced authentication and encryption to protect your data.</p>
-    </div>
-    <div class="feature-card">
-      <h3>⚡ Performance</h3>
-      <p>Lightning-fast performance optimized for executives on the go.</p>
-    </div>
-    <div class="feature-card">
-      <h3>🤝 Guest Access</h3>
-      <p>Allow visitors to explore Nexora with limited guest features.</p>
-    </div>
+    <section style="display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:2rem;">
+      <div style="background:#111; border:1px solid #222; border-radius:12px; padding:2rem;">
+        <h2 style="margin-bottom:1rem; color:#c9a227;">⚡ Performance</h2>
+        <p>Lightning-fast load times and optimized workflows keep you moving without delays.</p>
+      </div>
+      <div style="background:#111; border:1px solid #222; border-radius:12px; padding:2rem;">
+        <h2 style="margin-bottom:1rem; color:#c9a227;">🔒 Security</h2>
+        <p>Enterprise-level encryption and multi-factor authentication to protect your data.</p>
+      </div>
+      <div style="background:#111; border:1px solid #222; border-radius:12px; padding:2rem;">
+        <h2 style="margin-bottom:1rem; color:#c9a227;">🌍 Collaboration</h2>
+        <p>Work together in real-time with tools designed for global teams and organizations.</p>
+      </div>
+      <div style="background:#111; border:1px solid #222; border-radius:12px; padding:2rem;">
+        <h2 style="margin-bottom:1rem; color:#c9a227;">📈 Scalability</h2>
+        <p>From small projects to enterprise platforms, Nexora adapts to your growth.</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Call to Action -->
+  <section style="text-align:center; padding:4rem 2rem; background:#111; border-top:1px solid #222; border-bottom:1px solid #222;">
+    <h2 style="font-size:2rem; font-weight:700; margin-bottom:1rem;">Discover What’s Possible</h2>
+    <p style="color:#aaa; margin-bottom:2rem;">Sign up today and unlock all the features Nexora has to offer.</p>
+    <a href="signup.html" class="signin-btn">Create Account</a>
   </section>
 
   <!-- Footer -->
-  <footer>
-    <p>© 2025 Nexora. All rights reserved.</p>
+  <footer style="text-align:center; padding:2rem; color:#666;">
+    © 2025 Nexora. All rights reserved.
   </footer>
-
-  <!-- Google Translate -->
-  <script type="text/javascript">
-    function googleTranslateElementInit() {
-      new google.translate.TranslateElement(
-        { pageLanguage: 'en', autoDisplay: false },
-        'google_translate_element'
-      );
-    }
-  </script>
-  <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-  <script>
-    function changeLanguage(langCode) {
-      const googleFrame = document.querySelector("iframe.goog-te-menu-frame");
-      if (googleFrame) {
-        const innerDoc = googleFrame.contentDocument || googleFrame.contentWindow.document;
-        const langElements = innerDoc.querySelectorAll(".goog-te-menu2-item span.text");
-        for (let i = 0; i < langElements.length; i++) {
-          const parent = langElements[i].closest("tr");
-          if (parent && parent.getAttribute("value") === langCode) {
-            langElements[i].click();
-            break;
-          }
-        }
-      }
-    }
-    const langSelect = document.getElementById("language");
-    langSelect.addEventListener("change", function() {
-      const langCode = this.value;
-      localStorage.setItem("preferredLanguage", langCode);
-      changeLanguage(langCode);
-    });
-    window.addEventListener("load", function() {
-      const savedLang = localStorage.getItem("preferredLanguage");
-      if (savedLang) {
-        document.getElementById("language").value = savedLang;
-        setTimeout(() => {
-          document.getElementById("language").dispatchEvent(new Event("change"));
-        }, 1000);
-      }
-    });
-  </script>
 </body>
 </html>
