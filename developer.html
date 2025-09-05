@@ -3,150 +3,94 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Developer Tools - Nexora ProSuite">
-  <title>Developer Tools - Nexora ProSuite</title>
-  <link rel="icon" type="image/png" href="assets/img/logo-icon.png" />
-  <link rel="stylesheet" href="assets/css/style.css">
+  <meta name="theme-color" content="#0a0a0a">
+  <title>Nexora - Developer Resources</title>
+
+  <!-- Premium Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Global Stylesheet -->
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Navigation -->
-  <header>
-    <nav class="navbar">
-      <div class="logo">
-        <img src="assets/img/logo.png" alt="Nexora ProSuite Logo" />
-      </div>
-      <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="features.html">Features</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        <li><a href="developer.html" class="active">Developer</a></li>
-        <li><a href="#" onclick="logOut()" style="color:#ff6b6b;">Logout</a></li>
-      </ul>
-    </nav>
-  </header>
+  <!-- Hidden Google Translate Widget -->
+  <div id="google_translate_element"></div>
 
-  <!-- My Tools Section -->
-  <section class="my-tools-section">
-    <div class="container">
-      <h1>My Tools</h1>
-      <p class="section-subtitle">Quick access to development resources</p>
-      <p style="text-align:center;opacity:0.7;">Logged in as: <span id="whoami"></span></p>
-      
-      <div class="tools-grid">
-        <!-- ChatGPT Card -->
-        <a href="https://chat.openai.com" target="_blank" class="tool-card">
-          <div class="tool-logo">
-            <span class="tool-emoji">🤖</span>
-          </div>
-          <h3 class="tool-name">ChatGPT</h3>
-        </a>
-        
-        <!-- Claude Card -->
-        <a href="https://claude.ai" target="_blank" class="tool-card">
-          <div class="tool-logo">
-            <span class="tool-emoji">🧠</span>
-          </div>
-          <h3 class="tool-name">Claude</h3>
-        </a>
-        
-        <!-- GitHub Card -->
-        <a href="https://github.com/getnexora/nexora" target="_blank" class="tool-card">
-          <div class="tool-logo">
-            <span class="tool-emoji">💻</span>
-          </div>
-          <h3 class="tool-name">GitHub</h3>
-        </a>
-        
-        <!-- Formspree Card -->
-        <a href="https://formspree.io/forms/xnnbobko/submissions" target="_blank" class="tool-card">
-          <div class="tool-logo">
-            <span class="tool-emoji">📧</span>
-          </div>
-          <h3 class="tool-name">Formspree</h3>
-        </a>
-        
-        <!-- Tawk.to Card -->
-        <a href="https://dashboard.tawk.to" target="_blank" class="tool-card">
-          <div class="tool-logo">
-            <span class="tool-emoji">💬</span>
-          </div>
-          <h3 class="tool-name">Tawk.to</h3>
-        </a>
-        
-        <!-- Supabase Card -->
-        <a href="https://supabase.com/dashboard" target="_blank" class="tool-card">
-          <div class="tool-logo">
-            <span class="tool-emoji">🗄️</span>
-          </div>
-          <h3 class="tool-name">Supabase</h3>
-        </a>
-        
-        <!-- Google Card -->
-        <a href="https://accounts.google.com" target="_blank" class="tool-card">
-          <div class="tool-logo">
-            <span class="tool-emoji">🔍</span>
-          </div>
-          <h3 class="tool-name">Google</h3>
-        </a>
-        
-        <!-- FreedomVoice Card -->
-        <a href="https://weblink.freedomvoice.com" target="_blank" class="tool-card">
-          <div class="tool-logo">
-            <span class="tool-emoji">📞</span>
-          </div>
-          <h3 class="tool-name">FreedomVoice</h3>
-        </a>
-      </div>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="nav-left">
+      <a href="index.html" class="nav-logo">NEXORA</a>
+      <ul class="nav-links">
+        <li><a href="features.html">Features</a></li>
+        <li><a href="developer.html" class="active">Developers</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
     </div>
-  </section>
+    <div class="nav-right">
+      <div class="language-selector-global">
+        <select id="language">
+          <option value="en" selected>English</option>
+          <option value="es">Español</option>
+          <option value="fr">Français</option>
+          <option value="de">Deutsch</option>
+          <option value="zh-CN">中文 (Simplified)</option>
+          <option value="zh-TW">中文 (Traditional)</option>
+          <option value="ja">日本語</option>
+          <option value="ko">한국어</option>
+          <option value="ar">العربية</option>
+          <option value="ru">Русский</option>
+          <option value="pt">Português</option>
+          <option value="hi">हिन्दी</option>
+        </select>
+      </div>
+      <a href="login.html" class="signin-btn">Sign In</a>
+    </div>
+  </nav>
+
+  <!-- Developer Section -->
+  <main class="developer-page">
+    <header class="page-header">
+      <h1>Developer Resources</h1>
+      <p>Access tools, documentation, and APIs to build with Nexora.</p>
+    </header>
+
+    <section class="dev-section">
+      <h2>API Documentation</h2>
+      <p>Explore our APIs and integrate Nexora features into your apps.</p>
+      <a href="#" class="btn-primary">View API Docs</a>
+    </section>
+
+    <section class="dev-section">
+      <h2>SDK Downloads</h2>
+      <p>Get started quickly with SDKs for popular platforms.</p>
+      <a href="#" class="btn-primary">Download SDK</a>
+    </section>
+
+    <section class="dev-section">
+      <h2>Developer Community</h2>
+      <p>Join our forum and collaborate with other Nexora developers.</p>
+      <a href="#" class="btn-primary">Join the Community</a>
+    </section>
+  </main>
 
   <!-- Footer -->
-  <footer>
-    <p>&copy; 2025 Nexora ProSuite. All rights reserved.</p>
+  <footer class="footer">
+    <p>&copy; 2025 Nexora. All rights reserved.</p>
   </footer>
-  
+
+  <!-- Scripts -->
   <script src="assets/js/main.js"></script>
-  <!--Start of Tawk.to Script-->
+
+  <!-- Google Translate -->
   <script type="text/javascript">
-  var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-  (function(){
-  var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-  s1.async=true;
-  s1.src='https://embed.tawk.to/68ba0eecb51ffa1922ad5802/1j4bckjg5';
-  s1.charset='UTF-8';
-  s1.setAttribute('crossorigin','*');
-  s0.parentNode.insertBefore(s1,s0);
-  })();
-  </script>
-  <!--End of Tawk.to Script-->
-  
-  <!-- Supabase Authentication -->
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-  <script>
-    const SUPABASE_URL = "https://gmvwpoueyvneuwznzdbs.supabase.co";
-    const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imdtdndwb3VleXZuZXV3em56ZGJzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTY5NDAzNTcsImV4cCI6MjA3MjUxNjM1N30.X3xYfHVm0UNKIPzfhosYU0Tq3Wv9TDmI70nejtwzQoc";
-
-    const sb = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-
-    async function requireAuth() {
-      const { data: { session } } = await sb.auth.getSession();
-      if (!session) {
-        window.location.href = "login.html";
-        return;
-      }
-      // Show the logged-in email
-      const el = document.getElementById("whoami");
-      if (el) el.textContent = session.user.email;
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement(
+        { pageLanguage: 'en', autoDisplay: false },
+        'google_translate_element'
+      );
     }
-
-    async function logOut() {
-      await sb.auth.signOut();
-      window.location.href = "index.html";
-    }
-
-    // Run check on load
-    requireAuth();
   </script>
+  <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 </html>
