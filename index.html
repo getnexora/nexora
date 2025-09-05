@@ -11,11 +11,7 @@
   <!-- Navigation Bar -->
   <nav class="navbar">
     <div class="logo">
-      <!-- Simple SVG Logo -->
-      <svg width="30" height="30" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="50" cy="50" r="48" stroke="#d4af37" stroke-width="4"/>
-        <path d="M20 50a30 30 0 1 1 60 0 30 30 0 1 1 -60 0" stroke="#d4af37" stroke-width="3"/>
-      </svg>
+      <img src="assets/img/logo-worldmap-gold.png" alt="Nexora ProSuite Logo" class="nav-logo">
       Nexora ProSuite
     </div>
     <div class="nav-links">
@@ -31,14 +27,6 @@
   <!-- Hero Section -->
   <main>
     <section class="hero">
-      <div class="hero-graphic">
-        <!-- Globe Icon -->
-        <svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="100" cy="100" r="95" stroke="#d4af37" stroke-width="3"/>
-          <ellipse cx="100" cy="100" rx="70" ry="95" stroke="#d4af37" stroke-width="2"/>
-          <ellipse cx="100" cy="100" rx="95" ry="45" stroke="#d4af37" stroke-width="2"/>
-        </svg>
-      </div>
       <h1><span class="gold-text">Welcome to Nexora ProSuite</span></h1>
       <p class="tagline">Connecting <span class="gold-text">195 Countries</span>, One Hub</p>
       <p>The ultimate platform for global connectivity and seamless collaboration.</p>
@@ -85,7 +73,8 @@
 
   <!-- Footer -->
   <footer class="footer">
-    <p>&copy; 2024 Nexora ProSuite. All rights reserved.</p>
+    <img src="assets/img/logo-worldmap-gold.png" alt="Nexora ProSuite Logo" class="footer-logo">
+    <p>&copy; <span id="year"></span> Nexora ProSuite. All rights reserved.</p>
     <div class="footer-links">
       <a href="about.html">About</a>
       <a href="contact.html">Contact</a>
@@ -93,6 +82,9 @@
     </div>
   </footer>
 
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
   <script src="assets/js/main.js"></script>
 </body>
 </html>
