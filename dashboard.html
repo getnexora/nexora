@@ -1,64 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Developer Dashboard - Nexora ProSuite</title>
   <link rel="icon" type="image/png" href="assets/img/logo-icon.png" />
-  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/style.css">
   <style>
     /* Dashboard Specific Styles */
-    .dashboard {
-      padding: 4rem 2rem;
-      min-height: calc(100vh - 200px);
-      background: linear-gradient(180deg, #000000, #0a0a0a);
+    body {
+      background-color: #000000;
+      color: #f5c542;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
     }
     
     .dashboard-header {
       text-align: center;
-      margin-bottom: 3rem;
+      padding: 2rem 1rem;
+      background: linear-gradient(180deg, #000000, #0a0a0a);
+      border-bottom: 1px solid rgba(245, 197, 66, 0.3);
     }
     
-    .dashboard h1 {
-      font-size: 3rem;
-      margin-bottom: 1rem;
+    .dashboard-header h2 {
       color: #f5c542;
+      font-size: 2.5rem;
+      margin: 0;
       text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
     }
     
     .dashboard-subtitle {
       color: #ffffff;
-      opacity: 0.9;
-      font-size: 1.2rem;
-      margin-bottom: 3rem;
+      opacity: 0.8;
+      margin-top: 0.5rem;
     }
     
-    .tool-grid {
+    .dashboard {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 2rem;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 20px;
+      padding: 2rem;
       max-width: 1200px;
       margin: 0 auto;
+      width: 100%;
+      flex: 1;
     }
     
-    /* Make the link itself the card */
-    a.tool-card {
+    .app-card {
       background: linear-gradient(135deg, rgba(245, 197, 66, 0.1), rgba(245, 197, 66, 0.05));
       border: 2px solid rgba(245, 197, 66, 0.3);
-      border-radius: 15px;
-      padding: 2rem;
+      border-radius: 12px;
+      text-align: center;
+      padding: 1.5rem 1rem;
       transition: all 0.3s ease;
       cursor: pointer;
       position: relative;
       overflow: hidden;
-      text-decoration: none;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
     }
     
-    a.tool-card::before {
+    .app-card::before {
       content: '';
       position: absolute;
       top: 0;
@@ -69,65 +72,58 @@
       transition: left 0.5s ease;
     }
     
-    a.tool-card:hover::before {
+    .app-card:hover::before {
       left: 100%;
     }
     
-    a.tool-card:hover {
-      transform: translateY(-5px) scale(1.02);
-      border-color: #f5c542;
-      box-shadow: 0 8px 30px rgba(245, 197, 66, 0.3);
+    .app-card:hover {
+      transform: scale(1.05) translateY(-5px);
       background: linear-gradient(135deg, rgba(245, 197, 66, 0.2), rgba(245, 197, 66, 0.1));
+      border-color: #f5c542;
+      box-shadow: 0 8px 25px rgba(245, 197, 66, 0.3);
     }
     
-    .tool-icon {
-      width: 80px;
-      height: 80px;
-      margin: 0 auto 1.5rem auto;
+    .app-icon {
+      width: 60px;
+      height: 60px;
+      margin: 0 auto 10px auto;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 3rem;
-      background: rgba(245, 197, 66, 0.1);
-      border-radius: 12px;
-      border: 2px solid rgba(245, 197, 66, 0.3);
+      font-size: 2.5rem;
     }
     
-    a.tool-card img {
-      width: 50px;
-      height: 50px;
-      object-fit: contain;
+    .app-card img {
+      max-width: 60px;
+      height: auto;
     }
     
-    a.tool-card p {
+    .app-card a {
+      display: block;
       color: #f5c542;
       font-weight: bold;
-      font-size: 1.1rem;
+      text-decoration: none;
       margin-top: 0.5rem;
+      font-size: 1rem;
     }
     
-    /* Logout button styling */
-    #logoutBtn {
-      color: #ff6b6b;
-      transition: color 0.3s ease;
-    }
-    
-    #logoutBtn:hover {
+    .app-card a:hover {
       color: #ffffff;
     }
     
+    #logoutBtn {
+      color: #ff6b6b !important;
+    }
+    
     @media (max-width: 768px) {
-      .tool-grid {
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 1.5rem;
+      .dashboard {
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+        gap: 15px;
+        padding: 1rem;
       }
       
-      .dashboard h1 {
-        font-size: 2.5rem;
-      }
-      
-      a.tool-card {
-        padding: 1.5rem;
+      .dashboard-header h2 {
+        font-size: 2rem;
       }
     }
   </style>
@@ -137,7 +133,7 @@
   <header>
     <nav class="navbar">
       <div class="logo">
-        <img src="assets/img/logo.png" alt="Nexora ProSuite Logo" />
+        <img src="assets/img/logo.png" alt="Nexora ProSuite Logo" onerror="this.style.display='none'">
       </div>
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
@@ -149,7 +145,85 @@
       </ul>
     </nav>
   </header>
-
-  <!-- Developer Dashboard -->
-  <section class="dashboard">
-    <div cla
+  
+  <!-- Dashboard Header -->
+  <div class="dashboard-header">
+    <h2>Developer Dashboard</h2>
+    <p class="dashboard-subtitle">Quick access to all your tools</p>
+  </div>
+  
+  <!-- Dashboard Grid -->
+  <main class="dashboard">
+    <!-- AI Tools -->
+    <div class="app-card" onclick="window.open('https://chat.openai.com', '_blank')">
+      <div class="app-icon">🤖</div>
+      <a href="https://chat.openai.com" target="_blank">ChatGPT</a>
+    </div>
+    
+    <div class="app-card" onclick="window.open('https://claude.ai', '_blank')">
+      <div class="app-icon">🧠</div>
+      <a href="https://claude.ai" target="_blank">Claude</a>
+    </div>
+    
+    <!-- Google -->
+    <div class="app-card" onclick="window.open('https://accounts.google.com', '_blank')">
+      <div class="app-icon">🔍</div>
+      <a href="https://accounts.google.com" target="_blank">Google</a>
+    </div>
+    
+    <!-- GitHub -->
+    <div class="app-card" onclick="window.open('https://github.com/getnexora/nexora', '_blank')">
+      <div class="app-icon">💻</div>
+      <a href="https://github.com/getnexora/nexora" target="_blank">GitHub Repo</a>
+    </div>
+    
+    <!-- Live Site -->
+    <div class="app-card" onclick="window.open('https://getnexora.github.io/nexora/', '_blank')">
+      <div class="app-icon">🌐</div>
+      <a href="https://getnexora.github.io/nexora/" target="_blank">Live Site</a>
+    </div>
+    
+    <!-- Chat -->
+    <div class="app-card" onclick="window.open('https://dashboard.tawk.to', '_blank')">
+      <div class="app-icon">💬</div>
+      <a href="https://dashboard.tawk.to" target="_blank">Live Chat</a>
+    </div>
+    
+    <!-- Contact Form -->
+    <div class="app-card" onclick="window.open('https://formspree.io/forms/xnnbobko/submissions', '_blank')">
+      <div class="app-icon">📧</div>
+      <a href="https://formspree.io/forms/xnnbobko/submissions" target="_blank">Formspree</a>
+    </div>
+    
+    <!-- Supabase -->
+    <div class="app-card" onclick="window.open('https://supabase.com/dashboard', '_blank')">
+      <div class="app-icon">🗄️</div>
+      <a href="https://supabase.com/dashboard" target="_blank">Supabase</a>
+    </div>
+    
+    <!-- Business Phone -->
+    <div class="app-card" onclick="window.open('https://weblink.freedomvoice.com', '_blank')">
+      <div class="app-icon">📞</div>
+      <a href="https://weblink.freedomvoice.com" target="_blank">Business Phone</a>
+    </div>
+  </main>
+  
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Nexora ProSuite. All rights reserved.</p>
+  </footer>
+  
+  <!-- Dashboard Protection Script -->
+  <script src="assets/js/dashboard.js"></script>
+  
+  <!-- Make cards fully clickable -->
+  <script>
+    // Prevent link default behavior since we're using onclick
+    document.querySelectorAll('.app-card a').forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+      });
+    });
+  </script>
+</body>
+</html>
