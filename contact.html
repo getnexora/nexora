@@ -3,17 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nexora — Contact</title>
-
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
-  <!-- Main stylesheet -->
-  <link rel="stylesheet" href="css/style.css" />
-
-  <!-- Favicon -->
-  <link rel="icon" href="img/logo-icon.png" type="image/png" />
+  <title>Nexora – Contact</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 <body>
   <!-- Navbar -->
@@ -24,51 +15,38 @@
       <a href="features.html">Features</a>
       <a href="developer.html">Developers</a>
       <a href="contact.html">Contact</a>
-      <a href="dashboard.html">Dashboard</a>
+      <a href="login.html" class="signin-btn">Sign In</a>
     </nav>
-    <a href="login.html" class="signin-btn">Sign In</a>
   </header>
 
   <!-- Contact Section -->
-  <main style="padding:8rem 2rem 4rem; max-width:900px; margin:auto;">
-    <h1 style="font-size:2.5rem; font-weight:800; margin-bottom:1.5rem;">Contact Us</h1>
-    <p style="color:#aaa; font-size:1.1rem; margin-bottom:3rem;">
-      Have questions or feedback? We’d love to hear from you. Fill out the form below or reach us directly at 
-      <a href="mailto:support@nexora.com">support@nexora.com</a>.
-    </p>
+  <section class="contact">
+    <h1>Contact Us</h1>
+    <p>Have questions or need support? Fill out the form below.</p>
 
-    <form style="background:#111; border:1px solid #222; border-radius:12px; padding:2rem;">
+    <form class="contact-form">
       <div class="form-group">
-        <label for="name" class="form-label">Your Name</label>
-        <input type="text" id="name" name="name" class="form-input" placeholder="Enter your name" required />
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" required />
       </div>
-
       <div class="form-group">
-        <label for="email" class="form-label">Your Email</label>
-        <input type="email" id="email" name="email" class="form-input" placeholder="Enter your email" required />
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required />
       </div>
-
       <div class="form-group">
-        <label for="message" class="form-label">Message</label>
-        <textarea id="message" name="message" class="form-input" rows="5" placeholder="Type your message..." required></textarea>
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
       </div>
-
-      <button type="submit" class="submit-btn">Send Message</button>
+      <button type="submit" class="btn">Send Message</button>
     </form>
-  </main>
-
-  <!-- Map / Location -->
-  <section style="padding:4rem 2rem; text-align:center;">
-    <h2 style="font-size:2rem; margin-bottom:1rem;">Our Office</h2>
-    <p style="color:#aaa; margin-bottom:2rem;">123 Innovation Drive, Tech City, USA</p>
-    <iframe 
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.8354345092327!2d144.95565161531692!3d-37.81732397975153!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f11fd81%3A0xf577f84b54a4a00!2sTech%20Company!5e0!3m2!1sen!2sus!4v1670000000000" 
-      width="100%" height="300" style="border:0; border-radius:12px;" allowfullscreen="" loading="lazy"></iframe>
   </section>
 
   <!-- Footer -->
-  <footer style="text-align:center; padding:2rem; color:#666;">
-    © 2025 Nexora. All rights reserved.
+  <footer>
+    <p>&copy; 2025 Nexora. All rights reserved.</p>
   </footer>
+
+  <!-- Scripts -->
+  <script src="assets/js/main.js"></script>
 </body>
 </html>
