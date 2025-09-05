@@ -1,108 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#0a0a0a">
-  <title>Nexora - Executive Access Portal</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nexora — Login</title>
 
-  <!-- Premium Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <!-- Global Stylesheet (FIXED PATH) -->
-  <link rel="stylesheet" href="assets/css/style.css">
+  <!-- Main stylesheet -->
+  <link rel="stylesheet" href="css/style.css" />
+
+  <!-- Favicon -->
+  <link rel="icon" href="img/logo-icon.png" type="image/png" />
 </head>
 <body class="login-page">
-  <!-- Hidden Google Translate Widget -->
-  <div id="google_translate_element"></div>
-
+  <!-- Login Container -->
   <div class="login-container">
     <div class="login-card">
       <!-- Logo Section -->
       <div class="logo-section">
-        <div class="logo">NEXORA</div>
-        <div class="tagline">Executive Access Portal</div>
-      </div>
-
-      <!-- Global Language Dropdown -->
-      <div class="language-selector-global">
-        <label for="language">🌐 Language</label>
-        <select id="language">
-          <option value="en" selected>English</option>
-          <option value="es">Español</option>
-          <option value="fr">Français</option>
-          <option value="de">Deutsch</option>
-          <option value="zh-CN">中文 (Simplified)</option>
-          <option value="zh-TW">中文 (Traditional)</option>
-          <option value="ja">日本語</option>
-          <option value="ko">한국어</option>
-          <option value="ar">العربية</option>
-          <option value="ru">Русский</option>
-          <option value="pt">Português</option>
-          <option value="hi">हिन्दी</option>
-        </select>
+        <div class="logo">Nexora</div>
+        <p class="tagline">Sign in to continue</p>
       </div>
 
       <!-- Login Form -->
-      <form class="login-form" onsubmit="handleLogin(event)">
+      <form>
         <div class="form-group">
-          <label class="form-label" for="email">Email Address</label>
+          <label class="form-label" for="email">Email</label>
           <div class="input-wrapper">
-            <input type="email" id="email" class="form-input" placeholder="Enter your email" required>
+            <input type="email" id="email" class="form-input" placeholder="you@example.com" required />
           </div>
         </div>
 
         <div class="form-group">
           <label class="form-label" for="password">Password</label>
           <div class="input-wrapper">
-            <input type="password" id="password" class="form-input password-input" placeholder="Enter your password" required>
-            <button type="button" class="password-toggle" id="passwordToggle" onclick="togglePassword()" aria-label="Toggle password visibility">
-              <!-- Eye Open -->
-              <svg class="eye-icon eye-open" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5z"/>
+            <input type="password" id="password" class="form-input" placeholder="••••••••" required />
+            <button type="button" class="password-toggle" id="togglePassword">
+              <!-- Eye open -->
+              <svg class="eye-icon eye-open" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.477 0 8.268 2.943 9.542 7-1.274 4.057-5.065 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
               </svg>
-              <!-- Eye Closed -->
-              <svg class="eye-icon eye-closed" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M12 7c2.76 0 5 2.24 5 5 0 .65-.13 1.26-.36 1.83l2.92 2.92c1.51-1.26 2.7-2.89 3.43-4.75-1.73-4.39-6-7.5-11-7.5zM2 4.27l2.28 2.28c-.7 1.1-1.2 2.3-1.28 3.72 1.73 4.39 6 7.5 11 7.5 1.55 0 3.03-.3 4.38-.84l.42.42L19.73 22 21 20.73z"/>
+              <!-- Eye closed -->
+              <svg class="eye-icon eye-closed" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.269-2.943-9.543-7a9.956 9.956 0 012.64-4.362m3.123-2.163A9.959 9.959 0 0112 5c4.477 0 8.268 2.943 9.542 7a9.953 9.953 0 01-4.54 5.818M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3l18 18" />
               </svg>
             </button>
           </div>
         </div>
 
-        <!-- Remember Me & Forgot Password -->
         <div class="form-options">
           <div class="remember-me">
-            <input type="checkbox" id="remember">
+            <input type="checkbox" id="remember" />
             <label for="remember">Remember me</label>
           </div>
-          <a href="#" class="forgot-password">Forgot password?</a>
+          <a href="#">Forgot password?</a>
         </div>
 
-        <button type="submit" class="submit-btn">Sign In to Nexora</button>
-        <button type="button" class="guest-btn" onclick="handleGuestLogin()">Continue as Guest</button>
-        <p class="guest-notice">Limited features available in guest mode</p>
+        <button type="submit" class="submit-btn">Sign In</button>
+
+        <button type="button" class="guest-btn">Continue as Guest</button>
+        <p class="guest-notice">You will have limited access as a guest.</p>
       </form>
 
+      <!-- Divider -->
       <div class="divider"><span>or</span></div>
 
-      <div class="signup-link">
-        <p>New to Nexora? <a href="signup.html">Create an account</a></p>
-      </div>
+      <!-- Signup Link -->
+      <p class="signup-link">Don’t have an account? <a href="signup.html">Sign up</a></p>
     </div>
   </div>
 
-  <!-- JavaScript (FIXED PATH) -->
-  <script src="assets/js/main.js"></script>
+  <!-- Script: password toggle -->
+  <script>
+    const togglePassword = document.getElementById('togglePassword');
+    const passwordInput = document.getElementById('password');
 
-  <!-- Google Translate -->
-  <script type="text/javascript">
-    function googleTranslateElementInit() {
-      new google.translate.TranslateElement(
-        { pageLanguage: 'en', autoDisplay: false },
-        'google_translate_element'
-      );
-    }
+    togglePassword.addEventListener('click', () => {
+      const isShowing = togglePassword.classList.toggle('showing');
+      passwordInput.type = isShowing ? 'text' : 'password';
+    });
   </script>
-  <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 </html>
