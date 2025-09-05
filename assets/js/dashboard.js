@@ -1,35 +1,32 @@
-// Check if user is logged in
-function checkAuth() {
-  const isLoggedIn = sessionStorage.getItem("isLoggedIn");
-  const loginTime = sessionStorage.getItem("loginTime");
-  
-  // If not logged in, redirect to login
-  if (!isLoggedIn || isLoggedIn !== "true") {
-    window.location.href = "login.html";
-    return;
-  }
-  
-  // Optional: Add session timeout (30 minutes)
-  const currentTime = new Date().getTime();
-  const timeDiff = currentTime - parseInt(loginTime);
-  const thirtyMinutes = 30 * 60 * 1000;
-  
-  if (timeDiff > thirtyMinutes) {
-    sessionStorage.clear();
-    alert("Session expired. Please login again.");
-    window.location.href = "login.html";
-  }
-}
+// ========================
+// Nexora Dashboard JS
+// ========================
 
-// Logout functionality
-document.getElementById("logoutBtn").addEventListener("click", function(e) {
-  e.preventDefault();
-  
-  if (confirm("Are you sure you want to logout?")) {
-    sessionStorage.clear();
-    window.location.href = "index.html";
-  }
+// Select all dashboard buttons
+const buttons = document.querySelectorAll(".dashboard .card .btn");
+
+buttons.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    const parentCard = btn.closest(".card");
+    const title = parentCard.querySelector("h2").innerText;
+
+    // Simple test behavior
+    alert(`✅ You clicked "${title}"`);
+  });
 });
 
-// Check auth on page load
-window.addEventListener("load", checkAuth);
+// Example: dynamic content load (expandable for future)
+function loadDashboardData() {
+  console.log("📊 Loading dashboard data...");
+
+  // Example: fake analytics data
+  const analyticsData = {
+    users: 1245,
+    sessions: 3520,
+    active: 128,
+  };
+
+  console.log("✅ Analytics Data:", analyticsData);
+}
+
+loadDashboardData();
