@@ -222,3 +222,53 @@
     "link": "https://robinhood.com/"
   }
 ]
+,
+  {
+    "name": "Uber",
+    "description": "Ride-hailing app for getting around quickly and safely.",
+    "icon": "assets/img/app-uber.png",
+    "link": "https://www.uber.com/"
+  },
+  {
+    "name": "Lyft",
+    "description": "Affordable rides and shared transportation in the US.",
+    "icon": "assets/img/app-lyft.png",
+    "link": "https://www.lyft.com/"
+  },
+  {
+    "name": "Bolt",
+    "description": "European ride-hailing, scooters, and food delivery.",
+    "icon": "assets/img/app-bolt.png",
+    "link": "https://bolt.eu/"
+  },
+  {
+    "name": "Airbnb",
+    "description": "Find vacation rentals, apartments, and unique stays worldwide.",
+    "icon": "assets/img/app-airbnb.png",
+    "link": "https://www.airbnb.com/"
+  },
+  {
+    "name": "Booking.com",
+    "description": "Book hotels, flights, and travel packages easily.",
+    "icon": "assets/img/app-booking.png",
+    "link": "https://www.booking.com/"
+  },
+  {
+    "name": "Expedia",
+    "description": "Flights, hotels, car rentals, and vacation deals.",
+    "icon": "assets/img/app-expedia.png",
+    "link": "https://www.expedia.com/"
+  },
+  {
+    "name": "Tripadvisor",
+    "description": "Travel reviews, guides, and booking services.",
+    "icon": "assets/img/app-tripadvisor.png",
+    "link": "https://www.tripadvisor.com/"
+  },
+  {
+    "name": "Duolingo",
+    "description": "Learn languages for free with gamified lessons.",
+    "icon": "assets/img/app-duolingo.png",
+    "link": "https://www.duolingo.com/"
+  }
+]
