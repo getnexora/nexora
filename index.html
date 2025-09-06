@@ -6,6 +6,7 @@
   <title>Nexora ProSuite - Global Enterprise Portal</title>
   <link rel="stylesheet" href="assets/css/style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+  <script src="assets/js/search.js" defer></script>
 </head>
 <body>
   <!-- ===== HEADER ===== -->
@@ -20,16 +21,7 @@
         <li><a href="login.html">Login</a></li>
       </ul>
     </nav>
-
-    <!-- ===== UNIVERSAL SEARCH BAR ===== -->
-    <div class="search-bar">
-      <input type="text" id="searchInput" placeholder="Search Nexora & the Web..." />
-      <button id="searchBtn">🔍</button>
-    </div>
   </header>
-
-  <!-- ===== SEARCH RESULTS ===== -->
-  <div id="searchResults" class="search-results"></div>
 
   <!-- ===== HERO ===== -->
   <section class="hero">
@@ -39,6 +31,14 @@
       <a href="signup.html" class="btn">Join Now</a>
       <a href="features.html" class="btn">Explore Features</a>
     </div>
+  </section>
+
+  <!-- ===== UNIVERSAL SEARCH ===== -->
+  <section class="search-section container">
+    <h2 class="section-title">Universal Search</h2>
+    <input type="text" id="searchInput" placeholder="Search apps, features, or pages..." />
+    <button id="searchBtn" class="btn">Search</button>
+    <div id="searchResults" class="search-results"></div>
   </section>
 
   <!-- ===== FEATURES ===== -->
@@ -71,8 +71,5 @@
     <p>&copy; 2025 Nexora ProSuite. All Rights Reserved.</p>
     <p><a href="contact.html">Contact Us</a> | <a href="login.html">Member Login</a></p>
   </footer>
-
-  <!-- ===== SCRIPTS ===== -->
-  <script src="assets/js/search.js"></script>
 </body>
 </html>
