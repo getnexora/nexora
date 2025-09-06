@@ -1,18 +1,31 @@
-// assets/js/app.js
+// assets/js/apps.js
 
-// Mobile nav toggle
-const navToggle = document.querySelector(".nav-toggle");
-const navLinks = document.querySelector(".nav-links");
+async function loadApps() {
+  const grid = document.getElementById("apps-grid");
+  if (!grid) return;
 
-if (navToggle && navLinks) {
-  navToggle.addEventListener("click", () => {
-    const isOpen = navLinks.classList.toggle("open");
-    navToggle.setAttribute("aria-expanded", isOpen);
-  });
+  try {
+    const res = await fetch("assets/apps/apps.json");
+    const apps = await res.json();
+
+    grid.innerHTML = "";
+
+    apps.forEach(app => {
+      const card = document.createElement("article");
+      card.className = "card";
+
+      card.innerHTML = `
+        <h3 class="gold-gradient">${app.name}</h3>
+        <p>${app.description}</p>
+        <a href="${app.link}" target="_blank" class="btn gold" style="margin-top:10px;">Open</a>
+      `;
+
+      grid.appendChild(card);
+    });
+  } catch (err) {
+    grid.innerHTML = "<p style='color:red;'>Failed to load apps.</p>";
+    console.error("Error loading apps:", err);
+  }
 }
 
-// Update footer year
-const yearEl = document.getElementById("y");
-if (yearEl) {
-  yearEl.textContent = new Date().getFullYear();
-}
+document.addEventListener("DOMContentLoaded", loadApps);
