@@ -3,28 +3,57 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nexora ProSuite - Login</title>
+  <title>Login - Nexora ProSuite</title>
   <link rel="stylesheet" href="assets/css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+  <script>
+    function togglePassword() {
+      const pwd = document.getElementById("password");
+      pwd.type = pwd.type === "password" ? "text" : "password";
+    }
+  </script>
 </head>
 <body>
-  <div class="login-container">
-    <h1>Login to Nexora ProSuite</h1>
-    <form id="loginForm">
-      <label for="email">Email</label>
-      <input type="email" id="email" required placeholder="Enter your email" />
+  <!-- ===== HEADER ===== -->
+  <header>
+    <img src="assets/img/logo.png" alt="Nexora ProSuite Logo" class="logo" />
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="features.html">Features</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="login.html" class="active">Login</a></li>
+      </ul>
+    </nav>
+  </header>
 
-      <label for="password">Password</label>
-      <input type="password" id="password" required placeholder="Enter your password" />
+  <!-- ===== LOGIN HERO ===== -->
+  <section class="hero">
+    <h1>Member <span class="gold-text">Login</span></h1>
+    <p>Access your secure Nexora ProSuite account.</p>
+  </section>
 
-      <button type="submit">Login</button>
+  <!-- ===== LOGIN FORM ===== -->
+  <section class="container">
+    <h2 class="section-title">Login</h2>
+    <form style="max-width: 400px; margin: 0 auto; display: flex; flex-direction: column; gap: 1rem;">
+      <input type="email" placeholder="Email Address" required
+             style="padding: 0.8rem; border-radius: var(--radius); border: 1px solid var(--gold); background: var(--card-bg); color: var(--light);">
+      <div style="position: relative;">
+        <input type="password" id="password" placeholder="Password" required
+               style="width: 100%; padding: 0.8rem; border-radius: var(--radius); border: 1px solid var(--gold); background: var(--card-bg); color: var(--light);">
+        <span onclick="togglePassword()" 
+              style="position: absolute; right: 12px; top: 50%; transform: translateY(-50%); cursor: pointer; color: var(--gold);">👁️</span>
+      </div>
+      <button type="submit" class="btn">Login</button>
     </form>
+  </section>
 
-    <div class="login-options">
-      <p>Or continue as:</p>
-      <button id="guestBtn">Continue as Guest</button>
-    </div>
-  </div>
-
-  <script src="assets/js/login.js"></script>
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <p>&copy; 2025 Nexora ProSuite. All Rights Reserved.</p>
+    <p><a href="contact.html">Contact Us</a> | <a href="login.html">Member Login</a></p>
+  </footer>
 </body>
 </html>
