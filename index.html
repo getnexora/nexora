@@ -1,13 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nexora ProSuite - Global Enterprise Portal</title>
-  <link rel="stylesheet" href="assets/css/style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
-  <script defer src="assets/js/search.js"></script>
-</head>
 <body>
   <!-- ===== HEADER ===== -->
   <header>
@@ -23,52 +13,20 @@
     </nav>
   </header>
 
+  <!-- ===== UNIVERSAL SEARCH (Now at the top) ===== -->
+  <section class="search-section">
+    <div class="search-container">
+      <input type="text" id="searchInput" placeholder="Search Nexora, apps, or type !google, !baidu, !yandex ..." />
+      <button id="searchBtn">Search</button>
+      <p class="search-hint">
+        💡 Example: <code>Local News</code>, <code>CRM</code>, <code>!google AI</code>, <code>!baidu tech</code>
+      </p>
+    </div>
+    <div id="searchResults" class="search-results"></div>
+  </section>
+
   <!-- ===== HERO ===== -->
   <section class="hero">
     <h1>Welcome to <span class="gold-text">Nexora ProSuite</span></h1>
     <p>The exclusive enterprise portal connecting 195 countries.</p>
-
-    <!-- ===== UNIVERSAL SEARCH ===== -->
-    <div class="search-container">
-      <input type="text" id="searchInput" placeholder="Search Nexora or type !google, !baidu, !yandex, !naver ..." />
-      <button id="searchBtn">Search</button>
-      <p class="search-hint">
-        💡 Example: <code>!google AI</code>, <code>!baidu tech</code>, <code>CRM</code>, <code>Features</code>
-      </p>
-    </div>
-
-    <div id="searchResults" class="search-results"></div>
   </section>
-
-  <!-- ===== FEATURES ===== -->
-  <section class="container">
-    <h2 class="section-title">Why Choose Nexora?</h2>
-    <div class="card-grid">
-      <div class="card">
-        <h3>🌍 Global Network</h3>
-        <p>Connect with professionals and enterprises across 195 countries in real time.</p>
-      </div>
-      <div class="card">
-        <h3>⭐ Tiered Membership</h3>
-        <p>Unlock exclusive benefits with advanced, premium, and executive tiers.</p>
-      </div>
-      <div class="card">
-        <h3>⚡ Performance</h3>
-        <p>Fast, secure, and scalable architecture tailored for enterprise needs.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== WORLD MAP ===== -->
-  <section class="container">
-    <h2 class="section-title">Our Global Reach</h2>
-    <img src="assets/img/worldmap.png" alt="Global Network Map" class="worldmap" />
-  </section>
-
-  <!-- ===== FOOTER ===== -->
-  <footer>
-    <p>&copy; 2025 Nexora ProSuite. All Rights Reserved.</p>
-    <p><a href="contact.html">Contact Us</a> | <a href="login.html">Member Login</a></p>
-  </footer>
-</body>
-</html>
