@@ -1,42 +1,56 @@
-/* ===== Search Results ===== */
-.search-results {
-  margin-top: 1.5rem;
-  text-align: left;
+/* ===== Search Section at Top ===== */
+.search-section {
+  padding: 2rem;
+  background: var(--dark);
+  border-bottom: 1px solid var(--gold);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.search-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   width: 100%;
-  max-width: 600px;
+  max-width: 800px;
 }
 
-.search-results .result-card {
-  padding: 1rem 1.5rem;
-  margin-bottom: 1rem;
-  border: 1px solid var(--gold);
-  border-radius: var(--radius);
-  background: linear-gradient(135deg, #1a1a1a, #111);
+.search-container input {
+  width: 100%;
+  padding: 1.2rem 1.5rem; /* bigger input */
+  border: 2px solid var(--gold);
+  border-radius: var(--radius) 0 0 var(--radius);
+  font-size: 1.2rem;
+  background: var(--card-bg);
+  color: var(--light);
+  outline: none;
   transition: var(--transition);
-  box-shadow: 0 0 8px rgba(212, 175, 55, 0.15);
 }
 
-.search-results .result-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 0 20px rgba(212,175,55,0.4);
+.search-container input:focus {
+  border-color: var(--bright-gold);
+  box-shadow: 0 0 15px rgba(255,215,0,0.5);
 }
 
-.search-results a {
+.search-container button {
+  padding: 1.2rem 2rem; /* bigger button */
+  border: 2px solid var(--gold);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  background: var(--gold);
+  color: var(--black);
   font-weight: 700;
-  color: var(--bright-gold);
-  text-decoration: none;
-  font-size: 1.1rem;
-  display: inline-block;
-  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: var(--transition);
 }
 
-.search-results a:hover {
-  text-decoration: underline;
-  color: var(--gold);
+.search-container button:hover {
+  background: var(--bright-gold);
 }
 
-.search-results p {
-  font-size: 0.9rem;
+.search-container .search-hint {
+  margin-top: 1rem;
+  font-size: 1rem;
   color: var(--gray);
-  margin: 0;
 }
