@@ -1,104 +1,67 @@
-/* ===== Nexora ProSuite JavaScript ===== */
+// ===== Nexora ProSuite Main Script =====
 
-/**
- * Loader: hides after page load
- */
+// Run when the page finishes loading
 window.addEventListener("load", () => {
-  const loader = document.querySelector(".loader");
+  const loader = document.getElementById("loader");
+
+  // Hide loader
   if (loader) {
-    setTimeout(() => {
-      loader.classList.add("hidden");
-    }, 1200);
+    loader.classList.add("hidden");
   }
-});
 
-/**
- * Modal logic for language + location
- */
-document.addEventListener("DOMContentLoaded", () => {
-  const modal = document.getElementById("welcomeModal");
-  const closeBtn = document.getElementById("startBtn");
-  const countrySelect = document.getElementById("country");
-  const regionInput = document.getElementById("region");
-  const postalInput = document.getElementById("postal");
-  const languageSelect = document.getElementById("language");
-
-  // Load saved preferences if exist
-  const savedPrefs = JSON.parse(localStorage.getItem("nexoraPrefs"));
-  if (savedPrefs) {
-    applyPreferences(savedPrefs);
-    modal.style.display = "none"; // Skip modal if already set
+  // Check if preferences exist
+  const prefs = localStorage.getItem("nexoraUserPrefs");
+  if (!prefs) {
+    // Show welcome modal if no preferences
+    const modal = document.getElementById("welcomeModal");
+    if (modal) {
+      modal.style.display = "flex";
+    }
   } else {
-    modal.style.display = "flex";
-  }
-
-  // Load countries + languages from JSON
-  fetch("assets/data/countries.json")
-    .then(res => res.json())
-    .then(data => {
-      // Populate countries
-      data.countries.forEach(c => {
-        const option = document.createElement("option");
-        option.value = c.code;
-        option.textContent = c.name;
-        countrySelect.appendChild(option);
-      });
-      // Populate languages
-      data.languages.forEach(l => {
-        const option = document.createElement("option");
-        option.value = l.code;
-        option.textContent = l.name;
-        languageSelect.appendChild(option);
-      });
-    })
-    .catch(err => console.error("Error loading countries.json:", err));
-
-  // Handle Save & Start
-  if (closeBtn) {
-    closeBtn.addEventListener("click", () => {
-      const prefs = {
-        country: countrySelect.value,
-        region: regionInput.value,
-        postal: postalInput.value,
-        language: languageSelect.value
-      };
-      localStorage.setItem("nexoraPrefs", JSON.stringify(prefs));
-      applyPreferences(prefs);
-      modal.style.display = "none";
-    });
+    // Apply saved preferences
+    const savedPrefs = JSON.parse(prefs);
+    applyLanguage(savedPrefs.language || "en");
   }
 });
 
-/**
- * Apply preferences to the site
- * - Updates language
- * - Updates text if translations available
- */
-function applyPreferences(prefs) {
-  console.log("User preferences loaded:", prefs);
+// ===== Modal Save Button =====
+const saveBtn = document.getElementById("savePreferences");
+if (saveBtn) {
+  saveBtn.addEventListener("click", () => {
+    const country = document.getElementById("country")?.value || "";
+    const region = document.getElementById("region")?.value || "";
+    const postal = document.getElementById("postal")?.value || "";
+    const language = document.getElementById("language")?.value || "en";
 
-  // Placeholder: dynamic translations (example only)
-  if (prefs.language === "es") {
-    translateToSpanish();
-  } else if (prefs.language === "fr") {
-    translateToFrench();
+    const userPrefs = { country, region, postal, language };
+
+    // Save preferences
+    localStorage.setItem("nexoraUserPrefs", JSON.stringify(userPrefs));
+
+    // Hide modal
+    const modal = document.getElementById("welcomeModal");
+    if (modal) {
+      modal.style.display = "none";
+    }
+
+    // Apply chosen language
+    applyLanguage(language);
+  });
+}
+
+// ===== Apply Language (placeholder for now) =====
+function applyLanguage(langCode) {
+  console.log("Switching language to:", langCode);
+
+  // Example: change the welcome title
+  const title = document.querySelector("h1");
+  if (title) {
+    if (langCode === "es") {
+      title.textContent = "Bienvenido a Nexora ProSuite";
+    } else if (langCode === "fr") {
+      title.textContent = "Bienvenue à Nexora ProSuite";
+    } else {
+      title.textContent = "Welcome to Nexora ProSuite";
+    }
   }
-}
-
-/**
- * Example translation functions
- * In production, load from assets/data/translations.json
- */
-function translateToSpanish() {
-  const heroTitle = document.querySelector(".hero h1");
-  if (heroTitle) heroTitle.textContent = "Bienvenido a Nexora ProSuite";
-  const heroDesc = document.querySelector(".hero p");
-  if (heroDesc) heroDesc.textContent = "Conectando el mundo con un portal exclusivo.";
-}
-
-function translateToFrench() {
-  const heroTitle = document.querySelector(".hero h1");
-  if (heroTitle) heroTitle.textContent = "Bienvenue sur Nexora ProSuite";
-  const heroDesc = document.querySelector(".hero p");
-  if (heroDesc) heroDesc.textContent = "Connecter le monde avec un portail exclusif.";
 }
