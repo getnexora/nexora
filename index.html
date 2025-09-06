@@ -6,7 +6,7 @@
   <title>Nexora ProSuite - Global Enterprise Portal</title>
   <link rel="stylesheet" href="assets/css/style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
-  <script src="assets/js/search.js" defer></script>
+  <script defer src="assets/js/search.js"></script>
 </head>
 <body>
   <!-- ===== HEADER ===== -->
@@ -27,17 +27,16 @@
   <section class="hero">
     <h1>Welcome to <span class="gold-text">Nexora ProSuite</span></h1>
     <p>The exclusive enterprise portal connecting 195 countries.</p>
-    <div class="btn-group">
-      <a href="signup.html" class="btn">Join Now</a>
-      <a href="features.html" class="btn">Explore Features</a>
-    </div>
-  </section>
 
-  <!-- ===== UNIVERSAL SEARCH ===== -->
-  <section class="search-section container">
-    <h2 class="section-title">Universal Search</h2>
-    <input type="text" id="searchInput" placeholder="Search apps, features, or pages..." />
-    <button id="searchBtn" class="btn">Search</button>
+    <!-- ===== UNIVERSAL SEARCH ===== -->
+    <div class="search-container">
+      <input type="text" id="searchInput" placeholder="Search Nexora or type !google, !baidu, !yandex, !naver ..." />
+      <button id="searchBtn">Search</button>
+      <p class="search-hint">
+        💡 Example: <code>!google AI</code>, <code>!baidu tech</code>, <code>CRM</code>, <code>Features</code>
+      </p>
+    </div>
+
     <div id="searchResults" class="search-results"></div>
   </section>
 
