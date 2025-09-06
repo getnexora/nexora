@@ -3,16 +3,55 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Profile - Nexora</title>
+  <title>Nexora ProSuite - Profile</title>
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-  <main>
-    <h1 class="gold-gradient">My Profile</h1>
-    <div id="profile-info"></div>
-    <button onclick="logout()">Logout</button>
-  </main>
+  <h1>User Profile</h1>
 
-  <script type="module" src="assets/js/auth.js"></script>
+  <!-- User Info -->
+  <div id="user-info">
+    <p><strong>Email:</strong> <span id="user-email"></span></p>
+  </div>
+
+  <!-- Logout Button -->
+  <button id="logout-btn">Logout</button>
+
+  <!-- Firebase SDK + Auth -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-app.js";
+    import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-auth.js";
+
+    // Firebase config
+    const firebaseConfig = {
+      apiKey: "AIzaSyBPYzbOzSgnEpYe_L_F-QLrr8cpAwkZyJk",
+      authDomain: "nexora-prosuite.firebaseapp.com",
+      projectId: "nexora-prosuite",
+      storageBucket: "nexora-prosuite.firebasestorage.app",
+      messagingSenderId: "367987127145",
+      appId: "1:367987127145:web:be983d04a0b769a4b183f8",
+      measurementId: "G-LRP2XBZ7HS"
+    };
+
+    // Init
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+
+    // Show user info
+    const userEmailEl = document.getElementById("user-email");
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        userEmailEl.textContent = user.email;
+      } else {
+        window.location.href = "login.html"; // Redirect if not logged in
+      }
+    });
+
+    // Logout
+    document.getElementById("logout-btn").addEventListener("click", async () => {
+      await signOut(auth);
+      window.location.href = "login.html";
+    });
+  </script>
 </body>
 </html>
