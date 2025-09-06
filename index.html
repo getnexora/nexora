@@ -3,175 +3,107 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nexora ProSuite - Global Enterprise Portal</title>
-
-  <!-- SEO -->
-  <meta name="description" content="Nexora ProSuite is a premium global enterprise portal connecting 195 countries with tiered membership, multilingual support, and an interactive dashboard.">
-  <meta property="og:title" content="Nexora ProSuite">
-  <meta property="og:description" content="Exclusive enterprise portal for global collaboration.">
-  <meta property="og:image" content="assets/im<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nexora ProSuite - Exclusive Global Portal</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+  <title>Nexora ProSuite - Language & Location Setup</title>
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-  <!-- Loader -->
-  <div class="loader" id="loader">
-    <div class="loader-content">
-      <div class="loader-logo"></div>
-      <p>Loading Nexora ProSuite...</p>
-    </div>
-  </div>
 
   <!-- Welcome Modal -->
-  <div class="modal" id="welcomeModal">
+  <div id="welcome-modal" class="modal">
     <div class="modal-content">
-      <h2 class="gold-text">🌍 Welcome to Nexora ProSuite</h2>
-      <p>Please select your location and language preferences:</p>
+      <h2>🌍 Welcome to Nexora ProSuite</h2>
+      <p>Please select your preferences:</p>
 
-      <form id="locationForm">
-        <label for="country">Country</label>
-        <select id="country" required></select>
+      <label for="country">Country:</label>
+      <select id="country"></select>
 
-        <label for="region">Region / State</label>
-        <select id="region" required>
-          <option value="">Select a country first</option>
-        </select>
+      <label for="language">Language:</label>
+      <select id="language"></select>
 
-        <label for="postal">Postal Code</label>
-        <input type="text" id="postal" placeholder="e.g., 10001" required>
+      <label for="region">Region/State:</label>
+      <input type="text" id="region" placeholder="Enter your region/state">
 
-        <label for="language">Language</label>
-        <select id="language" required>
-          <option value="en">English</option>
-          <option value="es">Español</option>
-          <option value="fr">Français</option>
-          <option value="de">Deutsch</option>
-          <option value="zh">中文</option>
-          <!-- More languages will be loaded dynamically -->
-        </select>
+      <label for="postal">Postal Code:</label>
+      <input type="text" id="postal" placeholder="Enter your postal code">
 
-        <button type="submit" class="btn">Continue</button>
-      </form>
+      <button id="save-preferences">Save & Continue</button>
     </div>
   </div>
 
-  <!-- Main Content -->
-  <header class="hero">
-    <div class="container">
-      <h1 class="gold-text">Nexora ProSuite</h1>
-      <p>Your Exclusive Global Portal – Connecting 195 Countries</p>
-      <div class="hero-actions">
-        <a href="login.html" class="btn">Login</a>
-        <a href="signup.html" class="btn btn-gold">Sign Up</a>
-      </div>
-    </div>
-  </header>
-
-  <section class="tiers container">
-    <h2 class="gold-text">Membership Tiers</h2>
-    <div class="tier-grid">
-      <div class="tier-card basic">
-        <h3>Basic</h3>
-        <p>Access to core features</p>
-      </div>
-      <div class="tier-card advanced">
-        <h3>Advanced</h3>
-        <p>Enhanced member tools</p>
-      </div>
-      <div class="tier-card premium">
-        <h3>Premium</h3>
-        <p>Global networking benefits</p>
-      </div>
-      <div class="tier-card executive">
-        <h3>Executive</h3>
-        <p>Elite-level access worldwide</p>
-      </div>
-    </div>
-  </section>
-
-  <footer class="footer">
-    <p>&copy; 2025 Nexora ProSuite. All Rights Reserved.</p>
-  </footer>
-
-  <script src="assets/js/main.js"></script>
-</body>
-</html>
-/logo.png">
-  <meta property="og:type" content="website">
-
-  <!-- Fonts & Styles -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css">
-</head>
-<body>
-  <!-- Loader -->
-  <div class="loader" aria-hidden="true">
-    <div class="loader-content">
-      <div class="loader-logo"></div>
-      <h2 class="gold-text">Nexora ProSuite</h2>
-    </div>
+  <!-- Page Content -->
+  <div id="main-content" style="display:none;">
+    <h1 data-translate="welcome">Welcome to Nexora ProSuite</h1>
+    <p data-translate="intro">Your personalized enterprise portal experience.</p>
   </div>
 
-  <!-- Header -->
-  <header class="site-header">
-    <div class="container nav-container">
-      <img src="assets/img/logo.png" alt="Nexora Logo" class="logo">
-      <nav class="main-nav" aria-label="Main Navigation">
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="features.html">Features</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="contact.html">Contact</a></li>
-          <li><button id="open-auth" class="btn-small">Login</button></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+  <script>
+    async function loadPreferences() {
+      const countrySelect = document.getElementById('country');
+      const languageSelect = document.getElementById('language');
 
-  <!-- Hero -->
-  <main>
-    <section class="hero container">
-      <h1 class="gold-text">Global Connectivity, Redefined</h1>
-      <p>Empowering enterprises across 195 countries with secure tiered access, multilingual support, and personalized dashboards.</p>
-      <a href="signup.html" class="cta-button">Get Started</a>
-    </section>
+      // Fetch countries
+      const countries = await fetch('assets/data/countries.json')
+        .then(res => res.json());
+      countries.countries.forEach(c => {
+        const option = document.createElement('option');
+        option.value = c.code;
+        option.textContent = c.name;
+        countrySelect.appendChild(option);
+      });
 
-    <!-- Features -->
-    <section class="features container">
-      <h2 class="gold-text">Core Features</h2>
-      <div class="feature-list">
-        <article class="feature-card">🌍 195+ Countries</article>
-        <article class="feature-card">🔑 Tiered Membership</article>
-        <article class="feature-card">💬 100+ Languages</article>
-        <article class="feature-card">📊 Interactive Dashboard</article>
-      </div>
-    </section>
-  </main>
+      // Fetch languages
+      const languages = await fetch('assets/data/languages.json')
+        .then(res => res.json());
+      languages.languages.forEach(l => {
+        const option = document.createElement('option');
+        option.value = l.code;
+        option.textContent = l.name;
+        languageSelect.appendChild(option);
+      });
 
-  <!-- Footer -->
-  <footer class="site-footer">
-    <p>&copy; 2025 Nexora ProSuite. All rights reserved.</p>
-  </footer>
+      // Check if preferences exist in localStorage
+      const saved = JSON.parse(localStorage.getItem('nexoraPrefs'));
+      if (saved) {
+        countrySelect.value = saved.country || '';
+        languageSelect.value = saved.language || '';
+        document.getElementById('region').value = saved.region || '';
+        document.getElementById('postal').value = saved.postal || '';
+        applyTranslations(saved.language);
+        document.getElementById('welcome-modal').style.display = 'none';
+        document.getElementById('main-content').style.display = 'block';
+      }
+    }
 
-  <!-- Auth Modal -->
-  <div id="auth-modal" class="modal hidden" role="dialog" aria-labelledby="auth-title" aria-hidden="true">
-    <div class="modal-content">
-      <button class="close-button" aria-label="Close">&times;</button>
-      <h2 id="auth-title" class="gold-text">Member Access</h2>
-      <form id="login-form">
-        <input type="text" placeholder="Username" aria-label="Username" required>
-        <input type="password" placeholder="Password" aria-label="Password" required>
-        <button type="submit" class="cta-button">Login</button>
-      </form>
-    </div>
-  </div>
+    function applyTranslations(lang) {
+      // Demo translations (expand later with JSON dictionaries)
+      const translations = {
+        es: { welcome: "Bienvenido a Nexora ProSuite", intro: "Tu portal empresarial personalizado." },
+        fr: { welcome: "Bienvenue à Nexora ProSuite", intro: "Votre portail d'entreprise personnalisé." },
+        de: { welcome: "Willkommen bei Nexora ProSuite", intro: "Ihr personalisiertes Unternehmensportal." }
+      };
 
-  <!-- Scripts -->
-  <script src="assets/js/main.js" defer></script>
+      document.querySelectorAll('[data-translate]').forEach(el => {
+        const key = el.getAttribute('data-translate');
+        if (translations[lang] && translations[lang][key]) {
+          el.textContent = translations[lang][key];
+        }
+      });
+    }
+
+    document.getElementById('save-preferences').addEventListener('click', () => {
+      const prefs = {
+        country: document.getElementById('country').value,
+        language: document.getElementById('language').value,
+        region: document.getElementById('region').value,
+        postal: document.getElementById('postal').value
+      };
+      localStorage.setItem('nexoraPrefs', JSON.stringify(prefs));
+      applyTranslations(prefs.language);
+      document.getElementById('welcome-modal').style.display = 'none';
+      document.getElementById('main-content').style.display = 'block';
+    });
+
+    loadPreferences();
+  </script>
 </body>
 </html>
