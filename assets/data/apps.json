@@ -1,115 +1,38 @@
 [
   {
-    "title": "WeChat",
-    "url": "https://www.wechat.com",
-    "snippet": "China's leading messaging & payments app.",
+    "name": "WeChat",
     "country": "china",
-    "category": "messaging"
+    "category": "messaging",
+    "link": "https://wechat.com"
   },
   {
-    "title": "Alipay",
-    "url": "https://www.alipay.com",
-    "snippet": "China's most popular digital wallet and payments app.",
-    "country": "china",
-    "category": "payments"
-  },
-  {
-    "title": "WhatsApp",
-    "url": "https://www.whatsapp.com",
-    "snippet": "Global messaging app used in 180+ countries.",
+    "name": "WhatsApp",
     "country": "global",
-    "category": "messaging"
+    "category": "messaging",
+    "link": "https://whatsapp.com"
   },
   {
-    "title": "PayPal",
-    "url": "https://www.paypal.com",
-    "snippet": "International digital payments service from the USA.",
-    "country": "usa",
-    "category": "payments"
-  },
-  {
-    "title": "Paytm",
-    "url": "https://paytm.com",
-    "snippet": "India’s leading digital payments and commerce app.",
+    "name": "Paytm",
     "country": "india",
-    "category": "payments"
+    "category": "payments",
+    "link": "https://paytm.com"
   },
   {
-    "title": "PhonePe",
-    "url": "https://www.phonepe.com",
-    "snippet": "UPI-based payments and financial services app in India.",
-    "country": "india",
-    "category": "payments"
-  },
-  {
-    "title": "Line",
-    "url": "https://line.me",
-    "snippet": "Messaging and social app popular in Japan & SE Asia.",
-    "country": "japan",
-    "category": "social"
-  },
-  {
-    "title": "Rakuten Pay",
-    "url": "https://pay.rakuten.co.jp",
-    "snippet": "Japanese digital wallet and e-commerce payments app.",
-    "country": "japan",
-    "category": "payments"
-  },
-  {
-    "title": "Telegram",
-    "url": "https://telegram.org",
-    "snippet": "Global cloud-based encrypted messaging platform.",
-    "country": "global",
-    "category": "messaging"
-  },
-  {
-    "title": "Zoom",
-    "url": "https://zoom.us",
-    "snippet": "Global video conferencing app for business & education.",
-    "country": "usa",
-    "category": "business"
-  },
-  {
-    "title": "M-Pesa",
-    "url": "https://www.safaricom.co.ke/personal/m-pesa",
-    "snippet": "Mobile money service widely used in Kenya & Africa.",
+    "name": "M-Pesa",
     "country": "kenya",
-    "category": "payments"
+    "category": "payments",
+    "link": "https://safaricom.co.ke/m-pesa"
   },
   {
-    "title": "KakaoTalk",
-    "url": "https://www.kakaocorp.com/service/KakaoTalk",
-    "snippet": "Korea’s most popular messaging app.",
-    "country": "south-korea",
-    "category": "messaging"
+    "name": "TikTok",
+    "country": "global",
+    "category": "social",
+    "link": "https://tiktok.com"
   },
   {
-    "title": "Grab",
-    "url": "https://www.grab.com",
-    "snippet": "Super app for transport, food delivery, and payments in SE Asia.",
-    "country": "singapore",
-    "category": "business"
-  },
-  {
-    "title": "Yandex",
-    "url": "https://yandex.com",
-    "snippet": "Russia’s leading internet services and apps platform.",
-    "country": "russia",
-    "category": "business"
-  },
-  {
-    "title": "Spotify",
-    "url": "https://www.spotify.com",
-    "snippet": "Global music streaming app.",
-    "country": "sweden",
-    "category": "social"
-  },
-  {
-    "title": "TikTok",
-    "url": "https://www.tiktok.com",
-    "snippet": "Short-form video app used globally.",
-    "country": "china",
-    "category": "social"
+    "name": "Facebook",
+    "country": "global",
+    "category": "social",
+    "link": "https://facebook.com"
   }
 ]
-
