@@ -1,82 +1,60 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nexora ProSuite - Global Enterprise Portal</title>
-  <link rel="stylesheet" href="assets/css/style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Nexora ProSuite</title>
+  <meta name="description" content="Premium black & gold enterprise portal connecting 195 countries."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css"/>
+  <link rel="stylesheet" href="assets/css/components.css"/>
+  <link rel="icon" href="assets/img/logo.svg" type="image/svg+xml">
 </head>
 <body>
-  <!-- ===== HEADER ===== -->
-  <header>
-    <img src="assets/img/logo.png" alt="Nexora ProSuite Logo" class="logo" />
-    <nav>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="features.html">Features</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        <li><a href="login.html">Login</a></li>
-      </ul>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="nav">
+    <a class="brand" href="/"><img src="assets/img/logo.svg" alt="Nexora ProSuite"/></a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#features">Features</a>
+      <a href="apps.html">Apps</a>
+      <a href="login.html" class="btn gold">Sign In</a>
     </nav>
+    <button class="nav-toggle" aria-expanded="false" aria-label="Open Menu">☰</button>
   </header>
 
-  <!-- ===== UNIVERSAL SEARCH ===== -->
-  <section class="search-section">
-    <div class="container search-container">
-      <h1 class="gold-text">Universal Search Engine</h1>
-      <p class="search-subtitle">Search across Nexora, apps, and global engines</p>
-      <div class="search-bar">
-        <input type="text" id="searchInput" placeholder="Search anything..." />
-        <button id="searchBtn">Search</button>
-      </div>
-      <div id="searchResults" class="search-results"></div>
+  <section class="hero" role="banner">
+    <div class="hero-bg" aria-hidden="true">
+      <img class="worldmap" src="assets/img/worldmap.svg" alt="" />
     </div>
-  </section>
-
-  <!-- ===== HERO ===== -->
-  <section class="hero">
-    <h1>Welcome to <span class="gold-text">Nexora ProSuite</span></h1>
-    <p>The exclusive enterprise portal connecting 195 countries.</p>
-    <div class="btn-group">
-      <a href="signup.html" class="btn">Join Now</a>
-      <a href="features.html" class="btn">Explore Features</a>
-    </div>
-  </section>
-
-  <!-- ===== FEATURES ===== -->
-  <section class="container">
-    <h2 class="section-title">Why Choose Nexora?</h2>
-    <div class="card-grid">
-      <div class="card">
-        <h3>🌍 Global Network</h3>
-        <p>Connect with professionals and enterprises across 195 countries in real time.</p>
-      </div>
-      <div class="card">
-        <h3>⭐ Tiered Membership</h3>
-        <p>Unlock exclusive benefits with advanced, premium, and executive tiers.</p>
-      </div>
-      <div class="card">
-        <h3>⚡ Performance</h3>
-        <p>Fast, secure, and scalable architecture tailored for enterprise needs.</p>
+    <div class="hero-inner">
+      <h1 class="gold-gradient">Nexora ProSuite</h1>
+      <p>Connecting 195 countries with a premium enterprise portal.</p>
+      <div class="cta">
+        <a class="btn gold" href="apps.html">Explore Apps</a>
+        <a class="btn ghost" href="#features">Learn More</a>
       </div>
     </div>
   </section>
 
-  <!-- ===== WORLD MAP ===== -->
-  <section class="container">
-    <h2 class="section-title">Our Global Reach</h2>
-    <img src="assets/img/worldmap.png" alt="Global Network Map" class="worldmap" />
-  </section>
+  <main id="main">
+    <section id="features" class="grid features container">
+      <article class="card">
+        <h3 class="gold-gradient">Global Reach</h3>
+        <p>Country directory and localization scaffold.</p>
+      </article>
+      <article class="card">
+        <h3 class="gold-gradient">Member Tiers</h3>
+        <p>Tiered UX ready for data hookup.</p>
+      </article>
+      <article class="card">
+        <h3 class="gold-gradient">Performance</h3>
+        <p>Optimized assets and lazy loaded media.</p>
+      </article>
+    </section>
+  </main>
 
-  <!-- ===== FOOTER ===== -->
-  <footer>
-    <p>&copy; 2025 Nexora ProSuite. All Rights Reserved.</p>
-    <p><a href="contact.html">Contact Us</a> | <a href="login.html">Member Login</a></p>
-  </footer>
+  <footer class="site-footer">© <span id="y"></span> Nexora ProSuite</footer>
 
-  <!-- Scripts -->
-  <script src="assets/js/search.js"></script>
-</body>
-</html>
+  <script src="assets/js/app.js" defer><
