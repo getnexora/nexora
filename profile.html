@@ -14,44 +14,22 @@
     <p><strong>Email:</strong> <span id="user-email"></span></p>
   </div>
 
+  <!-- Custom Links -->
+  <h2>My Apps / Links</h2>
+  <ul id="apps-list"></ul>
+
+  <!-- Add new app form -->
+  <form id="app-form">
+    <input type="text" id="app-name" placeholder="App Name" required />
+    <input type="url" id="app-url" placeholder="App URL (https://...)" required />
+    <button type="submit">Add App</button>
+  </form>
+
   <!-- Logout Button -->
   <button id="logout-btn">Logout</button>
 
-  <!-- Firebase SDK + Auth -->
+  <!-- Firebase SDKs -->
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-app.js";
     import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-auth.js";
-
-    // Firebase config
-    const firebaseConfig = {
-      apiKey: "AIzaSyBPYzbOzSgnEpYe_L_F-QLrr8cpAwkZyJk",
-      authDomain: "nexora-prosuite.firebaseapp.com",
-      projectId: "nexora-prosuite",
-      storageBucket: "nexora-prosuite.firebasestorage.app",
-      messagingSenderId: "367987127145",
-      appId: "1:367987127145:web:be983d04a0b769a4b183f8",
-      measurementId: "G-LRP2XBZ7HS"
-    };
-
-    // Init
-    const app = initializeApp(firebaseConfig);
-    const auth = getAuth(app);
-
-    // Show user info
-    const userEmailEl = document.getElementById("user-email");
-    onAuthStateChanged(auth, (user) => {
-      if (user) {
-        userEmailEl.textContent = user.email;
-      } else {
-        window.location.href = "login.html"; // Redirect if not logged in
-      }
-    });
-
-    // Logout
-    document.getElementById("logout-btn").addEventListener("click", async () => {
-      await signOut(auth);
-      window.location.href = "login.html";
-    });
-  </script>
-</body>
-</html>
+    import { getFirestore, doc, setDoc, getDoc, updateDoc, arrayUnion } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-firestore.js";
