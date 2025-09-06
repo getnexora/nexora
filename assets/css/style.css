@@ -1,4 +1,4 @@
-/* ===== Nexora ProSuite Theme ===== */
+/* ===== Global Styles ===== */
 * {
   margin: 0;
   padding: 0;
@@ -7,152 +7,153 @@
 
 body {
   font-family: 'Inter', sans-serif;
-  background: #0a0a0a;
-  color: #f5f5f5;
+  background-color: #000;
+  color: #ddd;
   line-height: 1.6;
 }
 
 .container {
   width: 90%;
   max-width: 1200px;
-  margin: 0 auto;
+  margin: auto;
 }
 
-/* Header */
-.site-header {
-  background: #111;
-  border-bottom: 1px solid #333;
+/* ===== Navbar ===== */
+.navbar {
+  background: #000;
   padding: 1rem 0;
+  border-bottom: 1px solid #444;
 }
 
-.header-container {
+.nav-container {
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
 }
 
-.logo {
-  width: 140px;
-  height: auto;
+.logo img {
+  height: 50px;
 }
 
-.nav a {
-  color: #f5f5f5;
-  margin-left: 1.5rem;
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-links li a {
   text-decoration: none;
-  transition: color 0.3s, border-bottom 0.3s;
+  color: #ddd;
+  font-weight: 500;
+  transition: color 0.3s ease;
 }
 
-.nav a:hover {
-  color: #ffd700;
-  border-bottom: 2px solid #ffd700;
+.nav-links li a:hover,
+.nav-links li a.active {
+  color: #FFD700;
 }
 
 .btn {
-  background: transparent;
-  color: #f5f5f5;
   padding: 0.5rem 1rem;
-  border: 1px solid #ffd700;
-  border-radius: 4px;
-  margin-left: 1rem;
+  border-radius: 6px;
+  font-weight: 600;
   text-decoration: none;
-  transition: background 0.3s, color 0.3s;
-}
-
-.btn:hover {
-  background: #ffd700;
-  color: #0a0a0a;
+  transition: all 0.3s ease;
 }
 
 .btn-gold {
-  background: #ffd700;
-  color: #0a0a0a;
-  border: none;
+  background: #FFD700;
+  color: #000;
 }
 
 .btn-gold:hover {
-  background: #d4af37;
+  background: #e6c200;
 }
 
-/* Hero */
+.btn-large {
+  padding: 0.8rem 1.5rem;
+  font-size: 1.1rem;
+}
+
+/* ===== Hero Section ===== */
 .hero {
-  background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)),
-              url("../img/worldmap.png") center/cover no-repeat;
-  color: #fff;
+  background: url('../img/worldmap.png') center/cover no-repeat;
   text-align: center;
   padding: 6rem 1rem;
+  color: #fff;
 }
 
-.hero h1 {
-  font-size: 3rem;
+.hero-content h1 {
+  font-size: 2.5rem;
   margin-bottom: 1rem;
+  font-weight: 900;
 }
 
-.hero p {
-  font-size: 1.25rem;
+.hero-content p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  color: #ccc;
+}
+
+/* ===== Features Preview ===== */
+.features-preview {
+  padding: 4rem 1rem;
+  background: #111;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 2rem;
   margin-bottom: 2rem;
 }
 
-/* Gold text effect */
-.gold-text {
-  background: linear-gradient(90deg, #d4af37, #ffd700, #d4af37);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: shine 4s linear infinite;
-}
-
-@keyframes shine {
-  0% { background-position: 0%; }
-  100% { background-position: 100%; }
-}
-
-/* Features */
-.features {
-  padding: 4rem 1rem;
-  background: #111;
-}
-
-.grid {
+.feature-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 2rem;
 }
 
-.card {
+.feature-card {
   background: #1a1a1a;
   padding: 2rem;
-  border-radius: 8px;
-  border: 1px solid #333;
-  transition: transform 0.3s, box-shadow 0.3s;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+  transition: transform 0.3s ease, background 0.3s ease;
 }
 
-.card:hover {
+.feature-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 0 20px rgba(212,175,55,0.3);
+  background: #222;
 }
 
-/* Footer */
-.site-footer {
-  background: #0a0a0a;
-  border-top: 1px solid #333;
-  padding: 2rem 0;
+.feature-card h3 {
+  color: #FFD700;
+  margin-bottom: 1rem;
+}
+
+/* ===== Footer ===== */
+.footer {
+  background: #000;
+  padding: 2rem 1rem;
   text-align: center;
-  color: #bbb;
+  border-top: 1px solid #444;
 }
 
-.footer-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
+.footer p {
+  color: #888;
+  margin: 0.3rem 0;
 }
 
-.footer-nav a {
-  color: #bbb;
-  margin: 0 1rem;
+.footer a {
+  color: #FFD700;
   text-decoration: none;
 }
 
-.footer-nav a:hover {
-  color: #ffd700;
+.footer a:hover {
+  text-decoration: underline;
+}
+
+/* ===== Utility Classes ===== */
+.gold-text {
+  color: #FFD700;
 }
