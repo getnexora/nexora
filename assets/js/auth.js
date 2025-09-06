@@ -25,9 +25,10 @@ const auth = getAuth(app);
 async function registerUser(email, password) {
   try {
     const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-    alert("✅ Account created: " + userCredential.user.email);
+    console.log("✅ Account created:", userCredential.user.email);
+    window.location.href = "profile.html"; // redirect after signup
   } catch (error) {
-    alert("❌ Error: " + error.message);
+    alert("❌ Signup Error: " + error.message);
   }
 }
 
@@ -35,9 +36,10 @@ async function registerUser(email, password) {
 async function loginUser(email, password) {
   try {
     const userCredential = await signInWithEmailAndPassword(auth, email, password);
-    alert("✅ Logged in: " + userCredential.user.email);
+    console.log("✅ Logged in:", userCredential.user.email);
+    window.location.href = "profile.html"; // redirect after login
   } catch (error) {
-    alert("❌ Error: " + error.message);
+    alert("❌ Login Error: " + error.message);
   }
 }
 
@@ -45,9 +47,10 @@ async function loginUser(email, password) {
 async function logoutUser() {
   try {
     await signOut(auth);
-    alert("✅ Logged out successfully");
+    console.log("✅ Logged out");
+    window.location.href = "login.html";
   } catch (error) {
-    alert("❌ Error: " + error.message);
+    alert("❌ Logout Error: " + error.message);
   }
 }
 
