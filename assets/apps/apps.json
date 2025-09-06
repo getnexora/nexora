@@ -60,3 +60,53 @@
     "link": "https://www.skype.com/"
   }
 ]
+,
+  {
+    "name": "Google Drive",
+    "description": "Cloud storage and file sharing with Google Workspace.",
+    "icon": "assets/img/app-googledrive.png",
+    "link": "https://drive.google.com/"
+  },
+  {
+    "name": "Dropbox",
+    "description": "Store, share, and collaborate on files securely.",
+    "icon": "assets/img/app-dropbox.png",
+    "link": "https://www.dropbox.com/"
+  },
+  {
+    "name": "Trello",
+    "description": "Visual project management with boards, lists, and cards.",
+    "icon": "assets/img/app-trello.png",
+    "link": "https://trello.com/"
+  },
+  {
+    "name": "Asana",
+    "description": "Organize team tasks, projects, and goals in one place.",
+    "icon": "assets/img/app-asana.png",
+    "link": "https://asana.com/"
+  },
+  {
+    "name": "Notion",
+    "description": "All-in-one workspace for notes, docs, and collaboration.",
+    "icon": "assets/img/app-notion.png",
+    "link": "https://www.notion.so/"
+  },
+  {
+    "name": "Evernote",
+    "description": "Capture ideas, notes, and tasks with powerful organization.",
+    "icon": "assets/img/app-evernote.png",
+    "link": "https://evernote.com/"
+  },
+  {
+    "name": "Jira",
+    "description": "Agile project tracking and issue management for teams.",
+    "icon": "assets/img/app-jira.png",
+    "link": "https://www.atlassian.com/software/jira"
+  },
+  {
+    "name": "Monday.com",
+    "description": "Work OS to manage projects, processes, and collaboration.",
+    "icon": "assets/img/app-monday.png",
+    "link": "https://monday.com/"
+  }
+]
