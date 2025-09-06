@@ -1,1 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nexora Apps Hub</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <img src="assets/img/logo.png" alt="Nexora ProSuite Logo" class="logo" />
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="features.html">Features</a></li>
+        <li><a href="apps.html" class="active">Apps</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="login.html">Login</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Apps Section -->
+  <section class="container">
+    <h2 class="section-title">🌍 Global Apps Directory</h2>
+    <p class="center-text">Discover apps used across 195 countries</p>
+
+    <!-- Filters -->
+    <div class="filters">
+      <select id="countryFilter">
+        <option value="all">All Countries</option>
+        <option value="china">China</option>
+        <option value="india">India</option>
+        <option value="usa">USA</option>
+        <option value="japan">Japan</option>
+      </select>
+
+      <select id="categoryFilter">
+        <option value="all">All Categories</option>
+        <option value="social">Social</option>
+        <option value="messaging">Messaging</option>
+        <option value="payments">Payments</option>
+        <option value="business">Business</option>
+      </select>
+    </div>
+
+    <!-- Apps Grid -->
+    <div id="appsGrid" class="card-grid"></div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Nexora ProSuite. All Rights Reserved.</p>
+  </footer>
+
+  <script src="assets/js/apps.js"></script>
+</body>
+</html>
 
