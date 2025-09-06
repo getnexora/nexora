@@ -3,117 +3,35 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nexora ProSuite</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: sans-serif;
-      background: #111;
-      color: #eee;
-      text-align: center;
-    }
-
-    /* Loader */
-    .loader {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: black;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      z-index: 9999;
-      transition: opacity 0.5s ease;
-    }
-    .loader.hidden {
-      opacity: 0;
-      pointer-events: none;
-    }
-    .loader-logo {
-      width: 60px;
-      height: 60px;
-      border: 4px solid gold;
-      border-top-color: transparent;
-      border-radius: 50%;
-      animation: spin 1s linear infinite;
-      margin-bottom: 10px;
-    }
-    @keyframes spin {
-      to { transform: rotate(360deg); }
-    }
-
-    /* Modal */
-    .modal {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: rgba(0,0,0,0.85);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 1000;
-    }
-    .modal-content {
-      background: #222;
-      padding: 20px;
-      border-radius: 8px;
-      max-width: 400px;
-      width: 90%;
-      color: white;
-    }
-    .modal-content label {
-      display: block;
-      margin-top: 10px;
-      text-align: left;
-    }
-    .modal-content input,
-    .modal-content select {
-      width: 100%;
-      padding: 8px;
-      margin-top: 4px;
-      background: #333;
-      border: 1px solid #555;
-      border-radius: 4px;
-      color: white;
-    }
-    .modal-content button {
-      margin-top: 15px;
-      width: 100%;
-      padding: 10px;
-      background: gold;
-      border: none;
-      border-radius: 4px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-
-    /* Hidden state */
-    .hidden { display: none; }
-  </style>
+  <title>Nexora ProSuite - Exclusive Global Portal</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
   <!-- Loader -->
   <div id="loader" class="loader">
-    <div class="loader-logo"></div>
-    <p>Loading Nexora ProSuite...</p>
+    <div class="loader-content">
+      <div class="loader-logo"></div>
+      <p>Loading Nexora ProSuite...</p>
+    </div>
   </div>
 
   <!-- Welcome Modal -->
   <div id="welcomeModal" class="modal hidden">
     <div class="modal-content">
-      <h2>🌍 Welcome to Nexora ProSuite</h2>
-      <label for="language">Language:</label>
-      <select id="language">
-        <option value="en">English</option>
-        <option value="es">Spanish</option>
-      </select>
+      <h2>🌐 Welcome to <span class="gold-text">Nexora ProSuite</span></h2>
+      <p class="welcome-msg">
+        We’re glad you’re here! 🎉 <br>
+        To give you the best possible experience — faster loading, local content, and tailored recommendations —
+        please share your preferences below. <br><br>
+        Not ready? You can always <strong>continue as a guest</strong>.
+      </p>
+
+      <label for="language">Preferred Language:</label>
+      <select id="language"></select>
 
       <label for="country">Country:</label>
-      <select id="country">
-        <option value="US">United States</option>
-        <option value="MX">Mexico</option>
-      </select>
+      <select id="country"></select>
 
       <label for="region">Region/State:</label>
       <input type="text" id="region" placeholder="Enter region or state">
@@ -121,33 +39,25 @@
       <label for="postal">Postal Code:</label>
       <input type="text" id="postal" placeholder="Enter postal code">
 
-      <button id="savePreferences">Save & Continue</button>
+      <button id="savePreferences">✨ Save & Personalize</button>
+      <button id="continueGuest" class="guest-btn">🚀 Continue as Guest</button>
     </div>
   </div>
 
   <!-- Main App -->
   <div id="app" class="hidden">
-    <h1>✅ Nexora ProSuite Loaded!</h1>
-    <p>Your enterprise portal is ready.</p>
+    <header class="header">
+      <h1 class="gold-text">Nexora ProSuite</h1>
+      <p>Your global enterprise portal</p>
+    </header>
+    <main>
+      <section class="dashboard">
+        <h2>🌟 Welcome to your dashboard</h2>
+        <p>This is where personalized content will appear once backend integration is ready.</p>
+      </section>
+    </main>
   </div>
 
-  <script>
-    // Hide loader after page is ready
-    window.addEventListener("load", () => {
-      const loader = document.getElementById("loader");
-      const modal = document.getElementById("welcomeModal");
-      loader.classList.add("hidden");
-      setTimeout(() => {
-        loader.style.display = "none";
-        modal.classList.remove("hidden");
-      }, 600);
-    });
-
-    // Save preferences
-    document.getElementById("savePreferences").addEventListener("click", () => {
-      document.getElementById("welcomeModal").classList.add("hidden");
-      document.getElementById("app").classList.remove("hidden");
-    });
-  </script>
+  <script src="assets/js/app.js"></script>
 </body>
 </html>
