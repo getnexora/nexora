@@ -1,68 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nexora ProSuite - Global Enterprise Portal</title>
-  <link rel="stylesheet" href="assets/css/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us - Nexora ProSuite</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 <body>
-  <!-- ===== Header / Navbar ===== -->
-  <header class="navbar">
-    <div class="container nav-container">
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-container">
       <div class="logo">
         <img src="assets/img/logo.png" alt="Nexora ProSuite Logo">
       </div>
-      <nav>
-        <ul class="nav-links">
-          <li><a href="index.html" class="active">Home</a></li>
+      <nav class="main-nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
           <li><a href="features.html">Features</a></li>
           <li><a href="about.html">About</a></li>
-          <li><a href="developer.html">Developers</a></li>
-          <li><a href="dashboard.html">Dashboard</a></li>
-          <li><a href="contact.html">Contact</a></li>
-          <li><a href="login.html" class="btn btn-gold">Login</a></li>
+          <li><a href="contact.html" class="active">Contact</a></li>
+          <li><a href="login.html" class="btn-login">Login</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
-  <!-- ===== Hero Section ===== -->
-  <section class="hero">
-    <div class="container hero-content">
-      <h1 class="gold-text">Welcome to Nexora ProSuite</h1>
-      <p>The premium global enterprise portal connecting 195 countries with seamless access, translations, and powerful tools.</p>
-      <a href="signup.html" class="btn btn-gold btn-large">Get Started</a>
-    </div>
-  </section>
+  <!-- Contact Section -->
+  <section class="contact">
+    <div class="container contact-container">
+      <h1 class="gold-text">Get in Touch</h1>
+      <p class="contact-intro">
+        We’d love to hear from you! Whether you’re a new visitor, a current member, or a potential partner — let’s connect.
+      </p>
 
-  <!-- ===== Features Preview ===== -->
-  <section class="features-preview">
-    <div class="container">
-      <h2 class="section-title gold-text">Powerful Features</h2>
-      <div class="feature-grid">
-        <div class="feature-card">
-          <h3>🌍 Global Reach</h3>
-          <p>Connect across 195 countries with multilingual support and localization.</p>
+      <div class="contact-grid">
+        <!-- Contact Form -->
+        <div class="contact-form">
+          <form action="#" method="POST">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" placeholder="Your Name" required>
+
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="you@example.com" required>
+
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="Write your message here..." rows="5" required></textarea>
+
+            <button type="submit" class="btn btn-primary">Send Message</button>
+          </form>
         </div>
-        <div class="feature-card">
-          <h3>⚡ Fast & Secure</h3>
-          <p>Optimized for speed and protected with enterprise-grade security.</p>
-        </div>
-        <div class="feature-card">
-          <h3>✨ Premium Design</h3>
-          <p>Enjoy a sleek black-and-gold interface built for professionals.</p>
+
+        <!-- Contact Info -->
+        <div class="contact-info">
+          <h2>📍 Our Headquarters</h2>
+          <p>San Francisco, CA, USA</p>
+
+          <h2>📧 Email</h2>
+          <p><a href="mailto:support@nexoraprosuite.com">support@nexoraprosuite.com</a></p>
+
+          <h2>🌐 Follow Us</h2>
+          <p>
+            <a href="#">LinkedIn</a> | 
+            <a href="#">Twitter</a> | 
+            <a href="#">Facebook</a>
+          </p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ===== Footer ===== -->
-  <footer class="footer">
-    <div class="container footer-content">
-      <p>© 2025 Nexora ProSuite. All rights reserved.</p>
-      <p><a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a></p>
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-container">
+      <p>&copy; 2025 Nexora ProSuite. All rights reserved.</p>
+      <nav class="footer-nav">
+        <a href="about.html">About</a>
+        <a href="features.html">Features</a>
+        <a href="contact.html" class="active">Contact</a>
+      </nav>
     </div>
   </footer>
 </body>
