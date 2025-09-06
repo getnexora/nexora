@@ -3,43 +3,74 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Developers - Nexora ProSuite</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <title>Developer Portal - Nexora ProSuite</title>
   <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    body {
+      background-color: #0a0a0a;
+      color: #f5f5f5;
+      font-family: 'Inter', sans-serif;
+      text-align: center;
+      padding: 50px;
+    }
+
+    .gold-text {
+      background: linear-gradient(90deg, #d4af37, #ffd700, #d4af37);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-size: 2.5rem;
+      font-weight: 800;
+    }
+
+    .card {
+      background: #1a1a1a;
+      border: 1px solid #333;
+      padding: 2rem;
+      margin: 2rem auto;
+      border-radius: 15px;
+      max-width: 800px;
+      box-shadow: 0 0 15px rgba(212,175,55,0.3);
+    }
+
+    button {
+      background: #d4af37;
+      border: none;
+      padding: 10px 20px;
+      font-size: 1rem;
+      font-weight: bold;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background: #ffd700;
+    }
+  </style>
 </head>
 <body>
-  <!-- Navbar -->
-  <nav class="navbar">
-    <div class="logo">Nexora ProSuite</div>
-    <div class="nav-links">
-      <a href="index.html">Home</a>
-      <a href="features.html">Features</a>
-      <a href="about.html">About</a>
-      <a href="developer.html">Developer</a>
-      <a href="contact.html">Contact</a>
-      <a href="login.html" class="signin-btn">Sign In</a>
-    </div>
-  </nav>
+  <h1 class="gold-text">Developer Portal</h1>
+  <p>Welcome, Admin/Developer. This page is private and only accessible to authorized accounts.</p>
 
-  <!-- Page Content -->
-  <main>
-    <section class="features-grid">
-      <h2>Developer Resources</h2>
-      <p>Access our API documentation, SDKs, and integration guides to build with Nexora ProSuite.</p>
-      <p><a href="mailto:devsupport@nexoraprosuite.com">Contact our developer support team</a> for help.</p>
-    </section>
-  </main>
+  <div class="card">
+    <h2>Developer Tools</h2>
+    <p>Here you can manage, test, and deploy apps.</p>
+    <button onclick="location.href='dashboard.html'">Go to Dashboard</button>
+  </div>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <p>&copy; 2024 Nexora ProSuite. All rights reserved.</p>
-    <div class="footer-links">
-      <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
-      <a href="developer.html">Developers</a>
-    </div>
-  </footer>
+  <div class="card">
+    <h2>Private Notes</h2>
+    <p>Only admins/developers can see this content.</p>
+  </div>
 
-  <script src="assets/js/main.js"></script>
+  <script>
+    // === Access Control ===
+    const role = localStorage.getItem("userRole");
+
+    if (role !== "developer" && role !== "admin") {
+      alert("Access Denied. Please log in as a developer or admin.");
+      window.location.href = "login.html";
+    }
+  </script>
 </body>
 </html>
