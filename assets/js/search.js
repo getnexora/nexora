@@ -10,7 +10,12 @@ const LOCAL_INDEX = [
 ];
 
 // Nexora apps
-const APP_INDEX = [
+const APP_INDEX = [// Trigger search when pressing Enter in the input
+document.getElementById("searchInput").addEventListener("keypress", function (e) {
+  if (e.key === "Enter") {
+    document.getElementById("searchBtn").click();
+  }
+});
   { title: "Email", url: "https://mail.nexora.com", snippet: "Access your Nexora ProSuite email inbox." },
   { title: "Docs", url: "https://docs.nexora.com", snippet: "Collaborate on documents in real time." },
   { title: "CRM", url: "https://crm.nexora.com", snippet: "Manage customer relationships and sales pipelines." },
