@@ -1,76 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Nexora ProSuite - Exclusive Global Portal</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nexora ProSuite</title>
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
   <!-- Loader -->
-  <div class="loader">
-    <div class="loader-content">
-      <div class="loader-logo"></div>
-      <p>Loading Nexora ProSuite...</p>
-    </div>
+  <div id="loader" class="loader">
+    <div class="loader-logo"></div>
+    <p>Loading Nexora ProSuite...</p>
   </div>
 
   <!-- Welcome Modal -->
   <div id="welcomeModal" class="modal">
     <div class="modal-content">
-      <h2 class="gold-text">Welcome to Nexora ProSuite</h2>
-      <p>Please select your preferences:</p>
-      <form id="preferencesForm">
-        <label for="country">Country</label>
-        <select id="country" required>
-          <option value="">-- Select Country --</option>
-        </select>
+      <h2>🌍 Welcome to Nexora ProSuite</h2>
+      <label for="language">Language:</label>
+      <select id="language"></select>
 
-        <label for="region">Region / State</label>
-        <input type="text" id="region" placeholder="Enter your region or state"/>
+      <label for="country">Country:</label>
+      <select id="country"></select>
 
-        <label for="postal">Postal Code</label>
-        <input type="text" id="postal" placeholder="Enter postal code"/>
+      <label for="region">Region/State:</label>
+      <input type="text" id="region" placeholder="Enter region or state">
 
-        <label for="language">Language</label>
-        <select id="language" required>
-          <option value="">-- Select Language --</option>
-        </select>
+      <label for="postal">Postal Code:</label>
+      <input type="text" id="postal" placeholder="Enter postal code">
 
-        <button type="button" id="startBtn" class="btn-primary">Save & Continue</button>
-      </form>
+      <button id="savePreferences">Save & Continue</button>
     </div>
   </div>
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="container">
-      <h1 class="gold-text">Welcome to Nexora ProSuite</h1>
-      <p>Connecting 195 countries with exclusive tiered membership access.</p>
-      <a href="login.html" class="btn-primary">Login</a>
-      <a href="signup.html" class="btn-secondary">Sign Up</a>
-    </div>
-  </section>
+  <!-- Main Content -->
+  <div id="app" class="hidden">
+    <header>
+      <h1 class="gold-text">Nexora ProSuite</h1>
+    </header>
+    <main>
+      <p>Welcome to your global enterprise portal. 🌐</p>
+    </main>
+  </div>
 
-  <!-- Features Preview -->
-  <section class="features">
-    <div class="container">
-      <h2 class="gold-text">Global Features</h2>
-      <ul>
-        <li>🌍 Multi-language support</li>
-        <li>🔒 Secure member login</li>
-        <li>⭐ Tier-based access system</li>
-        <li>⚡ Premium animations</li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer>
-    <div class="container">
-      <p>&copy; 2025 Nexora ProSuite. All rights reserved.</p>
-    </div>
-  </footer>
-
-  <scr
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
