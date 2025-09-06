@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nexora ProSuite - Global Portal</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Nexora ProSuite - Exclusive Global Portal</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
   <!-- Loader -->
-  <div id="loader" class="loader">
+  <div class="loader">
     <div class="loader-content">
       <div class="loader-logo"></div>
       <p>Loading Nexora ProSuite...</p>
@@ -20,74 +20,57 @@
   <div id="welcomeModal" class="modal">
     <div class="modal-content">
       <h2 class="gold-text">Welcome to Nexora ProSuite</h2>
-      <p>Please set your preferences:</p>
+      <p>Please select your preferences:</p>
       <form id="preferencesForm">
-        <label for="language">Language:</label>
-        <select id="language" name="language" required></select>
+        <label for="country">Country</label>
+        <select id="country" required>
+          <option value="">-- Select Country --</option>
+        </select>
 
-        <label for="country">Country:</label>
-        <select id="country" name="country" required></select>
+        <label for="region">Region / State</label>
+        <input type="text" id="region" placeholder="Enter your region or state"/>
 
-        <label for="region">Region/State:</label>
-        <input type="text" id="region" name="region" placeholder="Enter region/state" required>
+        <label for="postal">Postal Code</label>
+        <input type="text" id="postal" placeholder="Enter postal code"/>
 
-        <label for="postal">Postal Code:</label>
-        <input type="text" id="postal" name="postal" placeholder="Enter postal code" required>
+        <label for="language">Language</label>
+        <select id="language" required>
+          <option value="">-- Select Language --</option>
+        </select>
 
-        <button type="submit" class="btn-primary">Save Preferences</button>
+        <button type="button" id="startBtn" class="btn-primary">Save & Continue</button>
       </form>
     </div>
   </div>
 
   <!-- Hero Section -->
-  <header class="hero">
+  <section class="hero">
     <div class="container">
-      <h1 class="gold-text">Nexora ProSuite</h1>
-      <p>The premium enterprise portal connecting <span id="userCountry">195 countries</span>.</p>
-      <div class="cta-buttons">
-        <a href="login.html" class="btn-secondary">Login</a>
-        <a href="signup.html" class="btn-primary">Sign Up</a>
-      </div>
+      <h1 class="gold-text">Welcome to Nexora ProSuite</h1>
+      <p>Connecting 195 countries with exclusive tiered membership access.</p>
+      <a href="login.html" class="btn-primary">Login</a>
+      <a href="signup.html" class="btn-secondary">Sign Up</a>
     </div>
-  </header>
+  </section>
 
-  <!-- Membership Tiers -->
-  <section class="tiers container">
-    <h2 class="gold-text">Membership Plans</h2>
-    <div class="tier-grid">
-      <div class="tier-card basic">
-        <h3>Basic</h3>
-        <p>50 Countries</p>
-        <p>10 Languages</p>
-        <p>Free</p>
-      </div>
-      <div class="tier-card advanced">
-        <h3>Advanced</h3>
-        <p>100 Countries</p>
-        <p>30 Languages</p>
-        <p>$29/mo</p>
-      </div>
-      <div class="tier-card premium">
-        <h3>Premium</h3>
-        <p>150 Countries</p>
-        <p>75 Languages</p>
-        <p>$99/mo</p>
-      </div>
-      <div class="tier-card executive">
-        <h3>Executive</h3>
-        <p>195 Countries</p>
-        <p>100+ Languages</p>
-        <p>Custom Pricing</p>
-      </div>
+  <!-- Features Preview -->
+  <section class="features">
+    <div class="container">
+      <h2 class="gold-text">Global Features</h2>
+      <ul>
+        <li>🌍 Multi-language support</li>
+        <li>🔒 Secure member login</li>
+        <li>⭐ Tier-based access system</li>
+        <li>⚡ Premium animations</li>
+      </ul>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="footer">
-    <p>&copy; 2025 Nexora ProSuite. All Rights Reserved.</p>
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Nexora ProSuite. All rights reserved.</p>
+    </div>
   </footer>
 
-  <!-- Scripts -->
-  <script src="assets/js/main.js"></script>
-</body>
-</html>
+  <scr
