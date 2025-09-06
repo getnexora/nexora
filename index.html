@@ -9,7 +9,99 @@
   <meta name="description" content="Nexora ProSuite is a premium global enterprise portal connecting 195 countries with tiered membership, multilingual support, and an interactive dashboard.">
   <meta property="og:title" content="Nexora ProSuite">
   <meta property="og:description" content="Exclusive enterprise portal for global collaboration.">
-  <meta property="og:image" content="assets/img/logo.png">
+  <meta property="og:image" content="assets/im<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nexora ProSuite - Exclusive Global Portal</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <!-- Loader -->
+  <div class="loader" id="loader">
+    <div class="loader-content">
+      <div class="loader-logo"></div>
+      <p>Loading Nexora ProSuite...</p>
+    </div>
+  </div>
+
+  <!-- Welcome Modal -->
+  <div class="modal" id="welcomeModal">
+    <div class="modal-content">
+      <h2 class="gold-text">🌍 Welcome to Nexora ProSuite</h2>
+      <p>Please select your location and language preferences:</p>
+
+      <form id="locationForm">
+        <label for="country">Country</label>
+        <select id="country" required></select>
+
+        <label for="region">Region / State</label>
+        <select id="region" required>
+          <option value="">Select a country first</option>
+        </select>
+
+        <label for="postal">Postal Code</label>
+        <input type="text" id="postal" placeholder="e.g., 10001" required>
+
+        <label for="language">Language</label>
+        <select id="language" required>
+          <option value="en">English</option>
+          <option value="es">Español</option>
+          <option value="fr">Français</option>
+          <option value="de">Deutsch</option>
+          <option value="zh">中文</option>
+          <!-- More languages will be loaded dynamically -->
+        </select>
+
+        <button type="submit" class="btn">Continue</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <header class="hero">
+    <div class="container">
+      <h1 class="gold-text">Nexora ProSuite</h1>
+      <p>Your Exclusive Global Portal – Connecting 195 Countries</p>
+      <div class="hero-actions">
+        <a href="login.html" class="btn">Login</a>
+        <a href="signup.html" class="btn btn-gold">Sign Up</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="tiers container">
+    <h2 class="gold-text">Membership Tiers</h2>
+    <div class="tier-grid">
+      <div class="tier-card basic">
+        <h3>Basic</h3>
+        <p>Access to core features</p>
+      </div>
+      <div class="tier-card advanced">
+        <h3>Advanced</h3>
+        <p>Enhanced member tools</p>
+      </div>
+      <div class="tier-card premium">
+        <h3>Premium</h3>
+        <p>Global networking benefits</p>
+      </div>
+      <div class="tier-card executive">
+        <h3>Executive</h3>
+        <p>Elite-level access worldwide</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>&copy; 2025 Nexora ProSuite. All Rights Reserved.</p>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
+/logo.png">
   <meta property="og:type" content="website">
 
   <!-- Fonts & Styles -->
