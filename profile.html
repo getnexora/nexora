@@ -4,32 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Nexora ProSuite - Profile</title>
-  <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
   <h1>User Profile</h1>
 
-  <!-- User Info -->
-  <div id="user-info">
-    <p><strong>Email:</strong> <span id="user-email"></span></p>
-  </div>
+  <p><strong>Name:</strong> <span id="profile-name">Loading...</span></p>
 
-  <!-- Custom Links -->
-  <h2>My Apps / Links</h2>
-  <ul id="apps-list"></ul>
+  <button onclick="logout()">Logout</button>
 
-  <!-- Add new app form -->
-  <form id="app-form">
-    <input type="text" id="app-name" placeholder="App Name" required />
-    <input type="url" id="app-url" placeholder="App URL (https://...)" required />
-    <button type="submit">Add App</button>
-  </form>
-
-  <!-- Logout Button -->
-  <button id="logout-btn">Logout</button>
-
-  <!-- Firebase SDKs -->
-  <script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-app.js";
-    import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-auth.js";
-    import { getFirestore, doc, setDoc, getDoc, updateDoc, arrayUnion } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-firestore.js";
+  <script type="module" src="assets/js/auth.js"></script>
+</body>
+</html>
