@@ -3,22 +3,32 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login - Nexora</title>
+  <title>Nexora ProSuite - Login</title>
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-  <main class="auth-container">
-    <h1 class="gold-gradient">Login</h1>
-    <input type="email" id="login-email" placeholder="Email">
-    <input type="password" id="login-password" placeholder="Password">
-    <button onclick="login()">Login</button>
+  <h1>Welcome to Nexora ProSuite</h1>
 
-    <h2 class="gold-gradient">Register</h2>
-    <input type="email" id="register-email" placeholder="Email">
-    <input type="password" id="register-password" placeholder="Password">
-    <button onclick="register()">Register</button>
-  </main>
+  <!-- Signup Form -->
+  <h2>Create Account</h2>
+  <form id="signup-form">
+    <input type="email" id="signup-email" placeholder="Email" required />
+    <input type="password" id="signup-password" placeholder="Password" required />
+    <button type="submit">Sign Up</button>
+  </form>
 
+  <!-- Login Form -->
+  <h2>Login</h2>
+  <form id="login-form">
+    <input type="email" id="login-email" placeholder="Email" required />
+    <input type="password" id="login-password" placeholder="Password" required />
+    <button type="submit">Login</button>
+  </form>
+
+  <!-- Logout -->
+  <button id="logout-btn">Logout</button>
+
+  <!-- Firebase Auth -->
   <script type="module" src="assets/js/auth.js"></script>
 </body>
 </html>
