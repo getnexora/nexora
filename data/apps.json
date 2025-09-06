@@ -1,17 +1,17 @@
 [
   {
     "name": "Google",
-    "category": "Search",
-    "url": "https://www.google.com"
+    "description": "Search the web quickly.",
+    "link": "https://www.google.com"
   },
   {
     "name": "WeChat",
-    "category": "Messaging",
-    "url": "https://www.wechat.com"
+    "description": "Messaging and payments.",
+    "link": "https://www.wechat.com"
   },
   {
     "name": "WhatsApp",
-    "category": "Messaging",
-    "url": "https://www.whatsapp.com"
+    "description": "Chat with friends securely.",
+    "link": "https://www.whatsapp.com"
   }
 ]
