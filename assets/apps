@@ -1,1 +1,53 @@
+// assets/js/apps.js
+
+async function loadApps() {
+  try {
+    const response = await fetch("data/apps.json"); // load JSON
+    const apps = await response.json();
+
+    const grid = document.getElementById("appsGrid");
+    const countryFilter = document.getElementById("countryFilter");
+    const categoryFilter = document.getElementById("categoryFilter");
+
+    function renderApps() {
+      const country = countryFilter.value;
+      const category = categoryFilter.value;
+
+      grid.innerHTML = "";
+
+      const filtered = apps.filter(app => {
+        const matchCountry = country === "all" || app.country === country || app.country === "global";
+        const matchCategory = category === "all" || app.category === category;
+        return matchCountry && matchCategory;
+      });
+
+      if (filtered.length === 0) {
+        grid.innerHTML = "<p>No apps found for this filter.</p>";
+        return;
+      }
+
+      filtered.forEach(app => {
+        const card = document.createElement("div");
+        card.className = "card";
+        card.innerHTML = `
+          <h3>${app.name}</h3>
+          <p><strong>Country:</strong> ${app.country}</p>
+          <p><strong>Category:</strong> ${app.category}</p>
+          <a href="${app.link}" target="_blank">Open</a>
+        `;
+        grid.appendChild(card);
+      });
+    }
+
+    countryFilter.addEventListener("change", renderApps);
+    categoryFilter.addEventListener("change", renderApps);
+
+    renderApps();
+  } catch (err) {
+    console.error("Failed to load apps:", err);
+    document.getElementById("appsGrid").innerHTML = "<p>Error loading apps.</p>";
+  }
+}
+
+document.addEventListener("DOMContentLoaded", loadApps);
 
