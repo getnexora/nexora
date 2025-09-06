@@ -1,24 +1,54 @@
-<!-- ===== Welcome Modal ===== -->
-<div id="welcomeModal" class="welcome-modal">
-  <div class="welcome-content">
-    <h2 class="gold-text">🌍 Welcome to Nexora ProSuite</h2>
-    <p>Select your preferred language to continue.  
-       You can always update your details later.</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nexora ProSuite - Global Portal</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <!-- Loader -->
+  <div id="loader">
+    <div class="spinner"></div>
+    <p>Loading Nexora ProSuite...</p>
+  </div>
 
-    <label for="languageSelect" class="gold-label">Choose Language</label>
-    <select id="languageSelect">
-      <option value="en">English</option>
-      <option value="es">Español</option>
-      <option value="fr">Français</option>
-      <option value="de">Deutsch</option>
-      <option value="zh">中文</option>
-      <option value="ja">日本語</option>
-      <option value="ar">العربية</option>
-    </select>
+  <!-- Popup -->
+  <div id="welcome-popup" class="popup">
+    <div class="popup-content">
+      <h1 class="gold-text">🌍 Welcome to Nexora ProSuite</h1>
+      <p>Please select your language for the best experience, or continue as guest.</p>
 
-    <div class="welcome-buttons">
-      <button id="continueBtn" class="btn gold">Continue</button>
-      <button id="guestBtn" class="btn dark">Continue as Guest</button>
+      <label for="language">Language:</label>
+      <select id="language">
+        <option value="en">English</option>
+        <option value="es">Español</option>
+        <option value="fr">Français</option>
+        <option value="de">Deutsch</option>
+        <option value="zh">中文</option>
+      </select>
+
+      <div class="popup-buttons">
+        <button id="continue-btn" class="btn gold">Continue</button>
+        <button id="guest-btn" class="btn">Continue as Guest</button>
+      </div>
     </div>
   </div>
-</div>
+
+  <!-- Main Content -->
+  <div id="main-content" class="hidden">
+    <header>
+      <img src="assets/img/logo.png" alt="Nexora Logo" class="logo">
+      <h1 class="gold-text">Nexora ProSuite</h1>
+    </header>
+
+    <section class="hero">
+      <h2>Your Global Enterprise Portal</h2>
+      <p>Connecting 195 countries with a professional experience.</p>
+    </section>
+  </div>
+
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
