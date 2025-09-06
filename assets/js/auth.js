@@ -1,87 +1,87 @@
-// Import Firebase SDK functions
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-app.js";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-auth.js";
+// Import Firebase SDKs (make sure you included firebase-app.js, firebase-auth.js, firebase-firestore.js in your HTML)
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-app.js";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-auth.js";
+import { getFirestore, doc, setDoc, getDoc } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-firestore.js";
 
-// Your Firebase configuration
+// ✅ Firebase config from your Firebase console
 const firebaseConfig = {
   apiKey: "AIzaSyBPYzbOzSgnEpYe_L_F-QLrr8cpAwkZyJk",
   authDomain: "nexora-prosuite.firebaseapp.com",
   projectId: "nexora-prosuite",
-  storageBucket: "nexora-prosuite.firebasestorage.app",
+  storageBucket: "nexora-prosuite.appspot.com",
   messagingSenderId: "367987127145",
   appId: "1:367987127145:web:be983d04a0b769a4b183f8",
   measurementId: "G-LRP2XBZ7HS"
 };
 
-// Initialize Firebase
+// ✅ Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
+const db = getFirestore(app);
 
-// =======================
-// Authentication Functions
-// =======================
+// ------------------ AUTH FUNCTIONS ------------------
 
-// Register new user
-async function registerUser(email, password) {
+// Signup
+async function signup(email, password, name) {
   try {
     const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-    console.log("✅ Account created:", userCredential.user.email);
-    window.location.href = "profile.html"; // redirect after signup
+    const uid = userCredential.user.uid;
+
+    // Save user profile in Firestore
+    await setDoc(doc(db, "users", uid), {
+      name: name,
+      email: email,
+      apps: []
+    });
+
+    alert("Signup successful!");
   } catch (error) {
-    alert("❌ Signup Error: " + error.message);
+    alert("Signup error: " + error.message);
   }
 }
 
-// Login user
-async function loginUser(email, password) {
+// Login
+async function login(email, password) {
   try {
-    const userCredential = await signInWithEmailAndPassword(auth, email, password);
-    console.log("✅ Logged in:", userCredential.user.email);
-    window.location.href = "profile.html"; // redirect after login
+    await signInWithEmailAndPassword(auth, email, password);
+    alert("Login successful!");
   } catch (error) {
-    alert("❌ Login Error: " + error.message);
+    alert("Login error: " + error.message);
   }
 }
 
-// Logout user
-async function logoutUser() {
+// Logout
+async function logout() {
   try {
     await signOut(auth);
-    console.log("✅ Logged out");
-    window.location.href = "login.html";
+    alert("Logged out successfully!");
   } catch (error) {
-    alert("❌ Logout Error: " + error.message);
+    alert("Logout error: " + error.message);
   }
 }
 
-// =======================
-// Hook into your HTML forms
-// =======================
+// ------------------ AUTH STATE LISTENER ------------------
+onAuthStateChanged(auth, async (user) => {
+  if (user) {
+    console.log("User logged in: ", user.uid);
 
-// Signup form
-const signupForm = document.getElementById("signup-form");
-if (signupForm) {
-  signupForm.addEventListener("submit", (e) => {
-    e.preventDefault();
-    const email = document.getElementById("signup-email").value;
-    const password = document.getElementById("signup-password").value;
-    registerUser(email, password);
-  });
-}
+    // Fetch user profile
+    const docRef = doc(db, "users", user.uid);
+    const docSnap = await getDoc(docRef);
 
-// Login form
-const loginForm = document.getElementById("login-form");
-if (loginForm) {
-  loginForm.addEventListener("submit", (e) => {
-    e.preventDefault();
-    const email = document.getElementById("login-email").value;
-    const password = document.getElementById("login-password").value;
-    loginUser(email, password);
-  });
-}
+    if (docSnap.exists()) {
+      console.log("User profile: ", docSnap.data());
+      document.getElementById("profile-name").innerText = docSnap.data().name;
+    } else {
+      console.log("No profile found.");
+    }
+  } else {
+    console.log("User logged out.");
+    document.getElementById("profile-name").innerText = "Guest";
+  }
+});
 
-// Logout button
-const logoutBtn = document.getElementById("logout-btn");
-if (logoutBtn) {
-  logoutBtn.addEventListener("click", logoutUser);
-}
+// ------------------ ATTACH TO HTML FORMS ------------------
+window.signup = signup;
+window.login = login;
+window.logout = logout;
