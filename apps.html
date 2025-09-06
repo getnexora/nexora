@@ -3,25 +3,28 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Apps · Nexora</title>
+  <title>Apps • Nexora ProSuite</title>
   <link rel="stylesheet" href="assets/css/style.css"/>
-  <link rel="stylesheet" href="assets/css/components.css"/>
+  <link rel="icon" href="assets/img/logo.svg" type="image/svg+xml">
 </head>
 <body>
   <header class="nav">
-    <a class="brand" href="/"><img src="assets/img/logo.svg" alt="Nexora ProSuite"/></a>
-    <nav class="nav-links" aria-label="Primary">
-      <a href="index.html#features">Features</a>
-      <a aria-current="page" href="apps.html">Apps</a>
+    <a class="brand" href="index.html"><img src="assets/img/logo.svg" alt="Nexora ProSuite"/></a>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="apps.html" class="active">Apps</a>
       <a href="login.html" class="btn gold">Sign In</a>
     </nav>
-    <button class="nav-toggle" aria-expanded="false" aria-label="Open Menu">☰</button>
+    <button class="nav-toggle" aria-expanded="false">☰</button>
   </header>
-  <main class="container">
-    <h1 class="gold-gradient">App Directory</h1>
-    <div id="apps-grid" class="grid cards"></div>
+
+  <main class="container" style="padding-top:40px;">
+    <h1 class="gold-gradient" style="margin-bottom:20px;">Available Apps</h1>
+    <section id="apps-grid" class="grid features"></section>
   </main>
+
   <footer class="site-footer">© <span id="y"></span> Nexora ProSuite</footer>
+
   <script src="assets/js/app.js" defer></script>
   <script src="assets/js/apps.js" defer></script>
 </body>
