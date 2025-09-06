@@ -3,36 +3,25 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Sign In • Nexora ProSuite</title>
+  <title>Login • Nexora ProSuite</title>
   <link rel="stylesheet" href="assets/css/style.css"/>
-  <link rel="icon" href="assets/img/logo.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/img/logo.png" type="image/png">
 </head>
 <body class="auth">
-
   <main class="auth-card">
-    <a href="index.html" class="brand">
-      <img src="assets/img/logo.svg" alt="Nexora ProSuite" style="height:40px;margin-bottom:16px"/>
-    </a>
-
-    <h1 class="gold-gradient" style="margin-bottom:16px">Sign In</h1>
-    <form id="login-form">
-      <label>
-        <span>Email</span><br/>
-        <input type="email" name="email" required style="width:100%;padding:10px;border-radius:8px;margin:6px 0;"/>
-      </label>
-
-      <label class="password-wrap">
-        <span>Password</span><br/>
-        <input type="password" id="password" name="password" required style="width:100%;padding:10px;border-radius:8px;margin:6px 0;"/>
-        <button type="button" id="togglePassword" class="eye" aria-label="Show password">👁</button>
-      </label>
-
-      <button type="submit" class="btn gold" style="width:100%;margin-top:14px;">Sign In</button>
+    <img src="assets/img/logo.png" alt="Nexora ProSuite" style="height:60px; margin-bottom:20px;"/>
+    <h1>Login</h1>
+    <form>
+      <label>Email</label>
+      <input type="email" required/>
+      <label>Password</label>
+      <div class="password-field">
+        <input type="password" id="password" required/>
+        <span class="toggle-eye" onclick="togglePassword()">👁</span>
+      </div>
+      <button type="submit" class="btn gold">Login</button>
     </form>
-
-    <p style="margin-top:18px;font-size:14px;color:var(--text-med);">Demo only. No real authentication yet.</p>
   </main>
-
-  <script src="assets/js/login.js" defer></script>
+  <script src="assets/js/login.js"></script>
 </body>
 </html>
