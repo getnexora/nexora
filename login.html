@@ -1,27 +1,24 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Login • Nexora ProSuite</title>
-  <link rel="stylesheet" href="assets/css/style.css"/>
-  <link rel="icon" href="assets/img/logo.png" type="image/png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - Nexora</title>
+  <link rel="stylesheet" href="assets/css/style.css">
 </head>
-<body class="auth">
-  <main class="auth-card">
-    <img src="assets/img/logo.png" alt="Nexora ProSuite" style="height:60px; margin-bottom:20px;"/>
-    <h1>Login</h1>
-    <form>
-      <label>Email</label>
-      <input type="email" required/>
-      <label>Password</label>
-      <div class="password-field">
-        <input type="password" id="password" required/>
-        <span class="toggle-eye" onclick="togglePassword()">👁</span>
-      </div>
-      <button type="submit" class="btn gold">Login</button>
-    </form>
+<body>
+  <main class="auth-container">
+    <h1 class="gold-gradient">Login</h1>
+    <input type="email" id="login-email" placeholder="Email">
+    <input type="password" id="login-password" placeholder="Password">
+    <button onclick="login()">Login</button>
+
+    <h2 class="gold-gradient">Register</h2>
+    <input type="email" id="register-email" placeholder="Email">
+    <input type="password" id="register-password" placeholder="Password">
+    <button onclick="register()">Register</button>
   </main>
-  <script src="assets/js/login.js"></script>
+
+  <script type="module" src="assets/js/auth.js"></script>
 </body>
 </html>
