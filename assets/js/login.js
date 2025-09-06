@@ -1,23 +1,49 @@
-// Wait until the DOM is fully loaded
+// assets/js/login.js
+
 document.addEventListener("DOMContentLoaded", () => {
-  // Select all password toggle buttons
-  const toggles = document.querySelectorAll(".password-toggle");
+  const loginForm = document.getElementById("loginForm");
+  const guestBtn = document.getElementById("guestBtn");
 
-  toggles.forEach(toggle => {
-    toggle.addEventListener("click", () => {
-      // Find the target input using data-target attribute
-      const targetId = toggle.getAttribute("data-target");
-      const input = document.getElementById(targetId);
+  // Dummy accounts for demo (replace with real auth later)
+  const users = [
+    { email: "admin@nexoraprosuite.com", password: "admin123", role: "developer" },
+    { email: "developer@nexoraprosuite.com", password: "dev123", role: "developer" },
+    { email: "user@nexoraprosuite.com", password: "user123", role: "user" }
+  ];
 
-      if (!input) return; // If no input found, do nothing
+  // Login handler
+  if (loginForm) {
+    loginForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const email = document.getElementById("email").value.trim();
+      const password = document.getElementById("password").value.trim();
 
-      if (input.type === "password") {
-        input.type = "text";
-        toggle.textContent = "🙈"; // Change icon when showing password
+      const user = users.find((u) => u.email === email && u.password === password);
+
+      if (user) {
+        localStorage.setItem("userRole", user.role);
+        localStorage.setItem("userEmail", user.email);
+
+        alert(`Welcome, ${user.role}!`);
+
+        if (user.role === "developer") {
+          window.location.href = "developer.html"; // Private access
+        } else if (user.role === "user") {
+          window.location.href = "dashboard.html";
+        }
       } else {
-        input.type = "password";
-        toggle.textContent = "👁"; // Reset icon when hiding password
+        alert("Invalid login. Please try again.");
       }
     });
-  });
+  }
+
+  // Guest login
+  if (guestBtn) {
+    guestBtn.addEventListener("click", () => {
+      localStorage.setItem("userRole", "guest");
+      localStorage.setItem("userEmail", "guest");
+      alert("Welcome, Guest!");
+      window.location.href = "features.html";
+    });
+  }
 });
