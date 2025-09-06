@@ -4,7 +4,75 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Nexora ProSuite - Exclusive Global Portal</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;90<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nexora ProSuite</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+  <!-- ===== Welcome Modal ===== -->
+  <div id="welcome-modal" class="welcome-modal">
+    <div class="welcome-content">
+      <h2 class="gold-text">✨ Welcome to Nexora ProSuite ✨</h2>
+      <p>
+        We’d like to personalize your experience.<br>
+        Please select your <strong>language, country, region/state,</strong> and
+        <strong>postal code</strong> for the best performance.<br>
+        Or, you can continue as a guest.
+      </p>
+
+      <!-- Language -->
+      <label for="language">🌐 Language:</label>
+      <select id="language">
+        <option value="">-- Select Language --</option>
+        <option value="en">English</option>
+        <option value="es">Español</option>
+        <option value="fr">Français</option>
+        <option value="de">Deutsch</option>
+      </select>
+
+      <!-- Country -->
+      <label for="country">📍 Country:</label>
+      <select id="country">
+        <option value="">-- Select Country --</option>
+      </select>
+
+      <!-- Region/State -->
+      <label for="region">🏙️ Region/State:</label>
+      <input type="text" id="region" placeholder="Enter your region/state" />
+
+      <!-- Postal Code -->
+      <label for="postal">📮 Postal Code:</label>
+      <input type="text" id="postal" placeholder="Enter postal/ZIP code" />
+
+      <!-- Buttons -->
+      <div class="welcome-buttons">
+        <button id="save-preferences" class="btn-gold">Save & Continue</button>
+        <button id="continue-guest" class="btn-outline">Continue as Guest</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== Main Content ===== -->
+  <div id="app" style="display:none;">
+    <header>
+      <img src="assets/img/logo.png" alt="Nexora Logo" class="logo" />
+      <h1>Welcome to Nexora ProSuite</h1>
+    </header>
+    <main>
+      <p>Your enterprise portal across 195 countries.</p>
+    </main>
+  </div>
+
+  <!-- JS -->
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
+&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
