@@ -1,49 +1,158 @@
-/* ===== Nexora ProSuite Premium Theme ===== */
+/* ===== Nexora ProSuite Theme ===== */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-:root {
-  --primary-gold: #d4af37;
-  --bright-gold: #ffd700;
-  --bg-black: #0a0a0a;
-  --text-primary: #f5f5f5;
-}
-
-/* Body */
 body {
   font-family: 'Inter', sans-serif;
-  background: var(--bg-black);
-  color: var(--text-primary);
+  background: #0a0a0a;
+  color: #f5f5f5;
   line-height: 1.6;
-  text-align: center;
 }
 
-/* Header & Logo */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Header */
 .site-header {
-  padding: 1rem;
+  background: #111;
+  border-bottom: 1px solid #333;
+  padding: 1rem 0;
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .logo {
-  max-width: 220px; /* ✅ safe size */
+  width: 140px;
   height: auto;
-  display: block;
-  margin: 0 auto;
-  filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.6));
 }
 
-/* Hero Section */
+.nav a {
+  color: #f5f5f5;
+  margin-left: 1.5rem;
+  text-decoration: none;
+  transition: color 0.3s, border-bottom 0.3s;
+}
+
+.nav a:hover {
+  color: #ffd700;
+  border-bottom: 2px solid #ffd700;
+}
+
+.btn {
+  background: transparent;
+  color: #f5f5f5;
+  padding: 0.5rem 1rem;
+  border: 1px solid #ffd700;
+  border-radius: 4px;
+  margin-left: 1rem;
+  text-decoration: none;
+  transition: background 0.3s, color 0.3s;
+}
+
+.btn:hover {
+  background: #ffd700;
+  color: #0a0a0a;
+}
+
+.btn-gold {
+  background: #ffd700;
+  color: #0a0a0a;
+  border: none;
+}
+
+.btn-gold:hover {
+  background: #d4af37;
+}
+
+/* Hero */
 .hero {
-  padding: 4rem 2rem;
+  background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)),
+              url("../img/worldmap.png") center/cover no-repeat;
+  color: #fff;
+  text-align: center;
+  padding: 6rem 1rem;
 }
 
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+/* Gold text effect */
 .gold-text {
-  font-size: 2.5rem;
-  font-weight: 800;
-  background: linear-gradient(90deg, var(--primary-gold), var(--bright-gold));
-  background-clip: text;
+  background: linear-gradient(90deg, #d4af37, #ffd700, #d4af37);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  animation: shine 4s linear infinite;
+}
+
+@keyframes shine {
+  0% { background-position: 0%; }
+  100% { background-position: 100%; }
+}
+
+/* Features */
+.features {
+  padding: 4rem 1rem;
+  background: #111;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.card {
+  background: #1a1a1a;
+  padding: 2rem;
+  border-radius: 8px;
+  border: 1px solid #333;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 20px rgba(212,175,55,0.3);
+}
+
+/* Footer */
+.site-footer {
+  background: #0a0a0a;
+  border-top: 1px solid #333;
+  padding: 2rem 0;
+  text-align: center;
+  color: #bbb;
+}
+
+.footer-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.footer-nav a {
+  color: #bbb;
+  margin: 0 1rem;
+  text-decoration: none;
+}
+
+.footer-nav a:hover {
+  color: #ffd700;
 }
