@@ -1,12 +1,13 @@
 # Nexora ProSuite
 
-A premium enterprise portal platform with a black + gold theme, responsive layout, and app directory.
+Premium enterprise portal platform connecting 195 countries with a polished **black & gold theme**.
 
-## Features
-- Responsive black + gold design
-- World map hero section
-- Login page with password visibility toggle
-- Apps directory loading from `apps.json`
-- Polished assets (logo + world map)
+## 🚀 Features
+- Modern responsive layout
+- Black & gold luxury UI theme
+- Mobile navigation menu
+- Login form with password eye toggle
+- Apps directory loaded dynamically from JSON
+- Optimized SVG logo + animated world map
 
-## File Structure
+## 📂 Project Structure
