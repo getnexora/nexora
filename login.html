@@ -1,53 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login - Nexora ProSuite</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nexora ProSuite - Login</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 <body>
-  <!-- Navbar -->
-  <nav class="navbar">
-    <div class="logo">Nexora ProSuite</div>
-    <div class="nav-links">
-      <a href="index.html">Home</a>
-      <a href="features.html">Features</a>
-      <a href="about.html">About</a>
-      <a href="developer.html">Developer</a>
-      <a href="contact.html">Contact</a>
-      <a href="login.html" class="signin-btn">Sign In</a>
+  <div class="login-container">
+    <h1>Login to Nexora ProSuite</h1>
+    <form id="loginForm">
+      <label for="email">Email</label>
+      <input type="email" id="email" required placeholder="Enter your email" />
+
+      <label for="password">Password</label>
+      <input type="password" id="password" required placeholder="Enter your password" />
+
+      <button type="submit">Login</button>
+    </form>
+
+    <div class="login-options">
+      <p>Or continue as:</p>
+      <button id="guestBtn">Continue as Guest</button>
     </div>
-  </nav>
+  </div>
 
-  <!-- Page Content -->
-  <main>
-    <section class="features-grid">
-      <h2>Login to Nexora</h2>
-      <form class="auth-form">
-        <label>Email</label>
-        <input type="email" placeholder="Enter your email" required>
-
-        <label>Password</label>
-        <input type="password" placeholder="Enter your password" required>
-
-        <button type="submit" class="cta-button">Sign In</button>
-      </form>
-      <p>Don’t have an account? <a href="signup.html">Sign Up</a></p>
-    </section>
-  </main>
-
-  <!-- Footer -->
-  <footer class="footer">
-    <p>&copy; 2024 Nexora ProSuite. All rights reserved.</p>
-    <div class="footer-links">
-      <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
-      <a href="developer.html">Developers</a>
-    </div>
-  </footer>
-
-  <script src="assets/js/main.js"></script>
+  <script src="assets/js/login.js"></script>
 </body>
 </html>
