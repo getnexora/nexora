@@ -1,1 +1,23 @@
+[
+  {
+    "name": "Global Dashboard",
+    "description": "Monitor worldwide performance metrics across 195 countries.",
+    "link": "https://example.com/global-dashboard"
+  },
+  {
+    "name": "Messaging Hub",
+    "description": "Secure enterprise messaging with real-time translation.",
+    "link": "https://example.com/messaging"
+  },
+  {
+    "name": "Analytics Pro",
+    "description": "Advanced analytics and predictive insights for enterprise data.",
+    "link": "https://example.com/analytics"
+  },
+  {
+    "name": "Member Directory",
+    "description": "Explore global member profiles with tiered access.",
+    "link": "https://example.com/directory"
+  }
+]
 
