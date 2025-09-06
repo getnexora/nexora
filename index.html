@@ -1,190 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Nexora ProSuite — Premium Global Portal</title>
-
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
-
-  <!-- App Styles -->
-  <link rel="stylesheet" href="/assets/css/style.css" />
-
-  <!-- Basic SEO -->
-  <meta name="description" content="Nexora ProSuite — a premium global portal with enterprise features, translations, and a gold & black professional theme." />
-  <meta name="theme-color" content="#0a0a0a" />
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="Nexora ProSuite — Premium Global Portal" />
-  <meta property="og:description" content="Enterprise-grade global portal with multi-language support and a luxurious gold & black theme." />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="/assets/img/logo.png" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nexora ProSuite</title>
+  <!-- Correct stylesheet path -->
+  <link rel="stylesheet" href="assets/css/style.css">
 </head>
-
 <body>
-  <!-- ================== LOADER ================== -->
-  <div id="loader" class="loader-container" role="status" aria-live="polite">
-    <div class="loader">
-      <div class="loader-logo" aria-hidden="true">
-        <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <defs>
-            <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stop-color="#b8860b"/>
-              <stop offset="50%" stop-color="#ffd700"/>
-              <stop offset="100%" stop-color="#d4af37"/>
-            </linearGradient>
-          </defs>
-          <circle cx="60" cy="60" r="50" fill="none" stroke="url(#goldGradient)" stroke-width="3"/>
-          <text x="60" y="75" font-family="'Playfair Display', serif" font-size="45" font-weight="900" fill="url(#goldGradient)" text-anchor="middle">N</text>
-        </svg>
-      </div>
-      <div class="loader-text">Loading Excellence…</div>
-    </div>
-  </div>
-  <noscript>
-    <style>
-      /* If JS is disabled, show content and hide loader */
-      #loader { display:none !important; }
-      #mainContent { display:block !important; opacity:1 !important; }
-    </style>
-    <div class="noscript-msg">For the best experience, please enable JavaScript.</div>
-  </noscript>
+  <header class="site-header">
+    <img src="assets/img/logo.png" alt="Nexora ProSuite Logo" class="logo">
+  </header>
 
-  <!-- ================== WELCOME / LANGUAGE POPUP ================== -->
-  <div id="welcomePopup" class="popup-overlay" aria-hidden="true">
-    <div class="popup" role="dialog" aria-modal="true" aria-labelledby="popupTitle" aria-describedby="popupSubtitle">
-      <div class="popup-header">
-        <h2 id="popupTitle" class="popup-title">🌍 Welcome to Nexora ProSuite</h2>
-        <p id="popupSubtitle" class="popup-subtitle">
-          Your exclusive global portal awaits. For the best experience, please select your language. You can also continue as a guest.
-        </p>
-      </div>
-
-      <div class="language-selector">
-        <label for="languageSelect" id="languageLabel">Select Your Language</label>
-        <select id="languageSelect" name="language" aria-label="Language">
-          <!-- Populated by JS (from /assets/data/translations.json) -->
-        </select>
-      </div>
-
-      <div class="popup-buttons">
-        <button class="btn btn-primary" data-action="continue-language" id="continueBtn">Continue</button>
-        <button class="btn btn-secondary" data-action="continue-guest" id="guestBtn">Continue as Guest</button>
-      </div>
-
-      <div class="popup-footer">
-        <button class="btn-link" data-action="skip-popup" aria-label="Skip language selection">Skip for now</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- ================== COOKIE CONSENT ================== -->
-  <div id="cookieBanner" class="cookie-banner" role="dialog" aria-live="polite" aria-label="Cookie consent">
-    <div class="cookie-text">
-      We use cookies to personalize content and analyze traffic. By continuing, you agree to our cookie policy.
-    </div>
-    <div class="cookie-actions">
-      <button class="btn btn-secondary" data-action="cookie-decline">Decline</button>
-      <button class="btn btn-primary" data-action="cookie-accept">Accept</button>
-    </div>
-  </div>
-
-  <!-- ================== TOASTS ================== -->
-  <div id="toastContainer" class="toast-container" aria-live="polite" aria-atomic="true"></div>
-
-  <!-- ================== MAIN CONTENT ================== -->
-  <div id="mainContent" class="hidden">
-    <!-- Header / Nav -->
-    <header>
-      <nav class="nav">
-        <a class="logo" href="#" data-nav="home" aria-label="Nexora ProSuite Home">
-          <div class="logo-img" aria-hidden="true">
-            <svg viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Nexora logo">
-              <defs>
-                <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stop-color="#b8860b"/>
-                  <stop offset="50%" stop-color="#ffd700"/>
-                  <stop offset="100%" stop-color="#d4af37"/>
-                </linearGradient>
-              </defs>
-              <rect width="50" height="50" rx="10" fill="url(#logoGrad)"/>
-              <text x="25" y="35" font-family="'Playfair Display', serif" font-size="28" font-weight="900" fill="#0a0a0a" text-anchor="middle">N</text>
-            </svg>
-          </div>
-          <span class="logo-text">Nexora ProSuite</span>
-        </a>
-
-        <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="primaryNav" aria-label="Toggle navigation">
-          ☰
-        </button>
-
-        <ul class="nav-links" id="primaryNav">
-          <li><a href="#" data-nav="home" data-translate="nav-home">Home</a></li>
-          <li><a href="#" data-nav="features" data-translate="nav-features">Features</a></li>
-          <li><a href="#" data-nav="about" data-translate="nav-about">About</a></li>
-          <li><a href="#" data-nav="contact" data-translate="nav-contact">Contact</a></li>
-          <li>
-            <button class="language-display" id="currentLangBtn" data-action="open-language">
-              <span id="currentLang">EN</span>
-            </button>
-          </li>
-          <li>
-            <button class="theme-toggle" id="themeToggle" data-action="toggle-theme" aria-label="Toggle theme">
-              ✨
-            </button>
-          </li>
-          <li class="nav-auth" id="navAuthSlot">
-            <!-- JS will render Guest / Member / Admin controls here -->
-          </li>
-        </ul>
-      </nav>
-    </header>
-
-    <!-- Dynamic content area -->
-    <main id="pageContent" tabindex="-1" aria-live="polite">
-      <!-- JS injects pages here -->
-    </main>
-
-    <!-- Footer -->
-    <footer>
-      <div class="footer-content">
-        <div class="footer-logo" aria-hidden="true">
-          <svg viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg" width="60" height="60">
-            <defs>
-              <linearGradient id="footerLogoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="#b8860b"/>
-                <stop offset="50%" stop-color="#ffd700"/>
-                <stop offset="100%" stop-color="#d4af37"/>
-              </linearGradient>
-            </defs>
-            <rect width="50" height="50" rx="10" fill="url(#footerLogoGrad)"/>
-            <text x="25" y="35" font-family="'Playfair Display', serif" font-size="28" font-weight="900" fill="#0a0a0a" text-anchor="middle">N</text>
-          </svg>
-        </div>
-
-        <div class="footer-links">
-          <a href="#" data-nav="home" data-translate="nav-home">Home</a>
-          <a href="#" data-nav="features" data-translate="nav-features">Features</a>
-          <a href="#" data-nav="about" data-translate="nav-about">About</a>
-          <a href="#" data-nav="contact" data-translate="nav-contact">Contact</a>
-          <a href="#" data-translate="footer-privacy">Privacy Policy</a>
-          <a href="#" data-translate="footer-terms">Terms of Service</a>
-        </div>
-
-        <div class="footer-bottom">
-          <p data-translate="footer-copyright">
-            © 2024 Nexora ProSuite. All rights reserved. | Crafted with excellence for global leaders.
-          </p>
-        </div>
-      </div>
-    </footer>
-  </div>
-
-  <!-- ================== SCRIPTS ================== -->
-  <!-- App core (popup, i18n loader, toasts, cookie banner, theme) -->
-  <script src="/assets/js/app.js" defer></script>
-  <!-- Main logic (routing, role-based UI, page templates) -->
-  <script src="/assets/js/main.js" defer></script>
+  <main>
+    <section class="hero">
+      <h1 class="gold-text">Welcome to Nexora ProSuite</h1>
+      <p>Connecting 195 countries with a premium enterprise portal.</p>
+    </section>
+  </main>
 </body>
 </html>
