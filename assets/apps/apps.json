@@ -1,23 +1,62 @@
 [
   {
-    "name": "Global Dashboard",
-    "description": "Monitor worldwide performance metrics across 195 countries.",
-    "link": "https://example.com/global-dashboard"
+    "name": "WhatsApp",
+    "description": "Free messaging and calls with people worldwide.",
+    "icon": "assets/img/app-whatsapp.png",
+    "link": "https://www.whatsapp.com/"
   },
   {
-    "name": "Messaging Hub",
-    "description": "Secure enterprise messaging with real-time translation.",
-    "link": "https://example.com/messaging"
+    "name": "Messenger",
+    "description": "Chat instantly with friends and family on Facebook.",
+    "icon": "assets/img/app-messenger.png",
+    "link": "https://www.messenger.com/"
   },
   {
-    "name": "Analytics Pro",
-    "description": "Advanced analytics and predictive insights for enterprise data.",
-    "link": "https://example.com/analytics"
+    "name": "Telegram",
+    "description": "Fast, secure, and cloud-based messaging platform.",
+    "icon": "assets/img/app-telegram.png",
+    "link": "https://telegram.org/"
   },
   {
-    "name": "Member Directory",
-    "description": "Explore global member profiles with tiered access.",
-    "link": "https://example.com/directory"
+    "name": "WeChat",
+    "description": "Messaging, social media, and payment app popular in China.",
+    "icon": "assets/img/app-wechat.png",
+    "link": "https://www.wechat.com/"
+  },
+  {
+    "name": "Zoom",
+    "description": "Video conferencing platform for meetings and webinars.",
+    "icon": "assets/img/app-zoom.png",
+    "link": "https://zoom.us/"
+  },
+  {
+    "name": "Slack",
+    "description": "Team collaboration and communication in channels.",
+    "icon": "assets/img/app-slack.png",
+    "link": "https://slack.com/"
+  },
+  {
+    "name": "Discord",
+    "description": "Voice, video, and community chat platform.",
+    "icon": "assets/img/app-discord.png",
+    "link": "https://discord.com/"
+  },
+  {
+    "name": "Signal",
+    "description": "Private messaging with end-to-end encryption.",
+    "icon": "assets/img/app-signal.png",
+    "link": "https://signal.org/"
+  },
+  {
+    "name": "Microsoft Teams",
+    "description": "Collaboration, chat, and video meetings for work.",
+    "icon": "assets/img/app-teams.png",
+    "link": "https://www.microsoft.com/en/microsoft-teams/group-chat-software"
+  },
+  {
+    "name": "Skype",
+    "description": "Classic voice and video calling app.",
+    "icon": "assets/img/app-skype.png",
+    "link": "https://www.skype.com/"
   }
 ]
-
