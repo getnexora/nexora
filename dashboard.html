@@ -1,49 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dashboard - Nexora ProSuite</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nexora ProSuite - Developer Portal</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 <body>
-  <!-- Navbar -->
-  <nav class="navbar">
-    <div class="logo">Nexora ProSuite</div>
-    <div class="nav-links">
-      <a href="index.html">Home</a>
-      <a href="features.html">Features</a>
-      <a href="about.html">About</a>
-      <a href="developer.html">Developer</a>
-      <a href="contact.html">Contact</a>
-      <a href="login.html" class="signin-btn">Sign In</a>
-    </div>
-  </nav>
+  <div class="developer-container">
+    <h1>👨‍💻 Developer Portal</h1>
+    <p>Welcome to the private developer page. Only authorized users can view this content.</p>
 
-  <!-- Page Content -->
-  <main>
-    <section class="features-grid">
-      <h2>User Dashboard</h2>
-      <p>Welcome to your dashboard. Here you can manage your profile, view stats, and explore tools.</p>
+    <section class="dev-tools">
+      <h2>Developer Tools & Apps</h2>
       <ul>
-        <li><a href="#">Profile Settings</a></li>
-        <li><a href="#">Messages</a></li>
-        <li><a href="#">Analytics</a></li>
+        <li><a href="#">📦 App Deployment Console</a></li>
+        <li><a href="#">⚙️ API Management</a></li>
+        <li><a href="#">📊 Analytics Dashboard</a></li>
+        <li><a href="#">🔒 Security Settings</a></li>
       </ul>
     </section>
-  </main>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <p>&copy; 2024 Nexora ProSuite. All rights reserved.</p>
-    <div class="footer-links">
-      <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
-      <a href="developer.html">Developers</a>
-    </div>
-  </footer>
+    <button id="logoutBtn">Logout</button>
+  </div>
 
-  <script src="assets/js/main.js"></script>
+  <script>
+    // Protect this page
+    document.addEventListener("DOMContentLoaded", () => {
+      const role = localStorage.getItem("userRole");
+
+      if (role !== "developer") {
+        alert("Access denied. Developer login required.");
+        window.location.href = "login.html";
+      }
+
+      // Logout handler
+      const logoutBtn = document.getElementById("logoutBtn");
+      if (logoutBtn) {
+        logoutBtn.addEventListener("click", () => {
+          localStorage.clear();
+          window.location.href = "login.html";
+        });
+      }
+    });
+  </script>
 </body>
 </html>
