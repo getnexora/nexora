@@ -3,27 +3,36 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Sign In · Nexora</title>
+  <title>Sign In • Nexora ProSuite</title>
   <link rel="stylesheet" href="assets/css/style.css"/>
-  <link rel="stylesheet" href="assets/css/components.css"/>
+  <link rel="icon" href="assets/img/logo.svg" type="image/svg+xml">
 </head>
 <body class="auth">
-  <main class="auth-card card">
-    <h1 class="gold-gradient">Welcome Back</h1>
-    <form id="login-form" novalidate>
-      <label>Email
-        <input type="email" name="email" required placeholder="you@company.com"/>
+
+  <main class="auth-card">
+    <a href="index.html" class="brand">
+      <img src="assets/img/logo.svg" alt="Nexora ProSuite" style="height:40px;margin-bottom:16px"/>
+    </a>
+
+    <h1 class="gold-gradient" style="margin-bottom:16px">Sign In</h1>
+    <form id="login-form">
+      <label>
+        <span>Email</span><br/>
+        <input type="email" name="email" required style="width:100%;padding:10px;border-radius:8px;margin:6px 0;"/>
       </label>
-      <label>Password
-        <div class="password-wrap">
-          <input type="password" id="password" name="password" required minlength="8"/>
-          <button type="button" class="eye" aria-label="Show password" id="togglePass">👁️</button>
-        </div>
+
+      <label class="password-wrap">
+        <span>Password</span><br/>
+        <input type="password" id="password" name="password" required style="width:100%;padding:10px;border-radius:8px;margin:6px 0;"/>
+        <button type="button" id="togglePassword" class="eye" aria-label="Show password">👁</button>
       </label>
-      <button class="btn gold" type="submit">Sign In</button>
-      <p class="helper">Demo only — no backend.</p>
+
+      <button type="submit" class="btn gold" style="width:100%;margin-top:14px;">Sign In</button>
     </form>
+
+    <p style="margin-top:18px;font-size:14px;color:var(--text-med);">Demo only. No real authentication yet.</p>
   </main>
+
   <script src="assets/js/login.js" defer></script>
 </body>
 </html>
