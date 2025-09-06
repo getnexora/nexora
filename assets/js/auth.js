@@ -1,74 +1,84 @@
-// Import Firebase SDK
-import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
-import { 
-  getAuth, 
-  createUserWithEmailAndPassword, 
-  signInWithEmailAndPassword, 
-  signOut, 
-  onAuthStateChanged 
-} from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
+// Import Firebase SDK functions
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-app.js";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-auth.js";
 
-// ✅ Replace with your Firebase config
+// Your Firebase configuration
 const firebaseConfig = {
-  apiKey: "YOUR-API-KEY",
-  authDomain: "YOUR-PROJECT.firebaseapp.com",
-  projectId: "YOUR-PROJECT-ID",
-  storageBucket: "YOUR-PROJECT.appspot.com",
-  messagingSenderId: "YOUR-SENDER-ID",
-  appId: "YOUR-APP-ID"
+  apiKey: "AIzaSyBPYzbOzSgnEpYe_L_F-QLrr8cpAwkZyJk",
+  authDomain: "nexora-prosuite.firebaseapp.com",
+  projectId: "nexora-prosuite",
+  storageBucket: "nexora-prosuite.firebasestorage.app",
+  messagingSenderId: "367987127145",
+  appId: "1:367987127145:web:be983d04a0b769a4b183f8",
+  measurementId: "G-LRP2XBZ7HS"
 };
 
+// Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
-// Register user
-window.register = function () {
-  const email = document.getElementById("register-email").value;
-  const password = document.getElementById("register-password").value;
+// =======================
+// Authentication Functions
+// =======================
 
-  createUserWithEmailAndPassword(auth, email, password)
-    .then(userCredential => {
-      alert("Registered successfully!");
-    })
-    .catch(error => {
-      alert(error.message);
-    });
-};
+// Register new user
+async function registerUser(email, password) {
+  try {
+    const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+    alert("✅ Account created: " + userCredential.user.email);
+  } catch (error) {
+    alert("❌ Error: " + error.message);
+  }
+}
 
 // Login user
-window.login = function () {
-  const email = document.getElementById("login-email").value;
-  const password = document.getElementById("login-password").value;
-
-  signInWithEmailAndPassword(auth, email, password)
-    .then(userCredential => {
-      alert("Login successful!");
-      window.location.href = "profile.html";
-    })
-    .catch(error => {
-      alert(error.message);
-    });
-};
+async function loginUser(email, password) {
+  try {
+    const userCredential = await signInWithEmailAndPassword(auth, email, password);
+    alert("✅ Logged in: " + userCredential.user.email);
+  } catch (error) {
+    alert("❌ Error: " + error.message);
+  }
+}
 
 // Logout user
-window.logout = function () {
-  signOut(auth).then(() => {
-    window.location.href = "login.html";
-  });
-};
-
-// Detect auth state
-onAuthStateChanged(auth, user => {
-  const profileInfo = document.getElementById("profile-info");
-  if (profileInfo) {
-    if (user) {
-      profileInfo.innerHTML = `
-        <p><strong>Email:</strong> ${user.email}</p>
-        <p>User ID: ${user.uid}</p>
-      `;
-    } else {
-      profileInfo.innerHTML = `<p>Please <a href="login.html">login</a>.</p>`;
-    }
+async function logoutUser() {
+  try {
+    await signOut(auth);
+    alert("✅ Logged out successfully");
+  } catch (error) {
+    alert("❌ Error: " + error.message);
   }
-});
+}
 
+// =======================
+// Hook into your HTML forms
+// =======================
+
+// Signup form
+const signupForm = document.getElementById("signup-form");
+if (signupForm) {
+  signupForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const email = document.getElementById("signup-email").value;
+    const password = document.getElementById("signup-password").value;
+    registerUser(email, password);
+  });
+}
+
+// Login form
+const loginForm = document.getElementById("login-form");
+if (loginForm) {
+  loginForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const email = document.getElementById("login-email").value;
+    const password = document.getElementById("login-password").value;
+    loginUser(email, password);
+  });
+}
+
+// Logout button
+const logoutBtn = document.getElementById("logout-btn");
+if (logoutBtn) {
+  logoutBtn.addEventListener("click", logoutUser);
+}
