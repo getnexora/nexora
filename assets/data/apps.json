@@ -1,65 +1,74 @@
 [
   {
-    "name": "Google",
-    "url": "https://www.google.com",
-    "icon": "https://www.google.com/favicon.ico",
-    "category": "Search"
+    "name": "WhatsApp",
+    "category": "Messaging",
+    "url": "https://www.whatsapp.com",
+    "icon": "https://cdn-icons-png.flaticon.com/512/733/733585.png"
+  },
+  {
+    "name": "WeChat",
+    "category": "Messaging (China)",
+    "url": "https://www.wechat.com",
+    "icon": "https://cdn-icons-png.flaticon.com/512/1384/1384060.png"
+  },
+  {
+    "name": "Telegram",
+    "category": "Messaging",
+    "url": "https://telegram.org",
+    "icon": "https://cdn-icons-png.flaticon.com/512/2111/2111646.png"
+  },
+  {
+    "name": "Paytm",
+    "category": "Finance (India)",
+    "url": "https://paytm.com",
+    "icon": "https://upload.wikimedia.org/wikipedia/commons/1/13/Paytm_logo.png"
+  },
+  {
+    "name": "Line",
+    "category": "Messaging (Japan)",
+    "url": "https://line.me",
+    "icon": "https://upload.wikimedia.org/wikipedia/commons/4/41/LINE_logo.svg"
+  },
+  {
+    "name": "TikTok",
+    "category": "Entertainment",
+    "url": "https://www.tiktok.com",
+    "icon": "https://cdn-icons-png.flaticon.com/512/3046/3046120.png"
   },
   {
     "name": "YouTube",
+    "category": "Video",
     "url": "https://www.youtube.com",
-    "icon": "https://www.youtube.com/favicon.ico",
-    "category": "Video"
+    "icon": "https://cdn-icons-png.flaticon.com/512/1384/1384060.png"
   },
   {
     "name": "Facebook",
+    "category": "Social",
     "url": "https://www.facebook.com",
-    "icon": "https://www.facebook.com/favicon.ico",
-    "category": "Social"
+    "icon": "https://cdn-icons-png.flaticon.com/512/1384/1384053.png"
   },
   {
     "name": "Twitter (X)",
-    "url": "https://x.com",
-    "icon": "https://abs.twimg.com/favicons/twitter.2.ico",
-    "category": "Social"
+    "category": "Social",
+    "url": "https://twitter.com",
+    "icon": "https://cdn-icons-png.flaticon.com/512/733/733579.png"
   },
   {
     "name": "Instagram",
+    "category": "Social",
     "url": "https://www.instagram.com",
-    "icon": "https://www.instagram.com/favicon.ico",
-    "category": "Social"
+    "icon": "https://cdn-icons-png.flaticon.com/512/1384/1384063.png"
   },
   {
-    "name": "LinkedIn",
-    "url": "https://www.linkedin.com",
-    "icon": "https://www.linkedin.com/favicon.ico",
-    "category": "Professional"
-  },
-  {
-    "name": "Wikipedia",
-    "url": "https://www.wikipedia.org",
-    "icon": "https://www.wikipedia.org/static/favicon/wikipedia.ico",
-    "category": "Knowledge"
-  },
-  {
-    "name": "Amazon",
-    "url": "https://www.amazon.com",
-    "icon": "https://www.amazon.com/favicon.ico",
-    "category": "Shopping"
-  },
-  {
-    "name": "Netflix",
-    "url": "https://www.netflix.com",
-    "icon": "https://www.netflix.com/favicon.ico",
-    "category": "Entertainment"
+    "name": "Snapchat",
+    "category": "Social",
+    "url": "https://www.snapchat.com",
+    "icon": "https://cdn-icons-png.flaticon.com/512/1384/1384062.png"
   },
   {
     "name": "Spotify",
+    "category": "Music",
     "url": "https://www.spotify.com",
-    "icon": "https://www.scdn.co/i/_global/favicon.ico",
-    "category": "Music"
-  },
-  {
-    "name": "Reddit",
-    "url": "https://www.reddit.com",
-    "icon": "https://www.redditstatic.com/desktop2x/img/favic
+    "icon": "https://cdn-icons-png.flaticon.com/512/174/174872.png"
+  }
+]
