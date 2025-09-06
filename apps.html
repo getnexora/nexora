@@ -5,27 +5,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>Apps • Nexora ProSuite</title>
   <link rel="stylesheet" href="assets/css/style.css"/>
-  <link rel="icon" href="assets/img/logo.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/img/logo.png" type="image/png">
 </head>
 <body>
-  <header class="nav">
-    <a class="brand" href="index.html"><img src="assets/img/logo.svg" alt="Nexora ProSuite"/></a>
-    <nav class="nav-links">
+  <header>
+    <a class="brand" href="index.html">
+      <img src="assets/img/logo.png" alt="Nexora ProSuite"/>
+    </a>
+    <nav>
       <a href="index.html">Home</a>
-      <a href="apps.html" class="active">Apps</a>
-      <a href="login.html" class="btn gold">Sign In</a>
+      <a href="apps.html">Apps</a>
+      <a href="login.html">Login</a>
     </nav>
-    <button class="nav-toggle" aria-expanded="false">☰</button>
   </header>
 
-  <main class="container" style="padding-top:40px;">
-    <h1 class="gold-gradient" style="margin-bottom:20px;">Available Apps</h1>
-    <section id="apps-grid" class="grid features"></section>
+  <main>
+    <h1 class="gold-gradient">Applications</h1>
+    <div id="apps-container" class="apps-grid"></div>
   </main>
 
-  <footer class="site-footer">© <span id="y"></span> Nexora ProSuite</footer>
-
-  <script src="assets/js/app.js" defer></script>
-  <script src="assets/js/apps.js" defer></script>
+  <script src="assets/js/apps.js"></script>
 </body>
 </html>
