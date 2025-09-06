@@ -7,19 +7,38 @@
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-  <header>
-    <img src="assets/img/logo.png" alt="Logo" class="logo">
-    <h1 class="gold-gradient">Welcome to Nexora ProSuite</h1>
-    <nav>
-      <a href="login.html">Login</a>
-      <a href="profile.html">Profile</a>
-      <a href="apps.html">Apps</a>
-    </nav>
-  </header>
+  <h1>🌍 Welcome to Nexora ProSuite</h1>
+  <p>Your global app suite, connected across 195 countries.</p>
 
-  <main>
-    <h2>Global Enterprise Platform</h2>
-    <p>Connecting 195 countries with tailored apps and experiences.</p>
-  </main>
+  <!-- Buttons -->
+  <a href="login.html">Login / Sign Up</a>
+
+  <!-- Firebase Session Check -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-app.js";
+    import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-auth.js";
+
+    // Firebase config
+    const firebaseConfig = {
+      apiKey: "AIzaSyBPYzbOzSgnEpYe_L_F-QLrr8cpAwkZyJk",
+      authDomain: "nexora-prosuite.firebaseapp.com",
+      projectId: "nexora-prosuite",
+      storageBucket: "nexora-prosuite.firebasestorage.app",
+      messagingSenderId: "367987127145",
+      appId: "1:367987127145:web:be983d04a0b769a4b183f8",
+      measurementId: "G-LRP2XBZ7HS"
+    };
+
+    // Init
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+
+    // If already logged in, redirect to profile
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        window.location.href = "profile.html";
+      }
+    });
+  </script>
 </body>
 </html>
