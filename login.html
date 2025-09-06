@@ -4,31 +4,35 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Nexora ProSuite - Login</title>
-  <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-  <h1>Welcome to Nexora ProSuite</h1>
+  <h1>Login / Signup</h1>
 
   <!-- Signup Form -->
-  <h2>Create Account</h2>
-  <form id="signup-form">
-    <input type="email" id="signup-email" placeholder="Email" required />
-    <input type="password" id="signup-password" placeholder="Password" required />
-    <button type="submit">Sign Up</button>
-  </form>
+  <h2>Signup</h2>
+  <input type="text" id="signup-name" placeholder="Name" />
+  <input type="email" id="signup-email" placeholder="Email" />
+  <input type="password" id="signup-password" placeholder="Password" />
+  <button onclick="signup(
+    document.getElementById('signup-email').value,
+    document.getElementById('signup-password').value,
+    document.getElementById('signup-name').value
+  )">Signup</button>
+
+  <hr>
 
   <!-- Login Form -->
   <h2>Login</h2>
-  <form id="login-form">
-    <input type="email" id="login-email" placeholder="Email" required />
-    <input type="password" id="login-password" placeholder="Password" required />
-    <button type="submit">Login</button>
-  </form>
+  <input type="email" id="login-email" placeholder="Email" />
+  <input type="password" id="login-password" placeholder="Password" />
+  <button onclick="login(
+    document.getElementById('login-email').value,
+    document.getElementById('login-password').value
+  )">Login</button>
 
-  <!-- Logout -->
-  <button id="logout-btn">Logout</button>
+  <hr>
+  <button onclick="logout()">Logout</button>
 
-  <!-- Firebase Auth -->
   <script type="module" src="assets/js/auth.js"></script>
 </body>
 </html>
