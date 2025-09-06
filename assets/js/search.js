@@ -1,93 +1,90 @@
-// ===== Local Nexora Pages =====
+// ===== Universal Search Engine =====
+
+// Local index: Nexora pages, apps, and extras
 const LOCAL_INDEX = [
-  { title: "Home", url: "index.html", snippet: "Back to Nexora ProSuite homepage." },
-  { title: "Features", url: "features.html", snippet: "Explore platform features and enterprise tools." },
-  { title: "About", url: "about.html", snippet: "Learn more about Nexora ProSuite." },
-  { title: "Contact", url: "contact.html", snippet: "Get in touch with our global team." },
-  { title: "Login", url: "login.html", snippet: "Access your member account securely." },
-  { title: "Sign Up", url: "signup.html", snippet: "Join Nexora ProSuite today." },
-  { title: "Dashboard", url: "dashboard.html", snippet: "Your personalized enterprise dashboard." }
+  { title: "Home", url: "index.html", snippet: "Back to the homepage." },
+  { title: "Features", url: "features.html", snippet: "Explore Nexora's powerful features." },
+  { title: "About", url: "about.html", snippet: "Learn more about Nexora." },
+  { title: "Contact", url: "contact.html", snippet: "Get in touch with us." },
+  { title: "Login", url: "login.html", snippet: "Access your account." },
+  { title: "Sign Up", url: "signup.html", snippet: "Create your Nexora account." },
+  { title: "Dashboard", url: "dashboard.html", snippet: "View your enterprise dashboard." },
+
+  // Example apps
+  { title: "Email", url: "https://mail.nexora.com", snippet: "Check your Nexora email." },
+  { title: "CRM", url: "https://crm.nexora.com", snippet: "Customer Relationship Management." },
+  { title: "Analytics", url: "https://analytics.nexora.com", snippet: "Business insights and analytics." },
+
+  // Local News (static for now)
+  {
+    title: "Local News",
+    url: "https://news.google.com",
+    snippet: "Latest local news updates tailored to your region."
+  }
 ];
 
-// ===== Example Apps (extend this list with real apps) =====
-const APP_INDEX = [
-  { title: "CRM", url: "apps/crm.html", snippet: "Customer Relationship Management system." },
-  { title: "Email", url: "https://mail.nexora.com", snippet: "Secure enterprise email." },
-  { title: "Docs", url: "apps/docs.html", snippet: "Collaborative document editing." },
-  { title: "Analytics", url: "apps/analytics.html", snippet: "Powerful business insights." }
-];
+// Supported global engines
+const SEARCH_ENGINES = {
+  google: "https://www.google.com/search?q=",
+  baidu: "https://www.baidu.com/s?wd=",
+  yandex: "https://yandex.com/search/?text=",
+  bing: "https://www.bing.com/search?q="
+};
 
-// ===== Global Engines =====
-const GLOBAL_ENGINES = [
-  { title: "Google", key: "google", url: "https://www.google.com/search?q=", snippet: "Search the web with Google." },
-  { title: "Bing", key: "bing", url: "https://www.bing.com/search?q=", snippet: "Search the web with Microsoft Bing." },
-  { title: "DuckDuckGo", key: "duckduckgo", url: "https://duckduckgo.com/?q=", snippet: "Privacy-focused global search." },
-  { title: "Yahoo", key: "yahoo", url: "https://search.yahoo.com/search?p=", snippet: "Search with Yahoo." },
-  { title: "Baidu", key: "baidu", url: "https://www.baidu.com/s?wd=", snippet: "China’s largest search engine." },
-  { title: "Yandex", key: "yandex", url: "https://yandex.com/search/?text=", snippet: "Russia’s leading search engine." },
-  { title: "Naver", key: "naver", url: "https://search.naver.com/search.naver?query=", snippet: "South Korea’s #1 search engine." },
-  { title: "Ecosia", key: "ecosia", url: "https://www.ecosia.org/search?q=", snippet: "Eco-friendly search engine that plants trees." }
-];
+// DOM elements
+const input = document.getElementById("searchInput");
+const button = document.getElementById("searchBtn");
+const resultsDiv = document.getElementById("searchResults");
 
-// ===== Perform Search =====
-function performSearch(query) {
-  const q = query.trim().toLowerCase();
-  const resultsContainer = document.getElementById("searchResults");
-  resultsContainer.innerHTML = "";
+// Run search
+function runSearch() {
+  const query = input.value.trim();
+  resultsDiv.innerHTML = "";
 
-  // Check for external engine command
-  if (q.startsWith("!")) {
-    const parts = q.split(" ");
-    const engineKey = parts[0].substring(1); // remove !
-    const searchQuery = parts.slice(1).join(" ");
+  if (!query) return;
 
-    const engine = GLOBAL_ENGINES.find(e => e.key === engineKey);
-    if (engine) {
-      // Show result card instead of instant redirect
-      const card = document.createElement("div");
-      card.classList.add("result-card");
-      card.innerHTML = `
-        <a href="${engine.url + encodeURIComponent(searchQuery)}" target="_blank">
-          🔎 ${engine.title} Results for "${searchQuery}"
-        </a>
-        <p>${engine.snippet}</p>
-      `;
-      resultsContainer.appendChild(card);
+  // Detect !engine query
+  if (query.startsWith("!")) {
+    const parts = query.split(" ");
+    const engineKey = parts[0].substring(1).toLowerCase();
+    const searchTerms = parts.slice(1).join(" ");
+
+    if (SEARCH_ENGINES[engineKey]) {
+      window.open(SEARCH_ENGINES[engineKey] + encodeURIComponent(searchTerms), "_blank");
       return;
     }
   }
 
-  // Otherwise, search local + apps
-  const COMBINED_INDEX = [...LOCAL_INDEX, ...APP_INDEX];
-  const matches = COMBINED_INDEX.filter(item =>
-    item.title.toLowerCase().includes(q) ||
-    item.snippet.toLowerCase().includes(q)
+  // Local search
+  const results = LOCAL_INDEX.filter(item =>
+    item.title.toLowerCase().includes(query.toLowerCase()) ||
+    item.snippet.toLowerCase().includes(query.toLowerCase())
   );
 
-  if (matches.length > 0) {
-    matches.forEach(item => {
-      const card = document.createElement("div");
-      card.classList.add("result-card");
-      card.innerHTML = `
-        <a href="${item.url}" target="_blank">${item.title}</a>
-        <p>${item.snippet}</p>
-      `;
-      resultsContainer.appendChild(card);
-    });
-  } else {
-    resultsContainer.innerHTML = `<p style="color: var(--gray);">No results found for "${query}".</p>`;
+  if (results.length === 0) {
+    resultsDiv.innerHTML = `<p>No results found. Try <code>!google ${query}</code></p>`;
+    return;
   }
+
+  // Show results
+  results.forEach(item => {
+    const card = document.createElement("div");
+    card.classList.add("card");
+    card.innerHTML = `
+      <h3>${item.title}</h3>
+      <p>${item.snippet}</p>
+      <a href="${item.url}" target="_blank">Open</a>
+    `;
+    resultsDiv.appendChild(card);
+  });
 }
 
-// ===== Event Listeners =====
-document.getElementById("searchBtn").addEventListener("click", () => {
-  const query = document.getElementById("searchInput").value;
-  performSearch(query);
-});
+// Event listeners
+button.addEventListener("click", runSearch);
 
-// Trigger search on Enter key
-document.getElementById("searchInput").addEventListener("keypress", function (e) {
+// Trigger search with Enter key
+input.addEventListener("keypress", function (e) {
   if (e.key === "Enter") {
-    document.getElementById("searchBtn").click();
+    runSearch();
   }
 });
