@@ -1,23 +1,18 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const container = document.getElementById("apps-container");
+// assets/js/app.js
 
-  fetch("data/apps.json")
-    .then(response => response.json())
-    .then(apps => {
-      container.innerHTML = "";
-      apps.forEach(app => {
-        const div = document.createElement("div");
-        div.className = "app-card";
-        div.innerHTML = `
-          <h3>${app.name}</h3>
-          <p>${app.description}</p>
-          <a href="${app.link}" target="_blank">Open</a>
-        `;
-        container.appendChild(div);
-      });
-    })
-    .catch(err => {
-      container.innerHTML = "⚠️ Could not load apps.";
-      console.error("Error loading apps.json:", err);
-    });
-});
+// Mobile nav toggle
+const navToggle = document.querySelector(".nav-toggle");
+const navLinks = document.querySelector(".nav-links");
+
+if (navToggle && navLinks) {
+  navToggle.addEventListener("click", () => {
+    const isOpen = navLinks.classList.toggle("open");
+    navToggle.setAttribute("aria-expanded", isOpen);
+  });
+}
+
+// Update footer year
+const yearEl = document.getElementById("y");
+if (yearEl) {
+  yearEl.textContent = new Date().getFullYear();
+}
