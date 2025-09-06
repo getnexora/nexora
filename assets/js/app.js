@@ -4,21 +4,20 @@ document.addEventListener("DOMContentLoaded", () => {
   fetch("data/apps.json")
     .then(response => response.json())
     .then(apps => {
-      if (!apps.length) {
-        container.innerHTML = "<p>No apps available yet.</p>";
-        return;
-      }
-
-      container.innerHTML = apps.map(app => `
-        <div class="card">
+      container.innerHTML = "";
+      apps.forEach(app => {
+        const div = document.createElement("div");
+        div.className = "app-card";
+        div.innerHTML = `
           <h3>${app.name}</h3>
-          <p>${app.category}</p>
-          <a href="${app.url}" target="_blank">Open</a>
-        </div>
-      `).join("");
+          <p>${app.description}</p>
+          <a href="${app.link}" target="_blank">Open</a>
+        `;
+        container.appendChild(div);
+      });
     })
     .catch(err => {
-      container.innerHTML = "<p>Error loading apps.</p>";
-      console.error(err);
+      container.innerHTML = "⚠️ Could not load apps.";
+      console.error("Error loading apps.json:", err);
     });
 });
