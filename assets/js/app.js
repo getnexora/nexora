@@ -1,46 +1,28 @@
-// ================= Nexora ProSuite App Logic =================
-
-// Wait for DOM to be ready
 document.addEventListener("DOMContentLoaded", () => {
-  const loader = document.querySelector(".loader");
-  const welcomeModal = document.getElementById("welcomeModal");
-  const languageSelect = document.getElementById("languageSelect");
-  const continueBtn = document.getElementById("continueBtn");
-  const guestBtn = document.getElementById("guestBtn");
+  const loader = document.getElementById("loader");
+  const popup = document.getElementById("welcome-popup");
+  const mainContent = document.getElementById("main-content");
+  const continueBtn = document.getElementById("continue-btn");
+  const guestBtn = document.getElementById("guest-btn");
+  const languageSelect = document.getElementById("language");
 
-  // ---- Loader always disappears after load ----
+  // Hide loader after short delay
   setTimeout(() => {
-    if (loader) {
-      loader.classList.add("hidden");
-    }
-    // Show modal only if language not set
-    const savedLang = localStorage.getItem("nexora_language");
-    if (!savedLang && welcomeModal) {
-      welcomeModal.classList.add("active");
-    }
+    loader.style.display = "none";
+    popup.style.display = "flex";
   }, 1200);
 
-  // ---- Continue button ----
-  if (continueBtn) {
-    continueBtn.addEventListener("click", () => {
-      const lang = languageSelect.value || "en";
-      localStorage.setItem("nexora_language", lang);
-      closeModal();
-    });
+  function continueToSite() {
+    const lang = languageSelect.value;
+    localStorage.setItem("nexoraLang", lang);
+    popup.style.display = "none";
+    mainContent.classList.remove("hidden");
   }
 
-  // ---- Guest button ----
-  if (guestBtn) {
-    guestBtn.addEventListener("click", () => {
-      localStorage.setItem("nexora_language", "guest");
-      closeModal();
-    });
-  }
-
-  // ---- Close modal helper ----
-  function closeModal() {
-    if (welcomeModal) {
-      welcomeModal.classList.remove("active");
-    }
-  }
+  continueBtn.addEventListener("click", continueToSite);
+  guestBtn.addEventListener("click", () => {
+    localStorage.removeItem("nexoraLang");
+    popup.style.display = "none";
+    mainContent.classList.remove("hidden");
+  });
 });
