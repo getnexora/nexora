@@ -1,6 +1,8 @@
-/* ===== Nexora ProSuite Black + Gold - Luxury Premium ===== */
+/* ===================================================
+   Nexora ProSuite - Luxury Premium Black & Gold Theme
+   =================================================== */
 
-/* Reset */
+/* Reset & Base */
 * {
   margin: 0;
   padding: 0;
@@ -9,39 +11,55 @@
 
 body {
   font-family: 'Inter', sans-serif;
-  background: #000;
+  background-color: #0a0a0a;
   color: #f5f5f5;
-  line-height: 1.6;
+  line-height: 1.7;
+  overflow-x: hidden;
 }
 
-/* Gold Accent */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Typography */
+h1, h2, h3 {
+  font-family: 'Cinzel', serif;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
 .gold-text {
   color: #d4af37;
 }
 
-/* Navbar */
+/* Navigation Bar */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #0a0a0a;
-  padding: 1rem 2rem;
+  padding: 1rem 2.5rem;
+  background: rgba(10, 10, 10, 0.95);
   border-bottom: 1px solid #222;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.7);
+  backdrop-filter: blur(6px);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
 .navbar .logo {
   font-size: 1.6rem;
   font-weight: 800;
   color: #d4af37;
-  letter-spacing: 1px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .nav-links a {
-  margin-left: 1.5rem;
-  text-decoration: none;
-  color: #f5f5f5;
+  margin-left: 1.8rem;
   font-weight: 500;
+  color: #f5f5f5;
   transition: color 0.3s ease;
 }
 
@@ -50,41 +68,68 @@ body {
 }
 
 .signin-btn {
-  padding: 0.5rem 1rem;
+  padding: 0.45rem 1rem;
   border: 1px solid #d4af37;
-  border-radius: 8px;
-  color: #d4af37;
+  border-radius: 6px;
   font-weight: 600;
+  color: #d4af37;
   transition: all 0.3s ease;
 }
 
 .signin-btn:hover {
   background: #d4af37;
-  color: #000;
-  box-shadow: 0 0 15px rgba(212,175,55,0.6);
+  color: #0a0a0a;
 }
 
 /* Hero Section */
 .hero {
   text-align: center;
-  padding: 8rem 2rem;
-  background: linear-gradient(135deg, rgba(10,10,10,0.95), rgba(20,20,20,0.95)),
-              url("../img/gold-world-map.png") center/cover no-repeat;
-  color: #fff;
+  padding: 7rem 2rem 6rem;
+  background: linear-gradient(135deg, #0a0a0a 70%, #1a1a1a 100%);
   position: relative;
+  overflow: hidden;
+}
+
+.hero-graphic {
+  margin-bottom: 2.5rem;
+}
+
+.hero-graphic svg {
+  max-width: 200px;
+  height: auto;
+  margin: 0 auto;
+  display: block;
+  opacity: 0.95;
+  filter: drop-shadow(0 0 10px rgba(212,175,55,0.5));
 }
 
 .hero h1 {
   font-size: 3.2rem;
   margin-bottom: 1rem;
-  color: #d4af37;
-  text-shadow: 0 3px 8px rgba(0,0,0,0.8);
+  background: linear-gradient(90deg, #d4af37, #f7e27d, #d4af37);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: goldFlow 8s ease infinite;
+  text-shadow: 0 0 20px rgba(212,175,55,0.4);
+}
+
+@keyframes goldFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 .hero p {
   font-size: 1.25rem;
-  margin-bottom: 1.5rem;
-  opacity: 0.9;
+  margin-bottom: 1.8rem;
+  color: #ccc;
+}
+
+.tagline {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
 }
 
 .cta-buttons {
@@ -93,23 +138,24 @@ body {
 
 .cta-button,
 .cta-secondary {
-  text-decoration: none;
   padding: 0.9rem 1.8rem;
-  margin: 0 0.5rem;
+  margin: 0 0.6rem;
   border-radius: 10px;
   font-weight: 600;
+  font-size: 1rem;
   transition: all 0.3s ease;
+  display: inline-block;
 }
 
 .cta-button {
   background: #d4af37;
-  color: #000;
-  box-shadow: 0 0 15px rgba(212,175,55,0.5);
+  color: #0a0a0a;
+  box-shadow: 0 4px 12px rgba(212,175,55,0.3);
 }
 
 .cta-button:hover {
   background: #b9932e;
-  box-shadow: 0 0 25px rgba(212,175,55,0.8);
+  box-shadow: 0 6px 16px rgba(212,175,55,0.5);
 }
 
 .cta-secondary {
@@ -119,21 +165,20 @@ body {
 
 .cta-secondary:hover {
   background: #d4af37;
-  color: #000;
-  box-shadow: 0 0 20px rgba(212,175,55,0.5);
+  color: #0a0a0a;
 }
 
 /* Features Grid */
 .features-grid {
   padding: 5rem 2rem;
   text-align: center;
-  background: #0a0a0a;
+  background: #0f0f0f;
 }
 
 .features-grid h2 {
-  font-size: 2.4rem;
+  font-size: 2.2rem;
   margin-bottom: 3rem;
-  color: #d4af37;
+  color: #f5f5f5;
 }
 
 .grid {
@@ -143,84 +188,81 @@ body {
 }
 
 .feature-card {
-  background: rgba(20,20,20,0.95);
-  padding: 2.5rem;
-  border-radius: 16px;
-  border: 1px solid #2a2a2a;
+  background: #1a1a1a;
+  padding: 2.2rem;
+  border-radius: 14px;
+  border: 1px solid #333;
   transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
+  text-align: center;
 }
 
 .feature-card:hover {
-  transform: translateY(-8px);
+  transform: translateY(-6px);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.6);
   border-color: #d4af37;
-  box-shadow: 0 0 25px rgba(212,175,55,0.3);
 }
 
 .feature-card svg {
-  margin-bottom: 1rem;
-  color: #d4af37;
+  margin-bottom: 1.2rem;
+  filter: drop-shadow(0 0 8px rgba(212,175,55,0.3));
 }
 
 .feature-card h3 {
-  margin-bottom: 0.75rem;
-  font-size: 1.3rem;
+  margin-bottom: 0.6rem;
   color: #f5f5f5;
+  font-size: 1.3rem;
 }
 
 /* CTA Section */
 .cta-section {
   text-align: center;
   padding: 5rem 2rem;
-  background: linear-gradient(135deg, #111 70%, #000 100%);
-  box-shadow: inset 0 0 40px rgba(212,175,55,0.15);
+  background: linear-gradient(135deg, #111 70%, #0a0a0a 100%);
+  position: relative;
 }
 
 .cta-section h2 {
   font-size: 2.2rem;
   margin-bottom: 1rem;
-  color: #d4af37;
 }
 
 .cta-section p {
-  margin-bottom: 2rem;
-  font-size: 1.1rem;
+  margin-bottom: 1.8rem;
+  color: #ccc;
 }
 
 /* Footer */
 .footer {
-  background: #000;
-  padding: 2.5rem 2rem;
+  background: #0a0a0a;
+  padding: 2.5rem;
   text-align: center;
   border-top: 1px solid #222;
+  position: relative;
+}
+
+.footer::before {
+  content: "";
+  display: block;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #d4af37, transparent);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
 }
 
 .footer p {
-  margin-bottom: 0.75rem;
-  opacity: 0.8;
+  margin-bottom: 0.8rem;
+  color: #aaa;
 }
 
 .footer-links a {
-  margin: 0 0.75rem;
-  text-decoration: none;
-  color: #f5f5f5;
+  margin: 0 0.7rem;
   font-weight: 500;
+  color: #f5f5f5;
   transition: color 0.3s ease;
 }
 
 .footer-links a:hover {
   color: #d4af37;
-}
-
-/* Hero Graphic (optional if you keep SVG) */
-.hero-graphic {
-  margin-bottom: 2rem;
-}
-
-.hero-graphic svg {
-  max-width: 200px;
-  height: auto;
-  margin: 0 auto;
-  display: block;
-  opacity: 0.8;
-  filter: drop-shadow(0 0 10px rgba(212,175,55,0.4));
 }
