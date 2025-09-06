@@ -1,38 +1,65 @@
 [
   {
-    "name": "WeChat",
-    "country": "china",
-    "category": "messaging",
-    "link": "https://wechat.com"
+    "name": "Google",
+    "url": "https://www.google.com",
+    "icon": "https://www.google.com/favicon.ico",
+    "category": "Search"
   },
   {
-    "name": "WhatsApp",
-    "country": "global",
-    "category": "messaging",
-    "link": "https://whatsapp.com"
-  },
-  {
-    "name": "Paytm",
-    "country": "india",
-    "category": "payments",
-    "link": "https://paytm.com"
-  },
-  {
-    "name": "M-Pesa",
-    "country": "kenya",
-    "category": "payments",
-    "link": "https://safaricom.co.ke/m-pesa"
-  },
-  {
-    "name": "TikTok",
-    "country": "global",
-    "category": "social",
-    "link": "https://tiktok.com"
+    "name": "YouTube",
+    "url": "https://www.youtube.com",
+    "icon": "https://www.youtube.com/favicon.ico",
+    "category": "Video"
   },
   {
     "name": "Facebook",
-    "country": "global",
-    "category": "social",
-    "link": "https://facebook.com"
-  }
-]
+    "url": "https://www.facebook.com",
+    "icon": "https://www.facebook.com/favicon.ico",
+    "category": "Social"
+  },
+  {
+    "name": "Twitter (X)",
+    "url": "https://x.com",
+    "icon": "https://abs.twimg.com/favicons/twitter.2.ico",
+    "category": "Social"
+  },
+  {
+    "name": "Instagram",
+    "url": "https://www.instagram.com",
+    "icon": "https://www.instagram.com/favicon.ico",
+    "category": "Social"
+  },
+  {
+    "name": "LinkedIn",
+    "url": "https://www.linkedin.com",
+    "icon": "https://www.linkedin.com/favicon.ico",
+    "category": "Professional"
+  },
+  {
+    "name": "Wikipedia",
+    "url": "https://www.wikipedia.org",
+    "icon": "https://www.wikipedia.org/static/favicon/wikipedia.ico",
+    "category": "Knowledge"
+  },
+  {
+    "name": "Amazon",
+    "url": "https://www.amazon.com",
+    "icon": "https://www.amazon.com/favicon.ico",
+    "category": "Shopping"
+  },
+  {
+    "name": "Netflix",
+    "url": "https://www.netflix.com",
+    "icon": "https://www.netflix.com/favicon.ico",
+    "category": "Entertainment"
+  },
+  {
+    "name": "Spotify",
+    "url": "https://www.spotify.com",
+    "icon": "https://www.scdn.co/i/_global/favicon.ico",
+    "category": "Music"
+  },
+  {
+    "name": "Reddit",
+    "url": "https://www.reddit.com",
+    "icon": "https://www.redditstatic.com/desktop2x/img/favic
