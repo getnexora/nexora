@@ -8,13 +8,13 @@ document.addEventListener("DOMContentLoaded", () => {
         <div class="app-card">
           <img src="${app.icon}" alt="${app.name}" class="app-icon" />
           <h3>${app.name}</h3>
-          <a href="${app.url}" target="_blank">Open</a>
+          <p class="category">${app.category}</p>
+          <a href="${app.url}" target="_blank" class="open-btn">Open</a>
         </div>
       `).join("");
     })
     .catch(error => {
       console.error("Error loading apps:", error);
-      appsContainer.innerHTML = "<p>Could not load apps.</p>";
+      appsContainer.innerHTML = "<p>⚠️ Could not load apps.</p>";
     });
 });
-
