@@ -110,3 +110,115 @@
     "link": "https://monday.com/"
   }
 ]
+,
+  {
+    "name": "PayPal",
+    "description": "Send and receive money securely online and in stores.",
+    "icon": "assets/img/app-paypal.png",
+    "link": "https://www.paypal.com/"
+  },
+  {
+    "name": "Venmo",
+    "description": "Peer-to-peer payments with social features.",
+    "icon": "assets/img/app-venmo.png",
+    "link": "https://venmo.com/"
+  },
+  {
+    "name": "Cash App",
+    "description": "Send money instantly and invest in stocks or Bitcoin.",
+    "icon": "assets/img/app-cashapp.png",
+    "link": "https://cash.app/"
+  },
+  {
+    "name": "Revolut",
+    "description": "Global financial app for banking, exchange, and crypto.",
+    "icon": "assets/img/app-revolut.png",
+    "link": "https://www.revolut.com/"
+  },
+  {
+    "name": "Wise",
+    "description": "International money transfers with low fees.",
+    "icon": "assets/img/app-wise.png",
+    "link": "https://wise.com/"
+  },
+  {
+    "name": "Stripe",
+    "description": "Payment infrastructure for the internet.",
+    "icon": "assets/img/app-stripe.png",
+    "link": "https://stripe.com/"
+  },
+  {
+    "name": "Square",
+    "description": "POS systems, payments, and business management tools.",
+    "icon": "assets/img/app-square.png",
+    "link": "https://squareup.com/"
+  },
+  {
+    "name": "Coinbase",
+    "description": "Buy, sell, and manage cryptocurrencies.",
+    "icon": "assets/img/app-coinbase.png",
+    "link": "https://www.coinbase.com/"
+  },
+  {
+    "name": "Robinhood",
+    "description": "Invest in stocks, options, and crypto with zero commissions.",
+    "icon": "assets/img/app-robinhood.png",
+    "link": "https://robinhood.com/"
+  }
+]
+,
+  {
+    "name": "PayPal",
+    "description": "Send and receive money securely online and in stores.",
+    "icon": "assets/img/app-paypal.png",
+    "link": "https://www.paypal.com/"
+  },
+  {
+    "name": "Venmo",
+    "description": "Peer-to-peer payments with social features.",
+    "icon": "assets/img/app-venmo.png",
+    "link": "https://venmo.com/"
+  },
+  {
+    "name": "Cash App",
+    "description": "Send money instantly and invest in stocks or Bitcoin.",
+    "icon": "assets/img/app-cashapp.png",
+    "link": "https://cash.app/"
+  },
+  {
+    "name": "Revolut",
+    "description": "Global financial app for banking, exchange, and crypto.",
+    "icon": "assets/img/app-revolut.png",
+    "link": "https://www.revolut.com/"
+  },
+  {
+    "name": "Wise",
+    "description": "International money transfers with low fees.",
+    "icon": "assets/img/app-wise.png",
+    "link": "https://wise.com/"
+  },
+  {
+    "name": "Stripe",
+    "description": "Payment infrastructure for the internet.",
+    "icon": "assets/img/app-stripe.png",
+    "link": "https://stripe.com/"
+  },
+  {
+    "name": "Square",
+    "description": "POS systems, payments, and business management tools.",
+    "icon": "assets/img/app-square.png",
+    "link": "https://squareup.com/"
+  },
+  {
+    "name": "Coinbase",
+    "description": "Buy, sell, and manage cryptocurrencies.",
+    "icon": "assets/img/app-coinbase.png",
+    "link": "https://www.coinbase.com/"
+  },
+  {
+    "name": "Robinhood",
+    "description": "Invest in stocks, options, and crypto with zero commissions.",
+    "icon": "assets/img/app-robinhood.png",
+    "link": "https://robinhood.com/"
+  }
+]
