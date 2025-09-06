@@ -1,17 +1,12 @@
 [
   {
-    "name": "Google",
-    "description": "Search the web quickly.",
-    "link": "https://www.google.com"
+    "name": "Mail",
+    "description": "Check your inbox and send messages.",
+    "link": "https://mail.example.com"
   },
   {
-    "name": "WeChat",
-    "description": "Messaging and payments.",
-    "link": "https://www.wechat.com"
-  },
-  {
-    "name": "WhatsApp",
-    "description": "Chat with friends securely.",
-    "link": "https://www.whatsapp.com"
+    "name": "Calendar",
+    "description": "Manage your events and meetings.",
+    "link": "https://calendar.example.com"
   }
 ]
