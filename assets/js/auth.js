@@ -1,9 +1,13 @@
-// Import Firebase SDKs (make sure you included firebase-app.js, firebase-auth.js, firebase-firestore.js in your HTML)
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-app.js";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-auth.js";
-import { getFirestore, doc, setDoc, getDoc } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-firestore.js";
+import { 
+  getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, 
+  signOut, onAuthStateChanged 
+} from "https://www.gstatic.com/firebasejs/10.13.1/firebase-auth.js";
+import { 
+  getFirestore, doc, setDoc, getDoc 
+} from "https://www.gstatic.com/firebasejs/10.13.1/firebase-firestore.js";
 
-// ✅ Firebase config from your Firebase console
+// ✅ Firebase config
 const firebaseConfig = {
   apiKey: "AIzaSyBPYzbOzSgnEpYe_L_F-QLrr8cpAwkZyJk",
   authDomain: "nexora-prosuite.firebaseapp.com",
@@ -34,7 +38,9 @@ async function signup(email, password, name) {
       apps: []
     });
 
-    alert("Signup successful!");
+    // Redirect to profile
+    window.location.href = "profile.html";
+
   } catch (error) {
     alert("Signup error: " + error.message);
   }
@@ -44,7 +50,10 @@ async function signup(email, password, name) {
 async function login(email, password) {
   try {
     await signInWithEmailAndPassword(auth, email, password);
-    alert("Login successful!");
+
+    // Redirect to profile
+    window.location.href = "profile.html";
+
   } catch (error) {
     alert("Login error: " + error.message);
   }
@@ -54,7 +63,7 @@ async function login(email, password) {
 async function logout() {
   try {
     await signOut(auth);
-    alert("Logged out successfully!");
+    window.location.href = "login.html"; // Redirect after logout
   } catch (error) {
     alert("Logout error: " + error.message);
   }
@@ -65,19 +74,24 @@ onAuthStateChanged(auth, async (user) => {
   if (user) {
     console.log("User logged in: ", user.uid);
 
-    // Fetch user profile
-    const docRef = doc(db, "users", user.uid);
-    const docSnap = await getDoc(docRef);
+    // Only run this if profile.html exists
+    if (document.getElementById("profile-name")) {
+      const docRef = doc(db, "users", user.uid);
+      const docSnap = await getDoc(docRef);
 
-    if (docSnap.exists()) {
-      console.log("User profile: ", docSnap.data());
-      document.getElementById("profile-name").innerText = docSnap.data().name;
-    } else {
-      console.log("No profile found.");
+      if (docSnap.exists()) {
+        document.getElementById("profile-name").innerText = docSnap.data().name;
+      } else {
+        document.getElementById("profile-name").innerText = "Unknown User";
+      }
     }
+
   } else {
     console.log("User logged out.");
-    document.getElementById("profile-name").innerText = "Guest";
+    // If user is on profile.html and not logged in → kick them back
+    if (window.location.pathname.includes("profile.html")) {
+      window.location.href = "login.html";
+    }
   }
 });
 
