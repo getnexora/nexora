@@ -1,101 +1,94 @@
-/* Global Styles */
-body {
+/* General Reset */
+* {
   margin: 0;
-  font-family: 'Inter', sans-serif;
-  background: #000;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #000;
+  color: #ffd700; /* Gold */
+  line-height: 1.6;
+}
+
+/* Header */
+.site-header {
+  background: #111;
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.site-header .logo {
+  height: 50px;
+}
+
+.site-header nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.site-header nav a {
+  text-decoration: none;
+  color: #ffd700;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.site-header nav a:hover {
   color: #fff;
 }
 
 /* Hero Section */
 .hero {
   position: relative;
-  height: 100vh;
-  background: url('../img/worldmap.jpg') center/cover no-repeat;
+  background: url("../img/worldmap.jpg") no-repeat center center/cover;
+  height: 90vh;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
 }
+
 .hero .overlay {
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
   background: rgba(0, 0, 0, 0.6);
-}
-.hero-content {
-  position: relative;
-  z-index: 2;
-}
-.logo {
-  max-width: 200px;
-  margin-bottom: 20px;
-  filter: drop-shadow(0 0 10px gold);
-}
-.hero h1 {
-  font-size: 3rem;
-  font-weight: 700;
-}
-.hero h1 span {
-  color: gold;
-}
-.hero p {
-  font-size: 1.2rem;
-  margin: 15px 0 30px;
-}
-.btn {
-  background: gold;
-  color: black;
-  padding: 12px 25px;
-  border-radius: 30px;
-  text-decoration: none;
-  font-weight: bold;
-  transition: all 0.3s ease;
-}
-.btn:hover {
-  background: #fff;
-  color: black;
+  padding: 2rem;
+  border-radius: 12px;
 }
 
-/* Features */
-.features {
-  padding: 80px 20px;
-  background: #111;
-  text-align: center;
-}
-.features h2 {
-  color: gold;
+.hero h2 {
   font-size: 2.5rem;
-  margin-bottom: 40px;
+  margin-bottom: 1rem;
 }
-.features-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 30px;
-  max-width: 1000px;
-  margin: 0 auto;
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
 }
-.card {
-  background: #1a1a1a;
-  padding: 25px;
-  border-radius: 15px;
-  box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
-  transition: transform 0.3s ease;
+
+.btn {
+  background: #ffd700;
+  color: #000;
+  padding: 0.8rem 1.5rem;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: background 0.3s;
 }
-.card:hover {
-  transform: translateY(-5px);
-}
-.card h3 {
-  color: gold;
-  margin-bottom: 10px;
+
+.btn:hover {
+  background: #fff;
+  color: #000;
 }
 
 /* Footer */
 footer {
-  background: #000;
-  padding: 30px 20px;
+  background: #111;
+  padding: 1rem;
   text-align: center;
-  border-top: 2px solid gold;
-}
-.footer-logo {
-  max-width: 120px;
-  margin-bottom: 10px;
+  color: #aaa;
+  font-size: 0.9rem;
 }
