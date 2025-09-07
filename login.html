@@ -3,36 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nexora ProSuite - Login</title>
+  <title>Login - Nexora ProSuite</title>
 </head>
 <body>
-  <h1>Login / Signup</h1>
+  <h1>Login</h1>
+  <form id="loginForm">
+    <input type="email" id="loginEmail" placeholder="Email" required />
+    <input type="password" id="loginPassword" placeholder="Password" required />
+    
+    <label>
+      <input type="checkbox" id="rememberMe" /> Remember me
+    </label>
 
-  <!-- Signup Form -->
-  <h2>Signup</h2>
-  <input type="text" id="signup-name" placeholder="Name" />
-  <input type="email" id="signup-email" placeholder="Email" />
-  <input type="password" id="signup-password" placeholder="Password" />
-  <button onclick="signup(
-    document.getElementById('signup-email').value,
-    document.getElementById('signup-password').value,
-    document.getElementById('signup-name').value
-  )">Signup</button>
+    <button type="submit">Login</button>
+  </form>
 
-  <hr>
-
-  <!-- Login Form -->
-  <h2>Login</h2>
-  <input type="email" id="login-email" placeholder="Email" />
-  <input type="password" id="login-password" placeholder="Password" />
-  <button onclick="login(
-    document.getElementById('login-email').value,
-    document.getElementById('login-password').value
-  )">Login</button>
-
-  <hr>
-  <button onclick="logout()">Logout</button>
-
-  <script type="module" src="assets/js/auth.js"></script>
+  <script type="module" src="auth.js"></script>
 </body>
 </html>
