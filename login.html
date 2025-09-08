@@ -1,55 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Login - Nexora ProSuite</title>
-  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <script defer src="assets/js/auth.js"></script>
 </head>
 <body>
   <!-- Header -->
-  <header>
-    <nav class="navbar">
-      <a href="index.html" class="logo">
-        <img src="assets/img/logo.png" alt="Nexora Logo">
-      </a>
-      <ul class="nav-links">
-        <li><a href="about.html">About</a></li>
-        <li><a href="features.html">Features</a></li>
-        <li><a href="apps.html">Apps</a></li>
-        <li><a href="dashboard.html">Dashboard</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        <li><a href="profile.html">Profile</a></li>
-      </ul>
+  <header class="site-header">
+    <div class="logo">
+      <img src="assets/img/logo.png" alt="Nexora Logo" />
+      <h1>Nexora ProSuite</h1>
+    </div>
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="features.html">Features</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
     </nav>
   </header>
 
-  <!-- Login Section -->
-  <main>
+  <!-- Login Form -->
+  <main class="content">
     <section class="form-section">
-      <h1>Login</h1>
+      <h2>Login to Your Account</h2>
       <form id="loginForm">
         <label for="email">Email</label>
-        <input type="email" id="email" placeholder="Enter your email" required>
+        <input type="email" id="email" placeholder="Enter your email" required />
 
         <label for="password">Password</label>
         <div class="password-wrapper">
-          <input type="password" id="password" placeholder="Enter your password" required>
-          <span id="togglePassword" class="toggle-eye">👁️</span>
+          <input type="password" id="password" placeholder="Enter your password" required />
+          <button type="button" id="togglePassword">👁</button>
         </div>
 
         <button type="submit" class="btn">Login</button>
       </form>
-      <p>Don't have an account? <a href="signup.html">Sign Up</a></p>
-      <div id="loginMessage"></div>
+      <p>Don’t have an account? <a href="signup.html">Sign up</a></p>
     </section>
   </main>
 
   <!-- Footer -->
-  <footer>
+  <footer class="site-footer">
     <p>&copy; 2025 Nexora ProSuite. All rights reserved.</p>
   </footer>
-
-  <script src="assets/js/auth.js"></script>
 </body>
 </html>
