@@ -1,23 +1,24 @@
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("contactForm");
-  const status = document.getElementById("formStatus");
+  const formMessage = document.getElementById("formMessage");
 
   form.addEventListener("submit", (e) => {
     e.preventDefault();
 
-    const name = document.getElementById("name").value.trim();
-    const email = document.getElementById("email").value.trim();
-    const message = document.getElementById("message").value.trim();
+    const name = form.name.value.trim();
+    const email = form.email.value.trim();
+    const message = form.message.value.trim();
 
     if (!name || !email || !message) {
-      status.textContent = "⚠️ Please fill out all fields.";
-      status.style.color = "red";
+      formMessage.textContent = "⚠️ Please fill in all fields.";
+      formMessage.style.color = "orange";
       return;
     }
 
-    // For now, just show success (no backend yet)
-    status.textContent = "✅ Thank you, your message has been sent!";
-    status.style.color = "green";
+    // Mock success message
+    formMessage.textContent = "✅ Thank you for contacting us, " + name + "! We’ll respond shortly.";
+    formMessage.style.color = "limegreen";
+
     form.reset();
   });
 });
