@@ -1,14 +1,4 @@
-/* Nexora Premium Black & Gold Theme */
-
-:root {
-  --bg-dark: #0a0a0a;
-  --gold: #d4af37;
-  --gold-light: #f5e6a0;
-  --text-light: #f5f5f5;
-  --accent: #1a1a1a;
-  --font-main: 'Inter', sans-serif;
-}
-
+/* Reset */
 * {
   margin: 0;
   padding: 0;
@@ -16,87 +6,135 @@
 }
 
 body {
-  font-family: var(--font-main);
-  background: var(--bg-dark);
-  color: var(--text-light);
+  font-family: Arial, sans-serif;
+  background: #0a0a0a;
+  color: #f5f5f5;
   line-height: 1.6;
 }
 
-header {
-  background: var(--accent);
+/* Navbar */
+.navbar {
+  background: #000;
   padding: 1rem 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 2px solid var(--gold);
+  border-bottom: 2px solid gold;
 }
 
-header img {
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.logo img {
   height: 40px;
 }
 
-nav ul {
-  list-style: none;
+.logo h1 {
+  color: gold;
+  font-size: 1.4rem;
+}
+
+.navbar ul {
   display: flex;
+  list-style: none;
   gap: 1.5rem;
 }
 
-nav a {
-  color: var(--gold);
+.navbar a {
+  color: #f5f5f5;
   text-decoration: none;
-  font-weight: 600;
-  transition: color 0.3s ease;
+  transition: color 0.3s;
 }
 
-nav a:hover {
-  color: var(--gold-light);
+.navbar a:hover,
+.navbar a.active {
+  color: gold;
 }
 
+.navbar .btn {
+  padding: 0.4rem 0.8rem;
+  background: gold;
+  color: #000;
+  border-radius: 4px;
+}
+
+/* Hero */
 .hero {
-  background: url("../img/banner.png") center/cover no-repeat;
-  color: var(--gold);
-  text-align: center;
-  padding: 6rem 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 3rem 2rem;
+  align-items: center;
 }
 
-.hero h1 {
-  font-size: 3rem;
+.hero-text h2 {
+  font-size: 2.2rem;
+  color: gold;
   margin-bottom: 1rem;
 }
 
-.hero p {
-  font-size: 1.25rem;
-  max-width: 600px;
-  margin: 0 auto;
+.hero-text p {
+  margin-bottom: 1.5rem;
 }
 
-section {
-  padding: 4rem 2rem;
+.btn-primary {
+  padding: 0.6rem 1.2rem;
+  background: gold;
+  color: #000;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: bold;
 }
 
-section h2 {
+.hero-img img {
+  max-width: 100%;
+  border: 2px solid gold;
+  border-radius: 8px;
+}
+
+/* Features */
+.features {
   text-align: center;
-  margin-bottom: 2rem;
-  color: var(--gold);
+  padding: 3rem 2rem;
+  background: #111;
 }
 
-.features-grid {
+.features h2 {
+  font-size: 2rem;
+  color: gold;
+  margin-bottom: 2rem;
+}
+
+.features .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
 }
 
 .card {
-  background: var(--accent);
-  padding: 2rem;
-  border: 1px solid var(--gold);
-  border-radius: 10px;
-  text-align: center;
+  background: #1a1a1a;
+  padding: 1.5rem;
+  border: 1px solid #333;
+  border-radius: 6px;
+  transition: transform 0.2s;
 }
 
+.card:hover {
+  transform: translateY(-5px);
+  border-color: gold;
+}
+
+.card h3 {
+  color: gold;
+  margin-bottom: 0.5rem;
+}
+
+/* Footer */
 footer {
   text-align: center;
-  padding: 2rem;
-  border-top: 2px solid var(--gold);
-  margin-top: 3rem;
+  padding: 1rem;
+  background: #000;
+  border-top: 2px solid gold;
 }
