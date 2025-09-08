@@ -1,3 +1,5 @@
+/* assets/css/style.css */
+
 /* Reset */
 * {
   margin: 0;
@@ -6,100 +8,72 @@
 }
 
 body {
-  background-color: #000;
-  color: #FFD700;
-  font-family: 'Inter', sans-serif;
-  line-height: 1.6;
+  font-family: "Inter", sans-serif;
+  background: #000 url("../img/worldmap.png") no-repeat center center fixed;
+  background-size: cover;
+  color: #f5c518; /* Gold text */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
-/* HEADER */
-.header {
+/* Header */
+header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 50px;
-  border-bottom: 1px solid #FFD700;
+  padding: 1rem 2rem;
+  background: rgba(0, 0, 0, 0.85);
 }
 
-.site-logo {
-  height: 60px;
+header img {
+  height: 50px;
 }
 
-.nav a {
-  color: #FFD700;
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+nav a {
+  color: #f5c518;
   text-decoration: none;
-  margin-left: 20px;
-  font-weight: 600;
-  transition: color 0.3s;
+  font-weight: bold;
+  transition: color 0.3s ease;
 }
 
-.nav a:hover {
-  color: #fff;
+nav a:hover {
+  color: #ffffff;
 }
 
-/* HERO */
+/* Hero Section */
 .hero {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-align: center;
-  padding: 80px 20px;
+  padding: 4rem 2rem;
 }
 
 .hero h1 {
-  font-size: 2.5rem;
-  margin-bottom: 15px;
+  font-size: 3rem;
+  color: #f5c518;
+  text-shadow: 2px 2px 5px #000;
 }
 
 .hero p {
-  font-size: 1.2rem;
-  margin-bottom: 30px;
+  margin-top: 1rem;
+  font-size: 1.25rem;
+  color: #fff;
 }
 
-.worldmap {
-  max-width: 80%;
-  margin-top: 30px;
-  opacity: 0.9;
-  border: 2px solid #FFD700;
-  border-radius: 12px;
-}
-
-/* FEATURES */
-.features {
+/* Footer */
+footer {
+  background: rgba(0, 0, 0, 0.85);
+  color: #f5c518;
   text-align: center;
-  padding: 60px 20px;
-}
-
-.features h2 {
-  font-size: 2rem;
-  margin-bottom: 40px;
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 20px;
-  max-width: 1000px;
-  margin: 0 auto;
-}
-
-.card {
-  background: #111;
-  border: 1px solid #FFD700;
-  border-radius: 12px;
-  padding: 30px;
-  font-size: 1.2rem;
-  font-weight: bold;
-  transition: transform 0.3s;
-}
-
-.card:hover {
-  transform: scale(1.05);
-  background: #222;
-}
-
-/* FOOTER */
-.footer {
-  text-align: center;
-  padding: 20px;
-  border-top: 1px solid #FFD700;
-  margin-top: 60px;
-  font-size: 0.9rem;
+  padding: 1rem;
+  margin-top: auto;
 }
