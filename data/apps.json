@@ -1,12 +1,20 @@
 [
   {
-    "name": "Mail",
-    "description": "Check your inbox and send messages.",
-    "link": "https://mail.example.com"
+    "name": "Nexora Chat",
+    "description": "Secure real-time messaging with colleagues worldwide.",
+    "icon": "chat.png",
+    "link": "#"
   },
   {
-    "name": "Calendar",
-    "description": "Manage your events and meetings.",
-    "link": "https://calendar.example.com"
+    "name": "Analytics Pro",
+    "description": "Powerful insights and dashboards for your business.",
+    "icon": "analytics.png",
+    "link": "#"
+  },
+  {
+    "name": "Task Manager",
+    "description": "Organize, assign, and track tasks with ease.",
+    "icon": "tasks.png",
+    "link": "#"
   }
 ]
