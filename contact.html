@@ -1,19 +1,58 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const form = document.getElementById("contactForm");
-  const formMessage = document.getElementById("formMessage");
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us - Nexora ProSuite</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <nav class="navbar">
+      <a href="index.html" class="logo">
+        <img src="assets/img/logo.png" alt="Nexora Logo">
+      </a>
+      <ul class="nav-links">
+        <li><a href="about.html">About</a></li>
+        <li><a href="features.html">Features</a></li>
+        <li><a href="apps.html">Apps</a></li>
+        <li><a href="dashboard.html">Dashboard</a></li>
+        <li><a href="contact.html" class="active">Contact</a></li>
+        <li><a href="profile.html">Profile</a></li>
+      </ul>
+    </nav>
+  </header>
 
-  form.addEventListener("submit", (e) => {
-    e.preventDefault();
+  <!-- Contact Section -->
+  <main>
+    <section class="hero">
+      <h1>Contact Us</h1>
+      <p>Have questions or need support? Send us a message below.</p>
+    </section>
 
-    const name = form.name.value.trim();
-    const email = form.email.value.trim();
-    const message = form.message.value.trim();
+    <section class="form-section">
+      <form id="contactForm">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" placeholder="Your Name" required>
 
-    if (name && email && message) {
-      formMessage.innerHTML = `<p class="success">✅ Thank you, ${name}! Your message has been sent.</p>`;
-      form.reset();
-    } else {
-      formMessage.innerHTML = `<p class="error">⚠️ Please fill in all fields.</p>`;
-    }
-  });
-});
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="Your Email" required>
+
+        <label for="message">Message</label>
+        <textarea id="message" name="message" placeholder="Your Message" required></textarea>
+
+        <button type="submit" class="btn">Send Message</button>
+      </form>
+      <div id="formMessage"></div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Nexora ProSuite. All rights reserved.</p>
+  </footer>
+
+  <script src="assets/js/contact.js"></script>
+</body>
+</html>
