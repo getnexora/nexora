@@ -1,48 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nexora ProSuite - Developer Portal</title>
-  <link rel="stylesheet" href="assets/css/style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard | Nexora ProSuite</title>
+  <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-  <div class="developer-container">
-    <h1>👨‍💻 Developer Portal</h1>
-    <p>Welcome to the private developer page. Only authorized users can view this content.</p>
-
-    <section class="dev-tools">
-      <h2>Developer Tools & Apps</h2>
+  <header>
+    <img src="assets/img/logo.png" alt="Nexora Logo">
+    <nav>
       <ul>
-        <li><a href="#">📦 App Deployment Console</a></li>
-        <li><a href="#">⚙️ API Management</a></li>
-        <li><a href="#">📊 Analytics Dashboard</a></li>
-        <li><a href="#">🔒 Security Settings</a></li>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="features.html">Features</a></li>
+        <li><a href="apps.html">Apps</a></li>
+        <li><a href="dashboard.html" class="active">Dashboard</a></li>
+        <li><a href="developer.html">Developer</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="profile.html">Profile</a></li>
+        <li><a href="login.html">Login</a></li>
       </ul>
-    </section>
+    </nav>
+  </header>
 
-    <button id="logoutBtn">Logout</button>
-  </div>
+  <section class="hero">
+    <h1>User Dashboard</h1>
+    <p>Welcome back! Here’s an overview of your activity and apps.</p>
+    <div class="dashboard-cards">
+      <div class="card">🌍 Countries Connected</div>
+      <div class="card">📊 Analytics</div>
+      <div class="card">⚙ Settings</div>
+    </div>
+  </section>
 
-  <script>
-    // Protect this page
-    document.addEventListener("DOMContentLoaded", () => {
-      const role = localStorage.getItem("userRole");
-
-      if (role !== "developer") {
-        alert("Access denied. Developer login required.");
-        window.location.href = "login.html";
-      }
-
-      // Logout handler
-      const logoutBtn = document.getElementById("logoutBtn");
-      if (logoutBtn) {
-        logoutBtn.addEventListener("click", () => {
-          localStorage.clear();
-          window.location.href = "login.html";
-        });
-      }
-    });
-  </script>
+  <footer>
+    <p>© 2025 Nexora ProSuite</p>
+  </footer>
 </body>
 </html>
