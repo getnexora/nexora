@@ -5,10 +5,10 @@
   box-sizing: border-box;
 }
 
-/* Fonts */
+/* Body */
 body {
-  font-family: Arial, Helvetica, sans-serif;
-  background: #000;
+  font-family: Arial, sans-serif;
+  background-color: #000;
   color: #fff;
   line-height: 1.6;
 }
@@ -19,85 +19,93 @@ body {
   justify-content: space-between;
   align-items: center;
   background: #111;
-  padding: 1rem 2rem;
+  padding: 15px 40px;
   border-bottom: 2px solid gold;
 }
 
-.navbar .logo {
+.logo {
   display: flex;
   align-items: center;
   gap: 10px;
-  font-size: 1.2rem;
-  font-weight: bold;
-  color: gold;
 }
 
-.navbar .logo img {
+.logo img {
   height: 40px;
 }
 
-.nav-links {
-  list-style: none;
-  display: flex;
-  gap: 20px;
+.logo span {
+  font-size: 20px;
+  font-weight: bold;
+  color: gold;
 }
 
 .nav-links a {
-  text-decoration: none;
-  color: #fff;
-  transition: color 0.3s;
-}
-
-.nav-links a:hover,
-.nav-links .active {
   color: gold;
-}
-
-.btn {
-  padding: 8px 15px;
-  border-radius: 5px;
   text-decoration: none;
-  color: #000;
-  background: gold;
+  margin-left: 20px;
   font-weight: bold;
+  transition: color 0.3s ease;
 }
 
-.btn.gold {
-  background: gold;
-  color: #000;
+.nav-links a:hover {
+  color: #fff;
 }
 
-/* Hero Section */
+.nav-links .btn {
+  padding: 6px 14px;
+  border: 1px solid gold;
+  border-radius: 5px;
+}
+
+/* Hero */
 .hero {
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  padding: 3rem 5%;
+  align-items: center;
+  padding: 60px 40px;
+  background: linear-gradient(to right, #000, #111);
 }
 
-.hero-text {
+.hero-content {
   max-width: 50%;
 }
 
-.hero-text h1 {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
+.hero-content h1 {
+  font-size: 48px;
   color: gold;
+  margin-bottom: 20px;
 }
 
-.hero-text p {
-  margin-bottom: 1.5rem;
+.hero-content p {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.hero-content .btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background: gold;
+  color: black;
+  font-weight: bold;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+.hero-content .btn:hover {
+  background: #fff;
 }
 
 .hero-image img {
   max-width: 500px;
+  filter: drop-shadow(0 0 10px gold);
 }
 
 /* Footer */
 footer {
   text-align: center;
-  padding: 1rem;
+  padding: 20px;
   background: #111;
   border-top: 2px solid gold;
-  margin-top: 2rem;
+  font-size: 14px;
 }
