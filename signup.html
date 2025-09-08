@@ -3,17 +3,66 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Signup - Nexora ProSuite</title>
+  <title>Login | Nexora ProSuite</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script defer src="assets/js/auth.js"></script>
 </head>
 <body>
-  <h1>Signup</h1>
-  <form id="signupForm">
-    <input type="text" id="signupName" placeholder="Full Name" required />
-    <input type="email" id="signupEmail" placeholder="Email" required />
-    <input type="password" id="signupPassword" placeholder="Password" required />
-    <button type="submit">Signup</button>
-  </form>
+  <header>
+    <img src="assets/img/logo.png" alt="Nexora Logo" class="logo">
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="signup.html">Sign Up</a></li>
+      </ul>
+    </nav>
+  </header>
 
-  <script type="module" src="auth.js"></script>
+  <main class="hero">
+    <h1>Welcome Back</h1>
+    <p>Login to access your Nexora ProSuite dashboard</p>
+
+    <form class="auth-form" onsubmit="return false;">
+      <input type="email" id="login-email" placeholder="Email" required>
+      
+      <div class="password-field">
+        <input type="password" id="login-password" placeholder="Password" required>
+        <span id="togglePassword" class="toggle-eye">👁</span>
+      </div>
+      
+      <button type="submit" onclick="loginUser()">Login</button>
+    </form>
+
+    <p class="form-footer">
+      Don’t have an account? <a href="signup.html">Sign up here</a>.
+    </p>
+  </main>
+
+  <footer>
+    <p>© 2025 Nexora ProSuite</p>
+  </footer>
+
+  <script>
+    // Toggle password visibility
+    const togglePassword = document.getElementById("togglePassword");
+    const passwordInput = document.getElementById("login-password");
+
+    togglePassword.addEventListener("click", () => {
+      const type = passwordInput.getAttribute("type") === "password" ? "text" : "password";
+      passwordInput.setAttribute("type", type);
+    });
+
+    // Example login handler
+    function loginUser() {
+      const email = document.getElementById("login-email").value;
+      const password = document.getElementById("login-password").value;
+      if (email && password) {
+        alert("✅ Login successful (demo). Redirecting to dashboard...");
+        window.location.href = "dashboard.html";
+      } else {
+        alert("❌ Please fill out all fields.");
+      }
+    }
+  </script>
 </body>
 </html>
