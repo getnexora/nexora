@@ -5,38 +5,55 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact | Nexora ProSuite</title>
   <link rel="stylesheet" href="assets/css/style.css">
+  <script defer src="assets/js/contact.js"></script>
 </head>
 <body>
+  <!-- Header -->
   <header>
-    <img src="assets/img/logo.png" alt="Nexora Logo">
+    <img src="assets/img/logo.png" alt="Nexora Logo" class="logo">
     <nav>
       <ul>
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="features.html">Features</a></li>
         <li><a href="apps.html">Apps</a></li>
-        <li><a href="dashboard.html">Dashboard</a></li>
-        <li><a href="developer.html">Developer</a></li>
         <li><a href="contact.html" class="active">Contact</a></li>
-        <li><a href="profile.html">Profile</a></li>
-        <li><a href="login.html">Login</a></li>
+        <li><a href="login.html" class="btn">Login</a></li>
       </ul>
     </nav>
   </header>
 
-  <section class="hero">
-    <h1>Contact Us</h1>
-    <p>Have questions? Reach out to the Nexora ProSuite team.</p>
-    <form class="contact-form">
-      <input type="text" placeholder="Your Name" required>
-      <input type="email" placeholder="Your Email" required>
-      <textarea placeholder="Your Message" required></textarea>
-      <button type="submit">Send Message</button>
-    </form>
+  <!-- Hero -->
+  <section class="hero small-hero">
+    <div class="hero-content">
+      <h1>Get in <span>Touch</span></h1>
+      <p>We’re here to help. Reach out to the Nexora team anytime.</p>
+    </div>
   </section>
 
+  <!-- Contact Form -->
+  <section class="contact-section">
+    <div class="form-container">
+      <h2>Contact Us</h2>
+      <form id="contact-form">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" placeholder="Your name" required>
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="Your email" required>
+
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="5" placeholder="Write your message..." required></textarea>
+
+        <button type="submit" class="btn">Send Message</button>
+        <p id="form-status"></p>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
   <footer>
-    <p>© 2025 Nexora ProSuite</p>
+    <p>© 2025 Nexora ProSuite. All Rights Reserved.</p>
   </footer>
 </body>
 </html>
