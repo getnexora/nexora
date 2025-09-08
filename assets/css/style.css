@@ -1,47 +1,153 @@
-/* General Reset */
+/* ==============================
+   Nexora ProSuite - Main Styles
+   ============================== */
+
+/* Reset + Base */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Body */
 body {
-  font-family: Arial, sans-serif;
-  background: #000; /* Black background */
-  color: #FFD700;   /* Gold text */
-  text-align: center;
+  font-family: "Inter", sans-serif;
+  background-color: #000;
+  color: #f5f5f5;
+  line-height: 1.6;
+}
+
+/* Links */
+a {
+  color: #d4af37; /* gold */
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+a:hover {
+  color: #ffd700; /* lighter gold */
+}
+
+/* Header */
+header {
+  background: #111;
+  border-bottom: 2px solid #d4af37;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header h1 {
+  color: #d4af37;
+  font-size: 1.8rem;
+}
+
+/* Navigation */
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+nav ul li a {
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 /* Hero Section */
 .hero {
-  position: relative;
-  padding: 4rem 2rem;
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: linear-gradient(to right, #000, #111);
 }
 
-.hero-bg {
-  width: 100%;
-  max-width: 900px;
-  opacity: 0.6;
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-.hero-content {
-  position: relative;
-  z-index: 2;
-}
-
-.hero-logo {
-  width: 180px;
+.hero h2 {
+  font-size: 3rem;
+  color: #d4af37;
   margin-bottom: 1rem;
 }
 
-h1 {
-  font-size: 2.5rem;
-  margin-bottom: 0.5rem;
+.hero p {
+  font-size: 1.25rem;
+  max-width: 600px;
+  margin: 0 auto;
+  color: #f5f5f5;
 }
 
-p {
-  font-size: 1.2rem;
+/* Buttons */
+.btn {
+  display: inline-block;
+  margin-top: 1.5rem;
+  padding: 0.75rem 2rem;
+  border-radius: 6px;
+  font-weight: 600;
+  background: #d4af37;
+  color: #000;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+.btn:hover {
+  background: #ffd700;
+  transform: translateY(-2px);
+}
+
+/* Sections */
+section {
+  padding: 4rem 2rem;
+}
+
+section h2 {
+  font-size: 2rem;
+  color: #d4af37;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+section p {
+  color: #ddd;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Cards (features, apps, services, etc.) */
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.card {
+  background: #111;
+  border: 1px solid #333;
+  border-radius: 10px;
+  padding: 2rem;
+  text-align: center;
+  transition: transform 0.3s ease, border 0.3s ease;
+}
+.card:hover {
+  transform: translateY(-5px);
+  border-color: #d4af37;
+}
+.card h3 {
+  color: #d4af37;
+  margin-bottom: 1rem;
+}
+.card p {
+  color: #ccc;
+}
+
+/* Footer */
+footer {
+  background: #111;
+  border-top: 2px solid #d4af37;
+  text-align: center;
+  padding: 2rem 1rem;
+  margin-top: 3rem;
+}
+footer p {
+  color: #aaa;
+  font-size: 0.9rem;
 }
