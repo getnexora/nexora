@@ -11,7 +11,23 @@ import {
 // Your Firebase config
 const firebaseConfig = {
   apiKey: "AIzaSyBPYzbOzSgnEpYe_L_F-QLrr8cpAwkZyJk",
-  authDomain: "nexora-prosuite.firebaseapp.com",
+  authDomain: "nexora-prosuite.firebaseapp.com",// assets/js/auth.js
+document.addEventListener("DOMContentLoaded", () => {
+  const togglePassword = document.getElementById("togglePassword");
+  const passwordField = document.getElementById("password");
+
+  togglePassword.addEventListener("click", () => {
+    const type = passwordField.getAttribute("type") === "password" ? "text" : "password";
+    passwordField.setAttribute("type", type);
+  });
+
+  const loginForm = document.getElementById("loginForm");
+  loginForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const username = document.getElementById("username").value;
+    alert(`Welcome back, ${username}! (demo only, no backend yet)`);
+  });
+});
   projectId: "nexora-prosuite",
   storageBucket: "nexora-prosuite.firebasestorage.app",
   messagingSenderId: "367987127145",
