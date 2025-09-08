@@ -4,38 +4,51 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Nexora ProSuite</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
+
+  <!-- CSS -->
   <link rel="stylesheet" href="assets/css/style.css">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <!-- Header -->
-  <header>
-    <img src="assets/img/logo.png" alt="Nexora Logo">
-    <nav>
+  <!-- HEADER -->
+  <header class="header">
+    <img src="assets/img/logo.png" alt="Nexora Logo" class="site-logo">
+    <nav class="nav">
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
       <a href="features.html">Features</a>
+      <a href="apps.html">Apps</a>
       <a href="contact.html">Contact</a>
       <a href="login.html">Login</a>
     </nav>
   </header>
 
-  <!-- Hero -->
+  <!-- HERO -->
   <section class="hero">
-    <h1>Welcome to <span class="gold-gradient">Nexora ProSuite</span></h1>
-    <p>Connecting 195 countries with style and power.</p>
-    <a href="signup.html" class="btn">Get Started</a>
+    <h1>Welcome to Nexora ProSuite</h1>
+    <p>Connecting 195 countries with a premium black & gold experience.</p>
+    <img src="assets/img/worldmap.png" alt="Global Network" class="worldmap">
   </section>
 
-  <!-- Features -->
-  <section>
+  <!-- FEATURES -->
+  <section class="features">
     <h2>Our Features</h2>
-    <p style="text-align:center;">Modern responsive layout, luxury black & gold UI, dynamic apps directory, and more.</p>
+    <div class="grid">
+      <div class="card">🌍 Global Network</div>
+      <div class="card">🔒 Secure Access</div>
+      <div class="card">⚡ Fast Performance</div>
+      <div class="card">💼 Enterprise Ready</div>
+    </div>
   </section>
 
-  <!-- Footer -->
-  <footer>
-    <img src="assets/img/logo.png" alt="Nexora Logo">
-    <p>&copy; 2025 Nexora ProSuite. All Rights Reserved.</p>
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p>© 2025 Nexora ProSuite. All rights reserved.</p>
   </footer>
 </body>
 </html>
