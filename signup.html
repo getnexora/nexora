@@ -1,68 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login | Nexora ProSuite</title>
-  <link rel="stylesheet" href="assets/css/style.css">
-  <script defer src="assets/js/auth.js"></script>
-</head>
-<body>
-  <header>
-    <img src="assets/img/logo.png" alt="Nexora Logo" class="logo">
-    <nav>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="signup.html">Sign Up</a></li>
-      </ul>
-    </nav>
-  </header>
+// assets/js/signup.js
+document.addEventListener("DOMContentLoaded", () => {
+  const signupForm = document.getElementById("signupForm");
 
-  <main class="hero">
-    <h1>Welcome Back</h1>
-    <p>Login to access your Nexora ProSuite dashboard</p>
+  signupForm.addEventListener("submit", (e) => {
+    e.preventDefault();
 
-    <form class="auth-form" onsubmit="return false;">
-      <input type="email" id="login-email" placeholder="Email" required>
-      
-      <div class="password-field">
-        <input type="password" id="login-password" placeholder="Password" required>
-        <span id="togglePassword" class="toggle-eye">👁</span>
-      </div>
-      
-      <button type="submit" onclick="loginUser()">Login</button>
-    </form>
+    const fullname = document.getElementById("fullname").value;
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+    const confirmPassword = document.getElementById("confirmPassword").value;
 
-    <p class="form-footer">
-      Don’t have an account? <a href="signup.html">Sign up here</a>.
-    </p>
-  </main>
-
-  <footer>
-    <p>© 2025 Nexora ProSuite</p>
-  </footer>
-
-  <script>
-    // Toggle password visibility
-    const togglePassword = document.getElementById("togglePassword");
-    const passwordInput = document.getElementById("login-password");
-
-    togglePassword.addEventListener("click", () => {
-      const type = passwordInput.getAttribute("type") === "password" ? "text" : "password";
-      passwordInput.setAttribute("type", type);
-    });
-
-    // Example login handler
-    function loginUser() {
-      const email = document.getElementById("login-email").value;
-      const password = document.getElementById("login-password").value;
-      if (email && password) {
-        alert("✅ Login successful (demo). Redirecting to dashboard...");
-        window.location.href = "dashboard.html";
-      } else {
-        alert("❌ Please fill out all fields.");
-      }
+    if (password !== confirmPassword) {
+      alert("Passwords do not match!");
+      return;
     }
-  </script>
-</body>
-</html>
+
+    alert(`Welcome, ${fullname}! Your account has been created. (demo only, no backend yet)`);
+  });
+});
