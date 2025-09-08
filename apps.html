@@ -5,32 +5,40 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Apps | Nexora ProSuite</title>
   <link rel="stylesheet" href="assets/css/style.css">
+  <script defer src="assets/js/apps.js"></script>
 </head>
 <body>
+  <!-- Header -->
   <header>
-    <img src="assets/img/logo.png" alt="Nexora Logo">
+    <img src="assets/img/logo.png" alt="Nexora Logo" class="logo">
     <nav>
       <ul>
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="features.html">Features</a></li>
-        <li><a href="apps.html">Apps</a></li>
-        <li><a href="dashboard.html">Dashboard</a></li>
-        <li><a href="developer.html">Developer</a></li>
+        <li><a href="apps.html" class="active">Apps</a></li>
         <li><a href="contact.html">Contact</a></li>
-        <li><a href="profile.html">Profile</a></li>
-        <li><a href="login.html">Login</a></li>
+        <li><a href="login.html" class="btn">Login</a></li>
       </ul>
     </nav>
   </header>
 
-  <section class="hero">
-    <h1>Apps Directory</h1>
-    <p>Explore global apps connected through Nexora.</p>
+  <!-- Hero -->
+  <section class="hero small-hero">
+    <div class="hero-content">
+      <h1>Discover <span>Apps & Services</span></h1>
+      <p>Explore tools designed to elevate your Nexora experience.</p>
+    </div>
   </section>
 
+  <!-- Apps Section -->
+  <section class="apps-grid" id="apps-container">
+    <!-- Apps will load dynamically from apps.json -->
+  </section>
+
+  <!-- Footer -->
   <footer>
-    <p>© 2025 Nexora ProSuite</p>
+    <p>© 2025 Nexora ProSuite. All Rights Reserved.</p>
   </footer>
 </body>
 </html>
