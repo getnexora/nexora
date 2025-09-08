@@ -4,17 +4,60 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Nexora ProSuite</title>
-  <link rel="stylesheet" href="assets/css/style.css">
+
+  <!-- ✅ Correct CSS path -->
+  <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
-  <!-- Hero Section -->
+  <!-- ✅ Header -->
+  <header class="site-header">
+    <div class="logo">
+      <img src="assets/images/logo.png" alt="Nexora Logo">
+    </div>
+    <nav class="main-nav">
+      <ul>
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="features.html">Features</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="apps.html">Apps</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="login.html" class="btn">Login</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ✅ Hero Section -->
   <section class="hero">
-    <img src="assets/img/worldmap.png" alt="World Map" class="hero-bg">
-    <div class="hero-content">
-      <img src="assets/img/logo.png" alt="Nexora Logo" class="hero-logo">
-      <h1>Welcome to Nexora ProSuite</h1>
-      <p>Connecting 195 countries with a premium black & gold experience.</p>
+    <h1>Welcome to <span class="gold">Nexora ProSuite</span></h1>
+    <p>Connecting 195 countries with a premium black & gold digital experience.</p>
+    <a href="signup.html" class="btn primary">Get Started</a>
+  </section>
+
+  <!-- ✅ World Map Graphic -->
+  <section class="worldmap">
+    <img src="assets/images/worldmap.svg" alt="Global Nexora Network">
+  </section>
+
+  <!-- ✅ Features Preview -->
+  <section class="features-preview">
+    <div class="feature">
+      <h2>🌍 Global Network</h2>
+      <p>Seamless access across 195 countries with localized content.</p>
+    </div>
+    <div class="feature">
+      <h2>⚡ Enterprise Power</h2>
+      <p>High-performance tools for business and developers.</p>
+    </div>
+    <div class="feature">
+      <h2>🎨 Black & Gold Theme</h2>
+      <p>Luxury design that gives your brand a premium edge.</p>
     </div>
   </section>
+
+  <!-- ✅ Footer -->
+  <footer>
+    <p>© 2025 Nexora ProSuite. All rights reserved.</p>
+  </footer>
 </body>
 </html>
