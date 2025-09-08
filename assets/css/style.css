@@ -1,89 +1,88 @@
-/* Reset */
+/* Global Reset */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Body */
 body {
-  font-family: Arial, sans-serif;
-  background-color: #000;
-  color: #FFD700;
+  font-family: "Inter", sans-serif;
+  background: #0a0a0a;
+  color: #f5f5f5;
   line-height: 1.6;
 }
 
-/* Header */
-.site-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 40px;
-  background-color: #111;
-  border-bottom: 2px solid #FFD700;
+/* Containers */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
 }
 
-.site-header .logo img {
+/* Header */
+.header {
+  background: #000;
+  padding: 15px 0;
+  border-bottom: 2px solid #d4af37;
+}
+
+.header .logo {
   height: 50px;
 }
 
-.site-header .nav ul {
-  display: flex;
-  list-style: none;
+.nav {
+  float: right;
 }
 
-.site-header .nav ul li {
+.nav a {
+  color: #f5f5f5;
   margin-left: 20px;
-}
-
-.site-header .nav ul li a {
-  color: #FFD700;
   text-decoration: none;
-  font-weight: bold;
+  font-weight: 500;
+  transition: color 0.3s;
 }
 
-.site-header .nav ul li a.active,
-.site-header .nav ul li a:hover {
-  text-decoration: underline;
+.nav a:hover,
+.nav a.active {
+  color: #d4af37;
+}
+
+.btn {
+  background: #d4af37;
+  color: #000;
+  padding: 8px 15px;
+  border-radius: 6px;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.btn:hover {
+  background: #ffd700;
 }
 
 /* Hero Section */
 .hero {
-  text-align: center;
-  padding: 100px 20px;
-  background: linear-gradient(180deg, #000 0%, #111 100%);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 80px 0;
+  background: linear-gradient(to right, #0a0a0a, #1a1a1a);
 }
 
 .hero h1 {
   font-size: 3rem;
-  margin-bottom: 10px;
+  color: #fff;
 }
 
 .hero h1 span {
-  color: #FFD700;
+  color: #d4af37;
 }
 
 .hero p {
+  margin: 20px 0;
   font-size: 1.2rem;
 }
 
-/* Worldmap */
-.worldmap {
-  text-align: center;
-  margin: 50px 0;
-}
-
-.worldmap img {
-  max-width: 80%;
-  height: auto;
-  border: 2px solid #FFD700;
-  border-radius: 8px;
-}
-
-/* Footer */
-.site-footer {
-  text-align: center;
-  padding: 20px;
-  background: #111;
-  border-top: 2px solid #FFD700;
-}
+.hero-image img {
+  max-width: 500px;
+  border: 4px solid
