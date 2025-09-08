@@ -3,22 +3,22 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Apps - Nexora ProSuite</title>
+  <title>Nexora ProSuite – Apps</title>
   <link rel="stylesheet" href="assets/css/style.css" />
-  <script defer src="assets/js/apps.js"></script>
 </head>
 <body>
   <!-- Header -->
-  <header class="site-header">
+  <header class="navbar">
     <div class="logo">
-      <img src="assets/img/logo.png" alt="Nexora Logo">
-      <span>Nexora ProSuite</span>
+      <img src="assets/img/logo.png" alt="Nexora Logo" />
+      <h1>Nexora ProSuite</h1>
     </div>
-    <nav class="site-nav">
+    <nav>
       <ul>
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="features.html">Features</a></li>
+        <li><a href="dashboard.html">Dashboard</a></li>
         <li><a href="apps.html" class="active">Apps</a></li>
         <li><a href="contact.html">Contact</a></li>
         <li><a href="login.html">Login</a></li>
@@ -27,26 +27,33 @@
   </header>
 
   <!-- Hero Section -->
-  <section class="hero hero-small">
-    <div class="hero-content">
-      <h1>Apps Directory</h1>
-      <p>Discover and explore apps integrated into Nexora ProSuite.</p>
-    </div>
+  <section class="hero">
+    <h2>Explore Our Apps</h2>
+    <p>Discover productivity tools, collaboration apps, and enterprise solutions.</p>
   </section>
 
-  <!-- Main Content -->
-  <main class="page-content">
-    <section class="apps-section">
-      <h2>Available Apps</h2>
-      <div id="apps-container" class="apps-grid">
-        <!-- Apps will be dynamically loaded here from apps.json -->
-      </div>
-    </section>
+  <!-- Apps Directory -->
+  <main class="container">
+    <table class="apps-table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Category</th>
+          <th>Description</th>
+          <th>Link</th>
+        </tr>
+      </thead>
+      <tbody id="apps-list">
+        <!-- Apps will load here dynamically -->
+      </tbody>
+    </table>
   </main>
 
   <!-- Footer -->
-  <footer class="site-footer">
-    <p>&copy; 2025 Nexora ProSuite. All rights reserved.</p>
+  <footer class="footer">
+    <p>© 2025 Nexora ProSuite. All Rights Reserved.</p>
   </footer>
+
+  <script src="assets/js/apps.js"></script>
 </body>
 </html>
