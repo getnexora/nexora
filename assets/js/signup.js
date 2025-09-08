@@ -1,21 +1,32 @@
 // assets/js/signup.js
+
 document.addEventListener("DOMContentLoaded", () => {
   const signupForm = document.getElementById("signupForm");
+  const signupMessage = document.getElementById("signupMessage");
 
-  signupForm.addEventListener("submit", (e) => {
-    e.preventDefault();
+  if (signupForm) {
+    signupForm.addEventListener("submit", (e) => {
+      e.preventDefault();
 
-    const fullname = document.getElementById("fullname").value;
-    const email = document.getElementById("email").value;
-    const password = document.getElementById("password").value;
-    const confirmPassword = document.getElementById("confirmPassword").value;
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const password = document.getElementById("password").value.trim();
 
-    if (password !== confirmPassword) {
-      alert("Passwords do not match!");
-      return;
-    }
+      if (!name || !email || !password) {
+        signupMessage.textContent = "⚠️ Please fill in all fields.";
+        signupMessage.style.color = "gold";
+        return;
+      }
 
-    alert(`Welcome, ${fullname}! Your account has been created. (demo only, no backend yet)`);
-  });
+      // Save user in localStorage (temporary demo logic)
+      localStorage.setItem("nexoraUser", JSON.stringify({ name, email }));
+
+      signupMessage.textContent = "✅ Account created successfully! Redirecting...";
+      signupMessage.style.color = "lightgreen";
+
+      setTimeout(() => {
+        window.location.href = "login.html";
+      }, 1500);
+    });
+  }
 });
-
