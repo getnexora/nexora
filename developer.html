@@ -1,81 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Nexora ProSuite — Developer Console</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="assets/css/style.css" />
-  <style>
-    body{font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;background:#0a0a0a;color:#f5f5f5}
-    .wrap{max-width:1100px;margin:40px auto;padding:0 20px}
-    .card{
-      background:linear-gradient(135deg,#151515,#101010);
-      border:1px solid #333; border-radius:14px; padding:22px; margin-bottom:20px;
-    }
-    .title{
-      font-weight:800; font-size:1.6rem; margin:0 0 10px;
-      background:linear-gradient(90deg,#d4af37,#ffd700);
-      -webkit-background-clip:text; -webkit-text-fill-color:transparent;
-    }
-    .btn{display:inline-block; padding:.75rem 1rem; border-radius:10px; border:1px solid #d4af37; cursor:pointer}
-    .btn-gold{background:linear-gradient(135deg,#d4af37,#ffd700); color:#000; border:none; font-weight:800}
-    .row{display:grid; gap:16px; grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
-    a.link{color:#ffd700; text-decoration:none}
-    a.link:hover{text-decoration:underline}
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Developer | Nexora ProSuite</title>
+  <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-  <div class="wrap">
-    <header class="card" style="display:flex;align-items:center;justify-content:space-between;gap:16px">
-      <div>
-        <h1 class="title" style="margin:0">Developer Console</h1>
-        <div style="color:#bbb">Private area — authorized developers only</div>
-      </div>
-      <div style="display:flex;gap:10px">
-        <a class="btn" href="index.html">← Back to site</a>
-        <button class="btn btn-gold" id="devSignOut">Sign out</button>
-      </div>
-    </header>
+  <header>
+    <img src="assets/img/logo.png" alt="Nexora Logo">
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="features.html">Features</a></li>
+        <li><a href="apps.html">Apps</a></li>
+        <li><a href="dashboard.html">Dashboard</a></li>
+        <li><a href="developer.html" class="active">Developer</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="profile.html">Profile</a></li>
+        <li><a href="login.html">Login</a></li>
+      </ul>
+    </nav>
+  </header>
 
-    <section class="card">
-      <h2 class="title" style="font-size:1.25rem">Quick Actions</h2>
-      <div class="row">
-        <a class="btn" href="features.html">Open Features Page</a>
-        <a class="btn" href="dashboard.html">Open Dashboard</a>
-        <a class="btn" href="login.html">Open Login</a>
-        <a class="btn" href="about.html">Open About</a>
-      </div>
-    </section>
+  <section class="hero">
+    <h1>Developer Resources</h1>
+    <p>Build apps and integrations with Nexora’s secure API.</p>
+    <pre class="code-sample">
+      fetch("https://api.nexora.com/v1/apps")
+        .then(res => res.json())
+        .then(data => console.log(data));
+    </pre>
+  </section>
 
-    <section class="card">
-      <h2 class="title" style="font-size:1.25rem">Environment</h2>
-      <div id="env" style="color:#bbb; white-space:pre-wrap; word-break:break-word"></div>
-    </section>
-  </div>
-
-  <script src="assets/js/app.js"></script>
-  <script>
-    // Enforce developer access
-    document.addEventListener("DOMContentLoaded", function () {
-      if (window.NEXORA_DEV && typeof window.NEXORA_DEV.enforceDeveloperAccess === "function") {
-        window.NEXORA_DEV.enforceDeveloperAccess("login.html");
-      }
-      document.getElementById("devSignOut").addEventListener("click", function(){
-        window.NEXORA_DEV.developerLogout("index.html");
-      });
-
-      // simple env info
-      const env = {
-        userRole: localStorage.getItem("userRole"),
-        developerLoginAt: localStorage.getItem("developerLoginAt"),
-        userAgent: navigator.userAgent,
-        time: new Date().toString()
-      };
-      document.getElementById("env").textContent = JSON.stringify(env, null, 2);
-    });
-  </script>
+  <footer>
+    <p>© 2025 Nexora ProSuite</p>
+  </footer>
 </body>
 </html>
