@@ -1,20 +1,73 @@
-// assets/js/signup.js
-document.addEventListener("DOMContentLoaded", () => {
-  const signupForm = document.getElementById("signupForm");
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nexora ProSuite – Sign Up</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+  <!-- Header -->
+  <header class="navbar">
+    <div class="logo">
+      <img src="assets/img/logo.png" alt="Nexora Logo" />
+      <h1>Nexora ProSuite</h1>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="features.html">Features</a></li>
+        <li><a href="dashboard.html">Dashboard</a></li>
+        <li><a href="apps.html">Apps</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="login.html">Login</a></li>
+        <li><a href="signup.html" class="active">Sign Up</a></li>
+      </ul>
+    </nav>
+  </header>
 
-  signupForm.addEventListener("submit", (e) => {
-    e.preventDefault();
+  <!-- Hero -->
+  <section class="hero">
+    <h2>Create Your Account</h2>
+    <p>Join Nexora ProSuite today and unlock access to global features.</p>
+  </section>
 
-    const fullname = document.getElementById("fullname").value;
-    const email = document.getElementById("email").value;
-    const password = document.getElementById("password").value;
-    const confirmPassword = document.getElementById("confirmPassword").value;
+  <!-- Signup Form -->
+  <main class="container form-container">
+    <form id="signupForm" class="form-card">
+      <div class="form-group">
+        <label for="fullname">Full Name</label>
+        <input type="text" id="fullname" name="fullname" placeholder="Enter your full name" required />
+      </div>
 
-    if (password !== confirmPassword) {
-      alert("Passwords do not match!");
-      return;
-    }
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email" required />
+      </div>
 
-    alert(`Welcome, ${fullname}! Your account has been created. (demo only, no backend yet)`);
-  });
-});
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" placeholder="Create a password" required />
+      </div>
+
+      <div class="form-group">
+        <label for="confirmPassword">Confirm Password</label>
+        <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Re-enter your password" required />
+      </div>
+
+      <button type="submit" class="btn-primary">Sign Up</button>
+      <p class="form-note">
+        Already have an account? <a href="login.html">Login</a>
+      </p>
+    </form>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>© 2025 Nexora ProSuite. All Rights Reserved.</p>
+  </footer>
+
+  <script src="assets/js/signup.js"></script>
+</body>
+</html>
