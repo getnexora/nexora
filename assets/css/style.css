@@ -1,4 +1,4 @@
-/* === Global Styles === */
+/* General Reset */
 * {
   margin: 0;
   padding: 0;
@@ -6,117 +6,127 @@
 }
 
 body {
-  font-family: 'Poppins', sans-serif;
-  background: #0a0a0a; /* dark background */
-  color: #f5f5f5;
+  font-family: Arial, sans-serif;
+  background-color: #000;
+  color: #fff;
   line-height: 1.6;
 }
 
-/* === Navbar === */
-.navbar {
+/* Header */
+.header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
-  background: #000;
-  border-bottom: 2px solid #d4af37; /* gold accent */
-  position: sticky;
-  top: 0;
-  z-index: 1000;
+  background: #111;
+  border-bottom: 2px solid gold;
 }
 
 .logo {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: #d4af37;
+  height: 50px;
 }
 
-.nav-links {
-  list-style: none;
-  display: flex;
-  gap: 1.5rem;
-}
-
-.nav-links a {
+.nav a {
+  margin-left: 1.5rem;
+  color: gold;
   text-decoration: none;
-  color: #f5f5f5;
-  font-weight: 500;
-  transition: color 0.3s ease;
+  font-weight: bold;
+  transition: color 0.3s;
 }
 
-.nav-links a:hover,
-.nav-links a.active {
-  color: #d4af37;
+.nav a:hover {
+  color: #fff;
 }
 
-.nav-links .btn {
-  padding: 0.5rem 1rem;
-  background: #d4af37;
-  color: #000 !important;
-  border-radius: 4px;
-  font-weight: 600;
-  transition: all 0.3s ease;
-}
-
-.nav-links .btn:hover {
-  background: #f1d56b;
-}
-
-/* === Hero Section === */
+/* Hero */
 .hero {
-  height: 90vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   text-align: center;
-  background: linear-gradient(135deg, #000 0%, #1a1a1a 100%);
-  padding: 2rem;
+  padding: 4rem 2rem;
+  background: linear-gradient(180deg, #000, #111);
 }
 
 .hero h1 {
-  font-size: 2.8rem;
+  font-size: 3rem;
   margin-bottom: 1rem;
 }
 
 .hero h1 span {
-  color: #d4af37;
+  color: gold;
+  text-shadow: 0 0 10px gold;
 }
 
 .hero p {
   font-size: 1.2rem;
-  margin-bottom: 1.5rem;
-  max-width: 700px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.btn.gold {
-  padding: 0.75rem 1.5rem;
-  background: #d4af37;
-  color: #000;
-  font-weight: 600;
-  border-radius: 6px;
-  text-decoration: none;
-  transition: all 0.3s ease;
-}
-
-.btn.gold:hover {
-  background: #f1d56b;
-}
-
-/* === Features Section === */
-.features {
-  padding: 4rem 2rem;
-  text-align: center;
-  background: #111;
-}
-
-.features h2 {
-  font-size: 2rem;
-  color: #d4af37;
   margin-bottom: 2rem;
 }
 
-.feature-grid {
-  display: grid;
-  grid-template-columns:
+.cta-btn {
+  padding: 0.8rem 2rem;
+  background: gold;
+  color: #000;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background 0.3s;
+}
+
+.cta-btn:hover {
+  background: #fff;
+  color: #000;
+}
+
+/* Map Section */
+.map-section {
+  text-align: center;
+  padding: 3rem 2rem;
+  background: #111;
+}
+
+.map-section h2 {
+  color: gold;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+}
+
+.worldmap {
+  max-width: 80%;
+  border: 2px solid gold;
+  border-radius: 10px;
+}
+
+/* Features */
+.features {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  padding: 3rem 2rem;
+  background: #000;
+}
+
+.feature-card {
+  background: #111;
+  padding: 2rem;
+  border: 1px solid gold;
+  border-radius: 10px;
+  width: 250px;
+  text-align: center;
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+}
+
+.feature-card h3 {
+  color: gold;
+  margin-bottom: 1rem;
+}
+
+.feature-card p {
+  font-size: 0.9rem;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 1.5rem;
+  background: #111;
+  border-top: 2px solid gold;
+  font-size: 0.9rem;
+}
