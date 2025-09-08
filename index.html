@@ -7,45 +7,58 @@
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-  <header>
-    <img src="assets/img/logo.svg" alt="Nexora Logo">
+  <!-- Header -->
+  <header class="navbar">
+    <div class="logo">
+      <img src="assets/img/logo.png" alt="Nexora Logo">
+      <h1>Nexora ProSuite</h1>
+    </div>
     <nav>
       <ul>
-        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html" class="active">Home</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="features.html">Features</a></li>
         <li><a href="apps.html">Apps</a></li>
         <li><a href="dashboard.html">Dashboard</a></li>
-        <li><a href="developer.html">Developer</a></li>
+        <li><a href="developer.html">Developers</a></li>
         <li><a href="contact.html">Contact</a></li>
-        <li><a href="login.html">Login</a></li>
+        <li><a href="login.html" class="btn">Login</a></li>
       </ul>
     </nav>
   </header>
 
+  <!-- Hero -->
   <section class="hero">
-    <h1>Welcome to Nexora ProSuite</h1>
-    <p>The premium enterprise platform connecting 195 countries with elegance and power.</p>
+    <div class="hero-text">
+      <h2>Global Enterprise Portal</h2>
+      <p>Connecting 195 countries with innovation, elegance, and performance.</p>
+      <a href="signup.html" class="btn-primary">Get Started</a>
+    </div>
+    <div class="hero-img">
+      <img src="assets/img/worldmap.png" alt="World Map">
+    </div>
   </section>
 
-  <section>
-    <h2>Highlights</h2>
-    <div class="features-grid">
+  <!-- Features -->
+  <section class="features">
+    <h2>Why Choose Nexora?</h2>
+    <div class="grid">
       <div class="card">
-        <h3>Global Network</h3>
-        <p>Connect with partners worldwide on a unified platform.</p>
+        <h3>🌍 Worldwide Reach</h3>
+        <p>Seamlessly connect across 195 countries with a unified experience.</p>
       </div>
       <div class="card">
-        <h3>Luxury Design</h3>
-        <p>Premium black & gold styling with polished user experience.</p>
+        <h3>⚡ Fast & Secure</h3>
+        <p>Powered by modern tech for speed, reliability, and safety.</p>
       </div>
       <div class="card">
-        <h3>Scalable Features</h3>
-        <p>Apps, dashboard, developer tools, and more to grow with you.</p>
+        <h3>💎 Premium Design</h3>
+        <p>Luxury black & gold theme with a polished, professional look.</p>
       </div>
     </div>
   </section>
 
+  <!-- Footer -->
   <footer>
     <p>© 2025 Nexora ProSuite. All rights reserved.</p>
   </footer>
