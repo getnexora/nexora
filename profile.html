@@ -3,15 +3,40 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nexora ProSuite - Profile</title>
+  <title>Profile | Nexora ProSuite</title>
+  <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-  <h1>User Profile</h1>
+  <header>
+    <img src="assets/img/logo.png" alt="Nexora Logo">
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="features.html">Features</a></li>
+        <li><a href="apps.html">Apps</a></li>
+        <li><a href="dashboard.html">Dashboard</a></li>
+        <li><a href="developer.html">Developer</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="profile.html" class="active">Profile</a></li>
+        <li><a href="login.html">Login</a></li>
+      </ul>
+    </nav>
+  </header>
 
-  <p><strong>Name:</strong> <span id="profile-name">Loading...</span></p>
+  <section class="hero">
+    <h1>User Profile</h1>
+    <p>Manage your account, settings, and preferences.</p>
+    <div class="profile-card">
+      <img src="assets/img/logo.png" alt="User Avatar">
+      <h2>John Doe</h2>
+      <p>Email: john@example.com</p>
+      <button>Edit Profile</button>
+    </div>
+  </section>
 
-  <button onclick="logout()">Logout</button>
-
-  <script type="module" src="assets/js/auth.js"></script>
+  <footer>
+    <p>© 2025 Nexora ProSuite</p>
+  </footer>
 </body>
 </html>
