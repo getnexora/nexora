@@ -1,108 +1,102 @@
-/* Reset */
+/* Nexora Premium Black & Gold Theme */
+
+:root {
+  --bg-dark: #0a0a0a;
+  --gold: #d4af37;
+  --gold-light: #f5e6a0;
+  --text-light: #f5f5f5;
+  --accent: #1a1a1a;
+  --font-main: 'Inter', sans-serif;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Body */
 body {
-  font-family: Arial, sans-serif;
-  background: #0d0d0d;
-  color: #f5f5f5;
+  font-family: var(--font-main);
+  background: var(--bg-dark);
+  color: var(--text-light);
   line-height: 1.6;
 }
 
-/* Navbar */
-.navbar {
+header {
+  background: var(--accent);
+  padding: 1rem 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem;
-  background: #111;
-  border-bottom: 2px solid gold;
+  border-bottom: 2px solid var(--gold);
 }
 
-.navbar .logo {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  color: gold;
-  font-weight: bold;
-  font-size: 1.2rem;
-}
-
-.navbar .logo img {
+header img {
   height: 40px;
 }
 
-.navbar ul {
+nav ul {
   list-style: none;
   display: flex;
   gap: 1.5rem;
 }
 
-.navbar a {
+nav a {
+  color: var(--gold);
   text-decoration: none;
-  color: #f5f5f5;
-  transition: color 0.3s;
+  font-weight: 600;
+  transition: color 0.3s ease;
 }
 
-.navbar a:hover,
-.navbar a.active {
-  color: gold;
+nav a:hover {
+  color: var(--gold-light);
 }
 
-/* Hero */
 .hero {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 3rem 2rem;
-  background: linear-gradient(135deg, #0d0d0d, #1a1a1a);
+  background: url("../img/banner.png") center/cover no-repeat;
+  color: var(--gold);
+  text-align: center;
+  padding: 6rem 2rem;
 }
 
-.hero-content {
-  max-width: 50%;
-}
-
-.hero-content h1 {
-  font-size: 2.5rem;
+.hero h1 {
+  font-size: 3rem;
   margin-bottom: 1rem;
-  color: gold;
 }
 
-.hero-content p {
-  font-size: 1.2rem;
-  margin-bottom: 1.5rem;
+.hero p {
+  font-size: 1.25rem;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
-.hero-content .btn {
-  display: inline-block;
-  background: gold;
-  color: #111;
-  padding: 0.7rem 1.5rem;
-  border-radius: 5px;
-  text-decoration: none;
-  font-weight: bold;
-  transition: background 0.3s;
+section {
+  padding: 4rem 2rem;
 }
 
-.hero-content .btn:hover {
-  background: #d4af37;
+section h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: var(--gold);
 }
 
-.hero-img img {
-  max-width: 400px;
-  border-radius: 8px;
-  box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
 }
 
-/* Footer */
+.card {
+  background: var(--accent);
+  padding: 2rem;
+  border: 1px solid var(--gold);
+  border-radius: 10px;
+  text-align: center;
+}
+
 footer {
   text-align: center;
-  padding: 1rem;
-  background: #111;
-  border-top: 2px solid gold;
-  margin-top: 2rem;
+  padding: 2rem;
+  border-top: 2px solid var(--gold);
+  margin-top: 3rem;
 }
